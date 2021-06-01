@@ -2,9 +2,11 @@
    sphinx-quickstart on Tue May 25 16:58:13 2021.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
+   
+.. User Manual, Reference Documentation, Overview
 
-Welcome to the OpenReview's documentation!
-==========================================
+OpenReview Overview Documentation
+=================================
 
 Write something awesome here.
 
@@ -12,8 +14,18 @@ Write something awesome here.
    :maxdepth: 3
    :caption: Contents:
 
-   pages/section1
-   pages/section2
+   introduction
+
+   objects
+   group
+   note
+   tag
+   edge
+   invitation
+   edit
+
+   example1
+
 
 Indices and tables
 ==================
