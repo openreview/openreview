@@ -1,6 +1,8 @@
 The OpenReview documentation
 ============================
 
+[![Documentation Status](https://readthedocs.org/projects/openreview-docs/badge/?version=latest)](https://openreview-docs.readthedocs.io/en/latest/?badge=latest)
+
 The documentation uses [Sphinx](https://www.sphinx-doc.org/en/master/index.html). In order to compile the source files, the sphinx python module is required:
 ```bash
 $ pip install sphinx
