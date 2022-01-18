@@ -10,9 +10,9 @@ The issue tracker is intended for bugs found in the system. If your question is 
 
 ## Providing Feedback
 
-**Your comments and feedback are welcome**, and the development team is available via a handful of different channels.
+**Your comments and feedback are welcome**
 
-See the [Feedback Channels](https://github.com/microsoft/vscode/wiki/Feedback-Channels) wiki page for details on how to share your thoughts.
+You can use the [discussions](https://github.com/openreview/openreview/discussions) or send us an email directly to info@openreview.net.
 
 ## Reporting Issues
 
