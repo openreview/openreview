@@ -49,7 +49,7 @@ Please include the following with each issue to the best of your abililty and le
 
 * Your operating system
 
-* Your browser
+* Your browser and its version
 
 * Reproducible steps (1... 2... 3...) that cause the issue
 
