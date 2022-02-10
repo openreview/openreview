@@ -1,0 +1,72 @@
+# OpenReview NeurIPS 2021 Summary Report
+
+**OpenReview NeurIPS 2021 Summary Report**
+
+[Andrew McCallum](https://people.cs.umass.edu/\~mccallum/) (Professor, UMass Amherst; Director OpenReview project)
+
+[Melisa Bok](https://www.cics.umass.edu/people/bok-melisa) (Lead Developer, OpenReview project)
+
+[Alina Beygelzimer](https://hunch.net/\~beygel/) (Senior Research Scientist, Yahoo Research; NeurIPS 2021 Program Co-chair)
+
+In 2021 the organizers of NeurIPS (one of the flagship conferences in machine learning) decided to move from CMT to OpenReview. This report provides a summary of the NeurIPS 2021 workflow, the OpenReview services provided, the system performance, and enhancements planned for the next NeurIPS.
+
+The volume of NeurIPS paper submissions has been increasing dramatically over the past decade. NeurIPS also has a history of innovation in peer review.
+
+NeurIPS 2021 workflow was very similar to its previous years: double blind, closed reviewing, with area chairs and senior area chairs, and meta-reviews, with the addition in 2021 of rolling reviewer discussion with authors (rather than a single author response).
+
+Workflow details and timing were planned extensively with the OpenReview team, and coordinated through Google Docs, several video conference meetings, and conversations through a shared Slack channel. Throughout the submission and reviewing process OpenReview technical staff provided 24/7 support to the NeurIPS program chairs, including rapid responses and custom work.
+
+Below is a summary of key workflow steps and services. (Detailed workflow is described [here](https://docs.google.com/document/d/1JKNmfEBC2yVXCU-3YLn4MQd4KKWrP-hU9TmAWaBzZCs/edit).)
+
+****
+
+**Reviewer recruiting**. NeurIPS PCs invited over 13k reviewers, 1k area chairs and 155 senior area chairs. With the permission of ICLR, OpenReview also shared with the PCs the list of accepted authors of the previous ICLR conference from 2016 until 2021.
+
+* **Reviewer & author registration**. OpenReview already had profiles for approximately 228k researchers. During the reviewer recruiting and the paper submission 11k profiles were created, and incorporated their papers from DBLP, running our own version of author coreference, augmented by verification performed by OpenReview staff. NeurIPS required all authors (not just submitting authors) to register with OpenReview (mostly for the purposes of conflict-of-interest resolution, and gathering multiple email addresses per person). During the month of May 12,537 new user profiles were created, more than in any month of OpenReview’s history.
+* **Conflicts-of-interest gathering**. Author and reviewer profiles include not only current institution domain names, but also a DBLP URL (from which authors imported all their publications), Google Scholar URL, and extensive conflict-of-interest information, including institutional history, advisors, other collaborators, and social connections, and other non-institutional conflicts. As requested by NeurIPS, we also added the ability to record private conflicts (not shown in the public web site). For NeurIPS review matching, OpenReview computed the conflicts based on institution history, all conflict relations listed above, and paper co-authorship within the last 3 years.
+* **Reviewer expertise modeling**. Expertise models were built for all reviewers, using OpenReview’s own modern deep learning embedding methods run on titles and abstracts of reviewers’ papers. NeurIPS decided to use only our expertise model instead of TPMS or Semantic Scholar.
+* **Paper submissions**. As requested by NeurIPS 2021 PCs, draft paper titles and abstracts were submitted one week before the full-paper deadline. OpenReview received 11,729 paper submissions. In the 24 hours before the final deadline, OpenReview received over 42k submission updates, and had over 28k active users (over 2.3k active simultaneous users during the last hour of submissions). The OpenReview multi-server system never surpassed 50% CPU usage, and maintained smooth operation with rapid system response throughout. In addition, during the submission period over 110k email messages were sent to authors (sent to each author for each update).
+* **Bidding**. SACs bid on ACs and both ACs and reviewers bid on papers, assigned as a “task” that was not complete until a given number of bids had been entered. During reviewer bidding, SACs, ACs and reviewers were able to sort the ACs/papers by affinity scores or search by metadata.
+* **Paper-reviewer assignment**. Paper-reviewer affinities included: the OpenReview reviewer expertise model, reviewer bids, and conflicts of interest. Optimization of paper-reviewer matching was performed by both [Min-Cost-Flow](https://developers.google.com/optimization/flow/mincostflow) and [FairFlow](https://arxiv.org/abs/1905.11924v1) \[Kobren, et al, 2019]. The optimizer’s meta-parameters can be easily tuned, and the NeurIPS 2021 program chairs ran the optimizer many times (with \~60 minute turn-around time). Each resulting match comes with various requested summary statistics about the quality of the match. The results of a paper-reviewer match could be browsed by PCs and ACs using OpenReview’s “Edge Browser,” which provides a MacOS-Finder-“column-view”-like nested browsing, as well as extensive searching, and the ability to make suggested edits to the assignment (including inviting new reviewers not already in the NeurIPS reviewing pool), while seeing reviewer loads, and meta-data for reviewers (including their institution, job title, and link to profile). The same paper matching system was used to do secondary area chair assignment, and emergency reviewer assignment during the reviewing stage.
+* **Specialized consoles**: OpenReview provided specialized custom consoles for reviewers, area chairs, senior area chairs, ethic reviewers, ethic chairs, and program chairs––including functionality such as task lists, reviewing status, filtering entries with an filtering language (such as “papers with missing reviews”, or “papers where the average rating is higher than 3”), keyword search, reviewer re-assignment, aggregate statistics, status of bids for each revidewer, status of review completion, sending email to remind reviewers, the ability to dump data as downloadable CSV files.
+* **Reviewing and discussion**. Reviews were entered directly into the OpenReview system, visible immediately to the ACs, then visible to authors and reviewers of the same paper after the reviewing deadline. An enhancement created specially at the request of NeurIPS, OpenReview implemented multiple tabs in the discussion forum of a paper (author discussion, committee discussion, all reviewing discussion, post-reviewing public discussion). OpenReview processed 37,284 reviews, 8,103 meta reviews and 452 ethics reviews. In addition, 101,112 confidential comments.
+* **Review rating**. NeurIPS PCs requested that area chairs be able to rate the quality of each review. The PCs also allowed authors of the submissions to provide review feedback. The ratings and feedback were only visible to the Program Chairs.
+* **Ethics reviews.** As requested by NeurIPS, for the first time OpenReview added configuration to handle ethics reviews. The Ethics Review Chairs assigned ethics reviewers to papers flagged with ethical issues. The OpenReview expertise matching system was used to suggest reviewers with the appropriate topical expertise.
+* ~~**Paper ranking**. ECCV program chairs requested that ACs be able to enter a ranking of their assigned papers.~~
+* **Decisions**. OpenReview provides the ability to download various CSV files, which PCs downloaded into Google Sheets, including AC decisions. Some decisions were modified by the PCs. Then OpenReview emailed and posted the decision based directly on this Google Sheet. (In future, OpenReview may provide browsing, sorting, and editing directly through its UI; avoiding the need for Google Sheets. Alternatively, we may more closely embrace Google Sheets––leveraging its features––with live bi-directional data updates between OpenReview and the Google Sheet.)
+* **Camera-ready revisions**. OpenReview created additional upload invitations and tasks for accepted paper authors, including copyright form, supplementary materials (including videos), camera-ready LaTeX zip file.
+* **Conference track formation**. OpenReview also provided affinity scores between accepted papers, as input to paper clustering, for conference track assignments.
+
+**System Responsiveness**
+
+Throughout the submission period, the OpenReview system provided smooth service, with rapid response and smooth uptime.
+
+**Peer Review Experiments**:
+
+With the help and guidance of the team at OpenReview, NeurIPS 2021 ran the following experiments:
+
+* **Consistency experiment**: In 2014, NeurIPS ran an experiment in which 10% of submissions were reviewed by two independent program committees to quantify the randomness in the review process. Since then, the number of annual NeurIPS submissions has increased more than fivefold. To check whether decision consistency has changed as the conference has grown, we ran a variant of this experiment again in 2021. Thе results of this experiment are reported here: ​[​https://blog.neurips.cc/2021/12/08/the-neurips-2021-consistency-experiment/](https://blog.neurips.cc/2021/12/08/the-neurips-2021-consistency-experiment/)
+* To discourage **resubmissions** without substantial changes, authors were asked to declare if a previous version of their submission had been rejected from another peer-reviewed venue. Like the year before, authors of resubmissions were asked to describe the improvements made. This information was entered into OpenReview during the submission process. To evaluate **resubmission bias**, resubmission information was made visible to reviewers and area chairs only for a randomly chosen 50% of submissions. While the experiment allowed us to eliminate a significant bias, we can’t confidently ascertain there is none.
+* **Author perception experiment**: OpenReview implemented a two-part author survey to help NeurIPS understand how well authors’ perception of their submissions agrees with reviewing outcomes. The results of this experiment are forthcoming.
+
+**Releasing the data to the public**:
+
+Submissions under review were visible only to assigned program committee members, and we did not solicit comments from the general public during the review process. After the notification deadline, **accepted papers were made public and open for non-anonymous public commenting**, along with their anonymous reviews, meta-reviews, and author responses.
+
+By default, rejected submissions were not made public, but authors of **rejected submissions were given 2 weeks to opt in** to make their de-anonymized papers public and open for commenting in OpenReview. If they chose to do so, this also opened up the reviews, meta-reviews, and any discussion with the authors for these papers. This policy does give authors a mechanism to publicly flag and expose potential problems with the review process. In the end, only about 2% of rejected papers opted in.
+
+**Feedback from Alina Beygelzimer, NeurIPS 2021 Program Co-chair**:
+
+“As Program Chairs for NeurIPS 2021, we decided to shift the entire reviewing workflow to OpenReview. OpenReview is a flexible platform that allows heavy customization, and will be easy to adapt as the needs of the conference evolve. It brings a number of infrastructural improvements including persistent user profiles that can be self-managed, accountability in conflict-of-interest declarations, and improved modes of interaction during the discussion process. NeurIPS has a long history of experimentation with the goal of informing and improving the review process (e.g., the widely known “NeurIPS Consistency Experiment” of 2014). This year we took full advantage of the great flexibility of OpenReview’s workflow configuration to run several key experiments (including a version of the noise audit that hasn’t been done since 2014). We are grateful to the OpenReview team for supporting all requested experimentation.
+
+Our experience with OpenReview has been a delight. Not only did the paper deadline proceed smoothly (with sub-second system response time throughout the arrival of thousands of submissions just before the submission deadline), but OpenReview gracefully handled more than 20K authors accessing the system roughly at the same time to read and respond to preliminary reviews, and enabled 10K reviewers and Area Chairs and 20K authors to engage in discussions in the weeks that followed. The feedback we received from our authors and program committee members has been overwhelmingly positive.
+
+I hope that NeurIPS will continue to work with OpenReview for years to come. We are hugely grateful to the OpenReview team, for their unparalleled level of support to everyone involved in the review process. OpenReview has also supported the Data & Benchmarks track (new this year) as well as the Ethics Review process for both the main conference and the Data & Benchmarks track. It is also notable that over 20 of the NeurIPS workshops have chosen to use OpenReview for their reviewing workflow this year.”
+
+**OpenReview team’s plans for improvement**. The OpenReview system is ready for re-use for future NeurIPS conference reviewing needs. The OpenReview team continues to make improvements and new features. Current work likely to be ready for NeurIPS 2022 includes
+
+* We are currently designing a new version of the paper reviewing discussion forum, and would be eager for feedback and feature requests. NeurIPS concerns about “rolling discussions” could be addressed here.
+* Further improvements to the reviewer-paper matching system.
+* Deployment of a new API providing (1) additional flexibility for fine-grained per-field control of visibility, (2) ease of changing readership permission of content, (3) better storage and access of the history of changes to a paper, review, or comment, (4) creation of “CRON”-jobs for automated sending of reminders.
+
+In future, we will also have support for synchronous chat-style communication among reviewers, area chairs, and program chairs––which we hope will encourage more interactive, open, scientifically-flexible communication during the reviewing period. We are also building support for live conferences, integrated into the OpenReview reviewing platform.
