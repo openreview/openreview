@@ -18,7 +18,7 @@ Workflow details and timing were planned extensively with the OpenReview team, a
 
 Below is a summary of key workflow steps and services. (Detailed workflow is described [here](https://docs.google.com/document/d/1JKNmfEBC2yVXCU-3YLn4MQd4KKWrP-hU9TmAWaBzZCs/edit).)
 
-****
+***
 
 **Reviewer recruiting**. NeurIPS PCs invited over 13k reviewers, 1k area chairs and 155 senior area chairs. With the permission of ICLR, OpenReview also shared with the PCs the list of accepted authors of the previous ICLR conference from 2016 until 2021.
 
@@ -32,7 +32,6 @@ Below is a summary of key workflow steps and services. (Detailed workflow is des
 * **Reviewing and discussion**. Reviews were entered directly into the OpenReview system, visible immediately to the ACs, then visible to authors and reviewers of the same paper after the reviewing deadline. An enhancement created specially at the request of NeurIPS, OpenReview implemented multiple tabs in the discussion forum of a paper (author discussion, committee discussion, all reviewing discussion, post-reviewing public discussion). OpenReview processed 37,284 reviews, 8,103 meta reviews and 452 ethics reviews. In addition, 101,112 confidential comments.
 * **Review rating**. NeurIPS PCs requested that area chairs be able to rate the quality of each review. The PCs also allowed authors of the submissions to provide review feedback. The ratings and feedback were only visible to the Program Chairs.
 * **Ethics reviews.** As requested by NeurIPS, for the first time OpenReview added configuration to handle ethics reviews. The Ethics Review Chairs assigned ethics reviewers to papers flagged with ethical issues. The OpenReview expertise matching system was used to suggest reviewers with the appropriate topical expertise.
-* ~~**Paper ranking**. ECCV program chairs requested that ACs be able to enter a ranking of their assigned papers.~~
 * **Decisions**. OpenReview provides the ability to download various CSV files, which PCs downloaded into Google Sheets, including AC decisions. Some decisions were modified by the PCs. Then OpenReview emailed and posted the decision based directly on this Google Sheet. (In future, OpenReview may provide browsing, sorting, and editing directly through its UI; avoiding the need for Google Sheets. Alternatively, we may more closely embrace Google Sheets––leveraging its features––with live bi-directional data updates between OpenReview and the Google Sheet.)
 * **Camera-ready revisions**. OpenReview created additional upload invitations and tasks for accepted paper authors, including copyright form, supplementary materials (including videos), camera-ready LaTeX zip file.
 * **Conference track formation**. OpenReview also provided affinity scores between accepted papers, as input to paper clustering, for conference track assignments.
