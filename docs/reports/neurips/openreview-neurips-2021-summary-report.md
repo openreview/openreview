@@ -18,11 +18,10 @@ Workflow details and timing were planned extensively with the OpenReview team, a
 
 Below is a summary of key workflow steps and services. (Detailed workflow is described [here](https://docs.google.com/document/d/1JKNmfEBC2yVXCU-3YLn4MQd4KKWrP-hU9TmAWaBzZCs/edit).)
 
+****
 
+**Reviewer recruiting**. NeurIPS PCs invited over 13k reviewers, 1k area chairs and 155 senior area chairs. With the permission of ICLR, OpenReview also shared with the PCs the list of accepted authors of the previous ICLR conference from 2016 until 2021.
 
-Test editing from GitBook!
-
-* **Reviewer recruiting**. NeurIPS PCs invited over 13k reviewers, 1k area chairs and 155 senior area chairs. With the permission of ICLR, OpenReview also shared with the PCs the list of accepted authors of the previous ICLR conference from 2016 until 2021.
 * **Reviewer & author registration**. OpenReview already had profiles for approximately 228k researchers. During the reviewer recruiting and the paper submission 11k profiles were created, and incorporated their papers from DBLP, running our own version of author coreference, augmented by verification performed by OpenReview staff. NeurIPS required all authors (not just submitting authors) to register with OpenReview (mostly for the purposes of conflict-of-interest resolution, and gathering multiple email addresses per person). During the month of May 12,537 new user profiles were created, more than in any month of OpenReview’s history.
 * **Conflicts-of-interest gathering**. Author and reviewer profiles include not only current institution domain names, but also a DBLP URL (from which authors imported all their publications), Google Scholar URL, and extensive conflict-of-interest information, including institutional history, advisors, other collaborators, and social connections, and other non-institutional conflicts. As requested by NeurIPS, we also added the ability to record private conflicts (not shown in the public web site). For NeurIPS review matching, OpenReview computed the conflicts based on institution history, all conflict relations listed above, and paper co-authorship within the last 3 years.
 * **Reviewer expertise modeling**. Expertise models were built for all reviewers, using OpenReview’s own modern deep learning embedding methods run on titles and abstracts of reviewers’ papers. NeurIPS decided to use only our expertise model instead of TPMS or Semantic Scholar.
