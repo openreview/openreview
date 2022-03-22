@@ -61,6 +61,7 @@
 
 ## Reference
 
+* [API V1](reference/api-v1.md)
 * [OpenReview Entities](reference/openreview-entities/README.md)
   * [Invitation](reference/openreview-entities/invitation.md)
   * [Group](reference/openreview-entities/group.md)
