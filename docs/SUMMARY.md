@@ -14,14 +14,16 @@
   * [Retrieving/posting an edge](getting-started/using-the-api/retrieving-posting-an-edge.md)
   * [Retrieving/posting a group](getting-started/using-the-api/retrieving-posting-a-group.md)
 * [Hosting a venue on OpenReview](getting-started/hosting-a-venue-on-openreview/README.md)
-  * [Submitting a Venue Request Form](getting-started/hosting-a-venue-on-openreview/submitting-a-venue-request-form.md)
+  * [Creating your Venue Instance: Submitting a Venue Request Form](getting-started/hosting-a-venue-on-openreview/creating-your-venue-instance-submitting-a-venue-request-form.md)
+  * [Choosing Visibility Settings for your Venue](getting-started/hosting-a-venue-on-openreview/choosing-visibility-settings-for-your-venue.md)
   * [Navigating your Venue Pages](getting-started/hosting-a-venue-on-openreview/navigating-your-venue-pages.md)
   * [Customizing your submission form](getting-started/hosting-a-venue-on-openreview/customizing-your-submission-form.md)
-  * [Extending your submission deadline](getting-started/hosting-a-venue-on-openreview/extending-your-submission-deadline.md)
-  * [Configuring comments for your venue](getting-started/hosting-a-venue-on-openreview/configuring-comments-for-your-venue.md)
+  * [Changing your submission deadline](getting-started/hosting-a-venue-on-openreview/changing-your-submission-deadline.md)
+  * [Enabling an Abstract Registration Deadline](getting-started/hosting-a-venue-on-openreview/enabling-an-abstract-registration-deadline.md)
 * [Creating an OpenReview Profile](getting-started/creating-an-openreview-profile/README.md)
   * [Signing up for OpenReview](getting-started/creating-an-openreview-profile/signing-up-for-openreview.md)
-  * [Removing a name or an email from your profile](getting-started/creating-an-openreview-profile/removing-a-name-or-an-email-from-your-profile.md)
+  * [Add or remove a name from your profile](getting-started/creating-an-openreview-profile/add-or-remove-a-name-from-your-profile.md)
+  * [Add or remove an email address from your profile](getting-started/creating-an-openreview-profile/add-or-remove-an-email-address-from-your-profile.md)
   * [Finding your profile ID](getting-started/creating-an-openreview-profile/finding-your-profile-id.md)
   * [Entering Institutional Data](getting-started/creating-an-openreview-profile/entering-institutional-data.md)
   * [Importing papers from DBLP](getting-started/creating-an-openreview-profile/importing-papers-from-dblp.md)
@@ -61,6 +63,7 @@
 
 ## Reference
 
+* [Accepted Field Types](reference/accepted-field-types.md)
 * [API V1](reference/api-v1.md)
 * [OpenReview Entities](reference/openreview-entities/README.md)
   * [Invitation](reference/openreview-entities/invitation.md)

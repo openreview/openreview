@@ -1,0 +1,2 @@
+# Accepted Field Types
+

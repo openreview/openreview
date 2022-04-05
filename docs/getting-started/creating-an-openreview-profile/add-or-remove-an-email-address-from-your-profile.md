@@ -1,0 +1,3 @@
+# Add or remove an email address from your profile
+
+To add a new email to your profile, go to your profile page (https://openreview.net/profile) and click ‘Edit Profile’. You will see an ‘Emails’ section. Clicking the blue plus sign underneath your email will add a new email field. Enter your email address and click ‘Confirm’. If you receive an error that your email address belongs to another profile, you can request that the profiles be merged by contacting OpenReview support at info@openreview.net. Otherwise, an email will be sent to your new email address with a confirmation link. If you want a confirmed email removed from your profile, you will need to contact OpenReview support.

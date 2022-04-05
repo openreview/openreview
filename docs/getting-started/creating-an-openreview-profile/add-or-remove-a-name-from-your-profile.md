@@ -1,0 +1,3 @@
+# Add or remove a name from your profile
+
+To add a new name to your profile, go to your profile page at https://openreview.net/profile and click ‘Edit Profile’. You will see a ‘Names’ section. Clicking the blue plus sign underneath your name will add a new name field. Enter your name and then click ‘Save Profile Changes’ at the bottom of the page. If you would like to make that name preferred, you can do so by clicking ‘Edit profile’ once more and selecting ‘Make Preferred’ next to your desired name. If you want a name removed from your profile, you will need to contact OpenReview support at info@openreview.net.
