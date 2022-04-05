@@ -10,21 +10,21 @@ You can click on the 'Login' button on the right of the navigation menu, or go t
 
 Click on your name on the right of the navigation menu and click 'Profile' from the dropdown options, or go to https://openreview.net/profile.
 
-![](<../../.gitbook/assets/image (2).png>)
+![](<../../.gitbook/assets/image (2) (1).png>)
 
 Click 'Edit Profile'.&#x20;
 
-![](<../../.gitbook/assets/image (3).png>)
+![](<../../.gitbook/assets/image (3) (1).png>)
 
 #### 3. Add a DBLP URL&#x20;
 
 Locate the 'DBLP URL' text field under the 'Personal Links' section.
 
-![](<../../.gitbook/assets/image (8).png>)
+![](<../../.gitbook/assets/image (8) (1).png>)
 
 You will need to get the 'Persistent DBLP URL' from your DBLP homepage. To do so, hover over the share icon to the right of your name in DBLP page heading and copy the persistent URL from the hover menu.
 
-![](<../../.gitbook/assets/image (9).png>)
+![](<../../.gitbook/assets/image (9) (1).png>)
 
 Paste this persistent url into the DBLP URL field.
 
@@ -40,7 +40,7 @@ Use the checkbox in front of each paper to select those which you would like to 
 
 Click the 'Add to your Profile' button at the bottom of the modal window to import the selected papers.&#x20;
 
-![](<../../.gitbook/assets/image (4).png>)
+![](<../../.gitbook/assets/image (4) (1).png>)
 
 If you get an error that says "please ensure the provided DBLP URL is yours", please ensure that name (or one of the names) in your OpenReview profile matches **exactly** with the name used in DBLP publications. If it does not, you can [add a new name to your profile](add-or-remove-a-name-from-your-profile.md), click 'Save Profile Changes', and try again to import your papers.&#x20;
 
@@ -48,7 +48,7 @@ If you get an error that says "please ensure the provided DBLP URL is yours", pl
 
 Go to your profile page and click 'Edit Profile'. Scroll to the bottom of the page and look for 'Publications' section. All publications associated with your profile will be listed here but those imported from DBLP will have a minus icon displayed after the title.
 
-![](<../../.gitbook/assets/image (1).png>)
+![](<../../.gitbook/assets/image (1) (1).png>)
 
 You can use this minus button to remove a DBLP publication from your profile. If you mistakenly remove a publication, you can click the icon again to reverse it.
 
