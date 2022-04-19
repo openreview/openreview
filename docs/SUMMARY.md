@@ -60,6 +60,7 @@
   * [How to view messages sent through OpenReview](how-to-guides/communication/how-to-view-messages-sent-through-openreview.md)
   * [How to customize emails sent through OpenReview](how-to-guides/communication/how-to-customize-emails-sent-through-openreview.md)
   * [How to email the authors of accepted papers](how-to-guides/communication/how-to-email-the-authors-of-accepted-papers.md)
+  * [How to Send Decision Notifications](how-to-guides/communication/how-to-send-decision-notifications.md)
 * [Submitting papers, comments, and reviews](how-to-guides/submitting-papers-comments-and-reviews/README.md)
   * [How to add formatting to reviews or comments](how-to-guides/submitting-papers-comments-and-reviews/how-to-add-formatting-to-reviews-or-comments.md)
   * [How to add formulas or use mathematical notation](how-to-guides/submitting-papers-comments-and-reviews/how-to-add-formulas-or-use-mathematical-notation.md)
