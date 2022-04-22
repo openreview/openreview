@@ -8,7 +8,7 @@ You can find the 'Paper Matching Setup' button on your venue request form next t
 
 Clicking it should bring up the following form. The 'Matching Group' is a dropdown menu of the groups you can use in the matcher (Reviewers, Area Chairs, Senior Area Chairs), depending on whichever you selected for your venue. You can select if you would like affinity scores and/or conflicts computed. Alternatively, you can compute and upload your own affinity scores using the OpenReview expertise API: https://github.com/openreview/openreview-expertise
 
-![](<../../../.gitbook/assets/image (1).png>)
+![](<../../../.gitbook/assets/image (1) (1).png>)
 
 Running the paper matching setup should output a comment on your venue request page. If there were members missing profiles or publications, the message will identify them and say 'Affinity scores and/or conflicts could not be computed for these users. Please ask these users to sign up in OpenReview and upload their papers. Alternatively, you can remove these users from the Reviewers group.' This message does not mean that the process failed, but that those members were excluded from the calculations. You can run the Paper Matching Setup as many times as you want or until all users have completed profiles.
 

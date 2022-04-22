@@ -1,3 +1,0 @@
-# Retrieving/posting an invitation
-
-****

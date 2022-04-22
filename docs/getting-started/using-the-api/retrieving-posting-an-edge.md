@@ -1,2 +1,0 @@
-# Retrieving/posting an edge
-

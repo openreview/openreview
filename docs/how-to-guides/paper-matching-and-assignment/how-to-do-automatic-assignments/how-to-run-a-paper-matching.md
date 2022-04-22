@@ -7,19 +7,19 @@ In order to automatically assign Reviewers and Area Chairs, you must:
 
 After you complete these steps, a link for 'Paper Assignments' should appear on your Program Chair console.
 
-![](../../../.gitbook/assets/image.png)
+![](<../../../.gitbook/assets/image (2).png>)
 
 Clicking on one of the assignment links will bring you to the assignment page, where you can create a new matching configuration. If members of your reviewer or area chairs group have profiles without publications, you will need to select ‘Yes’ for ‘Allow Zero Score Assignments’ in order to obtain a solution. Please note that all members of a group must have OpenReview profiles in order for the automatic assignment algorithm to run. Any members without profiles must be removed from the group before this step.
 
 You can learn more about our automatic paper matching algorithm from its github repo: https://github.com/openreview/openreview-matcher. To create a new matching, click the 'New Assignment Configuration'. This will pull up a form with some default values pertaining to your matching settings:
 
-User demand: The number of users that should be assigned to each paper
+**User demand:** The number of users that should be assigned to each paper
 
-Max papers: The maximum number of papers that can be assigned to each reviewer
+**Max papers:** The maximum number of papers that can be assigned to each reviewer
 
-Min papers: The minimum number of papers that can be assigned to each reviewer
+**Min papers:** The minimum number of papers that can be assigned to each reviewer
 
-Scores specification: JSON providing further details and customization to scores, as in the following example:
+**Scores specification:** JSON providing further details and customization to scores, as in the following example:
 
 ```
 {
@@ -47,6 +47,8 @@ In the example above, the aggregate score being used by the optimizer is: weight
 
 After filling out this form and hitting submit, you should see the following:
 
-![](<../../../.gitbook/assets/image (2).png>)
+![](<../../../.gitbook/assets/image (2) (1).png>)
 
-You can view, edit or copy the values you filled out in the matching form. When you are happy with it, you should hit 'Run Matcher' and wait until its status is 'Complete'. This generates proposed assignments, with options to browse assignments, view statistics or deploy matching. If you click ‘Browse Assignments’ you will be brought to the edge browser, where you can browse, edit, and create proposed assignments.
+You can view, edit or copy the values you filled out in the matching form. When you are happy with it, you should hit 'Run Matcher' and wait until its status is 'Complete'. This generates proposed assignments, with options to browse assignments, view statistics or deploy matching. If you click ‘Browse Assignments’ you will be brought to the edge browser, where you can browse, edit, and create proposed assignments.&#x20;
+
+**Note that completion of this step does not make assignments, it only creates a proposed assignment configuration. Those assignments will need to be deployed before Reviewers or Area Chairs will see them.**&#x20;

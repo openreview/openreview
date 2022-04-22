@@ -4,13 +4,13 @@ The edge browser is a tool for visualizing edges, or assignments, created by Ope
 
 When you first open the edge browser, all papers will appear in a column on the left. You can click on a certain paper to see a second column of reviewers pop up to the right. Similarly, if you click on a reviewer, all of their assigned papers will pop up in another column to the right, and so on.
 
-![](<../../../.gitbook/assets/image (8).png>)
+![](<../../../.gitbook/assets/image (8) (1).png>)
 
 The color of each item represents the relationship between that item and the one selected at left:
 
-1. Light green means that the item is assigned to the item selected at left.&#x20;
-2. Light red means that the item has conflict with the item selected at left.&#x20;
-3. Light orange means that the item both has conflict and is assigned to the item selected at left.&#x20;
+1. <mark style="background-color:green;">Light green</mark> means that the item is assigned to the item selected at left.&#x20;
+2. <mark style="background-color:red;">Light red</mark> means that the item has conflict with the item selected at left.&#x20;
+3. <mark style="background-color:orange;">Light orange</mark> means that the item both has conflict and is assigned to the item selected at left.&#x20;
 4. White means that the item is not assigned to and has no conflict with the item selected at left.&#x20;
 
 Each item will display various edges calculated by the matcher and used to make assignments, such as the Bid, Affinity, Aggregate scores, and Conflicts. The trashcan button can be used to remove an edge. You can create new assignments using the ‘Assign’ button.
