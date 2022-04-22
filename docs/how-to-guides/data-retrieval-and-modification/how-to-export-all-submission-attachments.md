@@ -17,7 +17,7 @@ notes = list(openreview.tools.iterget_notes(client, invitation = "Your/Venue/ID/
 notes = list(openreview.tools.iterget_notes(client, invitation = "Your/Venue/ID/-/Submission"))
 ```
 
-4\. Iterate through each submission. For each one, check if it has the attachment you are looking for. In this example, we are exporting pdfs and naming them with the format paper#.pdf.
+4\. Iterate through each submission. For each one, check if it has the attachment you are looking for, and if it does, export it. In this example, we are exporting pdfs and naming them with the format paper#.pdf.
 
 ```
 for note in notes:
