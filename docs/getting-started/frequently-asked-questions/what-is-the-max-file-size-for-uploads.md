@@ -1,3 +1,3 @@
 # What is the max file size for uploads?
 
-What is the max file size for uploads?&#x20;
+The max file size for uploads is 100 MB.
