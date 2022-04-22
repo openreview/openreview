@@ -16,7 +16,7 @@ tail = "~User_One1"
 head = "ggVj9Mmq2-a"
 ```
 
-1. Set the readers of this conflict. In general, this should include the tail of the edge and anyone who might be making assignments for this group, such as Area Chairs or Senior Area Chairs.&#x20;
+1. Set the readers of this conflict. In general, this should include the tail of the edge and anyone who might be making assignments for this group, such as Area Chairs or Senior Area Chairs. You can confirm who the readers should be by going to openreview.net/invitation/edit?id=\<conflict\_invitation> and checking the readers in the reply field.
 
 ```
 readers = [
