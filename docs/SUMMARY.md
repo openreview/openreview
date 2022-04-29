@@ -13,6 +13,8 @@
   * [An author of a submission cannot access their own paper, what is the problem?](getting-started/frequently-asked-questions/an-author-of-a-submission-cannot-access-their-own-paper-what-is-the-problem.md)
   * [What is the max file size for uploads?](getting-started/frequently-asked-questions/what-is-the-max-file-size-for-uploads.md)
   * [What should I do if my question is not answered here?](getting-started/frequently-asked-questions/what-should-i-do-if-my-question-is-not-answered-here.md)
+  * [What should I do if I find a vulnerability in OpenReview?](getting-started/frequently-asked-questions/what-should-i-do-if-i-find-a-vulnerability-in-openreview.md)
+  * [How can I report a bug or request a feature?](getting-started/frequently-asked-questions/how-can-i-report-a-bug-or-request-a-feature.md)
 * [Using the API](getting-started/using-the-api/README.md)
   * [Installing and Instantiating the Python client](getting-started/using-the-api/installing-and-instantiating-the-python-client.md)
   * [Retrieving/Posting Notes](getting-started/using-the-api/openreview-neurips-2021-summary-report/README.md)
