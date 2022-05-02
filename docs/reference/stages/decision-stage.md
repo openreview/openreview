@@ -77,20 +77,20 @@ The Decision Stage should not be run until after the submission deadline, except
 
 <details>
 
-<summary>Notify Authors</summary>
-
-* Determines whether authors will receive an automated notification when a decision is posted to their submission.&#x20;
-* Required&#x20;
-* Will not notify authors retroactively for existing decisions
-
-</details>
-
-<details>
-
 <summary>Additional Decision Form Options</summary>
 
 * Adds or overwrites fields to the Decision Form. Expects valid JSON surrounded by a single pair of curly braces {}. Read more about the accepted field types [here](../accepted-field-types.md).&#x20;
 * Optional&#x20;
 * Defaults to [default Decision Form](../default-forms/default-decision-form.md)
+
+</details>
+
+<details>
+
+<summary>Decisions File</summary>
+
+* Allows for bulk upload of decisions. Expects a csv containing the paper\_id, decision, and comment for one paper per line. Does not expect a header/column names. The comment column is optional.&#x20;
+* Optional&#x20;
+* Defaults to manual Decisions.&#x20;
 
 </details>

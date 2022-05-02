@@ -13,7 +13,7 @@ All of your assigned papers will appear in a single column on the left. Clicking
 
 You can search for specific papers by paper title or number at the top of the first column. At the top of the subsequent column you can also search for specific reviewers by their name, email or profile id. You can sort the column on the right by whatever edge types are shown, such as Assignment, Aggregate Score, Bid, or Affinity Score, using the 'Order By' dropdown. The second column will show the total number of assignments for the selected reviewer.
 
-![](<../../.gitbook/assets/image (7).png>)
+![](<../../.gitbook/assets/image (7) (1).png>)
 
 **Creating and Removing Assignments Using the Edge Browser**
 

@@ -34,3 +34,23 @@ The Post Decision Stage should be used after decisions have been posted.
 * Optional&#x20;
 
 </details>
+
+<details>
+
+<summary>Send Decision Notifications</summary>
+
+* Select whether or not you would like to send notification emails to authors when you submit Post Decision Stage.&#x20;
+* Required
+* Defaults to "No, I will send the emails to the authors."
+
+</details>
+
+<details>
+
+<summary>____ Email Content </summary>
+
+* Takes a template decision notification for each decision type for your venue. If "Yes, send an email notification to the authors" was selected, these templates will be populated with the paper information and sent to the authors of the respective papers.&#x20;
+* Optional
+* Defaults to the [default decision notification](../default-forms/default-decision-notification.md)
+
+</details>
