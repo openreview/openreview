@@ -6,7 +6,7 @@
 * [How can I add or remove an email address from my profile](../creating-an-openreview-profile/add-or-remove-an-email-address-from-your-profile.md)?&#x20;
 * [How can I import papers from DBLP](../creating-an-openreview-profile/importing-papers-from-dblp.md)?&#x20;
 * [How can I add a Semantic Scholar URL to my profile](../creating-an-openreview-profile/finding-and-adding-a-semantic-scholar-url-to-your-profile.md)?&#x20;
-* [How can I add formatting to my reviews/comments](../../how-to-guides/submitting-papers-comments-and-reviews/how-to-add-formatting-to-reviews-or-comments.md)?
+* [How can I add formatting to my reviews/comments](../../how-to-guides/submitting-papers-comments-reviews-and-decisions/how-to-add-formatting-to-reviews-or-comments.md)?
 * [Why is my LaTeX code not displaying properly](../../reference/openreview-tex/common-issues-with-latex-code-display.md)?&#x20;
 * [What should I do if I find a vulnerability in OpenReview](what-should-i-do-if-i-find-a-vulnerability-in-openreview.md)?&#x20;
 * [How can I report a bug or request a feature](how-can-i-report-a-bug-or-request-a-feature.md)?
@@ -15,7 +15,7 @@
 ### Program Chairs
 
 * [How can I access the request form for my venue](../hosting-a-venue-on-openreview/navigating-your-venue-pages.md)?&#x20;
-* [How can I override the information on my venue homepage](../../how-to-guides/workflow/how-to-override-your-venue-homepage.md)?
+* [How can I override the information on my venue homepage](../../how-to-guides/modifying-venue-homepages/how-to-override-your-venue-homepage.md)?
 * [How can I edit the Submission Form? ](../hosting-a-venue-on-openreview/customizing-your-submission-form.md)
 * [How can I extend the Submission deadline](../hosting-a-venue-on-openreview/changing-your-submission-deadline.md)?
 * [How can I test my venue workflow](../../how-to-guides/workflow/how-to-test-your-venue-workflow.md)?&#x20;

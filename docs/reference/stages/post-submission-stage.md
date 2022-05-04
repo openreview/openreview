@@ -17,7 +17,7 @@ The Post Submission Stage should be used when paper groups and blind copies need
 
 <summary>Force </summary>
 
-* Should blind submissions be created?&#x20;
+* Whether or not blind submissions and paper groups should be created before the submission deadline.&#x20;
 * Required
 
 </details>
