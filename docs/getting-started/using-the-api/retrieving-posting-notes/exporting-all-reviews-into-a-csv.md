@@ -1,7 +1,5 @@
 # Exporting all Reviews into a CSV
 
-#### Exporting all Reviews into a CSV&#x20;
-
 Say you want to export all of the reviews for a given venue into a csv file.&#x20;
 
 1. If you have not done so, you will need to [install and instantiate the openreview-py client](../installing-and-instantiating-the-python-client.md).&#x20;
