@@ -17,7 +17,6 @@
   * [How can I report a bug or request a feature?](getting-started/frequently-asked-questions/how-can-i-report-a-bug-or-request-a-feature.md)
 * [Using the API](getting-started/using-the-api/README.md)
   * [Installing and Instantiating the Python client](getting-started/using-the-api/installing-and-instantiating-the-python-client.md)
-  * [Retrieving/Posting Notes](getting-started/using-the-api/openreview-neurips-2021-summary-report.md)
   * [Retrieving/Posting Edges](getting-started/using-the-api/retrieving-posting-edges/README.md)
     * [Getting all Assignments for a User](getting-started/using-the-api/retrieving-posting-edges/getting-all-assignments-for-a-user.md)
     * [Posting a custom conflict edge](getting-started/using-the-api/retrieving-posting-edges/posting-a-custom-conflict-edge.md)
