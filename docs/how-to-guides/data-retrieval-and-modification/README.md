@@ -1,6 +1,6 @@
 # Data Retrieval and Modification
 
-[Exporting all Reviews into a CSV ](broken-reference)
+[Exporting all Reviews into a CSV ](../../getting-started/using-the-api/openreview-neurips-2021-summary-report/exporting-all-reviews-into-a-csv.md)
 
 [How to View Camera-Ready Revisions](how-to-view-camera-ready-revisions.md)
 
