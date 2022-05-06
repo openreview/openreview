@@ -7,7 +7,8 @@ Using manual assignment adds Reviewers to PaperX/Reviewers groups without postin
 
 ```
 edges = list(openreview.tools.iterget_edges(client, invitation = 'Your/Venue/ID/Reviewers/-/Assignment'))
-groups = list(openreview.tools.iterget_groups(client, regex = 'Your/Venue/ID/Paper.*/Reviewers$'))
+papers = list(openreview.tools.iterget_notes(client, invitation = 'Your/Venue/ID/-/Blind_Submission'))
+groups = [client.get_group(f"Your/Venue/ID/Paper{paper.number}/Reviewers")for paper in papers]
 groups_by_ids = {group.id: group for group in groups}
 edges_by_paper = {}
 for edge in edges: 
@@ -36,7 +37,6 @@ print(count)
 4\. Now we want to check for the opposite case, where a Reviewer has been added to a group but there is not an associated assignment edge. Retrieve all papers, then create a dictionary with paper numbers as the keys. Iterate through the papers, get the associated Reviewers' group for each, and check that there is an assignment edge for each group member. If there is not, remove the reviewer.&#x20;
 
 ```
-papers = list(openreview.tools.iterget_notes(client, invitation = 'Your/Venue/ID/-/Blind_Submission'))
 papers_by_number = {}
 for paper in papers: 
     papers_by_number[paper.number] = paper.forum

@@ -8,7 +8,7 @@ If you need a way to see which authors have submitted camera-ready revisions, yo
 2. Next, retrieve all of the revision invitations for your venue. You will want to replace the regex with the submission revision invitation for your venue, which is your conference id + Paper.\*/-/ + the name you chose for your Submission Revision stage.&#x20;
 
 ```
-revision_invitations = list(openreview.tools.iterget_invitations(client, regex = 'Your/Conference/ID/Paper.*/-/Camera_Ready_Revision'))
+revision_invitations = list(openreview.tools.iterget_invitations(client, super = 'Your/Conference/ID/-/Camera_Ready_Revision'))
 ```
 
 2\. Create a dictionary mapping the submission number to each submission for your venue. Replace the submission invitation with that of your venue:&#x20;

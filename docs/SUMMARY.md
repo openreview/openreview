@@ -84,7 +84,6 @@
   * [How to send messages with the python client](how-to-guides/communication/how-to-send-messages-with-the-python-client.md)
   * [How to message authors before the Submission Deadline](how-to-guides/communication/how-to-message-authors-before-the-submission-deadline.md)
   * [How to Send Decision Notifications Using the UI](how-to-guides/communication/how-to-send-decision-notifications-using-the-ui.md)
-  * [How to send Decision Notifications to Authors With the API](how-to-guides/communication/how-to-send-decision-notifications-to-authors-with-the-api.md)
   * [How to email the authors of accepted papers](how-to-guides/communication/how-to-email-the-authors-of-accepted-papers.md)
 * [Submitting papers, comments, reviews, and decisions](how-to-guides/submitting-papers-comments-reviews-and-decisions/README.md)
   * [How to add formatting to reviews or comments](how-to-guides/submitting-papers-comments-reviews-and-decisions/how-to-add-formatting-to-reviews-or-comments.md)

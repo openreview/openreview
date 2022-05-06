@@ -3,13 +3,16 @@
 Say you want to export all of the reviews for a given venue into a csv file.&#x20;
 
 1. If you have not done so, you will need to [install and instantiate the openreview-py client](../installing-and-instantiating-the-python-client.md).&#x20;
-2. Use iterget\_notes to retrieve all notes with the __ Review invitation for your venue of interest. Most review invitations follow the format Venue/ID/Paper#/-/Official_\__Review.&#x20;
+2. Retrieve all of the Reviews. Reviews generally follow the invitation Your/Venue/ID/-/Official\_Review. We can retrieve them by getting all of the direct replies to each submission and finding those with invitations ending in Official\_Review.&#x20;
 
 ```
-reviews = list(openreview.tools.iterget_notes(client, invitation = "Venue/ID/Paper.*/-/Official_Review"))
+submissions = list(openreview.tools.iterget_notes(client, invitation="Your/Venue/ID/-/Submission", details='directReplies')) 
+reviews = [] 
+for submission in submissions:
+    reviews = reviews + [reply for reply in submission.details["directReplies"] if reply["invitation"].endswith("Official_Review")]
 ```
 
-2\. Next, get the super review invitation. This is the overall review invitation which each of the Paper#/-/Official\_Review invitations are based off of, and it follows the format Venue/ID/-/Official_\__Review. &#x20;
+3\. Next, get the super review invitation. This is the overall review invitation which each of the Paper#/-/Official\_Review invitations are based off of, and it follows the format Venue/ID/-/Official\_Review.
 
 ```
 review_invitation = client.get_invitation('Venue/ID/-/Official_Review')
@@ -79,12 +82,12 @@ with open('reviews.csv', 'w') as outfile:
     for review in reviews:
         valueList = []
         for key in keylist:
-            if review.content.get(key):
-                valueList.append(review.content.get(key))
+            if review["content"].get(key):
+                valueList.append(review["content"].get(key))
             else:
                 valueList.append('')
         s = csvwriter.writerow(valueList)
-outfile.close()   
+outfile.close()  
 ```
 
 5\. The previous example only exports the content fields of each review. You may also want to know which submission each review is associated with. You can get the forum of each review, which corresponds to the forum page of its associated submission. For example, if a review's forum is aBcDegh, you could find that submission at https://openreview.net/forum?id=aBcDegh. To create a csv that includes the review forums, do this:
@@ -97,15 +100,15 @@ with open('reviews.csv', 'w') as outfile:
     t = csvwriter.writerow(keylist)
     for review in reviews:
         valueList = []
-        valueList.append(review.forum)
+        valueList.append(review["forum"])
         for key in keylist:
             if (key != 'forum'):
-                if review.content.get(key):
-                    valueList.append(review.content.get(key))
+                if review["content"].get(key):
+                    valueList.append(review["content"].get(key))
                 else:
                     valueList.append('')
         s = csvwriter.writerow(valueList)
-outfile.close()   
+outfile.close()      
 ```
 
 6\. There should now be a csv of exported reviews in the directory in which you are working.&#x20;
