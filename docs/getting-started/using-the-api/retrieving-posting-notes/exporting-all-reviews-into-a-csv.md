@@ -6,7 +6,7 @@ Say you want to export all of the reviews for a given venue into a csv file.&#x2
 2. Retrieve all of the Reviews. Reviews generally follow the invitation Your/Venue/ID/-/Official\_Review. We can retrieve them by getting all of the direct replies to each submission and finding those with invitations ending in Official\_Review.&#x20;
 
 ```
-submissions = list(openreview.tools.iterget_notes(client, invitation="Your/Venue/ID/-/Submission", details='directReplies')) 
+submissions = list(client.get_all_notes(invitation="Your/Venue/ID/-/Submission", details='directReplies')) 
 reviews = [] 
 for submission in submissions:
     reviews = reviews + [reply for reply in submission.details["directReplies"] if reply["invitation"].endswith("Official_Review")]
