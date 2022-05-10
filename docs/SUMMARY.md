@@ -36,6 +36,7 @@
   * [Creating your Venue Instance: Submitting a Venue Request Form](getting-started/hosting-a-venue-on-openreview/creating-your-venue-instance-submitting-a-venue-request-form.md)
   * [Navigating your Venue Pages](getting-started/hosting-a-venue-on-openreview/navigating-your-venue-pages.md)
   * [Customizing your submission form](getting-started/hosting-a-venue-on-openreview/customizing-your-submission-form.md)
+  * [Enabling Supplementary Material Upload](getting-started/hosting-a-venue-on-openreview/enabling-supplementary-material-upload.md)
   * [Changing your submission deadline](getting-started/hosting-a-venue-on-openreview/changing-your-submission-deadline.md)
   * [Enabling an Abstract Registration Deadline](getting-started/hosting-a-venue-on-openreview/enabling-an-abstract-registration-deadline.md)
 * [Creating an OpenReview Profile](getting-started/creating-an-openreview-profile/README.md)
