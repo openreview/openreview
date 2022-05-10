@@ -13,7 +13,7 @@ Since the Submissions do not contain the decisions, we first need to retrieve al
 Retrieve Submissions and Decisions:
 
 ```
-submissions = list(openreview.tools.iterget_notes(client, invitation = 'Your/Venue/ID/-/Submission', details='directReplies'))
+submissions = list(client.get_all_notes(invitation = 'Your/Venue/ID/-/Submission', details='directReplies'))
 id_to_submission = {note.id: note for note in submissions}
 all_decision_notes = [] 
 for submission in submissions: 
@@ -46,7 +46,7 @@ This is very similar to the previous example. The only difference is that we nee
 Retrieve Submissions and Decisions:
 
 ```
-submissions = openreview.tools.iterget_notes(client, invitation = 'Your/Venue/ID/-/Blind_Submission', details='directReplies')
+submissions = client.get_all_notes(invitation = 'Your/Venue/ID/-/Blind_Submission', details='directReplies')
 blind_notes = {note.id: note for note in submissions}
 all_decision_notes = [] 
 for submission in blind_notes: 

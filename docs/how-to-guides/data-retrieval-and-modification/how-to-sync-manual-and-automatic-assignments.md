@@ -6,8 +6,8 @@ Using manual assignment adds Reviewers to PaperX/Reviewers groups without postin
 2. Retrieve all of the assignment edges and all of the Paper#/Reviewers groups for your venue. Make two dictionaries: one mapping groups by their IDs, the other mapping edges by their head. The head of each edge is the forum of the paper that the reviewer is assigned to.
 
 ```
-edges = list(openreview.tools.iterget_edges(client, invitation = 'Your/Venue/ID/Reviewers/-/Assignment'))
-papers = list(openreview.tools.iterget_notes(client, invitation = 'Your/Venue/ID/-/Blind_Submission'))
+edges = list(client.get_all_edges(invitation = 'Your/Venue/ID/Reviewers/-/Assignment'))
+papers = list(client.get_all_notes(invitation = 'Your/Venue/ID/-/Blind_Submission'))
 groups = [client.get_group(f"Your/Venue/ID/Paper{paper.number}/Reviewers")for paper in papers]
 groups_by_ids = {group.id: group for group in groups}
 edges_by_paper = {}

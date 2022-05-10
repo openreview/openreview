@@ -17,6 +17,7 @@
   * [How can I report a bug or request a feature?](getting-started/frequently-asked-questions/how-can-i-report-a-bug-or-request-a-feature.md)
   * [What is the max file size for uploads?](getting-started/frequently-asked-questions/what-is-the-max-file-size-for-uploads-1.md)
   * [What is the difference between due date (duedate) and expiration date (expdate)?](getting-started/frequently-asked-questions/what-is-the-difference-between-due-date-duedate-and-expiration-date-expdate.md)
+  * [Will Reviewers be Notified of their Assignments?](getting-started/frequently-asked-questions/will-reviewers-be-notified-of-their-assignments.md)
 * [Using the API](getting-started/using-the-api/README.md)
   * [Installing and Instantiating the Python client](getting-started/using-the-api/installing-and-instantiating-the-python-client.md)
   * [Retrieving/Posting Edges](getting-started/using-the-api/retrieving-posting-edges/README.md)
