@@ -40,7 +40,7 @@ Use the checkbox in front of each paper to select those which you would like to 
 
 Click the 'Add to your Profile' button at the bottom of the modal window to import the selected papers.&#x20;
 
-![](<../../.gitbook/assets/image (4) (1).png>)
+![](<../../.gitbook/assets/image (4) (1) (1).png>)
 
 If you get an error that says "please ensure the provided DBLP URL is yours", make sure that the name (or one of the names) in your OpenReview profile matches **exactly** with the name used in DBLP publications. If it does not, you can [add a new name to your profile](add-or-remove-a-name-from-your-profile.md), click 'Save Profile Changes', and try again to import your papers.&#x20;
 

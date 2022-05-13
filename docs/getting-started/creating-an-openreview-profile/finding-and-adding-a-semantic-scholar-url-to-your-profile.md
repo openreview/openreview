@@ -1,6 +1,6 @@
 # Finding and adding a Semantic Scholar URL to your profile
 
-To locate your Semantic Scholar URL, go to [https://semanticscholar.org](https://semanticscholar.org) and search for the name you publish by.
+To locate your Semantic Scholar URL, go to [https://semanticscholar.org](https://semanticscholar.org/) and search for the name you publish by.
 
 If Semantic Scholar has your data, an author tile with your name will appear under the search bar. If your name is not immediately one of the top tiles, click the "Show All Authors" link to expand the tile section. Click on the author tile.
 

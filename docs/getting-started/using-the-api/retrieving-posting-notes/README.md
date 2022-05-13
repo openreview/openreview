@@ -1,2 +1,0 @@
-# Retrieving/Posting Notes
-

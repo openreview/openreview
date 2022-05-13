@@ -4,4 +4,4 @@ Submitting a venue request form is the first step towards hosting a venue on Ope
 
 After you submit the form, our team will review it and deploy it, making your venue live. You can then edit some of your selected settings from the venue request form. Note that if you do not enter a submission start date, submissions will open immediately upon venue deployment.
 
-If you are following a journal-like workflow where you will be posting several venue request forms a year with the same settings, you may find it more efficient to [submit your request forms programmatically. ](../using-the-api/retrieving-posting-notes/posting-a-support-request-form.md)
+If you are following a journal-like workflow where you will be posting several venue request forms a year with the same settings, you may find it more efficient to [submit your request forms programmatically. ](../using-the-api/notes/posting-a-support-request-form.md)
