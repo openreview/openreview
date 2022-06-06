@@ -1,8 +1,6 @@
 # How to override your venue homepage
 
-
-
-On the request form for your venue, click on the ‘Revision’ button and modify the Homepage Override field, which expects a valid JSON.
+On the request form for your venue, click on the ‘Revision’ button and modify the Homepage Override field, which expects valid JSON.
 
 The instruction field of the JSON accepts HTML, allowing the formatting of the instructions section to be fully customized. All HTML should be validated to ensure that it will not break the layout of the page: [https://validator.w3.org/#validate\_by\_input](https://validator.w3.org/#validate\_by\_input)
 

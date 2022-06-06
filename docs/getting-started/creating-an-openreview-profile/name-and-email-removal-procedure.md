@@ -5,7 +5,7 @@
 OpenReview offers users the possibility of changing their name on their profiles and publications.&#x20;
 
 1. User's profile: users can keep multiple names in their profiles and select one as preferred, which will be used for author submission and identity display. Users can decide if they want to delete a name from their profile.&#x20;
-2. User's publications: publications imported from external sources such as DBLP, Archive, etc can be updated with the new preferred name. However, publications that were submitted and reviewed through OpenReview require an authorization from the organizers of the venue to change the name. OpenReview doesn't take any action on PDF files so the change name in the file should also be authorized by the organizers of the venue.
+2. User's publications: publications can be updated with the user's preferred name. OpenReview doesn't take any action on PDF files so the change name in the file should also be authorized by the organizers of the venue.
 
 If you would like a name removed from your profile, please contact us at info@openreview.net or through the feedback form and we will work quickly to carry out these actions.
 

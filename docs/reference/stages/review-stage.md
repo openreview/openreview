@@ -69,6 +69,28 @@ The Review Stage should not be run until after the submission deadline, except i
 
 <details>
 
+<summary>Review Rating Field Name</summary>
+
+* Determines which field should be used to calculate the average "rating" on the PC console. You should enter a field that has been added via "Additional Review Form Options".&#x20;
+* The selected field should have options that follow the format "number: description". For example, "1: Very poor".&#x20;
+* Required
+* Defaults to "rating"
+
+</details>
+
+<details>
+
+<summary>Review Confidence Field Name</summary>
+
+* Determines which field should be used to calculate the average "confidence" on the PC console. You should enter a field that has been added via "Additional Review Form Options".&#x20;
+* The selected field should have options that follow the format "number: description". For example, "1: Not confident".&#x20;
+* Required
+* Defaults to "confidence"
+
+</details>
+
+<details>
+
 <summary>Additional Review Form Options </summary>
 
 * Adds or overwrites fields to the Review Form. Expects valid JSON surrounded by a single pair of curly braces {}. Read more about the accepted field types [here](../accepted-field-types.md).&#x20;
