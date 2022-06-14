@@ -5,6 +5,8 @@ Say you want to export all of the reviews for a given venue into a csv file.&#x2
 1. If you have not done so, you will need to [install and instantiate the openreview-py client](../installing-and-instantiating-the-python-client.md).&#x20;
 2. Retrieve all of the Reviews. Reviews generally follow the invitation Your/Venue/ID/-/Official\_Review. We can retrieve them by getting all of the direct replies to each submission and finding those with invitations ending in Official\_Review.&#x20;
 
+Single blind venues can do this like so:&#x20;
+
 ```
 submissions = list(client.get_all_notes(invitation="Your/Venue/ID/-/Submission", details='directReplies')) 
 reviews = [] 
@@ -12,7 +14,14 @@ for submission in submissions:
     reviews = reviews + [reply for reply in submission.details["directReplies"] if reply["invitation"].endswith("Official_Review")]
 ```
 
-3\. Next, get the super review invitation. This is the overall review invitation which each of the Paper#/-/Official\_Review invitations are based off of, and it follows the format Venue/ID/-/Official\_Review.
+whereas double blind venues should replace "Submission" in the invitation with "Blind\_Submission":&#x20;
+
+```
+submissions = list(client.get_all_notes(invitation="Your/Venue/ID/-/Blind_Submission", details='directReplies')) 
+reviews = [] 
+for submission in submissions: 
+    reviews = reviews + [reply for reply in submission.details["directReplies"] if reply["invitation"].endswith("Official_Review")]3. Next, get the super review invitation. This is the overall review invitation which each of the Paper#/-/Official_Review invitations are based off of, and it follows the format Venue/ID/-/Official_Review.
+```
 
 ```
 review_invitation = client.get_invitation('Venue/ID/-/Official_Review')
