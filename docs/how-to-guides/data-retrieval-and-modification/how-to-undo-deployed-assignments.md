@@ -6,7 +6,7 @@ If you deployed automatic assignments but would like to roll them back, you can 
 2. You will first need to delete all of the assignment edges. You can do this by getting all edges with your venue's assignment invitation and then setting a ddate for each one.
 
 ```
-edges = list(client.get_all_edges(invitation = 'Your/Venue/ID/Reviewers/-/Assignment'))
+edges = client.get_all_edges(invitation = 'Your/Venue/ID/Reviewers/-/Assignment')
 for edge in edges: 
     edge.ddate = 1643083220000
     client.post_edge(edge)

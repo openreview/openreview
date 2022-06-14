@@ -13,7 +13,7 @@ Since the Submissions do not contain the decisions, we first need to retrieve al
 Retrieve Submissions and Decisions:
 
 ```
-submissions = list(client.get_all_notes(invitation = 'Your/Venue/ID/-/Submission', details='directReplies'))
+submissions = client.get_all_notes(invitation = 'Your/Venue/ID/-/Submission', details='directReplies')
 id_to_submission = {note.id: note for note in submissions}
 all_decision_notes = [] 
 for submission in submissions: 

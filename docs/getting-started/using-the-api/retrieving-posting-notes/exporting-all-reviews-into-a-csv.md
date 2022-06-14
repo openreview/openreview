@@ -8,7 +8,7 @@ Say you want to export all of the reviews for a given venue into a csv file.&#x2
 Single blind venues can do this like so:&#x20;
 
 ```
-submissions = list(client.get_all_notes(invitation="Your/Venue/ID/-/Submission", details='directReplies')) 
+submissions = client.get_all_notes(invitation="Your/Venue/ID/-/Submission", details='directReplies')
 reviews = [] 
 for submission in submissions:
     reviews = reviews + [reply for reply in submission.details["directReplies"] if reply["invitation"].endswith("Official_Review")]
@@ -17,17 +17,20 @@ for submission in submissions:
 whereas double blind venues should replace "Submission" in the invitation with "Blind\_Submission":&#x20;
 
 ```
-submissions = list(client.get_all_notes(invitation="Your/Venue/ID/-/Blind_Submission", details='directReplies')) 
+submissions = client.get_all_notes(invitation="Your/Venue/ID/-/Blind_Submission", details='directReplies')
 reviews = [] 
 for submission in submissions: 
-    reviews = reviews + [reply for reply in submission.details["directReplies"] if reply["invitation"].endswith("Official_Review")]3. Next, get the super review invitation. This is the overall review invitation which each of the Paper#/-/Official_Review invitations are based off of, and it follows the format Venue/ID/-/Official_Review.
+    reviews = reviews + [reply for reply in submission.details["directReplies"] if reply["invitation"].endswith("Official_Review")]
 ```
 
+3\. Next, get the super review invitation. This is the overall review invitation which each of the Paper#/-/Official\_Review invitations are based off of, and it follows the format Venue/ID/-/Official\_Review.&#x20;
+
 ```
-review_invitation = client.get_invitation('Venue/ID/-/Official_Review')
+invitation = client.get_invitation("<Your/Venue/Id/-/Official_Review>")
+print(invitation.content)
 ```
 
-3\. Generate a list of the fields in the content in the Review invitation. For reference, this is what the default review invitation content looks like in JSON:&#x20;
+4\. Generate a list of the fields in the content in the Review invitation. For reference, this is what the default review invitation content looks like in JSON:&#x20;
 
 ```
 {
@@ -80,7 +83,7 @@ so we would expect a list like \["title", "review", "rating", "confidence"]. Thi
 keylist = list(review_invitation.reply['content'].keys())
 ```
 
-4\. If you haven't already, import csv. Then iterate through the list of reviews stored in 'reviews' and for each one, append the values associated to the keys in your keylist. If a value does not exist for that key, put an empty string in its place.&#x20;
+5\. If you haven't already, import csv. Then iterate through the list of reviews stored in 'reviews' and for each one, append the values associated to the keys in your keylist. If a value does not exist for that key, put an empty string in its place.&#x20;
 
 ```
 import csv
@@ -99,7 +102,7 @@ with open('reviews.csv', 'w') as outfile:
 outfile.close()  
 ```
 
-5\. The previous example only exports the content fields of each review. You may also want to know which submission each review is associated with. You can get the forum of each review, which corresponds to the forum page of its associated submission. For example, if a review's forum is aBcDegh, you could find that submission at https://openreview.net/forum?id=aBcDegh. To create a csv that includes the review forums, do this:
+6\. The previous example only exports the content fields of each review. You may also want to know which submission each review is associated with. You can get the forum of each review, which corresponds to the forum page of its associated submission. For example, if a review's forum is aBcDegh, you could find that submission at https://openreview.net/forum?id=aBcDegh. To create a csv that includes the review forums, do this:
 
 ```
 with open('reviews.csv', 'w') as outfile:
@@ -120,4 +123,4 @@ with open('reviews.csv', 'w') as outfile:
 outfile.close()      
 ```
 
-6\. There should now be a csv of exported reviews in the directory in which you are working.&#x20;
+7\. There should now be a csv of exported reviews in the directory in which you are working.&#x20;

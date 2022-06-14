@@ -14,7 +14,7 @@ revision_invitations = list(openreview.tools.iterget_invitations(client, super =
 2\. Create a dictionary mapping the submission number to each submission for your venue. Replace the submission invitation with that of your venue:&#x20;
 
 ```
-submissions_by_number = {p.number: p for p in list(client.get_all_notes(invitation = 'Your/Conference/ID/-/Submission'))}
+submissions_by_number = {p.number: p for p in client.get_all_notes(invitation = 'Your/Conference/ID/-/Submission')}
 ```
 
 Iterate through all of the camera-ready revision invitations and for each one, try to get the revisions made under that invitation. If there aren't any, add them to the dictionary revisions by forum. Finally, print the number of revision invitations vs the number of actually completed revisions so that you know how many papers are missing revisions.

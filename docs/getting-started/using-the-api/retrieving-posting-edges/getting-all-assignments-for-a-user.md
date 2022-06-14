@@ -34,5 +34,5 @@ invitation = "<your_venue_id>/Reviewers/-/Assignment
 4\. Retrieve all of the edges posted to that invitation for the user of interest.&#x20;
 
 ```
-edges = list(client.get_all_edges(invitation = invitation, tail = tail))
+edges = client.get_all_edges(invitation = invitation, tail = tail)
 ```

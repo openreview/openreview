@@ -8,13 +8,13 @@ description: How to extract PDFs and zip files associated with submissions.
 2. First, get all of the submissions for your venue. If your venue is double blind, do the following:&#x20;
 
 ```
-notes = list(client.get_all_notes(invitation = "Your/Venue/ID/-/Blind_Submission", details = 'original'))
+notes = client.get_all_notes(invitation = "Your/Venue/ID/-/Blind_Submission", details = 'original')
 ```
 
 3\. If your venue is single blind, do the following:&#x20;
 
 ```
-notes = list(client.get_all_notes(invitation = "Your/Venue/ID/-/Submission"))
+notes = client.get_all_notes(invitation = "Your/Venue/ID/-/Submission")
 ```
 
 4\. Iterate through each submission. For each one, check if it has the attachment you are looking for, and if it does, export it. In this example, we are exporting pdfs and naming them with the format paper#.pdf.
