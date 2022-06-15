@@ -6,7 +6,7 @@ The Post Decision Stage updates the visibility and anonymity of submissions afte
 
 #### When to Use it
 
-The Post Decision Stage should be used after decisions have been posted.
+The Post Decision Stage will only appear after the Decision Stage deadline. If you have already successfully posted all decisions but the Post Decision Stage has not yet appeared, you can re-run the Decision stage to make the deadline earlier.
 
 <details>
 
