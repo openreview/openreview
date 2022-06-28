@@ -29,6 +29,7 @@
     * [Get all Venues](getting-started/using-the-api/groups/get-all-venues.md)
   * [Notes](getting-started/using-the-api/retrieving-posting-notes/README.md)
     * [Posting a Support Request Form](getting-started/using-the-api/retrieving-posting-notes/posting-a-support-request-form.md)
+    * [Posting a Test Submission](getting-started/using-the-api/notes/posting-a-test-submission.md)
     * [Getting all Reviews](getting-started/using-the-api/retrieving-posting-notes/getting-all-reviews.md)
     * [Getting all MetaReviews](getting-started/using-the-api/retrieving-posting-notes/getting-all-metareviews.md)
     * [Getting all Decisions](getting-started/using-the-api/retrieving-posting-notes/getting-all-decisions.md)
