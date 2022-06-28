@@ -57,7 +57,9 @@ If you are testing your venue on the dev site, you may want to generate some tes
     \
     **Signatures**: Your profile ID. \
     \
-    **Content**: The actual content of the submission, which must match the invitation. If the invitation calls for any file uploads, such as a pdf or zip file, you can build the url to the file using put\_attachment and entering the path, the invitation ID, and the name of the field. You can then add that field to the note's content.
+    **Content**: The actual content of the submission, which must match the invitation. If the invitation calls for any file uploads, such as a pdf or zip file, you can build the url to the file using put\_attachment and entering the path, the invitation ID, and the name of the field. You can then add that field to the note's content. \
+    The "authorids" field of the note's content should contain a list of the authors' profile IDs or emails, in the same order as the authors' names. If you registered dummy users, you can find their profile IDs by going to their profile page and copying the ID parameter of that page's url. For example, dev.openreview.net/profile?id=\~Test\_Author2 --> \~Test\_Author2. \
+
 5.  Post your note and output the resulting note's ID:&#x20;
 
     ```
