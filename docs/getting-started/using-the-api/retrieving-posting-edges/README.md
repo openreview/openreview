@@ -32,7 +32,7 @@ conflict_edges_iterator = openreview.tools.iterget_edges(
         label='Personal')
 ```
 
-Since edges usually are very large in numbers, it is possible to get just the count of edges by using the function client.get\_edges\_count
+Since edges usually are very large in numbers, it is possible to get just the count of edges by using the function client.get\_edges\_count. Note that this only returns the count of edges visible to you.
 
 ```
 >>> conflict_edges_count = client.get_edges_count(
@@ -40,7 +40,7 @@ Since edges usually are very large in numbers, it is possible to get just the co
         label='Personal')
 ```
 
-Since most of the common tasks performed using _Edges_ require _Edges_ to be grouped, it’s also possible to query for already grouped _Edges_. Consider the following example that gets all reviewers grouped by papers they have conflicts with for the ICLR 2020 Conference
+Since most of the common tasks performed using _Edges_ require _Edges_ to be grouped, it’s also possible to query for already grouped _Edges_. Consider the following example that gets all reviewers grouped by papers they have conflicts with for the ICLR 2020 Conference:
 
 ```
 grouped_conflict_edges = client.get_grouped_edges(
@@ -49,7 +49,7 @@ grouped_conflict_edges = client.get_grouped_edges(
         select='tail,weight,label')
 ```
 
-Consider the following example that gets all papers grouped by reviewers who have conflicts with for the ICLR 2020 Conference.
+Consider the following example that gets all papers grouped by reviewers they are in conflict with for the ICLR 2020 Conference. It returns a list of lists of the {head, weight, label} of each conflict edge for that tail.
 
 ```
 grouped_conflict_edges = client.get_grouped_edges(
