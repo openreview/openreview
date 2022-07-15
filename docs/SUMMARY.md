@@ -22,6 +22,7 @@
 * [Using the API](getting-started/using-the-api/README.md)
   * [Installing and Instantiating the Python client](getting-started/using-the-api/installing-and-instantiating-the-python-client.md)
   * [Edges](getting-started/using-the-api/retrieving-posting-edges/README.md)
+    * [Computing Conflicts Between Users](getting-started/using-the-api/edges/computing-conflicts-between-users.md)
     * [Getting all Assignments for a User](getting-started/using-the-api/retrieving-posting-edges/getting-all-assignments-for-a-user.md)
     * [Posting a custom conflict edge](getting-started/using-the-api/retrieving-posting-edges/posting-a-custom-conflict-edge.md)
   * [Groups](getting-started/using-the-api/retrieving-posting-a-group/README.md)
