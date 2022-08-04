@@ -21,7 +21,7 @@
 * [How can I test my venue workflow](../../how-to-guides/workflow/how-to-test-your-venue-workflow.md)?&#x20;
 * [How can I release reviews](../../how-to-guides/workflow/how-to-release-reviews.md)?
 * [How can I enable Camera-Ready Revisions](../../how-to-guides/workflow/how-to-enable-camera-ready-revision-upload-for-accepted-papers.md)?
-* [How can I manually assign Reviewers/Area Chairs](../../how-to-guides/paper-matching-and-assignment/how-to-do-manual-assignments.md)?&#x20;
+* [How can I manually assign Reviewers/Area Chairs](../../how-to-guides/paper-matching-and-assignment/how-to-do-manual-assignments/)?&#x20;
 * [How can I automatically assign Reviewers/Area Chairs](../../how-to-guides/paper-matching-and-assignment/how-to-do-automatic-assignments/)?
 * [What customizations are available for emails sent through OpenReview](../../how-to-guides/communication/how-to-customize-emails-sent-through-openreview.md)?&#x20;
 * [Why is the author group empty, and how can I contact the authors](../../how-to-guides/communication/how-to-message-authors-before-the-submission-deadline.md)?&#x20;
