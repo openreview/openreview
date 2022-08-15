@@ -30,7 +30,7 @@
 * [How can I export all supplementary material/PDF/zip files](../../how-to-guides/data-retrieval-and-modification/how-to-export-all-submission-attachments.md)?&#x20;
 * [What field types are supported in the forms](../../reference/accepted-field-types.md)?&#x20;
 * [What do the default submission, review, metareview, and decision forms look like](../../reference/default-forms/)?&#x20;
-* [Can an author withdraw a rejected paper](can-an-author-withdraw-a-rejected-paper.md)?
+* [When will I be able to withdraw my submission?](when-will-i-be-able-to-withdraw-my-submission.md)
 * [An author of a submission cannot access their own paper, what is the problem](an-author-of-a-submission-cannot-access-their-own-paper-what-is-the-problem.md)?&#x20;
 * [What is the max file size for uploads](what-is-the-max-file-size-for-uploads-1.md)?&#x20;
 * [What is the difference between due date (duedate) and expiration date (expdate)](what-is-the-difference-between-due-date-duedate-and-expiration-date-expdate.md)?&#x20;
