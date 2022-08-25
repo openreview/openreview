@@ -8,7 +8,7 @@ OpenReview is releasing a major update of the forum page for venues using the ne
 
 #### Accessing the Page
 
-The new forum UI can be accessed by changing the URL of any existing TMLR forum page from   `/forum` to `/forum-new`. For example: [https://openreview.net/forum-new?id=8HuyXvbvqX](https://openreview.net/forum-new?id=8HuyXvbvqX)
+The new forum UI is enabled by default. In case you face unexpected issues, you can switch back to the original forum UI by changing the URL of any existing TMLR forum page from   `/forum` to `/forum-original`. For example: [https://openreview.net/forum-original?id=8HuyXvbvqX](https://openreview.net/forum-original?id=8HuyXvbvqX).
 
 #### Anatomy of a Forum Reply
 

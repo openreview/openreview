@@ -4,8 +4,8 @@
 [api (1).yml](<../.gitbook/assets/api (1).yml>)
 {% endswagger %}
 
-{% swagger src="../.gitbook/assets/api (2).yml" path="/logout" method="post" %}
-[api (2).yml](<../.gitbook/assets/api (2).yml>)
+{% swagger src="../.gitbook/assets/api (1).yml" path="/register" method="post" %}
+[api (1).yml](<../.gitbook/assets/api (1).yml>)
 {% endswagger %}
 
 {% swagger src="../.gitbook/assets/api (1).yml" path="/reset/{token}" method="put" %}
