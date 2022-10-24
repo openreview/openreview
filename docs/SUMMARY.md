@@ -37,7 +37,6 @@
     * [Exporting all Reviews into a CSV](getting-started/using-the-api/retrieving-posting-notes/exporting-all-reviews-into-a-csv.md)
   * [Invitations](getting-started/using-the-api/retrieving-posting-invitations/README.md)
     * [Changing the Expiration Date of the Submission Invitation](getting-started/using-the-api/retrieving-posting-invitations/changing-the-expiration-date-of-the-submission-invitation.md)
-    * [Getting all Submission Invitations](getting-started/using-the-api/invitations/getting-all-submission-invitations.md)
   * [Profiles](getting-started/using-the-api/profiles.md)
 * [Hosting a venue on OpenReview](getting-started/hosting-a-venue-on-openreview/README.md)
   * [Creating your Venue Instance: Submitting a Venue Request Form](getting-started/hosting-a-venue-on-openreview/creating-your-venue-instance-submitting-a-venue-request-form.md)
