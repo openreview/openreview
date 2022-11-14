@@ -5,7 +5,9 @@ If you enabled a Submission Revision Stage to allow authors to revise their subm
 If you need a way to see which authors have submitted camera-ready revisions, you can use the following code:&#x20;
 
 1. You will first need to [install and setup the python client](https://openreview-py.readthedocs.io/en/latest/how\_to\_setup.html).
-2. Next, retrieve all of the revision invitations for your venue. You will want to replace the regex with the submission revision invitation for your venue, which is your conference id + Paper.\*/-/ + the name you chose for your Submission Revision stage.&#x20;
+2. Next, retrieve all of the revision invitations for your venue. You will want to replace the super invitation with the submission revision invitation for your venue, which is your conference id + /-/ + the name you chose for your Submission Revision stage.&#x20;
+
+Note: if the deadline has passed for revisions, add the parameter `expired=True` to the call to get expired invitations.
 
 ```
 revision_invitations = list(openreview.tools.iterget_invitations(client, super = 'Your/Conference/ID/-/Camera_Ready_Revision'))
@@ -17,17 +19,17 @@ revision_invitations = list(openreview.tools.iterget_invitations(client, super =
 submissions_by_number = {p.number: p for p in client.get_all_notes(invitation = 'Your/Conference/ID/-/Submission')}
 ```
 
-Iterate through all of the camera-ready revision invitations and for each one, try to get the revisions made under that invitation. If there aren't any, add them to the dictionary revisions by forum. Finally, print the number of revision invitations vs the number of actually completed revisions so that you know how many papers are missing revisions.
+Iterate through all of the camera-ready revision invitations and for each one, try to get the revisions made under that invitation. If there aren't any, don't add them to the dictionary revisions by forum. Finally, print the number of revision invitations vs the number of actually completed revisions so that you know how many papers are missing revisions.
 
 ```
 revisions_by_forum = {}
 for invitation in revision_invitations: 
     number = int((invitation.id.split('/-/')[0]).split('Paper')[1])
     submission = submissions_by_number[number]
-    try:
-        references = client.get_references(referent = submission.id, invitation = invitation.id)
+    references = client.get_references(referent = submission.id, invitation = invitation.id)
+    if references:
         revisions_by_forum[submission.forum] = references
-    except: 
+    else:
         print(f'no revisions for {number}')
 print(f'Number of revision invitations: {len(revision_invitations)}')
 print(f'Number of revisions submitted: {len(revisions_by_forum.keys())}')
