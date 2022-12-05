@@ -19,6 +19,7 @@
   * [What is the max file size for uploads?](getting-started/frequently-asked-questions/what-is-the-max-file-size-for-uploads-1.md)
   * [Why are the "rating" and "confidence" fields in my PC Console wrong?](getting-started/frequently-asked-questions/why-are-the-rating-and-confidence-fields-in-my-pc-console-wrong.md)
   * [What should I do if my question is not answered here?](getting-started/frequently-asked-questions/what-should-i-do-if-my-question-is-not-answered-here.md)
+  * [My Profile is "Limited". What does that mean?](getting-started/frequently-asked-questions/my-profile-is-limited-.-what-does-that-mean.md)
 * [Using the API](getting-started/using-the-api/README.md)
   * [Installing and Instantiating the Python client](getting-started/using-the-api/installing-and-instantiating-the-python-client.md)
   * [Edges](getting-started/using-the-api/retrieving-posting-edges/README.md)
