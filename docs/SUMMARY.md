@@ -118,6 +118,7 @@
 
 * [Accepted Field Types](reference/accepted-field-types.md)
 * [API V1](reference/api-v1.md)
+* [API V2](reference/api-v2.md)
 * [OpenReview Entities](reference/openreview-entities/README.md)
   * [Invitation](reference/openreview-entities/invitation.md)
   * [Group](reference/openreview-entities/group.md)

@@ -32,10 +32,6 @@
 [api (1).yml](<../.gitbook/assets/api (1).yml>)
 {% endswagger %}
 
-{% swagger src="../.gitbook/assets/api (1).yml" path="/pdf/{id}" method="get" %}
-[api (1).yml](<../.gitbook/assets/api (1).yml>)
-{% endswagger %}
-
 {% swagger src="../.gitbook/assets/api (1).yml" path="/edges" method="get" %}
 [api (1).yml](<../.gitbook/assets/api (1).yml>)
 {% endswagger %}

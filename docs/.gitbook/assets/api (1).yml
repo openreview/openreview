@@ -568,6 +568,67 @@ paths:
       responses:
         '200':
           description: Attachment
+  /attachment/chunk:
+    put:
+      tags:
+        - Attachments
+      description: Upload an attachment chunk
+      operationId: uploadAttachmentChunk
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - file
+                - name
+                - invitationId
+                - clientUploadId
+                - chunkIndex
+                - totalChunks
+              properties:
+                file:
+                  type: string
+                  format: binary
+                name:
+                  description: Attachment field name. This is usually pdf or supplementary_material.
+                  type: string
+                  minLength: 1
+                invitationId:
+                  description: The id of the Invitation that allows to upload the attachment.
+                  type: string
+                  minLength: 1
+                clientUploadId:
+                  description: Unique id that identifies all the chunks to the same file.
+                  type: string
+                  minLength: 1
+                  maxLength: 25
+                chunkIndex:
+                  description: The index of the chunk.
+                  type: integer
+                  minimum: 0
+                totalChunks:
+                  description: The total number of chunks.
+                  type: integer
+                  minimum: 1
+      responses:
+        '200':
+          description: Path to the attachment.
+          content:
+            application/json:
+              schema:
+                anyOf:
+                  - type: object
+                    properties:
+                      url:
+                        type: string
+                  - type: object
+                    additionalProperties:
+                      type: string
+                      enum:
+                        - missing
+                        - completed
   /pdf:
     get:
       tags:
@@ -905,10 +966,14 @@ paths:
           in: query
           description: Profile ids
           schema:
-            type: array
-            items:
-              type: string
-              minLength: 1
+            anyOf:
+              - type: string
+                minLength: 1
+              - type: array
+                minItems: 1
+                items:
+                  type: string
+                  minLength: 1
         - name: email
           in: query
           description: Email associated with the Profile.
@@ -1065,10 +1130,14 @@ paths:
           in: query
           description: Profile ids.
           schema:
-            type: array
-            items:
-              type: string
-              minLength: 1
+            anyOf:
+              - type: string
+                minLength: 1
+              - type: array
+                minItems: 1
+                items:
+                  type: string
+                  minLength: 1
         - name: email
           in: query
           description: Email associated with the Profile.
@@ -1206,11 +1275,14 @@ paths:
           in: query
           description: Group ids.
           schema:
-            type: array
-            minItems: 1
-            items:
-              type: string
-              minLength: 1
+            anyOf:
+              - type: string
+                minLength: 1
+              - type: array
+                minItems: 1
+                items:
+                  type: string
+                  minLength: 1
         - name: regex
           in: query
           description: Group id regular expression.
@@ -1220,6 +1292,12 @@ paths:
         - name: member
           in: query
           description: Group id to get its transitive members.
+          schema:
+            type: string
+            minLength: 1
+        - name: members
+          in: query
+          description: Group id to get groups that the Group is member of.
           schema:
             type: string
             minLength: 1
@@ -1240,6 +1318,13 @@ paths:
           description: Group id that is writer of the returned Groups.
           schema:
             type: string
+            minLength: 1
+        - name: host
+          in: query
+          description: Host of the returned Groups.
+          schema:
+            type: string
+            nullable: true
             minLength: 1
         - name: select
           in: query
@@ -1272,6 +1357,11 @@ paths:
         - name: web
           in: query
           description: Whether to return web ui code
+          schema:
+            type: boolean
+        - name: stream
+          in: query
+          description: Whether to use a stream to process results or not.
           schema:
             type: boolean
         - name: cache
@@ -1465,6 +1555,7 @@ paths:
               - type: string
                 minLength: 1
               - type: array
+                minItems: 1
                 items:
                   type: string
                   minLength: 1
@@ -1518,10 +1609,56 @@ paths:
           in: query
           description: Note number.
           schema:
-            type: string
+            anyOf:
+              - type: integer
+                minimum: 1
+              - type: string
+                minLength: 1
+                pattern: '^([1-9][0-9]*,?)*[1-9][0-9]*$'
+              - type: array
+                minItems: 1
+                items:
+                  type: integer
+                  minimum: 1
         - name: content.title
           in: query
           description: Note title.
+          schema:
+            type: string
+            minLength: 1
+        - name: content.confidence
+          in: query
+          description: Note content confidence field value.
+          schema:
+            type: string
+            minLength: 1
+        - name: content.strengths
+          in: query
+          description: Note content strengths field value.
+          schema:
+            type: string
+            minLength: 1
+        - name: content.weaknesses
+          in: query
+          description: Note content weaknesses field value.
+          schema:
+            type: string
+            minLength: 1
+        - name: content.decision
+          in: query
+          description: Note content decision field value.
+          schema:
+            type: string
+            minLength: 1
+        - name: content.certifications
+          in: query
+          description: Note content certification field values.
+          schema:
+            type: string
+            minLength: 1
+        - name: content.previous_URL
+          in: query
+          description: Note content previous_URL field value.
           schema:
             type: string
             minLength: 1
@@ -1554,6 +1691,30 @@ paths:
           schema:
             type: string
             minLength: 1
+        - name: content.venue_id
+          in: query
+          description: Note venue_id.
+          schema:
+            type: string
+            minLength: 1
+        - name: content.presentation_type
+          in: query
+          description: Presentation Type.
+          schema:
+            type: string
+            minLength: 1
+        - name: content.sessions
+          in: query
+          description: Sessions.
+          schema:
+            type: string
+            minLength: 1
+        - name: content.track
+          in: query
+          description: Track.
+          schema:
+            type: string
+            minLength: 1
         - name: content.authorids
           in: query
           description: List of tilde ids of registered users or of emails either registered or not.
@@ -1579,12 +1740,6 @@ paths:
           schema:
             type: string
             example: das|go_for_a_walk_and_arrive_at_the_answer_reasoning_over_paths_in_knowledge_bases_using_reinforcement_learning.
-        - name: pdf
-          in: query
-          description: Get Note using pdf hash.
-          deprecated: true
-          schema:
-            type: string
         - name: tauthor
           in: query
           description: Get Notes authored by user.
@@ -1765,7 +1920,7 @@ paths:
             type: string
             minLength: 1
             default: all
-        - name: Group
+        - name: group
           in: query
           description: Group that the Invitation belongs to
           schema:
@@ -1790,13 +1945,13 @@ paths:
             example: ICLR.cc/2018/Conference/-/Submission
         - name: venue
           in: query
-          description: venue of the Note
+          description: Venue of the Note
           schema:
             type: string
             minLength: 1
         - name: venueid
           in: query
-          description: venue id of the Note
+          description: Venue id of the Note
           schema:
             type: string
             minLength: 1
@@ -1858,6 +2013,7 @@ paths:
               - type: string
                 minLength: 1
               - type: array
+                minItems: 1
                 items:
                   type: string
                   minLength: 1
@@ -1910,7 +2066,17 @@ paths:
           in: query
           description: Note number.
           schema:
-            type: string
+            anyOf:
+              - type: integer
+                minimum: 1
+              - type: string
+                minLength: 1
+                pattern: '^([1-9][0-9]*,?)*[1-9][0-9]*$'
+              - type: array
+                minItems: 1
+                items:
+                  type: integer
+                  minimum: 1
         - name: content.title
           in: query
           description: Note title.
@@ -2226,10 +2392,16 @@ paths:
             minLength: 1
         - name: ids
           in: query
-          description: Comma separated Invitation ids
+          description: Invitation ids
           schema:
-            type: string
-            minLength: 1
+            anyOf:
+              - type: string
+                minLength: 1
+              - type: array
+                minItems: 1
+                items:
+                  type: string
+                  minLength: 1
         - name: super
           in: query
           description: Super Invitation id
@@ -2450,12 +2622,16 @@ paths:
             type: string
         - name: ids
           in: query
-          description: comma separated Tag ids
+          description: Tag ids
           schema:
-            type: array
-            items:
-              type: string
-              minLength: 1
+            anyOf:
+              - type: string
+                minLength: 1
+              - type: array
+                minItems: 1
+                items:
+                  type: string
+                  minLength: 1
         - name: invitation
           in: query
           description: Invitation id used to create the Tag(s).
@@ -2921,6 +3097,9 @@ components:
           type: array
           items:
             type: string
+        host:
+          type: string
+          nullable: true
         web:
           type: string
           nullable: true
@@ -3436,6 +3615,8 @@ components:
             gender:
               type: string
               nullable: true
+            yearOfBirth:
+              type: integer
             homepage:
               type: string
             dblp:
@@ -3599,6 +3780,31 @@ components:
               $ref: '#/components/schemas/MetaContentSingleField'
             gender:
               $ref: '#/components/schemas/MetaContentSingleField'
+            yearOfBirth:
+              type: object
+              minProperties: 1
+              properties:
+                values:
+                  type: array
+                  minItems: 1
+                  maxItems: 1
+                  items:
+                    type: integer
+                    minLength: 1
+                weights:
+                  type: array
+                  minItems: 1
+                  maxItems: 1
+                  items:
+                    type: integer
+                signatures:
+                  type: array
+                  minItems: 1
+                  maxItems: 1
+                  items:
+                    type: string
+                    minLength: 1
+              additionalProperties: false
             homepage:
               $ref: '#/components/schemas/MetaContentSingleField'
             dblp:
@@ -3948,17 +4154,20 @@ components:
         values:
           type: array
           minItems: 1
+          maxItems: 1
           items:
             type: string
             minLength: 1
         weights:
           type: array
           minItems: 1
+          maxItems: 1
           items:
             type: integer
         signatures:
           type: array
           minItems: 1
+          maxItems: 1
           items:
             type: string
             minLength: 1

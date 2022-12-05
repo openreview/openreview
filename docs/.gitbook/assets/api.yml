@@ -32,16 +32,21 @@ paths:
                 - password
               properties:
                 id:
+                  description: Any confirmed email address that is associated to the OpenReview Profile.
                   type: string
+                  minLength: 1
                 password:
                   type: string
+                  minLength: 1
                 expiresIn:
+                  description: An optional parameter to determine the number of seconds before the assigned token expires.
                   type: integer
                   nullable: true
+                  minimum: 1
               additionalProperties: false
       responses:
         '200':
-          description: user token
+          description: An object containing the assigned token and the OpenReview Profile.
           content:
             application/json:
               schema:
@@ -49,7 +54,14 @@ paths:
                   token:
                     type: string
                   user:
-                    $ref: '#/components/schemas/Profile'
+                    type: object
+                    properties:
+                      id:
+                        description: Email used to log in.
+                        type: string
+                      profile:
+                        description: Simplified Profile of the user logged in user.
+                        $ref: '#/components/schemas/SimplifiedProfile'
           headers:
             Set-Cookie:
               schema:
@@ -77,6 +89,7 @@ paths:
                   - id
               properties:
                 email:
+                  description: Email that will be used to log in to OpenReview.
                   type: string
                   minLength: 1
                   maxLength: 254
@@ -86,7 +99,6 @@ paths:
                   type: object
                   required:
                     - first
-                    - last
                   properties:
                     first:
                       type: string
@@ -96,16 +108,17 @@ paths:
                       nullable: true
                     last:
                       type: string
-                      minLength: 1
                     preferred:
+                      description: A Profile can contain more than one object name. Setting this field to true will make this the preferred name.
                       type: boolean
                   additionalProperties: false
                 id:
+                  description: This is a Profile id. This parameter is only required when claiming an existing a Profile in OpenReview.
                   type: string
               additionalProperties: false
       responses:
         '200':
-          description: user token
+          description: The Profile that is saved to the database.
           content:
             application/json:
               schema:
@@ -144,7 +157,7 @@ paths:
     post:
       tags:
         - Users
-      description: Moderate a user profile
+      description: Moderate a user Profile
       operationId: moderateProfile
       requestBody:
         required: true
@@ -164,6 +177,9 @@ paths:
                     - reject
                     - block
                     - unblock
+                    - delete
+                    - restore
+                    - limit
                 sendMail:
                   type: boolean
                   nullable: true
@@ -292,7 +308,7 @@ paths:
                   type: string
       responses:
         '200':
-          description: user token
+          description: User is logged in after the password is reset.
           content:
             application/json:
               schema:
@@ -300,7 +316,14 @@ paths:
                   token:
                     type: string
                   user:
-                    $ref: '#/components/schemas/Profile'
+                    type: object
+                    properties:
+                      id:
+                        description: Email used to log in.
+                        type: string
+                      profile:
+                        description: Simplified Profile of the user logged in user.
+                        $ref: '#/components/schemas/SimplifiedProfile'
   /logout:
     post:
       tags:
@@ -309,7 +332,7 @@ paths:
       operationId: logout
       responses:
         '200':
-          description: user token
+          description: Empty object
           content:
             application/json:
               schema:
@@ -398,7 +421,7 @@ paths:
               additionalProperties: false
       responses:
         '200':
-          description: user token and profile
+          description: User token of the impersonated user and details of the impersonation.
           content:
             application/json:
               schema:
@@ -406,12 +429,30 @@ paths:
                   token:
                     type: string
                   user:
-                    $ref: '#/components/schemas/Profile'
+                    type: object
+                    properties:
+                      id:
+                        description: Email used to log in.
+                        type: string
+                      profile:
+                        description: Simplified Profile of the user logged in user.
+                        $ref: '#/components/schemas/SimplifiedProfile'
+                      impersonator:
+                        description: Simplified Profile information of the user that is impersonating.
+                        $ref: '#/components/schemas/SimplifiedProfile'
+                      disallowDataModification:
+                        description: Whether the user is allowed to modify data in OpenReview.
+                        type: boolean
+                      impersonatables:
+                        description: List of Group ids that can be impersonated by the logged in user.
+                        type: array
+                        items:
+                          type: 'string'
   /tildeusername:
     get:
       tags:
         - Users
-      description: Get the tilde username of a user
+      description: Gets the next available OpenReview username for the passed names.
       operationId: tildeUsername
       parameters:
         - name: first
@@ -431,7 +472,7 @@ paths:
             type: string
       responses:
         '200':
-          description: user token
+          description: Next available tilde username
           content:
             application/json:
               schema:
@@ -491,14 +532,16 @@ paths:
                   type: string
                   format: binary
                 name:
+                  description: Attachment field name. This is usually pdf or supplementary_material.
                   type: string
                   minLength: 1
                 invitationId:
+                  description: The id of the Invitation that allows to upload the attachment.
                   type: string
                   minLength: 1
       responses:
         '200':
-          description: attachment url
+          description: Path to the attachment.
           content:
             application/json:
               schema:
@@ -508,41 +551,102 @@ paths:
     get:
       tags:
         - Attachments
-      description: Get an attachment
+      description: Download an attachment
       operationId: getAttachment
       parameters:
         - name: id
           in: query
-          description: note id
+          description: Note id that contains the attachment.
           required: true
           schema:
             type: string
         - name: name
           in: query
-          description: attachment field name
+          description: Attachment field name inside the content of the Note. This is usually pdf or supplementary_material.
           required: true
           schema:
             type: string
       responses:
         '200':
-          description: attachment
+          description: Attachment
+  /attachment/chunk:
+    put:
+      tags:
+        - Attachments
+      description: Upload an attachment chunk
+      operationId: uploadAttachmentChunk
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - file
+                - name
+                - invitationId
+                - clientUploadId
+                - chunkIndex
+                - totalChunks
+              properties:
+                file:
+                  type: string
+                  format: binary
+                name:
+                  description: Attachment field name. This is usually pdf or supplementary_material.
+                  type: string
+                  minLength: 1
+                invitationId:
+                  description: The id of the Invitation that allows to upload the attachment.
+                  type: string
+                  minLength: 1
+                clientUploadId:
+                  description: Unique id that identifies all the chunks to the same file.
+                  type: string
+                  minLength: 1
+                  maxLength: 25
+                chunkIndex:
+                  description: The index of the chunk.
+                  type: integer
+                  minimum: 0
+                totalChunks:
+                  description: The total number of chunks.
+                  type: integer
+                  minimum: 1
+      responses:
+        '200':
+          description: Path to the attachment.
+          content:
+            application/json:
+              schema:
+                anyOf:
+                  - type: object
+                    properties:
+                      url:
+                        type: string
+                  - type: object
+                    additionalProperties:
+                      type: string
+                      enum:
+                        - missing
+                        - completed
   /pdf:
     get:
       tags:
         - Attachments
-      description: Get a PDF
+      description: Download a PDF
       operationId: getPdf
       parameters:
         - name: id
           in: query
-          description: note id
+          description: Note id that contains the PDF.
           required: true
           schema:
             type: string
             minLength: 1
       responses:
         '200':
-          description: pdf
+          description: PDF
   /pdf/{id}:
     get:
       tags:
@@ -552,7 +656,7 @@ paths:
       parameters:
         - name: id
           in: path
-          description: pdf id
+          description: PDF id. This is the value saved in the pdf field of the Note.
           required: true
           schema:
             type: string
@@ -568,22 +672,29 @@ paths:
       parameters:
         - name: noteId
           in: query
-          description: note id
+          description: Note id
           required: true
           schema:
             type: string
         - name: leftId
           in: query
-          description: reference id
+          description: Edit id
           required: true
           schema:
             type: string
         - name: rightId
           in: query
-          description: reference id
+          description: Edit id
           required: true
           schema:
             type: string
+        - name: field
+          in: query
+          description: field to compare
+          required: false
+          schema:
+            type: string
+            default: pdf
       responses:
         '200':
           description: pdf comparison
@@ -596,72 +707,66 @@ paths:
       parameters:
         - name: id
           in: query
-          description: edge id
+          description: Edge id
           schema:
             type: string
+            minLength: 1
         - name: limit
           in: query
-          description: number of edges to return
+          description: Maximum number of results to return.
           schema:
             type: integer
             minimum: 1
         - name: offset
           in: query
-          description: offset
+          description: Offset of the result shown.
           schema:
             type: integer
             minimum: 0
         - name: sort
           in: query
-          description: sort
-          schema:
-            type: string
-            minLength: 1
-        - name: id
-          in: query
-          description: edge id
+          description: Sort returned Edges by field.
           schema:
             type: string
             minLength: 1
         - name: invitation
           in: query
-          description: invitation id
+          description: Invitation id used to create the Edge(s).
           schema:
             type: string
             minLength: 1
         - name: head
           in: query
-          description: head id
+          description: head value of the Edge(s).
           schema:
             type: string
             minLength: 1
         - name: tail
           in: query
-          description: tail id
+          description: tail value of the Edge(s).
           schema:
             type: string
             minLength: 1
         - name: label
           in: query
-          description: label
+          description: label of the Edge(s).
           schema:
             type: string
             minLength: 1
-            nullable: true
         - name: trash
           in: query
-          description: trash
+          description: Whether to return deleted Edges as well.
           schema:
             type: boolean
         - name: groupBy
           in: query
-          description: group by
+          description: Group result by different Edge fields.
           schema:
             type: string
             minLength: 1
         - name: select
           in: query
-          description: select
+          description: Fields of the Edge to return in the result. Requires groupBy.
           schema:
             anyOf:
               - type: string
@@ -674,13 +779,14 @@ paths:
                   pattern: '[a-zA-Z0-9_]+'
         - name: details
           in: query
-          description: details
+          description: Comma separated values of fields to add to details. Valid values are head, tail, writable and all.
           schema:
+            example: 'head,tail'
             type: string
             minLength: 1
         - name: cache
           in: query
-          description: get result from cache
+          description: Get result from cache. Without the right privileges this parameter will be ignored.
           schema:
             type: boolean
       responses:
@@ -705,74 +811,11 @@ paths:
               $ref: '#/components/schemas/Edge'
       responses:
         '200':
-          description: edge
+          description: Edge
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Edge'
-    delete:
-      tags:
-        - Edges
-      description: Delete an edge
-      operationId: deleteEdge
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - invitation
-              properties:
-                id:
-                  type: string
-                  minLength: 1
-                invitation:
-                  type: string
-                  minLength: 1
-                label:
-                  type: string
-                  minLength: 1
-                tail:
-                  type: string
-                  minLength: 1
-                head:
-                  type: string
-                  minLength: 1
-                softDelete:
-                  type: boolean
-      responses:
-        '200':
-          description: edge
-          content:
-            application/json:
-              schema:
-                properties:
-                  status:
-                    type: string
-  /edges/bulk:
-    post:
-      tags:
-        - Edges
-      description: Create edges
-      operationId: createEdges
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Edge'
-      responses:
-        '200':
-          description: edges
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Edge'
   /edges/rename:
     post:
       tags:
@@ -803,11 +846,64 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Edge'
+  /edges/count:
+    get:
+      tags:
+        - Edges
+      description: Get edges count
+      operationId: getEdgesCount
+      parameters:
+        - name: id
+          in: query
+          description: Edge id
+          schema:
+            type: string
+            minLength: 1
+        - name: invitation
+          in: query
+          description: Invitation id used to create the Edge(s).
+          schema:
+            type: string
+            minLength: 1
+        - name: head
+          in: query
+          description: head value of the Edge(s).
+          schema:
+            type: string
+            minLength: 1
+        - name: tail
+          in: query
+          description: tail value of the Edge(s).
+          schema:
+            type: string
+            minLength: 1
+        - name: label
+          in: query
+          description: label of the Edge(s).
+          schema:
+            type: string
+            minLength: 1
+        - name: trash
+          in: query
+          description: Whether to return deleted Edges as well.
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: edges
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    minimum: 0
   /feedback:
     put:
       tags:
         - Feedback
-      description: Send feedback
+      description: Send feedback to the OpenReview team
       operationId: sendFeedback
       requestBody:
         required: true
@@ -820,12 +916,14 @@ paths:
                 - from
               properties:
                 from:
+                  description: Email address of the user sending the feedback.
                   type: string
                   minLength: 1
                 subject:
+                  description: Subject of the feedback.
                   type: string
-                  nullable: true
                 message:
+                  description: The feedback.
                   type: string
                   minLength: 1
               additionalProperties: false
@@ -848,131 +946,147 @@ paths:
       parameters:
         - name: id
           in: query
-          description: profile id
+          description: Profile id
           schema:
             type: string
             minLength: 1
+            pattern: '^~.*\d+$'
         - name: ids
           in: query
-          description: profile ids
+          description: Profile ids
           schema:
-            type: array
-            items:
-              type: string
-              minLength: 1
+            anyOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
+                  minLength: 1
+                  pattern: '^~.*\d+$'
         - name: email
           in: query
-          description: user email
+          description: Email associated with the Profile.
           schema:
             type: string
             minLength: 1
         - name: emails
           in: query
-          description: user emails
+          description: Email(s) associated with the Profile.
           schema:
             anyOf:
               - type: string
-                minLength: 1
               - type: array
                 items:
                   type: string
                   minLength: 1
         - name: confirmedEmail
           in: query
-          description: user email
+          description: Confirmed email associated with the Profile.
           schema:
             type: string
             minLength: 1
         - name: confirmedEmails
           in: query
-          description: user emails
+          description: Confirmed email(s) associated with the Profile.
           schema:
             anyOf:
               - type: string
-                minLength: 1
               - type: array
                 items:
                   type: string
                   minLength: 1
         - name: first
           in: query
-          description: user first name
+          description: First name associated with the Profile.
           schema:
             type: string
             minLength: 1
         - name: middle
           in: query
-          description: user middle name
+          description: Middle name associated with the Profile.
           schema:
             type: string
             nullable: true
         - name: last
           in: query
-          description: user last name
+          description: Last name associated with the Profile.
           schema:
             type: string
             minLength: 1
         - name: term
           in: query
-          description: name or email
+          description: Email, Fullname or part of the fullname associated with the Profile.
           schema:
             type: string
             minLength: 1
         - name: group
           in: query
-          description: group id where to get all the member profiles
+          description: Group id where to get all the member profiles.
           schema:
             type: string
             minLength: 1
         - name: trash
           in: query
-          description: trash
+          description: Whether to include deleted profiles.
           schema:
             type: boolean
         - name: withBlocked
           in: query
-          description: with blocked
+          description: Whether to include blocked profiles.
           schema:
             type: boolean
         - name: needsModeration
           in: query
-          description: needs moderation
+          description: Whether to return Profiles that need moderation.
           schema:
             type: boolean
         - name: select
           in: query
-          description: select
+          description: Comma separated string with specific fields of the Profile object to return.
           schema:
+            example: id,content.names,content.emails
             type: string
             minLength: 1
+        - name: state
+          in: query
+          description: State of the Profile.
+          schema:
+            type: string
+            enum:
+              - Inactive
+              - Needs Moderation
+              - Active Institutional
+              - Active Automatic
+              - Active
+              - Blocked
+              - Limited
+              - Merged
+              - Rejected
         - name: sort
           in: query
-          description: sort
+          description: Sort returned Profiles by field.
           schema:
             type: string
             minLength: 1
         - name: limit
           in: query
-          description: maximum number of results to return
+          description: Maximum number of results to return.
           schema:
             type: integer
-            format: int32
             minimum: 1
         - name: offset
           in: query
-          description: offset of the result shown
+          description: Offset of the result shown.
           schema:
             type: integer
-            format: int32
             minimum: 0
         - name: cache
           in: query
-          description: get result from cache
+          description: Get result from cache. Without the right privileges this parameter will be ignored.
           schema:
             type: boolean
       responses:
         '200':
-          description: profile response
+          description: Profile response
           content:
             application/json:
               schema:
@@ -982,10 +1096,10 @@ paths:
     post:
       tags:
         - Profiles
-      description: Save user profile
+      description: Save user Profile
       operationId: saveProfile
       requestBody:
-        description: Add a new piece of evidence to an existent profile.
+        description: Add a new piece of evidence to an existent Profile.
         required: true
         content:
           application/json:
@@ -993,7 +1107,7 @@ paths:
               $ref: '#/components/schemas/ProfileReference'
       responses:
         '200':
-          description: profile response
+          description: Profile response
           content:
             application/json:
               schema:
@@ -1007,131 +1121,302 @@ paths:
       parameters:
         - name: id
           in: query
-          description: profile id
+          description: Profile id
           schema:
             type: string
             minLength: 1
+            pattern: '^~.*\d+$'
         - name: ids
           in: query
-          description: profile ids
+          description: Profile ids
           schema:
-            type: array
-            items:
-              type: string
-              minLength: 1
+            anyOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
+                  minLength: 1
+                  pattern: '^~.*\d+$'
         - name: email
           in: query
-          description: user email
+          description: Email associated with the Profile.
           schema:
             type: string
             minLength: 1
         - name: emails
           in: query
-          description: user emails
+          description: Email(s) associated with the Profile.
           schema:
             anyOf:
               - type: string
-                minLength: 1
               - type: array
                 items:
                   type: string
                   minLength: 1
         - name: confirmedEmail
           in: query
-          description: user email
+          description: Confirmed email associated with the Profile.
           schema:
             type: string
             minLength: 1
         - name: confirmedEmails
           in: query
-          description: user emails
+          description: Confirmed email(s) associated with the Profile.
           schema:
             anyOf:
               - type: string
-                minLength: 1
               - type: array
                 items:
                   type: string
                   minLength: 1
         - name: first
           in: query
-          description: user first name
+          description: First name associated with the Profile.
           schema:
             type: string
             minLength: 1
         - name: middle
           in: query
-          description: user middle name
+          description: Middle name associated with the Profile.
           schema:
             type: string
             nullable: true
         - name: last
           in: query
-          description: user last name
+          description: Last name associated with the Profile.
           schema:
             type: string
             minLength: 1
         - name: term
           in: query
-          description: name or email
+          description: Email, Fullname or part of the fullname associated with the Profile.
           schema:
             type: string
             minLength: 1
         - name: group
           in: query
-          description: group id where to get all the member profiles
+          description: Group id where to get all the member profiles.
           schema:
             type: string
             minLength: 1
         - name: trash
           in: query
-          description: trash
+          description: Whether to include deleted profiles.
           schema:
             type: boolean
         - name: withBlocked
           in: query
-          description: with blocked
+          description: Whether to include blocked profiles.
           schema:
             type: boolean
         - name: needsModeration
           in: query
-          description: needs moderation
+          description: Whether to return Profiles that need moderation.
           schema:
             type: boolean
         - name: select
           in: query
-          description: select
+          description: Comma separated string with specific fields of the Profile object to return.
           schema:
+            example: id,content.names,content.emails
             type: string
             minLength: 1
+        - name: state
+          in: query
+          description: State of the Profile.
+          schema:
+            type: string
+            enum:
+              - Inactive
+              - Needs Moderation
+              - Active Institutional
+              - Active Automatic
+              - Active
+              - Blocked
+              - Limited
+              - Merged
+              - Rejected
         - name: sort
           in: query
-          description: sort
+          description: Sort returned Profiles by field.
           schema:
             type: string
             minLength: 1
         - name: limit
           in: query
-          description: maximum number of results to return
+          description: Maximum number of results to return.
           schema:
             type: integer
-            format: int32
             minimum: 1
         - name: offset
           in: query
-          description: offset of the result shown
+          description: Offset of the result shown.
           schema:
             type: integer
-            format: int32
             minimum: 0
         - name: cache
           in: query
-          description: get result from cache
+          description: Get result from cache. Without the right privileges this parameter will be ignored.
           schema:
             type: boolean
       responses:
         '200':
-          description: profile response
+          description: Profile response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Profile'
+    post:
+      tags:
+        - Profiles
+      description: Get user profiles
+      operationId: searchProfiles
+      parameters:
+        - name: id
+          in: query
+          description: Profile id
+          schema:
+            type: string
+            minLength: 1
+            pattern: '^~.*\d+$'
+        - name: ids
+          in: query
+          description: Profile ids
+          schema:
+            anyOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
+                  minLength: 1
+                  pattern: '^~.*\d+$'
+        - name: email
+          in: query
+          description: Email associated with the Profile.
+          schema:
+            type: string
+            minLength: 1
+        - name: emails
+          in: query
+          description: Email(s) associated with the Profile.
+          schema:
+            anyOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
+                  minLength: 1
+        - name: confirmedEmail
+          in: query
+          description: Confirmed email associated with the Profile.
+          schema:
+            type: string
+            minLength: 1
+        - name: confirmedEmails
+          in: query
+          description: Confirmed email(s) associated with the Profile.
+          schema:
+            anyOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
+                  minLength: 1
+        - name: first
+          in: query
+          description: First name associated with the Profile.
+          schema:
+            type: string
+            minLength: 1
+        - name: middle
+          in: query
+          description: Middle name associated with the Profile.
+          schema:
+            type: string
+            nullable: true
+        - name: last
+          in: query
+          description: Last name associated with the Profile.
+          schema:
+            type: string
+            minLength: 1
+        - name: term
+          in: query
+          description: Email, Fullname or part of the fullname associated with the Profile.
+          schema:
+            type: string
+            minLength: 1
+        - name: group
+          in: query
+          description: Group id where to get all the member profiles.
+          schema:
+            type: string
+            minLength: 1
+        - name: trash
+          in: query
+          description: Whether to include deleted profiles.
+          schema:
+            type: boolean
+        - name: withBlocked
+          in: query
+          description: Whether to include blocked profiles.
+          schema:
+            type: boolean
+        - name: needsModeration
+          in: query
+          description: Whether to return Profiles that need moderation.
+          schema:
+            type: boolean
+        - name: select
+          in: query
+          description: Comma separated string with specific fields of the Profile object to return.
+          schema:
+            example: id,content.names,content.emails
+            type: string
+            minLength: 1
+        - name: state
+          in: query
+          description: State of the Profile.
+          schema:
+            type: string
+            enum:
+              - Inactive
+              - Needs Moderation
+              - Active Institutional
+              - Active Automatic
+              - Active
+              - Blocked
+              - Limited
+              - Merged
+              - Rejected
+        - name: sort
+          in: query
+          description: Sort returned Profiles by field.
+          schema:
+            type: string
+            minLength: 1
+        - name: limit
+          in: query
+          description: Maximum number of results to return.
+          schema:
+            type: integer
+            minimum: 1
+        - name: offset
+          in: query
+          description: Offset of the result shown.
+          schema:
+            type: integer
+            minimum: 0
+        - name: cache
+          in: query
+          description: Get result from cache. Without the right privileges this parameter will be ignored.
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Profile response
           content:
             application/json:
               schema:
@@ -1147,88 +1432,113 @@ paths:
       parameters:
         - name: id
           in: query
-          description: group id
+          description: Group id.
           schema:
             type: string
             minLength: 1
         - name: ids
           in: query
-          description: group id
+          description: Group ids.
           schema:
-            type: array
-            minItems: 1
-            items:
-              type: string
-              minLength: 1
-        - name: regex
+            anyOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
+                  minLength: 1
+        - name: prefix
           in: query
-          description: group id regular expression
+          description: Group id prefix.
+          schema:
+            type: string
+            minLength: 1
+        - name: parent
+          in: query
+          description: Group parent.
           schema:
             type: string
             minLength: 1
         - name: member
           in: query
-          description: group id
+          description: Group id to get its transitive members.
+          schema:
+            type: string
+            minLength: 1
+        - name: members
+          in: query
+          description: Group id to get groups that the Group is member of.
           schema:
             type: string
             minLength: 1
         - name: signature
           in: query
-          description: group id
+          description: Group id used to sign the returned Groups.
           schema:
             type: string
             minLength: 1
         - name: signatory
           in: query
-          description: group id
+          description: Group id that can is allowed to sign with the returned Groups.
           schema:
             type: string
             minLength: 1
         - name: writer
           in: query
-          description: group id
+          description: Group id that is writer of the returned Groups.
           schema:
             type: string
             minLength: 1
+        - name: host
+          in: query
+          description: Host of the returned Groups.
+          schema:
+            type: string
+            nullable: true
+            minLength: 1
         - name: select
           in: query
-          description: group id
+          description: Comma separated string with specific fields of the Group object to return.
           schema:
+            example: id,members
             type: string
             minLength: 1
         - name: details
           in: query
-          description: group id
+          description: Comma separated values of fields to add to details. Valid value is writable.
           schema:
+            example: writable
             type: string
             minLength: 1
         - name: limit
           in: query
-          description: maximum number of results to return
+          description: Maximum number of results to return.
           schema:
             type: integer
-            format: int32
             minimum: 1
         - name: offset
           in: query
-          description: offset of the result shown
+          description: Offset of the result shown.
           schema:
             type: integer
-            format: int32
             minimum: 0
         - name: web
           in: query
-          description: return web ui code
+          description: Whether to return web ui code
+          schema:
+            type: boolean
+        - name: stream
+          in: query
+          description: Whether to use a stream to process results or not.
           schema:
             type: boolean
         - name: cache
           in: query
-          description: get result from cache
+          description: Get result from cache. Without the right privileges this parameter will be ignored.
           schema:
             type: boolean
       responses:
         '200':
-          description: group response
+          description: Group response
           content:
             application/json:
               schema:
@@ -1244,7 +1554,7 @@ paths:
     post:
       tags:
         - Groups
-      description: Creates or edit a group
+      description: Creates or edit a Group
       operationId: saveGroup
       requestBody:
         description: Group object
@@ -1265,7 +1575,7 @@ paths:
                 - ~Super_User1
       responses:
         '200':
-          description: group response
+          description: Group response
           content:
             application/json:
               schema:
@@ -1276,45 +1586,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-    delete:
-      tags:
-        - Groups
-      description: Deletes a group
-      operationId: deleteGroup
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - id
-              properties:
-                id:
-                  type: string
-                  minLength: 1
-      responses:
-        '200':
-          description: group response
-          content:
-            application/json:
-              schema:
-                properties:
-                  status:
-                    type: string
-                    enum:
-                      - ok
-        default:
-          description: Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
   /groups/members:
     put:
       tags:
         - Groups
-      description: Adds members to a group
+      description: Adds members to a Group
       operationId: addMembersToGroup
       requestBody:
         description: Group object
@@ -1327,9 +1603,11 @@ paths:
                 - members
               properties:
                 id:
+                  description: Group id to which memebers will be added.
                   type: string
                   minLength: 1
                 members:
+                  description: Members to add to the Group.
                   type: array
                   minItems: 1
                   items:
@@ -1338,7 +1616,7 @@ paths:
               additionalProperties: false
       responses:
         '200':
-          description: group response
+          description: Group response
           content:
             application/json:
               schema:
@@ -1349,38 +1627,285 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-    delete:
+  /groups/edits:
+    get:
       tags:
-        - Groups
-      description: Removes members from a group
-      operationId: removeMembersFromGroup
+        - GroupEdits
+      description: Returns all the Group Edits by filter.
+      operationId: getNoteEdits
+      parameters:
+        - name: id
+          in: query
+          description: Edit id.
+          schema:
+            type: string
+            minLength: 1
+        - name: ids
+          in: query
+          description: Edit ids.
+          schema:
+            anyOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
+                  minLength: 1
+        - name: group.id
+          in: query
+          description: Group id that the Edits have edited.
+          schema:
+            type: string
+            minLength: 1
+        - name: invitation
+          in: query
+          description: Invitation id used to create the Edit(s).
+          schema:
+            type: string
+            minLength: 1
+        - name: trash
+          in: query
+          description: Whether to get deleted Group Edits.
+          schema:
+            type: boolean
+        - name: tauthor
+          in: query
+          description: Get Edits authored by user.
+          schema:
+            type: boolean
+        - name: writer
+          in: query
+          description: Get Edits written by user.
+          schema:
+            type: string
+            minLength: 1
+        - name: signatures
+          in: query
+          description: Get Edits signed by users.
+          schema:
+            anyOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
+                  minLength: 1
+        - name: select
+          in: query
+          description: Comma separated string with specific fields of the Note Edit object to return.
+          schema:
+            example: 'id,content.title,content.abstract'
+            type: string
+            minLength: 1
+        - name: details
+          in: query
+          description: |
+            Comma separated values of fields to add to details. Valid values are
+            writable, invitation, and all
+          schema:
+            type: string
+            minLength: 1
+            example: all
+        - name: sort
+          in: query
+          description: Sort returned Edits by field.
+          schema:
+            type: string
+            minLength: 1
+        - name: limit
+          in: query
+          description: Maximum number of results to return.
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: Offset of the result shown.
+          schema:
+            type: integer
+        - name: cache
+          in: query
+          description: Get result from cache. Without the right privileges this parameter will be ignored.
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Edit Group response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GroupEditGet'
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - GroupEdits
+      description: Create or edit a Group Edit
+      operationId: createNoteEdit
       requestBody:
-        description: Group object
+        description: Group Edit object
         required: true
         content:
           application/json:
             schema:
-              required:
-                - id
-                - members
-              properties:
-                id:
-                  type: string
-                  minLength: 1
-                members:
-                  type: array
-                  minItems: 1
-                  items:
-                    type: string
-                    minLength: 1
-              additionalProperties: false
+              $ref: '#/components/schemas/GroupEditPost'
       responses:
         '200':
-          description: group response
+          description: Group Edit response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Group'
+                $ref: '#/components/schemas/GroupEditPost'
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /notes/edits:
+    get:
+      tags:
+        - NoteEdits
+      description: Returns all the Note Edits by filter.
+      operationId: getNoteEdits
+      parameters:
+        - name: id
+          in: query
+          description: Edit id.
+          schema:
+            type: string
+            minLength: 1
+        - name: ids
+          in: query
+          description: Edit ids.
+          schema:
+            anyOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
+                  minLength: 1
+        - name: note.id
+          in: query
+          description: Note id that the Edits have edited.
+          schema:
+            type: string
+            minLength: 1
+        - name: invitation
+          in: query
+          description: Invitation id used to create the Edit(s).
+          schema:
+            type: string
+            minLength: 1
+            example: ICLR.cc/2018/Conference/-/Blind_Submission
+        - name: trash
+          in: query
+          description: Whether to get deleted Note Edits.
+          schema:
+            type: boolean
+        - name: tauthor
+          in: query
+          description: Get Edits authored by user.
+          schema:
+            type: boolean
+        - name: writer
+          in: query
+          description: Get Edits written by user.
+          schema:
+            type: string
+            minLength: 1
+        - name: signatures
+          in: query
+          description: Get Edits signed by users.
+          schema:
+            anyOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
+                  minLength: 1
+        - name: original
+          in: query
+          description: get Edits that are originals
+          schema:
+            anyOf:
+              - type: boolean
+              - type: string
+                minLength: 1
+        - name: select
+          in: query
+          description: Comma separated string with specific fields of the Note Edit object to return.
+          schema:
+            example: 'id,content.title,content.abstract'
+            type: string
+            minLength: 1
+        - name: details
+          in: query
+          description: |
+            Comma separated values of fields to add to details. Valid values are
+            writable, invitation, presentation, and all
+          schema:
+            type: string
+            minLength: 1
+            example: all
+        - name: sort
+          in: query
+          description: Sort returned Edits by field.
+          schema:
+            type: string
+            minLength: 1
+        - name: limit
+          in: query
+          description: Maximum number of results to return.
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: Offset of the result shown.
+          schema:
+            type: integer
+        - name: cache
+          in: query
+          description: Get result from cache. Without the right privileges this parameter will be ignored.
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Edit Note response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NoteEditGet'
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - NoteEdits
+      description: Create or edit a Note Edit
+      operationId: createNoteEdit
+      requestBody:
+        description: Note Edit object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NoteEditPost'
+      responses:
+        '200':
+          description: Note Edit response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoteEditPost'
         default:
           description: Error
           content:
@@ -1391,102 +1916,184 @@ paths:
     get:
       tags:
         - Notes
-      description: Returns all the notes by filter
+      description: Returns all the Notes by filter.
       operationId: getNotes
       parameters:
         - name: id
           in: query
-          description: note id
+          description: Note id.
           schema:
             type: string
             minLength: 1
         - name: ids
           in: query
-          description: note ids
+          description: Note ids.
           schema:
             anyOf:
               - type: string
-                minLength: 1
               - type: array
                 items:
                   type: string
                   minLength: 1
         - name: invitation
           in: query
-          description: invitation id
+          description: Invitation id used to create the Note(s).
           schema:
             type: string
             minLength: 1
             example: ICLR.cc/2018/Conference/-/Blind_Submission
         - name: invitations
           in: query
-          description: invitation ids
+          description: Invitation ids.
           schema:
             anyOf:
               - type: string
-                minLength: 1
               - type: array
                 items:
                   type: string
                   minLength: 1
         - name: referent
           in: query
-          description: reference referent
+          description: Reference referent.
           schema:
             type: string
             minLength: 1
         - name: forum
           in: query
-          description: forum id
+          description: Note id of the forum field.
           schema:
             anyOf:
               - type: string
-                minLength: 1
               - type: array
                 items:
                   type: string
                   minLength: 1
         - name: replyto
           in: query
-          description: forum id
+          description: Note id of the replyto field.
           schema:
             anyOf:
               - type: string
-                minLength: 1
               - type: array
                 items:
                   type: string
                   minLength: 1
         - name: number
           in: query
-          description: note number
+          description: Note number.
           schema:
-            type: string
+            anyOf:
+              - type: integer
+                minimum: 1
+              - type: string
+                minLength: 1
+                pattern: '^([1-9][0-9]*,?)*[1-9][0-9]*$'
+              - type: array
+                minItems: 1
+                items:
+                  type: integer
+                  minimum: 1
         - name: content.title
           in: query
-          description: note title
+          description: Note title.
+          schema:
+            type: string
+            minLength: 1
+        - name: content.confidence
+          in: query
+          description: Note content confidence field value.
+          schema:
+            type: string
+            minLength: 1
+        - name: content.strengths
+          in: query
+          description: Note content strengths field value.
+          schema:
+            type: string
+            minLength: 1
+        - name: content.weaknesses
+          in: query
+          description: Note content weaknesses field value.
+          schema:
+            type: string
+            minLength: 1
+        - name: content.decision
+          in: query
+          description: Note content decision field value.
+          schema:
+            type: string
+            minLength: 1
+        - name: content.certifications
+          in: query
+          description: Note content certification field values.
+          schema:
+            type: string
+            minLength: 1
+        - name: content.previous_URL
+          in: query
+          description: Note content previous_URL field value.
+          schema:
+            type: string
+            minLength: 1
+        - name: content.user
+          in: query
+          description: User email in recruitment.
+          schema:
+            type: string
+            minLength: 1
+        - name: content.response
+          in: query
+          description: User response in recruitment.
+          schema:
+            type: string
+            minLength: 1
+        - name: content.submission_id
+          in: query
           schema:
             type: string
             minLength: 1
         - name: content.venue
           in: query
-          description: note venue
+          description: Note venue.
           schema:
             type: string
             minLength: 1
         - name: content.venueid
           in: query
-          description: note venueid
+          description: Note venueid.
+          schema:
+            type: string
+            minLength: 1
+        - name: content.venue_id
+          in: query
+          description: Note venue_id.
+          schema:
+            type: string
+            minLength: 1
+        - name: content.presentation_type
+          in: query
+          description: Presentation Type.
+          schema:
+            type: string
+            minLength: 1
+        - name: content.sessions
+          in: query
+          description: Sessions.
+          schema:
+            type: string
+            minLength: 1
+        - name: content.track
+          in: query
+          description: Track.
           schema:
             type: string
             minLength: 1
         - name: content.authorids
           in: query
-          description: tilde id of a user
+          description: List of tilde ids of registered users or of emails either registered or not.
           schema:
             anyOf:
               - type: string
-                minLength: 1
                 example: ~Andrew_McCallum1
               - type: array
                 items:
@@ -1494,51 +2101,51 @@ paths:
                   minLength: 1
         - name: trash
           in: query
-          description: get notes deleted too
+          description: Whether to get deleted Notes.
           schema:
             type: boolean
-            nullable: true
         - name: paperhash
           in: query
-          description: paperhash of the note if exists
+          description: paperhash of the Note if exists.
           deprecated: true
           schema:
             type: string
-            example: das|go_for_a_walk_and_arrive_at_the_answer_reasoning_over_paths_in_knowledge_bases_using_reinforcement_learning
-        - name: pdf
-          in: query
-          description: get note using pdf hash
-          deprecated: true
-          schema:
-            type: string
+            example: das|go_for_a_walk_and_arrive_at_the_answer_reasoning_over_paths_in_knowledge_bases_using_reinforcement_learning.
         - name: tauthor
           in: query
-          description: get notes authored by user
+          description: Get Notes authored by user.
           schema:
             type: boolean
         - name: writer
           in: query
-          description: get notes written by user
+          description: Get Notes written by user.
           schema:
             type: string
             minLength: 1
         - name: signature
           in: query
-          description: get notes signed by user
+          description: Get Notes signed by user.
           schema:
             type: string
             minLength: 1
+        - name: transitiveMembers
+          in: query
+          description: Include transitive members of signature if it's passed as a parameter.
+          schema:
+            type: boolean
         - name: signatures
           in: query
-          description: get notes signed by users
+          description: Get Notes signed by users.
           schema:
-            type: array
-            items:
-              type: string
-              minLength: 1
+            anyOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
+                  minLength: 1
         - name: original
           in: query
-          description: get notes that are originals
+          description: get Notes that are originals
           schema:
             anyOf:
               - type: boolean
@@ -1546,15 +2153,16 @@ paths:
                 minLength: 1
         - name: select
           in: query
-          description: comma separated values of fields to return
+          description: Comma separated string with specific fields of the Note object to return.
           schema:
+            example: 'id,content.title,content.abstract'
             type: string
             minLength: 1
         - name: details
           in: query
           description: |
-            comma separated values with the field that we want to add to the details, like:
-            original, tags, revisions, overwritten, writable, replyCount.
+            Comma separated values of fields to add to details. Valid values are
+            replyCount, original, overwriting, revisions, writable, forumContent, tags, revisions, invitation, directReplyCount, directReplies, replies, and all
           schema:
             type: string
             minLength: 1
@@ -1577,79 +2185,34 @@ paths:
             type: boolean
         - name: sort
           in: query
-          description: sort by field
+          description: Sort returned Notes by field.
           schema:
             type: string
             minLength: 1
         - name: limit
           in: query
-          description: maximum number of results to return
+          description: Maximum number of results to return.
           schema:
             type: integer
-            format: int32
         - name: offset
           in: query
-          description: maximum number of results to return
+          description: Offset of the result shown.
           schema:
             type: integer
-            format: int32
         - name: cache
           in: query
-          description: get result from cache
+          description: Get result from cache. Without the right privileges this parameter will be ignored.
           schema:
             type: boolean
       responses:
         '200':
-          description: note response
+          description: Note response
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: '#/components/schemas/Note'
-        default:
-          description: Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    post:
-      tags:
-        - Notes
-      description: Create a note or reference, edit a note or reference
-      operationId: createNote
-      requestBody:
-        description: Note object
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Note'
-            example:
-              invitation: ICLR.cc/2018/Conference/-/Submission
-              content:
-                title: Paper title
-                abstract: Paper abstract
-                authors:
-                  - Author name 1
-                  - Author name 2
-                authorids:
-                  - author1@mail.com
-                  - author2@mail.com
-                pdf: /pdf/12345.pdf
-              readers:
-                - everyone
-              writers:
-                - ICLR.cc/2018/Conference
-              signatures:
-                - ~Super_User1
-      responses:
-        '200':
-          description: note response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Note'
         default:
           description: Error
           content:
@@ -1660,24 +2223,24 @@ paths:
     get:
       tags:
         - Notes
-      description: Search notes
+      description: Search Notes
       operationId: searchNotes
       parameters:
         - name: query
           in: query
-          description: search query
+          description: Search query that that looks inside some of the fields in the content of the Note.
           schema:
             type: string
             minLength: 1
         - name: term
           in: query
-          description: search term
+          description: Search term that that looks inside some of the fields in the content of the Note.
           schema:
             type: string
             minLength: 1
         - name: type
           in: query
-          description: search type
+          description: Search type
           schema:
             type: string
             enum:
@@ -1685,20 +2248,20 @@ paths:
               - terms
         - name: content
           in: query
-          description: search content
+          description: Fields inside content to look for the term.
           schema:
             type: string
             minLength: 1
             default: all
         - name: group
           in: query
-          description: group that the invitation belongs to
+          description: Group that the Invitation belongs to
           schema:
             type: string
             minLength: 1
         - name: source
           in: query
-          description: source of the note
+          description: Source of the Note
           schema:
             type: string
             default: all
@@ -1708,276 +2271,52 @@ paths:
               - all
         - name: invitation
           in: query
-          description: invitation id
+          description: Invitation id used to create the Note(s).
           schema:
             type: string
             minLength: 1
             example: ICLR.cc/2018/Conference/-/Submission
         - name: venue
           in: query
-          description: venue of the note
+          description: Venue of the Note
           schema:
             type: string
             minLength: 1
         - name: venueid
           in: query
-          description: venue id of the note
+          description: Venue id of the Note
           schema:
             type: string
             minLength: 1
         - name: sort
           in: query
-          description: sort by field
+          description: Sort returned Notes by field.
           schema:
             type: string
             minLength: 1
             example: tmdate:desc
         - name: limit
           in: query
-          description: maximum number of results to return
+          description: Maximum number of results to return.
           schema:
             type: integer
-            format: int32
         - name: offset
           in: query
-          description: maximum number of results to return
+          description: Offset of the result shown.
           schema:
             type: integer
-            format: int32
         - name: cache
           in: query
-          description: get result from cache
+          description: Get result from cache. Without the right privileges this parameter will be ignored.
           schema:
             type: boolean
       responses:
         '200':
-          description: note response
+          description: Note response
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Note'
-        default:
-          description: Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /references:
-    get:
-      tags:
-        - References
-      description: Returns all the references by filter
-      operationId: getReferences
-      parameters:
-        - name: id
-          in: query
-          description: reference id
-          schema:
-            type: string
-            minLength: 1
-        - name: ids
-          in: query
-          description: reference ids
-          schema:
-            anyOf:
-              - type: string
-                minLength: 1
-              - type: array
-                items:
-                  type: string
-                  minLength: 1
-        - name: invitation
-          in: query
-          description: invitation id
-          schema:
-            type: string
-            minLength: 1
-        - name: invitations
-          in: query
-          description: invitation ids
-          schema:
-            anyOf:
-              - type: string
-                minLength: 1
-              - type: array
-                items:
-                  type: string
-                  minLength: 1
-        - name: referent
-          in: query
-          description: reference referent
-          schema:
-            type: string
-            minLength: 1
-        - name: forum
-          in: query
-          description: forum id
-          schema:
-            anyOf:
-              - type: string
-                minLength: 1
-              - type: array
-                items:
-                  type: string
-                  minLength: 1
-        - name: replyto
-          in: query
-          description: forum id
-          schema:
-            anyOf:
-              - type: string
-                minLength: 1
-              - type: array
-                items:
-                  type: string
-                  minLength: 1
-        - name: number
-          in: query
-          description: note number
-          schema:
-            type: string
-        - name: content.title
-          in: query
-          description: note title
-          schema:
-            type: string
-            minLength: 1
-        - name: content.venue
-          in: query
-          description: note venue
-          schema:
-            type: string
-            minLength: 1
-        - name: content.venueid
-          in: query
-          description: note venueid
-          schema:
-            type: string
-            minLength: 1
-        - name: content.authorids
-          in: query
-          description: tilde id of a user
-          schema:
-            anyOf:
-              - type: string
-                minLength: 1
-              - type: array
-                items:
-                  type: string
-                  minLength: 1
-        - name: trash
-          in: query
-          description: get notes deleted too
-          schema:
-            type: boolean
-            nullable: true
-        - name: paperhash
-          in: query
-          description: paperhash of the note if exists
-          deprecated: true
-          schema:
-            type: string
-        - name: pdf
-          in: query
-          description: get note using pdf hash
-          deprecated: true
-          schema:
-            type: string
-        - name: tauthor
-          in: query
-          description: get notes authored by user
-          schema:
-            type: boolean
-        - name: writer
-          in: query
-          description: get notes written by user
-          schema:
-            type: string
-            minLength: 1
-        - name: signature
-          in: query
-          description: get notes signed by user
-          schema:
-            type: string
-            minLength: 1
-        - name: signatures
-          in: query
-          description: get notes signed by users
-          schema:
-            type: array
-            items:
-              type: string
-              minLength: 1
-        - name: original
-          in: query
-          description: get notes that are originals
-          schema:
-            anyOf:
-              - type: boolean
-              - type: string
-                minLength: 1
-        - name: select
-          in: query
-          description: comma separated values of fields to return
-          schema:
-            type: string
-            minLength: 1
-        - name: details
-          in: query
-          description: |
-            comma separated values with the field that we want to add to the details, like:
-            original, tags, revisions, overwritten, writable, replyCount.
-          schema:
-            type: string
-            minLength: 1
-        - name: invitee
-          in: query
-          description: invitee
-          schema:
-            type: boolean
-        - name: mintcdate
-          in: query
-          description: minimum creation date
-          schema:
-            type: integer
-            minimum: 0
-        - name: duedate
-          in: query
-          description: due date
-          schema:
-            type: boolean
-        - name: sort
-          in: query
-          description: sort by field
-          schema:
-            type: string
-            minLength: 1
-        - name: limit
-          in: query
-          description: maximum number of results to return
-          schema:
-            type: integer
-            format: int32
-        - name: offset
-          in: query
-          description: maximum number of results to return
-          schema:
-            type: integer
-            format: int32
-        - name: cache
-          in: query
-          description: get result from cache
-          schema:
-            type: boolean
-      responses:
-        '200':
-          description: note response
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Note'
         default:
           description: Error
           content:
@@ -2010,7 +2349,7 @@ paths:
       parameters:
         - name: id
           in: query
-          description: note id
+          description: Note id
           required: true
           schema:
             type: string
@@ -2023,153 +2362,197 @@ paths:
       responses:
         '200':
           description: attachment
-  # /notes/search:
-#     get:
-#       tags:
-#         - Search
-#       description: |
-#         Search notes
-#       operationId: searchNotes
-#       parameters:
-#         - name: term
-#           in: query
-#           description: search term with length greater than 3
-#           required: false
-#           schema:
-#             type: string
-#         - name: query
-#           in: query
-#           description: Elastic Search query syntax
-#           required: false
-#           schema:
-#             type: string
-#         - name: content
-#           in: query
-#           description: filter by content, all, authors, tags or keywords
-#           required: false
-#           schema:
-#             type: string
-#         - name: group
-#           in: query
-#           description: group id to filter
-#           required: false
-#           schema:
-#             type: string
-#         - name: source
-#           in: query
-#           description: filter by source of note, all, forum, reply
-#           required: false
-#           schema:
-#             type: string
-#         - name: type
-#           in: query
-#           description: search type (either prefix or terms)
-#           required: false
-#           schema:
-#             type: string
-#             enum: [prefix, terms]
-#             default: prefix
-#         - name: limit
-#           in: query
-#           description: maximum number of results to return
-#           required: false
-#           schema:
-#             type: integer
-#             format: int32
-#             default: 1000
-#         - name: offset
-#           in: query
-#           description: maximum number of results to return
-#           required: false
-#           schema:
-#             type: integer
-#             format: int32
-#             default: 0
-#       responses:
-#         '200':
-#           description: note response
-#           content:
-#             application/json:
-#               schema:
-#                 type: array
-#                 items:
-#                   $ref: '#/components/schemas/Note'
-#         default:
-#           description: Error
-#           content:
-#             application/json:
-#               schema:
-#                 $ref: '#/components/schemas/Error'
-#     post:
-#       tags:
-#         - Search
-#       description: |
-#         Search notes
-#       operationId: searchNotesById
-#       requestBody:
-#         required: true
-#         content:
-#           application/json:
-#             schema:
-#               type: object
-#               properties:
-#                 ids:
-#                   type: array
-#                   items:
-#                     type: string
-#               example:
-#                 ids:
-#                   - ByBxBkhsG
-#                   - BklxUBsiG
-#       responses:
-#         '200':
-#           description: note response
-#           content:
-#             application/json:
-#               schema:
-#                 type: array
-#                 items:
-#                   $ref: '#/components/schemas/Note'
-#         default:
-#           description: Error
-#           content:
-#             application/json:
-#               schema:
-#                 $ref: '#/components/schemas/Error'
-  /invitations:
+  /invitations/edits:
     get:
       tags:
-        - Invitations
-      description: Returns invitations
-      operationId: getInvitations
+        - Invitation Edits
+      description: Returns Invitation Edits
+      operationId: getInvitationEdits
       parameters:
         - name: id
           in: query
-          description: invitation id
+          description: Edit id.
           schema:
             type: string
             minLength: 1
         - name: ids
           in: query
-          description: comma separated invitation ids
+          description: Edit ids.
+          schema:
+            anyOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
+                  minLength: 1
+        - name: invitation.id
+          in: query
+          description: Invitation id that the Edits have edited.
           schema:
             type: string
             minLength: 1
-        - name: super
+        - name: invitation
           in: query
-          description: super invitation id
+          description: Invitation id used to create the Edit(s).
           schema:
             type: string
             minLength: 1
-        - name: regex
+            example: ICLR.cc/2018/Conference/-/Blind_Submission
+        - name: trash
           in: query
-          description: invitation id regular expression
+          description: Whether to get deleted Invitation Edits.
+          schema:
+            type: boolean
+        - name: tauthor
+          in: query
+          description: Get Edits authored by user.
+          schema:
+            type: boolean
+        - name: writer
+          in: query
+          description: Get Edits written by user.
+          schema:
+            type: string
+            minLength: 1
+        - name: signatures
+          in: query
+          description: Get Edits signed by users.
+          schema:
+            anyOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
+                  minLength: 1
+        - name: original
+          in: query
+          description: get Edits that are originals
+          schema:
+            anyOf:
+              - type: boolean
+              - type: string
+                minLength: 1
+        - name: select
+          in: query
+          description: Comma separated string with specific fields of the Invitation Edit object to return.
+          schema:
+            example: 'id,content.title,content.abstract'
+            type: string
+            minLength: 1
+        - name: details
+          in: query
+          description: |
+            Comma separated values of fields to add to details. Valid values are
+            writable, invitation, presentation, and all
+          schema:
+            type: string
+            minLength: 1
+            example: all
+        - name: sort
+          in: query
+          description: Sort returned Edits by field.
+          schema:
+            type: string
+            minLength: 1
+        - name: limit
+          in: query
+          description: Maximum number of results to return.
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: Offset of the result shown.
+          schema:
+            type: integer
+        - name: cache
+          in: query
+          description: Get result from cache. Without the right privileges this parameter will be ignored.
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Invitation response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InvitationEditGet'
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - InvitationEdits
+      description: Create or edit a Invitation Edit
+      operationId: createInvitationEdit
+      requestBody:
+        description: Invitation Edit object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvitationEditPost'
+      responses:
+        '200':
+          description: Invitation Edit response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvitationEditPost'
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /invitations:
+    get:
+      tags:
+        - Invitations
+      description: Returns Invitations
+      operationId: getInvitations
+      parameters:
+        - name: id
+          in: query
+          description: Invitation id
+          schema:
+            type: string
+            minLength: 1
+        - name: ids
+          in: query
+          description: Invitation ids
+          schema:
+            anyOf:
+              - type: string
+              - type: array
+                items:
+                  type: string
+                  minLength: 1
+        - name: invitation
+          in: query
+          description: Invitation used to validate this invitation.
+          schema:
+            type: string
+            minLength: 1
+        - name: prefix
+          in: query
+          description: Invitation id prefix
+          schema:
+            type: string
+            minLength: 1
+        - name: domain
+          in: query
+          description: Invitation domain
           schema:
             type: string
             minLength: 1
         - name: type
           in: query
-          description: invitation type
+          description: Invitation type
           schema:
             type: string
             enum:
@@ -2179,19 +2562,19 @@ paths:
               - edges
         - name: replyForum
           in: query
-          description: note id
+          description: Note id
           schema:
             type: string
             minLength: 1
         - name: replyInvitation
           in: query
-          description: invitation id
+          description: Invitation id
           schema:
             type: string
             minLength: 1
         - name: minduedate
           in: query
-          description: minimum due date of the invitation
+          description: minimum due date of the Invitation
           schema:
             type: integer
             minimum: 0
@@ -2205,155 +2588,93 @@ paths:
                 minLength: 1
         - name: signature
           in: query
-          description: invitation signature
+          description: Invitation signature
           schema:
             type: string
             minLength: 1
         - name: replyto
           in: query
-          description: invitations should have replyto field
+          description: Invitations should have replyto field
           schema:
             type: boolean
         - name: duedate
           in: query
-          description: invitations should have due date
+          description: Invitations should have due date
           schema:
             type: boolean
         - name: pastdue
           in: query
-          description: invitations should be past due
+          description: Invitations should be past due
           schema:
             type: boolean
         - name: expired
           in: query
-          description: invitations should be expired
+          description: Invitations should be expired
           schema:
             type: boolean
         - name: select
           in: query
-          description: comma separated values of fields to return
+          description: Comma separated string with specific fields of the Invitation object to return.
           schema:
+            example: 'id,content,readers,invitees'
             type: string
             minLength: 1
         - name: details
           in: query
-          description: return invitation details
+          description: Comma separated values of fields to add to details. Valid values are replytoNote, repliedNotes, repliedTags, repliedEdges, all.
           schema:
             type: string
             minLength: 1
         - name: tags
           deprecated: true
           in: query
-          description: get only tag invitations
+          description: Get only Tag Invitations
           schema:
             type: boolean
         - name: edges
           deprecated: true
           in: query
-          description: get only edge invitations
+          description: Get only edge Invitations
           schema:
             type: boolean
         - name: notes
           deprecated: true
           in: query
-          description: get only note invitations
+          description: Get only Note Invitations
           schema:
             type: boolean
+        - name: sort
+          in: query
+          description: Sort returned Invitations by field.
+          schema:
+            type: string
+            minLength: 1
         - name: limit
           in: query
-          description: maximum number of results to return
+          description: Maximum number of results to return.
           schema:
             type: integer
-            format: int32
             minimum: 1
         - name: offset
           in: query
-          description: offset of the result shown
+          description: Offset of the result shown.
           schema:
             type: integer
-            format: int32
             minimum: 0
         - name: cache
           in: query
-          description: get result from cache
+          description: Get result from cache. Without the right privileges this parameter will be ignored.
           schema:
             type: boolean
       responses:
         '200':
-          description: invitation response
+          description: Invitation response
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: '#/components/schemas/Invitation'
-        default:
-          description: Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    post:
-      tags:
-        - Invitations
-      description: Create or edit an invitation
-      operationId: createInvitation
-      requestBody:
-        description: Invitation object
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Invitation'
-            example:
-              id: ICLR.cc/2018/Conference/-/Submission
-              reply:
-                readers:
-                  description: The users who will be allowed to read the above content.
-                  values:
-                    - everyone
-                writers:
-                  values:
-                    - ICLR.cc/2018/Conference
-                signatures:
-                  description: Your authorized identity to be associated with the above content.
-                  values-regex: ~.*|ICLR.cc/2018/Conference
-              content:
-                title:
-                  required: true
-                  order: 1
-                  description: Title of the paper
-                  value-regex: .{1,250}
-                abstract:
-                  required: true
-                  order: 2
-                  description: Abstract of the paper
-                  value-regex: .{1,2500}
-                authors:
-                  required: true
-                  order: 3
-                  description: Comma separated values of author names
-                  values-regex: '[^;,\\n]+(,[^,\\n]+)*'
-                authorids:
-                  required: true
-                  order: 4
-                  description: Comma separated values of author email addresses
-                  values-regex: '[^;,\\n]+(,[^,\\n]+)*'
-              invitees:
-                - everyone
-              readers:
-                - everyone
-              writers:
-                - ~Super_User1
-              signatures:
-                - ~Super_User1
-      responses:
-        '200':
-          description: invitation response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Invitation'
         default:
           description: Error
           content:
@@ -2369,78 +2690,80 @@ paths:
       parameters:
         - name: id
           in: query
-          description: tag id
+          description: Tag id
           schema:
             type: string
         - name: ids
           in: query
-          description: comma separated tag ids
+          description: Tag ids
           schema:
-            type: array
-            items:
-              type: string
-              minLength: 1
+            anyOf:
+              - type: string
+                minLength: 1
+              - type: array
+                minItems: 1
+                items:
+                  type: string
+                  minLength: 1
         - name: invitation
           in: query
-          description: invitation id
+          description: Invitation id used to create the Tag(s).
           schema:
             type: string
             example: ICLR.cc/2018/Conference/-/Add_Bid
         - name: tag
           in: query
-          description: tag value
+          description: Tag value
           schema:
             type: string
             minLength: 1
         - name: signature
           in: query
-          description: tag signature
+          description: Tag signature
           schema:
             type: string
             minLength: 1
         - name: forum
           in: query
-          description: forum id
+          description: Note id of the forum field.
           schema:
             type: string
         - name: replyto
           in: query
-          description: replyto id
+          description: Invitations should have replyto field
           schema:
             type: string
         - name: trash
           in: query
-          description: get tags deleted too
+          description: Get tags deleted too.
           schema:
             type: boolean
         - name: tauthor
           in: query
-          description: get tags authored by user
+          description: Get tags authored by user.
           schema:
             type: boolean
         - name: details
           in: query
-          description: get tag details
+          description: Comma separated values of fields to add to details. Valid values are forumContent, all.
           schema:
             type: string
             minLength: 1
         - name: limit
           in: query
-          description: maximum number of results to return
+          description: Maximum number of results to return.
           schema:
             type: integer
-            format: int32
             default: 1000
         - name: offset
           in: query
-          description: maximum number of results to return
+          description: Offset of the result shown.
           schema:
             type: integer
-            format: int32
             default: 0
       responses:
         '200':
-          description: tag response
+          description: Tag response
           content:
             application/json:
               schema:
@@ -2456,7 +2779,7 @@ paths:
     post:
       tags:
         - Tags
-      description: Create or edit a tag
+      description: Create or edit a Tag
       operationId: createTag
       requestBody:
         description: Tag object
@@ -2475,7 +2798,7 @@ paths:
                 - ~Super_User1
       responses:
         '200':
-          description: tag response
+          description: Tag response
           content:
             application/json:
               schema:
@@ -2494,32 +2817,32 @@ paths:
       operationId: getMessages
       parameters:
         - name: id
+          description: Message id.
           in: query
-          description: message id
           schema:
             type: string
             minLength: 1
         - name: to
+          description: Email address of the recipient.
           in: query
-          description: email address of the recipient
           schema:
             type: string
             minLength: 1
         - name: subject
           in: query
-          description: subject of the message
+          description: Subject of the Message.
           schema:
             type: string
             minLength: 1
         - name: parentGroup
           in: query
-          description: parent group the recipient belongs to
+          description: Parent Group the recipient belongs to.
           schema:
             type: string
             minLength: 1
         - name: status
           in: query
-          description: status of the message
+          description: Status of the message.
           schema:
             anyOf:
               - type: string
@@ -2530,25 +2853,23 @@ paths:
                   minLength: 1
         - name: tauthor
           in: query
-          description: author of the message
+          description: Email of the author of the message.
           schema:
             type: string
             minLength: 1
         - name: limit
           in: query
-          description: maximum number of results to return
+          description: Maximum number of results to return.
           schema:
             type: integer
-            format: int32
         - name: offset
           in: query
-          description: offset number of results to return
+          description: Offset of the result shown.
           schema:
             type: integer
-            format: int32
         - name: cache
           in: query
-          description: get result from cache
+          description: Get result from cache. Without the right privileges this parameter will be ignored.
           schema:
             type: boolean
       responses:
@@ -2583,16 +2904,20 @@ paths:
                 - groups
               properties:
                 subject:
+                  description: Subject of the message.
                   type: string
                 message:
+                  description: Message body.
                   type: string
                 groups:
+                  description: Groups the message is sent to.
                   type: array
                   minItems: 1
                   items:
                     type: string
                     minLength: 1
                 ignoreGroups:
+                  description: Groups the message should not be sent to.
                   type: array
                   nullable: true
                   default: []
@@ -2600,18 +2925,23 @@ paths:
                     type: string
                     minLength: 1
                 parentGroup:
+                  description: Parent group that the groups belong to.
                   type: string
                   nullable: true
                 sendAt:
+                  description: Send the message at a specific UTC time in milliseconds in the future. Maximum is 70 hours.
                   type: integer
                   nullable: true
                 replyTo:
+                  description: Email address the recipient should replyto.
                   type: string
                   nullable: true
                 useJob:
+                  description: Whether to wait for messages to be sent.
                   type: boolean
                   nullable: true
                 from:
+                  description: Email address the message is sent from.
                   type: object
                   nullable: true
                   properties:
@@ -2626,7 +2956,32 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Message'
+                anyOf:
+                  - properties:
+                      groups:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            minLength: 1
+                          message:
+                            $ref: '#/components/schemas/Message'
+                  - properties:
+                      groups:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            minLength: 1
+                          messages:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/Message'
+                  - properties:
+                      jobId:
+                        type: string
+                      status:
+                        type: string
         default:
           description: Error
           content:
@@ -2651,16 +3006,20 @@ paths:
                 - groups
               properties:
                 subject:
+                  description: Subject of the message.
                   type: string
                 message:
+                  description: Message body.
                   type: string
                 groups:
+                  description: Groups the message is sent to.
                   type: array
                   minItems: 1
                   items:
                     type: string
                     minLength: 1
                 ignoreGroups:
+                  description: Groups the message should not be sent to.
                   type: array
                   nullable: true
                   default: []
@@ -2668,18 +3027,23 @@ paths:
                     type: string
                     minLength: 1
                 parentGroup:
+                  description: Parent group that the groups belong to.
                   type: string
                   nullable: true
                 sendAt:
+                  description: Send the message at a specific UTC time in milliseconds in the future. Maximum is 70 hours.
                   type: integer
                   nullable: true
                 replyTo:
+                  description: Email address the recipient should replyto.
                   type: string
                   nullable: true
                 useJob:
+                  description: Whether to wait for messages to be sent.
                   type: boolean
                   nullable: true
                 from:
+                  description: Email address the message is sent from.
                   type: object
                   nullable: true
                   properties:
@@ -2694,7 +3058,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Message'
+                type: array
+                items:
+                  $ref: '#/components/schemas/Message'
         default:
           description: Error
           content:
@@ -2716,35 +3082,33 @@ paths:
             minLength: 1
         - name: parentGroup
           in: query
-          description: parent group id
+          description: Parent Group id
           schema:
             type: string
             minLength: 1
         - name: invitation
           in: query
-          description: invitation id
+          description: Invitation id that contains the process function.
           schema:
             type: string
             minLength: 1
         - name: status
           in: query
-          description: status
+          description: Status of the process. It can be ok or error.
           schema:
             type: string
             minLength: 1
         - name: limit
           in: query
-          description: maximum number of results to return
+          description: Maximum number of results to return.
           schema:
             type: integer
-            format: int32
             default: 1000
         - name: offset
           in: query
-          description: maximum number of results to return
+          description: Offset of the result shown.
           schema:
             type: integer
-            format: int32
             default: 0
       responses:
         '200':
@@ -2763,10 +3127,211 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    GroupEditGet:
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          minLength: 1
+        invitation:
+          type: string
+          minLength: 1
+        content:
+          type: object
+        cdate:
+          anyOf:
+            - type: integer
+              minimum: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        ddate:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        mdate:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        readers:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        nonreaders:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        writers:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        signatures:
+          type: array
+          items:
+            type: string
+            minLength: 1
+        group:
+          $ref: '#/components/schemas/Group'
+        details:
+          type: object
+          properties:
+            writable:
+              type: boolean
+            invitation:
+              $ref: '#/components/schemas/Invitation'
+    GroupEditPost:
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          minLength: 1
+        invitation:
+          type: string
+          minLength: 1
+        tauthor:
+          type: string
+          minLength: 1
+        content:
+          type: object
+        cdate:
+          anyOf:
+            - type: integer
+              minimum: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        ddate:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        mdate:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        readers:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        nonreaders:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        writers:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        signatures:
+          type: array
+          items:
+            type: string
+            minLength: 1
+        replacement:
+          type: boolean
+        group:
+          $ref: '#/components/schemas/Group'
     Group:
-      required:
-        - id
-        - signatures
       properties:
         id:
           type: string
@@ -2800,14 +3365,14 @@ components:
           type: array
           items:
             type: string
+        host:
+          type: string
+          nullable: true
         web:
           type: string
           nullable: true
-    Note:
-      required:
-        - invitation
-        - content
-        - signatures
+    NoteEditGet:
+      additionalProperties: false
       properties:
         id:
           type: string
@@ -2815,55 +3380,532 @@ components:
         invitation:
           type: string
           minLength: 1
-        forum:
-          type: string
-          nullable: true
-          minLength: 1
-        replyto:
-          type: string
-          nullable: true
-          minLength: 1
-        referent:
-          type: string
-          nullable: true
-          minLength: 1
-        original:
-          type: string
-          nullable: true
-          minLength: 1
         content:
           type: object
+        cdate:
+          anyOf:
+            - type: integer
+              minimum: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
         ddate:
-          type: integer
-          nullable: true
-          minimum: 0
-        tcdate:
-          type: integer
-          minimum: 0
-        tmdate:
-          type: integer
-          minimum: 0
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        mdate:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        readers:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        nonreaders:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        writers:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        signatures:
+          type: array
+          items:
+            type: string
+            minLength: 1
+        note:
+          $ref: '#/components/schemas/Note'
+        details:
+          type: object
+          properties:
+            writable:
+              type: boolean
+            invitation:
+              $ref: '#/components/schemas/Invitation'
+            presentation:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  order:
+                    type: integer
+                    minimum: 1
+                  input:
+                    type: string
+                    enum:
+                      - text
+                      - textarea
+                      - select
+                      - multiselect
+                      - checkbox
+                      - radio
+                  fieldName:
+                    type: string
+                  hidden:
+                    type: boolean
+                  markdown:
+                    type: boolean
+                  scroll:
+                    type: boolean
+                  default:
+                    anyOf:
+                      - type: string
+                      - type: array
+                      - type: number
+                      - type: object
+    NoteEditPost:
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          minLength: 1
+        invitation:
+          type: string
+          minLength: 1
         tauthor:
           type: string
           minLength: 1
+        content:
+          type: object
+        cdate:
+          anyOf:
+            - type: integer
+              minimum: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        ddate:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        mdate:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
         readers:
-          type: array
-          nullable: true
-          items:
-            type: string
-            minLength: 1
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
         nonreaders:
-          type: array
-          nullable: true
-          items:
-            type: string
-            minLength: 1
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
         writers:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        signatures:
           type: array
-          nullable: true
           items:
             type: string
             minLength: 1
+        replacement:
+          type: boolean
+        note:
+          $ref: '#/components/schemas/NotePost'
+    NotePost:
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          minLength: 1
+        forum:
+          type: string
+          minLength: 1
+        replyto:
+          anyOf:
+            - type: string
+              minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        content:
+          type: object
+        cdate:
+          anyOf:
+            - type: integer
+              minimum: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        pdate:
+          anyOf:
+            - type: integer
+              minimum: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        ddate:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        mdate:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        readers:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+            - type: object
+              minProperties: 1
+              properties:
+                append:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: string
+                    minLength: 1
+                remove:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: string
+                    minLength: 1
+        nonreaders:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+            - type: object
+              minProperties: 1
+              properties:
+                append:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: string
+                    minLength: 1
+                remove:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: string
+                    minLength: 1
+        writers:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+            - type: object
+              minProperties: 1
+              properties:
+                append:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: string
+                    minLength: 1
+                remove:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: string
+                    minLength: 1
+        signatures:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              minProperties: 1
+              properties:
+                append:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: string
+                    minLength: 1
+                remove:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: string
+                    minLength: 1
+    Note:
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          minLength: 1
+        invitation:
+          type: string
+          minLength: 1
+        number:
+          type: integer
+          minimum: 1
+        forum:
+          type: string
+          minLength: 1
+        replyto:
+          anyOf:
+            - type: string
+              minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        content:
+          type: object
+        cdate:
+          anyOf:
+            - type: integer
+              minimum: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        pdate:
+          anyOf:
+            - type: integer
+              minimum: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        ddate:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        mdate:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        readers:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        nonreaders:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        writers:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
         signatures:
           type: array
           items:
@@ -2902,69 +3944,294 @@ components:
               type: array
               items:
                 type: object
-    Invitation:
-      required:
-        - id
-        - signatures
+    InvitationEditGet:
+      additionalProperties: false
       properties:
         id:
           type: string
           minLength: 1
-        super:
-          type: string
-          minLength: 1
-        reply:
+        invitation:
+          $ref: '#/components/schemas/Invitation'
+        cdate:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        details:
           type: object
           properties:
-            referent:
-              type: string
-              minLength: 1
-              nullable: true
-            forum:
-              type: string
-              minLength: 1
-              nullable: true
-            replyto:
-              type: string
-              minLength: 1
-              nullable: true
-            readers:
-              type: object
-              minProperties: 1
-              maxProperties: 1
-            writers:
-              type: object
-              minProperties: 1
-              maxProperties: 1
-            signatures:
-              type: object
-              minProperties: 1
-              maxProperties: 1
-            content:
-              type: object
-        cdate:
-          type: integer
-        duedate:
-          type: integer
-        tcdate:
-          type: integer
-        tmdate:
-          type: integer
-        tauthor:
-          type: string
-        multiReply:
-          type: boolean
-          nullable: true
-        transform:
+            invitation:
+              $ref: '#/components/schemas/Invitation'
+            writable:
+              type: boolean
+        readers:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        nonreaders:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        writers:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        signatures:
+          type: array
+          items:
+            type: string
+            minLength: 1
+    InvitationEditPost:
+      additionalProperties: false
+      properties:
+        id:
           type: string
           minLength: 1
+        invitations:
+          type: string
+          minLength: 1
+        replacement:
+          type: boolean
+          enum:
+            - true
+        content:
+          type: object
+        invitation:
+          $ref: '#/components/schemas/InvitationPost'
+        cdate:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        readers:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        nonreaders:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        writers:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        signatures:
+          type: array
+          items:
+            type: string
+            minLength: 1
+    InvitationPost:
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          minLength: 1
+        edge:
+          $ref: '#/components/schemas/Edge'
+        tag:
+          $ref: '#/components/schemas/Tag'
+        edit:
+          anyOf:
+            - $ref: '#/components/schemas/InvitationEditPost'
+            - $ref: '#/components/schemas/NoteEditPost'
+            - type: boolean
+              enum:
+                - true
+        bulk:
+          type: boolean
+          enum:
+            - true
+        content:
+          type: object
+        cdate:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        ddate:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        duedate:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        expdate:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        maxReplies:
+          anyOf:
+            - type: integer
+              minimum: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        minReplies:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        taskCompletionCount:
+          type: integer
+          nullable: true
+          minimum: 0
+        replyForumViews:
+          anyOf:
+            - type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  label:
+                    type: string
+                  filter:
+                    type: string
+                  layout:
+                    type: integer
+                  sort:
+                    type: string
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        preprocess:
+          anyOf:
+            - type: string
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
         process:
           anyOf:
             - type: string
-              nullable: true
-              minLength: 1
             - type: object
-              nullable: true
               properties:
                 script:
                   type: string
@@ -2972,80 +4239,639 @@ components:
                 delay:
                   type: integer
                   minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        dateprocesses:
+          anyOf:
+            - type: array
+              items:
+                anyOf:
+                  - type: object
+                    required:
+                      - script
+                    properties:
+                      script:
+                        type: string
+                        minLength: 1
+                      delay:
+                        anyOf:
+                          - type: integer
+                            minimum: 0
+                          - type: string
+                            minLength: 1
+                  - type: object
+                    required:
+                      - script
+                      - dates
+                    properties:
+                      script:
+                        type: string
+                        minLength: 1
+                      dates:
+                        type: array
+                        minItems: 1
+                        items:
+                          anyOf:
+                            - type: integer
+                              minimum: 0
+                            - type: string
+                              minLength: 1
+                  - type: object
+                    required:
+                      - script
+                      - cron
+                    properties:
+                      script:
+                        type: string
+                        minLength: 1
+                      cron:
+                        type: string
+                        minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
         web:
+          anyOf:
+            - type: string
+              minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        readers:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+            - type: object
+              minProperties: 1
+              properties:
+                append:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: string
+                    minLength: 1
+                remove:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: string
+                    minLength: 1
+        nonreaders:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+            - type: object
+              minProperties: 1
+              properties:
+                append:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: string
+                    minLength: 1
+                remove:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: string
+                    minLength: 1
+        writers:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+            - type: object
+              minProperties: 1
+              properties:
+                append:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: string
+                    minLength: 1
+                remove:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: string
+                    minLength: 1
+        signatures:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              minProperties: 1
+              properties:
+                append:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: string
+                    minLength: 1
+                remove:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: string
+                    minLength: 1
+        invitees:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+            - type: object
+              minProperties: 1
+              properties:
+                append:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: string
+                    minLength: 1
+                remove:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: string
+                    minLength: 1
+        noninvitees:
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+            - type: object
+              minProperties: 1
+              properties:
+                append:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: string
+                    minLength: 1
+                remove:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: string
+                    minLength: 1
+    Invitation:
+      additionalProperties: false
+      properties:
+        id:
           type: string
           minLength: 1
+        edge:
+          $ref: '#/components/schemas/Edge'
+        tag:
+          $ref: '#/components/schemas/Tag'
+        edit:
+          - $ref: '#/components/schemas/InvitationEditGet'
+          - $ref: '#/components/schemas/NoteEditGet'
+        cdate:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        ddate:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        duedate:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        expdate:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        details:
+          type: object
+          properties:
+            writable:
+              type: boolean
+            replytoNote:
+              $ref: '#/components/schemas/Note'
+            repliedNotes:
+              type: array
+              items:
+                $ref: '#/components/schemas/Note'
+            repliedEdits:
+              type: array
+              items:
+                $ref: '#/components/schemas/NoteEditGet'
+            repliedTags:
+              type: array
+              items:
+                $ref: '#/components/schemas/Tag'
+            withRepliedEdges:
+              type: array
+              items:
+                $ref: '#/components/schemas/Edge'
+            withWritableWith:
+              type: array
+              items:
+                $ref: '#/components/schemas/Invitation'
+        maxReplies:
+          anyOf:
+            - type: integer
+              minimum: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        minReplies:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        taskCompletionCount:
+          type: integer
           nullable: true
+          minimum: 0
+        replyForumViews:
+          anyOf:
+            - type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  label:
+                    type: string
+                  filter:
+                    type: string
+                  layout:
+                    type: integer
+                  sort:
+                    type: string
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        preprocess:
+          anyOf:
+            - type: string
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        process:
+          anyOf:
+            - type: string
+            - type: object
+              properties:
+                script:
+                  type: string
+                  minLength: 1
+                delay:
+                  type: integer
+                  minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        dateprocesses:
+          anyOf:
+            - type: array
+              items:
+                anyOf:
+                  - type: object
+                    required:
+                      - script
+                    properties:
+                      script:
+                        type: string
+                        minLength: 1
+                      delay:
+                        anyOf:
+                          - type: integer
+                            minimum: 0
+                          - type: string
+                            minLength: 1
+                  - type: object
+                    required:
+                      - script
+                      - dates
+                    properties:
+                      script:
+                        type: string
+                        minLength: 1
+                      dates:
+                        type: array
+                        minItems: 1
+                        items:
+                          anyOf:
+                            - type: integer
+                              minimum: 0
+                            - type: string
+                              minLength: 1
+                  - type: object
+                    required:
+                      - script
+                      - cron
+                    properties:
+                      script:
+                        type: string
+                        minLength: 1
+                      cron:
+                        type: string
+                        minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
+        web:
+          anyOf:
+            - type: string
+              minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
         readers:
-          type: array
-          nullable: true
-          items:
-            type: string
-            minLength: 1
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
         nonreaders:
-          type: array
-          nullable: true
-          items:
-            type: string
-            minLength: 1
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
         writers:
-          type: array
-          nullable: true
-          items:
-            type: string
-            minLength: 1
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
         signatures:
           type: array
           items:
             type: string
             minLength: 1
         invitees:
-          type: array
-          nullable: true
-          items:
-            type: string
-            minLength: 1
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
         noninvitees:
-          type: array
-          nullable: true
-          items:
-            type: string
-            minLength: 1
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
     Tag:
       required:
         - invitation
         - tag
+        - forum
         - signatures
       properties:
         id:
           type: string
+          minLength: 1
         invitation:
           type: string
+          minLength: 1
         forum:
           type: string
+          minLength: 1
         replyto:
-          type: string
-          nullable: true
+          anyOf:
+            - type: string
+              minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
         tag:
           type: string
+        cdate:
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
         ddate:
-          type: integer
-          nullable: true
-        tcdate:
-          type: integer
-        tmdate:
-          type: integer
-        tauthor:
-          type: string
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
         readers:
-          type: array
-          items:
-            type: string
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
         nonreaders:
-          type: array
-          nullable: true
-          items:
-            type: string
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
         signatures:
           type: array
           minItems: 1
@@ -3247,6 +5073,15 @@ components:
           type: boolean
         tauthor:
           type: string
+        state:
+          type: string
+          enum:
+            - Active
+            - Active Institutional
+            - Active Automatic
+            - Inactive
+            - Blocked
+            - Rejected
         content:
           type: object
           additionalProperties: false
@@ -3256,6 +5091,8 @@ components:
             gender:
               type: string
               nullable: true
+            yearOfBirth:
+              type: integer
             homepage:
               type: string
             dblp:
@@ -3419,6 +5256,30 @@ components:
               $ref: '#/components/schemas/MetaContentSingleField'
             gender:
               $ref: '#/components/schemas/MetaContentSingleField'
+            yearOfBirth:
+              type: object
+              minProperties: 1
+              properties:
+                values:
+                  type: array
+                  minItems: 1
+                  maxItems: 1
+                  items:
+                    type: integer
+                weights:
+                  type: array
+                  minItems: 1
+                  maxItems: 1
+                  items:
+                    type: integer
+                signatures:
+                  type: array
+                  minItems: 1
+                  maxItems: 1
+                  items:
+                    type: string
+                    minLength: 1
+              additionalProperties: false
             homepage:
               $ref: '#/components/schemas/MetaContentSingleField'
             dblp:
@@ -3615,50 +5476,129 @@ components:
           items:
             type: string
             minLength: 1
+    SimplifiedProfile:
+      properties:
+        id:
+          description: OpenReview Profile id.
+          type: string
+        first:
+          type: string
+          minLength: 1
+        middle:
+          type: string
+          nullable: true
+        last:
+          type: string
+          minLength: 1
+        emails:
+          type: array
+          items:
+            type: string
+            minLength: 1
+        preferredEmail:
+          type: string
+          minLength: 1
+        usernames:
+          description: Profiles can have more than one username that have the same format as the OpenReview Profile id.
+          type: array
+          items:
+            type: string
+            minLength: 1
+        preferredId:
+          description: Preferred OpenReview username.
+          type: string
+          minLength: 1
     Edge:
       required:
         - invitation
         - head
         - tail
-        - signatures
       properties:
         id:
           type: string
+          minLength: 1
         invitation:
           type: string
+          minLength: 1
         head:
           type: string
+          minLength: 1
         tail:
           type: string
+          minLength: 1
         label:
           type: string
         weight:
-          type: number
-        tcdate:
-          type: integer
-        tmdate:
-          type: integer
+          anyOf:
+            - type: number
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
         ddate:
-          type: integer
-          nullable: true
-        tauthor:
-          type: string
+          anyOf:
+            - type: integer
+              minimum: 0
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
         readers:
-          type: array
-          items:
-            type: string
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
         nonreaders:
-          type: array
-          items:
-            type: string
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
         writers:
-          type: array
-          items:
-            type: string
+          anyOf:
+            - type: array
+              items:
+                type: string
+                minLength: 1
+            - type: object
+              required:
+                - delete
+              properties:
+                delete:
+                  type: boolean
+                  enum:
+                    - true
         signatures:
           type: array
+          minItems: 1
           items:
             type: string
+            minLength: 1
     Message:
       properties:
         id:
@@ -3734,17 +5674,20 @@ components:
         values:
           type: array
           minItems: 1
+          maxItems: 1
           items:
             type: string
             minLength: 1
         weights:
           type: array
           minItems: 1
+          maxItems: 1
           items:
             type: integer
         signatures:
           type: array
           minItems: 1
+          maxItems: 1
           items:
             type: string
             minLength: 1
