@@ -113,6 +113,7 @@
   * [How to Sync Manual and Automatic Assignments](how-to-guides/data-retrieval-and-modification/how-to-sync-manual-and-automatic-assignments.md)
   * [How to Export all Submission Attachments](how-to-guides/data-retrieval-and-modification/how-to-export-all-submission-attachments.md)
   * [How to Undo Deployed Assignments](how-to-guides/data-retrieval-and-modification/how-to-undo-deployed-assignments.md)
+  * [How to loop through Accepted Papers and print the Authors and their Affiliations](how-to-guides/data-retrieval-and-modification/how-to-loop-through-accepted-papers-and-print-the-authors-and-their-affiliations.md)
 
 ## Reference
 
