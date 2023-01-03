@@ -50,7 +50,6 @@
   * [Signing up for OpenReview](getting-started/creating-an-openreview-profile/signing-up-for-openreview.md)
   * [Add or remove a name from your profile](getting-started/creating-an-openreview-profile/add-or-remove-a-name-from-your-profile.md)
   * [Add or remove an email address from your profile](getting-started/creating-an-openreview-profile/add-or-remove-an-email-address-from-your-profile.md)
-  * [Name and Email Removal Procedure](getting-started/creating-an-openreview-profile/name-and-email-removal-procedure.md)
   * [Finding your profile ID](getting-started/creating-an-openreview-profile/finding-your-profile-id.md)
   * [Entering Institutional Data](getting-started/creating-an-openreview-profile/entering-institutional-data.md)
   * [Importing papers from DBLP](getting-started/creating-an-openreview-profile/importing-papers-from-dblp.md)
