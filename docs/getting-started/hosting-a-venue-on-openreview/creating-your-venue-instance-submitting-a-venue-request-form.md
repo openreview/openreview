@@ -4,6 +4,8 @@ Submitting a venue request form is the first step towards hosting a venue on Ope
 
 {% hint style="info" %}
 If you want to create a Venue Instance for testing purposes, you should use the following link instead: [https://dev.openreview.net/group?id=OpenReview.net/Support](https://dev.openreview.net/group?id=OpenReview.net/Support).
+
+Note that sending emails through the dev site is not supported. If you need to create test profiles/accounts in the dev site, you will need to request the activation link at [info@openreview.net](mailto:info@openreview.net).
 {% endhint %}
 
 This is where you will select many of the settings for your venue. The settings for readership permissions can be overwritten at later stages; if you initially make submissions private, you override the submission readers later on with [Post Submission Stage](../../reference/stages/post-submission-stage.md) or with [Post Decision Stage](../../reference/stages/post-decision-stage.md).&#x20;

@@ -55,7 +55,7 @@ As mentioned in the section above there are currently three layout modes availab
 
 #### Editing Posted Content
 
-If you are logged into OpenReview and have permission to modify the content of a submission or a forum reply (aka a [Note](broken-reference)) you will see a dropdown button labeled Edit to the right of the title. Clicking this button will display a list of all the available ways to modify the note (aka edit Invitations). For a submission note this might include options to revise the submission or withdraw the submission, and for a reply it might include the option to edit the content of the reply.
+If you are logged into OpenReview and have permission to modify the content of a submission or a forum reply (aka a [Note](../reference/openreview-entities/note.md)) you will see a dropdown button labeled Edit to the right of the title. Clicking this button will display a list of all the available ways to modify the note (aka edit Invitations). For a submission note this might include options to revise the submission or withdraw the submission, and for a reply it might include the option to edit the content of the reply.
 
 You can see a list of all the edits of a given note by clicking on the Revisions link below the title.
 

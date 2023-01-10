@@ -2,7 +2,7 @@
 
 If you are testing your venue on the dev site, you may want to generate some test submissions. This can be accomplished manually through the UI, but it may be faster to do it with python using the guide below.&#x20;
 
-1. If you have not already, you will need to create a username and password on the dev site: dev.openreview.net/signup.&#x20;
+1. If you have not already, you will need to create a username and password on the dev site: [dev.openreview.net/signup](https://dev.openreview.net/signup). Note that sending emails through the dev site is not supported. Therefore, you will need to request the activation link at [info@openreview.net](mailto:info@openreview.net).
 2.  Instantiate the python client using your dev profile credentials:&#x20;
 
     ```
