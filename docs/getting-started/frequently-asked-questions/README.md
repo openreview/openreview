@@ -33,6 +33,6 @@
 * [What do the default submission, review, metareview, and decision forms look like](../../reference/default-forms/)?&#x20;
 * [When will I be able to withdraw my submission?](when-will-i-be-able-to-withdraw-my-submission.md)
 * [An author of a submission cannot access their own paper, what is the problem](an-author-of-a-submission-cannot-access-their-own-paper-what-is-the-problem.md)?&#x20;
-* [What is the max file size for uploads](what-is-the-max-file-size-for-uploads-1.md)?&#x20;
+* [What is the max file size for uploads](what-is-the-max-file-size-for-uploads.md)?&#x20;
 * [What is the difference between due date (duedate) and expiration date (expdate)](what-is-the-difference-between-due-date-duedate-and-expiration-date-expdate.md)?&#x20;
 * [Will Reviewers be Notified of their Assignments?](will-reviewers-be-notified-of-their-assignments.md)
