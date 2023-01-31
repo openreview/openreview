@@ -121,6 +121,7 @@
 * [API V2](reference/api-v2/README.md)
   * [OpenAPI definition](reference/api-v2/openapi-definition.md)
   * [Entities](reference/api-v2/entities/README.md)
+    * [Edge](reference/api-v2/entities/edge.md)
     * [Note](reference/api-v2/entities/note.md)
     * [Invitation](reference/api-v2/entities/invitation.md)
 * [Stages](reference/stages/README.md)
