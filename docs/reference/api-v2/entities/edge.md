@@ -1,10 +1,10 @@
 # Edge
 
-Edges are being used to represent matching data, like affinity scores, conflicts, custom quotas, etc. The edge entity contains to main properties: head and tail and optinally a label and weight. Head and tail properties can point to other entities in the system like note, group and profile.
+Edges are used to represent matching data, like affinity scores, conflicts, custom quotas, etc. The edge entity contains two main properties: head and tail and optionally a label and weight. Head and tail properties point to other entities in the system like a note, a group and a profile.
 
 ## Custom Max Papers
 
-A member of the reviewing committee can specify a maximum number of papers to review. The range of max numbers is usually defined by the organizers of the venue. Users can specify this value during the recruitment period or request the value to the organizers. Organizers can post these edges using our Python library. See the example below:
+A member of the reviewing committee can specify a maximum number of papers to review. The range of of this value is usually defined by the organizers of the venue. Users can specify this value during the recruitment period or request the value to the organizers. Organizers can post these edges using our Python library. See the example below:
 
 ```
 client.post_edge(openreview.api.Edge(
