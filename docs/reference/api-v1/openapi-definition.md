@@ -76,8 +76,8 @@
 [api (1).yml](<../../.gitbook/assets/api (1).yml>)
 {% endswagger %}
 
-{% swagger src="../../.gitbook/assets/api (1).yml" path="/notes" method="get" %}
-[api (1).yml](<../../.gitbook/assets/api (1).yml>)
+{% swagger src="../../.gitbook/assets/api.yml" path="/notes" method="get" %}
+[api.yml](../../.gitbook/assets/api.yml)
 {% endswagger %}
 
 {% swagger src="../../.gitbook/assets/api (1).yml" path="/notes" method="post" %}
