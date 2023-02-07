@@ -115,9 +115,10 @@
 
 ## Reference
 
-* [Accepted Field Types](reference/accepted-field-types.md)
 * [API V1](reference/api-v1/README.md)
   * [OpenAPI definition](reference/api-v1/openapi-definition.md)
+  * [Entities](reference/api-v1/entities/README.md)
+    * [Invitation](reference/api-v1/entities/invitation.md)
 * [API V2](reference/api-v2/README.md)
   * [OpenAPI definition](reference/api-v2/openapi-definition.md)
   * [Entities](reference/api-v2/entities/README.md)

@@ -67,7 +67,7 @@ The Ethics Review Stage can be run at any time after the Submission Deadline for
 
 <summary>Additional Ethics Review Form Options</summary>
 
-* Additional options that will be added to the default Ethics Review Form. Expects valid JSON surrounded by a single pair of curly braces {}. Read more about the accepted field types [here](../accepted-field-types.md).
+* Additional options that will be added to the default Ethics Review Form. Expects valid JSON surrounded by a single pair of curly braces {}. Read more about the accepted field types [here](broken-reference).
 * Optional&#x20;
 * Defaults to the default Ethics Review Form
 

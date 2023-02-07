@@ -1,8 +1,8 @@
-# Accepted Field Types
+# Invitation
 
+Users can enter data into the system using an invitation. An invitation is roughly a template that indicates required and valid values that will be saved to the database. The invitation contains a list of fields that need to be completed by the user.
 
-
-Each field must be a valid JSON with a title and the following optional properties (with the exception of field type, which is required):
+When modifying an Invitation's reply field, each field must be a valid JSON with a title and the following optional properties (with the exception of field type, which is required):
 
 * field type: the type of the field, which includes _value(s)_, _value(s)-regex_, _value-radio_, _value(s)-checkbox_, _value(s)-dropdown_, _value-file_
 * description: a string describing how users should fill this field

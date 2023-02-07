@@ -15,4 +15,4 @@ You can customize your venue’s submission form using the [Revision](../../refe
 }
 ```
 
-To remove fields, enter a comma-separated list of lowercase field names in the ‘Remove Submission Options’ field. To learn more about accepted field types, refer [here](../../reference/accepted-field-types.md).&#x20;
+To remove fields, enter a comma-separated list of lowercase field names in the ‘Remove Submission Options’ field. To learn more about accepted field types, refer [here](broken-reference).&#x20;

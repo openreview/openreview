@@ -29,7 +29,7 @@
 * [How can I contact Reviewers, Area Chairs, and/or Authors](../../how-to-guides/communication/how-to-send-messages-through-the-ui.md)?
 * [Where can I view the Camera-Ready Versions](../../how-to-guides/data-retrieval-and-modification/how-to-view-camera-ready-revisions.md)?
 * [How can I export all supplementary material/PDF/zip files](../../how-to-guides/data-retrieval-and-modification/how-to-export-all-submission-attachments.md)?&#x20;
-* [What field types are supported in the forms](../../reference/accepted-field-types.md)?&#x20;
+* [What field types are supported in the forms](broken-reference)?&#x20;
 * [What do the default submission, review, metareview, and decision forms look like](../../reference/default-forms/)?&#x20;
 * [When will I be able to withdraw my submission?](when-will-i-be-able-to-withdraw-my-submission.md)
 * [An author of a submission cannot access their own paper, what is the problem](an-author-of-a-submission-cannot-access-their-own-paper-what-is-the-problem.md)?&#x20;
