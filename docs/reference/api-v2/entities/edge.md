@@ -29,13 +29,13 @@ Once the edge is posted, it will appear in the reviewers console as the followin
 
 ## Bids
 
-Bids are also represented as edges, where the head is the paper id and the tail is the profile id of the user that is doing the bid. As we said before, bids have an optional property called "label" and in this case is being used to represent the type of bid, for example: "Very High", "High", "Neutral", "Low" and "Very Low".
+Bids are also represented as edges, where the head is the paper id and the tail is the profile id of the user that is doing the bid. As we said before, bids have an optional property called "label" and in this case it is being used to represent the type of bid, for example: "Very High", "High", "Neutral", "Low" and "Very Low".
 
-Users, members of the official committee, usually use the "Bidding Console" to create and edit these bids but the venue organizers can edit them.&#x20;
+Members of the official committee usually use the "Bidding Console" to create and edit these bids.
 
-#### Edit bids:
+#### Editing bids:
 
-Below is an example to edit a bid, every time you update a bid you need to set the signatures. The signatures must be a group id where you have signatory permissions. The bid invitation specifies the signature must be either a profile id or the venue id, in the case below is "ICML.cc/2023/Conference":
+Every time you update a bid you need to set the signatures. The signatures must be a group id where you have signatory permissions. The bid invitation specifies that the signature must be either a profile id or the venue id. In the example, the signature is "ICML.cc/2023/Conference":
 
 ```
 edge = client.get_edge(bid_id)
@@ -45,9 +45,9 @@ edge.nonreaders = None
 client.post_edge(edge)
 ```
 
-#### Remove bids:
+#### Removing bids:
 
-To remove bids, you would need to a the ddate value using a timestamp in milliseconds. This edit will perfrom a soft delete meaning this bid can be restored.
+To remove bids, you need to a the `ddate` value using a timestamp in milliseconds. This edit will perform a soft delete which means that this bid can be restored.
 
 <pre><code>edge = client.get_edge(bid_id)
 <strong>edge.ddate = 1664467200000
@@ -56,9 +56,9 @@ edge.nonreaders = None
 client.post_edge(edge)
 </code></pre>
 
-#### Restore bids:
+#### Restoring bids:
 
-To restore bids, you would need to get the deleted bid and remove the ddate value. The way API 2 handles the deletion of values in an object is using "{ delete: true }". Be aware the invitation must specify that field with the parameter "deletable: true" otherwise this action can bit be performed.
+To restore bids, you need to get the deleted bid and remove the `ddate` value. This is achieved by passing an object "{ delete: true }". Be aware that the invitation must allow a this operation by passing an object with "deletable: true", otherwise, this action cannot be performed.
 
 ```
 edge = client.get_edge(bid_id)
