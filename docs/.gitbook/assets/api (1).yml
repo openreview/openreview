@@ -1783,8 +1783,18 @@ paths:
         - name: details
           in: query
           description: |
-            Comma separated values of fields to add to details. Valid values are
-            replyCount, original, overwriting, revisions, writable, forumContent, tags, revisions, invitation, directReplyCount, directReplies, replies, and all
+            Comma separated values of fields to add to details. Valid values are:
+            replyCount: Number of replies in a forum. Only available if the Note is a forum.
+            original: Include original Note if available.
+            revisions: Boolean indicating whether the Note has revisions.
+            writable: Boolean indicating whether the Note is writable by the user.
+            originalWritable: Boolean indicating whether the original Note is writable by the user.
+            tags: Tags of the Note.
+            invitation: Invitation of the Note.
+            originalInvitation: Invitation of the original Note.
+            directReplyCount: Number of direct replies to the Note.
+            directReplies: Direct replies to the Note.
+            replies: Replies to the Note. Only available if the Note is a forum.
           schema:
             type: string
             minLength: 1
