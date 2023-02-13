@@ -9,6 +9,14 @@ profile = client.get_profile('~Michael_Spector1')
 profile = client.get_profile('michael@openreview.net')
 ```
 
+If you want to query more than one profile at a time, you can use our tools module:
+
+```
+profiles = openreview.tools.get_profiles(client, ids_or_emails=['michael@openreview.net', '~Melisa_bok1']
+```
+
+If you want to get all the profiles and their publication, you can use the previous call and add the parameter `with_publications=True`
+
 ### Finding profile relations
 
 Relations can be extracted in two ways: (1) from the Profile object itself, or (2) from coauthored Notes in the system.
