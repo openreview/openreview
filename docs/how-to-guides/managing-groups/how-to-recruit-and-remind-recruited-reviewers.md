@@ -1,6 +1,6 @@
 # How to Recruit and Remind Recruited Reviewers
 
-On the request form for your venue, click on the ‘Recruitment’ button to recruit reviewers (and ACs if applicable). You can use the 'Remind Recruitment' button to send a reminder to Reviewers who have not yet accepted or declined your invitation.
+On the [request form for your venue](../../getting-started/hosting-a-venue-on-openreview/navigating-your-venue-pages.md), click on the ‘Recruitment’ button to recruit reviewers (and ACs if applicable). You can use the 'Remind Recruitment' button to send a reminder to Reviewers who have not yet accepted or declined your invitation.
 
 Make sure to pay close attention to the Invitee Details on the Recruitment form. Invitees must be formatted in a specific way to send the messages otherwise the messages will fail to send and will return a status error.
 

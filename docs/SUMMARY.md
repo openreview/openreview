@@ -126,7 +126,7 @@
   * [Entities](reference/api-v2/entities/README.md)
     * [Edge](reference/api-v2/entities/edge.md)
     * [Note](reference/api-v2/entities/note.md)
-    * [Invitation](reference/api-v2/entities/invitation/README.md)
+    * [Invitation](reference/api-v2/entities/invitation.md)
       * [Types and Structure](reference/api-v2/entities/invitation/types-and-structure.md)
       * [Fields](reference/api-v2/entities/invitation/fields.md)
       * [Specifiers](reference/api-v2/entities/invitation/specifiers.md)
