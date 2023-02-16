@@ -140,6 +140,7 @@
 * [Stages](reference/stages/README.md)
   * [Revision](reference/stages/revision.md)
   * [Review Stage](reference/stages/review-stage.md)
+  * [Bid Stage](reference/stages/bid-stage.md)
   * [Decision Stage](reference/stages/decision-stage.md)
   * [Comment Stage](reference/stages/comment-stage.md)
   * [Submission Revision Stage](reference/stages/submission-revision-stage.md)
