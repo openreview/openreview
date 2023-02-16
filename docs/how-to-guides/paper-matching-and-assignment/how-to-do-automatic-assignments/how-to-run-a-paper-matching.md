@@ -3,6 +3,8 @@
 In order to automatically assign Reviewers and Area Chairs, you must:
 
 1. Enable the 'Review' or 'Post Submission' stage from your venue request form. This can only be done AFTER the submission deadline has passed.&#x20;
+   1. The [Review Stage](../../../reference/stages/review-stage.md) sets the readership of reviews.
+   2. The [Post Submission](../../../reference/stages/post-submission-stage.md) stage sets readership of submissions.
 2. Use the 'Paper Matching Setup' button on your venue request form to [calculate affinity scores and conflicts.](how-to-setup-paper-matching-by-calculating-affinity-scores-and-conflicts.md)
 
 After you complete these steps, a link for 'Paper Assignments' should appear on your Program Chair console.
