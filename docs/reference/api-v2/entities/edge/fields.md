@@ -54,10 +54,6 @@ The `head` field can contain a Note id or a Group id and connects it to the Note
 
 The `tail` field can contain a Note id or a Group id and connects it to the Note id or Group id defined in the `head` field. This field is always mandatory and cannot be empty.
 
-## tail
-
-The `tail` field can contain a Note id or a Group id and connects it to the Note id or Group id defined in the `head` field. This field is always mandatory and cannot be empty.
-
 ## label
 
 The `label` field contains a string that gives extra information to the Edge. This information can be used to classify Edges and differentiate them from other Edges that have the same Invitation, tail and head values.

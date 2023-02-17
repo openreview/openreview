@@ -55,4 +55,4 @@ client.post_edge(edge)
 
 Once the edge is posted, it will appear in the reviewers console as the following image:
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p>Reviewer Console</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>Reviewer Console</p></figcaption></figure>
