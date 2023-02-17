@@ -9,7 +9,7 @@ In order to automatically assign Reviewers and Area Chairs, you must:
 
 After you complete these steps, a link for 'Paper Assignments' should appear on your Program Chair console.
 
-![](<../../../.gitbook/assets/image (2) (1).png>)
+![](<../../../.gitbook/assets/image (2).png>)
 
 Clicking on one of the assignment links will bring you to the assignment page, where you can create a new matching configuration. If members of your reviewer or area chairs group have profiles without publications, you will need to select ‘Yes’ for ‘Allow Zero Score Assignments’ in order to obtain a solution. Please note that all members of a group must have OpenReview profiles in order for the automatic assignment algorithm to run. Any members without profiles must be removed from the group before this step.
 
@@ -152,7 +152,7 @@ You can learn more about our automatic paper matching algorithm from its github 
 
 After filling out the matching configuration form and hitting submit, you should see the following:
 
-![](<../../../.gitbook/assets/image (2) (1) (2).png>)
+![](<../../../.gitbook/assets/image (2) (1).png>)
 
 You can view, edit or copy the values you filled out in the matching form. When you are happy with your configuration, you should hit 'Run Matcher' and wait until its status is 'Complete'. This generates proposed assignments, with options to browse assignments, view statistics or deploy matching. If you click ‘Browse Assignments’ you will be brought to the edge browser, where you can browse, edit, and create proposed assignments.&#x20;
 

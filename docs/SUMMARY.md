@@ -117,6 +117,7 @@
   * [How to Export all Submission Attachments](how-to-guides/data-retrieval-and-modification/how-to-export-all-submission-attachments.md)
   * [How to Undo Deployed Assignments](how-to-guides/data-retrieval-and-modification/how-to-undo-deployed-assignments.md)
   * [How to loop through Accepted Papers and print the Authors and their Affiliations](how-to-guides/data-retrieval-and-modification/how-to-loop-through-accepted-papers-and-print-the-authors-and-their-affiliations.md)
+  * [How to add/remove fields from a submission](how-to-guides/data-retrieval-and-modification/how-to-add-remove-fields-from-a-submission.md)
 
 ## Reference
 
@@ -125,13 +126,16 @@
   * [Entities](reference/api-v1/entities/README.md)
     * [Edge](reference/api-v1/entities/edge/README.md)
       * [Fields](reference/api-v1/entities/edge/fields.md)
+    * [Note](reference/api-v1/entities/note/README.md)
+      * [Fields](reference/api-v1/entities/note/fields.md)
     * [Invitation](reference/api-v1/entities/invitation.md)
 * [API V2](reference/api-v2/README.md)
   * [OpenAPI definition](reference/api-v2/openapi-definition.md)
   * [Entities](reference/api-v2/entities/README.md)
     * [Edge](reference/api-v2/entities/edge/README.md)
       * [Fields](reference/api-v2/entities/edge/fields.md)
-    * [Note](reference/api-v2/entities/note.md)
+    * [Note](reference/api-v2/entities/note/README.md)
+      * [Fields](reference/api-v2/entities/note/fields.md)
     * [Invitation](reference/api-v2/entities/invitation.md)
       * [Types and Structure](reference/api-v2/entities/invitation/types-and-structure.md)
       * [Fields](reference/api-v2/entities/invitation/fields.md)

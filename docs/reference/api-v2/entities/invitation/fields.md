@@ -28,7 +28,7 @@ The Modification Date or `mdate` shows when the Invitation was last modified. Th
 
 ## tmdate
 
-The True Modification Date or `tmdate` indicates the date in unix timestamp in milliseconds when the Invitation is created. Unlike the `cdate`, its value cannot be set or modified by the user and it is not displayed in the UI.
+The True Modification Date or `tmdate` indicates the date in unix timestamp in milliseconds when the Invitation is modified. Unlike the `mdate`, its value cannot be set or modified by the user and it is not displayed in the UI.
 
 ## expdate
 
@@ -41,6 +41,14 @@ The Due Date or `duedate` is used to set an expiration date for an Invitation in
 ## ddate
 
 The Deletion Date or `ddate` is used to soft delete an Invitation. This means that Invitations with a `ddate` value can be restored but will appear as deleted. The value of a `ddate` is a unix timestamp in milliseconds that can be set either in the past or in the future.
+
+## invitations
+
+The `invitations` field contains all the Invitations that were used to create the Invitation through the process of inference.
+
+## domain
+
+The `domain` is a string that groups all the entities of a venue. Its value is set automatically and cannot be modified.
 
 ## signatures
 
