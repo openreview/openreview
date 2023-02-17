@@ -1,8 +1,8 @@
 # Default Meta Review Form
 
-#### JSON
+#### API V1 JSON
 
-```
+```json
 {
   "metareview": {
       "order": 1,
@@ -30,6 +30,53 @@
           "1: The area chair's evaluation is an educated guess"
       ],
       "required": true
+  }
+}
+```
+
+#### API V2 JSON
+
+```json
+{
+  "metareview": {
+    "value": {
+      "param": {
+        "type": "string",
+        "regex": "[\\S\\s]{1,5000}",
+        "markdown": true
+      }
+    },
+    "order": 1,
+    "description": "Please provide an evaluation of the quality, clarity, originality and significance of this work, including a list of its pros and cons. Your comment or reply (max 5000 characters). Add formatting using Markdown and formulas using LaTeX. For more information see https://openreview.net/faq"
+  },
+  "recommendation": {
+    "value": {
+      "param": {
+        "type": "string",
+        "enum": [
+          "Accept (Oral)",
+          "Accept (Poster)",
+          "Reject"
+        ],
+        "type": "select"
+      }
+    },
+    "order": 2
+  },
+  "confidence": {
+    "value": {
+      "param": {
+        "type": "string",
+        "enum": [
+          "5: The area chair is absolutely certain",
+          "4: The area chair is confident but not absolutely certain",
+          "3: The area chair is somewhat confident",
+          "2: The area chair is not sure",
+          "1: The area chair's evaluation is an educated guess"
+        ]
+      }
+    },
+    "order": 3
   }
 }
 ```

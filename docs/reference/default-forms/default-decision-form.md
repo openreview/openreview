@@ -1,8 +1,8 @@
 # Default Decision Form
 
-#### JSON
+#### API V1 JSON
 
-```
+```json
 {
   "title": {
       "order": 1,
@@ -24,6 +24,43 @@
       "required": false,
       "value-regex": "[\\S\\s]{0,5000}",
       "description": ""
+  }
+}
+```
+
+#### API V2 JSON
+
+```json
+{
+  "title": {
+    "order": 1,
+    "value": "Paper Decision"
+  },
+  "decision": {
+    "order": 2,
+    "description": "Decision",
+    "value": {
+      "param": {
+        "type": "string",
+        "enum": [
+          "Accept (Oral)",
+          "Accept (Poster)",
+          "Reject"
+        ],
+        "input": "select"
+      }
+    }
+  },
+  "comment": {
+    "order": 3,
+    "description": ""
+    "value": {
+      "param": {
+        "type": "string",
+        "regex": "[\\S\\s]{0,5000}",
+        "optional": true
+      }
+    } 
   }
 }
 ```
