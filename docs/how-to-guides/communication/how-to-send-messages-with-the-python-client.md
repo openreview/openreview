@@ -27,3 +27,18 @@ for submission in submissions:
     parentGroup = f'Your/Conference/ID/Paper{submission.number}/Authors'
     client.post_message(subject, recipients, message, parentGroup=parentGroup)
 ```
+
+If your venue is set up to use API 1, and the submission deadline has not passed then you can send a message to submission authors by doing the following:&#x20;
+
+```
+submissions = client.get_all_notes(invitation = 'Your/Conference/Id/-/Submission')
+for submission in submissions: 
+    subject = f'Message regarding Paper #{submission.number}'
+    message = f'Hello, please go to your submission and do x, y, z. Find your submission here: https://openreview.net/forum?id={submission.forum}'
+    recipients = submission.content['authorids']
+    client.post_message(subject, recipients, message)
+```
+
+{% hint style="info" %}
+If you don't know what API version you're using, you can check this by viewing your [venue request form](../../getting-started/hosting-a-venue-on-openreview/navigating-your-venue-pages.md), look for the field "API Version". If there is no such field on your venue request form you are using API 1 by default.
+{% endhint %}
