@@ -26,7 +26,7 @@ The Post Submission Stage should be used when paper groups and blind copies need
 
 <summary>Hide Fields</summary>
 
-* Fields that will be hidden from everyone except for Program Chairs and the Paper Authors. Expects a comma separated list in lowercase.&#x20;
+* Fields that will be hidden from everyone except for Program Chairs and the Paper Authors. The fields should exactly match the field names in the submission invitation.&#x20;
 * Optional&#x20;
 * Defaults to only author identities
 
