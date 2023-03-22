@@ -30,10 +30,6 @@ The True Modification Date or `tmdate` indicates the date in unix timestamp in m
 
 The Deletion Date or `ddate` is used to soft delete an Edge. This means that Edges with a `ddate` value can be restored but will appear as deleted. The `ddate` value is a unix timestamp in milliseconds that can be set either in the past or in the future.
 
-## domain
-
-The `domain` is a string that groups all the entities of a venue. Its value is set automatically and cannot be modified.
-
 ## signatures
 
 The `signatures` field indicates who created the Edge. Even though the field is an array of strings, only one item can be present in the `signatures` field. Users can sign with different ids depending on their permissions.

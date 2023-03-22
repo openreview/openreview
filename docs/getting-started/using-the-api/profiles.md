@@ -4,15 +4,19 @@
 
 You can retrieve an individual's OpenReview profile object by their name or email:&#x20;
 
-```
+```python
 profile = client.get_profile('~Michael_Spector1')
 profile = client.get_profile('michael@openreview.net')
 ```
 
 If you want to query more than one profile at a time, you can use our tools module:
 
-```
-profiles = openreview.tools.get_profiles(client, ids_or_emails=['michael@openreview.net', '~Melisa_bok1']
+```python
+profiles = openreview.tools.get_profiles(
+    client,
+    ids_or_emails=['michael@openreview.net',
+    '~Melisa_bok1'
+]
 ```
 
 If you want to get all the profiles and their publication, you can use the previous call and add the parameter `with_publications=True`

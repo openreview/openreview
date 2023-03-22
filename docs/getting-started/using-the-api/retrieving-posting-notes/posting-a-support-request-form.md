@@ -6,7 +6,7 @@ While a support request form can most easily be submitted through the UI, some v
 2. Familiarize yourself with the venue request form. Note which fields are required, and which are optional. You can [view the form through the UI](https://openreview.net/group?id=OpenReview.net/Support) or [view it in JSON](https://api.openreview.net/invitations?id=OpenReview.net/Support/-/Request\_Form). &#x20;
 3. Choose your program chairs, and create a list of their email addresses.&#x20;
 
-```
+```python
 program_chair_emails = ["pc1@gmail.com", "pc2@gmail.com"]
 ```
 

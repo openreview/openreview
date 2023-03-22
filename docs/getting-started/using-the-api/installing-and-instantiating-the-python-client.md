@@ -1,8 +1,8 @@
 # Installing and Instantiating the Python client
 
-1. You will need to install the openreview-py client.&#x20;
+1. You will need to install the **openreview-py** client.&#x20;
 
-```
+```bash
 git clone git@github.com:openreview/openreview-py.git
 cd openreview-py
 pip3 install -e .
@@ -10,7 +10,20 @@ pip3 install -e .
 
 2\. Create a client object with your OpenReview credentials. If you do not yet have an OpenReview profile, [you will need to make one now](../creating-an-openreview-profile/signing-up-for-openreview.md).&#x20;
 
-```
+```python
 import openreview
-client = openreview.Client(baseurl='https://api.openreview.net', username=<your username>, password=<your password>)
+
+# API V1
+client = openreview.Client(
+    baseurl='https://api.openreview.net',
+    username=<your username>,
+    password=<your password>
+)
+
+# API V2
+client = openreview.api.Client(
+    baseurl='https://api2.openreview.net',
+    username=<your username>,
+    password=<your password>
+)
 ```
