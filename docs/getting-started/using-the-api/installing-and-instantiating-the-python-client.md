@@ -21,7 +21,7 @@ client = openreview.Client(
 )
 
 # API V2
-client = openreview.api.Client(
+client = openreview.api.OpenReviewClient(
     baseurl='https://api2.openreview.net',
     username=<your username>,
     password=<your password>

@@ -122,6 +122,7 @@
   * [How to Undo Deployed Assignments](how-to-guides/data-retrieval-and-modification/how-to-undo-deployed-assignments.md)
   * [How to loop through Accepted Papers and print the Authors and their Affiliations](how-to-guides/data-retrieval-and-modification/how-to-loop-through-accepted-papers-and-print-the-authors-and-their-affiliations.md)
   * [How to add/remove fields from a submission](how-to-guides/data-retrieval-and-modification/how-to-add-remove-fields-from-a-submission.md)
+  * [How to get all the Reviews that I have written and their corresponding Submissions](how-to-guides/data-retrieval-and-modification/how-to-get-all-the-reviews-that-i-have-written-and-their-corresponding-submissions.md)
 
 ## Reference
 
