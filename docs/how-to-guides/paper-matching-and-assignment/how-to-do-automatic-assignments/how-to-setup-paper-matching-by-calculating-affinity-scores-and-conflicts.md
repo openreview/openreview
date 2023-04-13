@@ -14,6 +14,48 @@ Clicking it should bring up the following form. The 'Matching Group' is a dropdo
 
 ![](<../../../.gitbook/assets/image (1) (1).png>)
 
+### Conflict Detection Policy
+
+Conflict detection uses the information of the users' coauthors from publications in OpenReview as long as they are publicly visible and the users' Profile. Therefore, the more complete and accurate the information in the Profile is, the better the conflict detection.
+
+The sections of the Profile used for conflict detection are the Emails section, the Education & Career History section, and the Advisors, Relations & Conflicts section.
+
+Another parameter that can be controlled is the amount of years you want to consider when looking at conflicts. For example, there might be two users who worked at company A at some point. However, User A worked at Company C ten years ago and User B just started working at Company C. If the amount of years is set to 5, for example, a conflict won't be detected between User A and User B because only the history, relations and publications from the past 5 years will be taken into consideration. **By default, all relations, history, and publications are taken into consideration for conflict detection.**
+
+{% hint style="info" %}
+Since a lot of users use email services such as gmail.com, a list of common domains is used to filter them out before conflicts are computed.
+{% endhint %}
+
+There are two policies when computing conflicts: default and neurips.
+
+#### Default Information Extraction Policy
+
+1. Uses the domains and computes subdomains from the Education & Career History section.
+2. Uses the domains and computes subdomains from the emails listed in the Advisors, Relations & Conflicts section.
+3. Uses the domains and computes subdomains from the Emails listed in the Emails section.
+4. Uses the publication ids in OpenReview that the user authored.
+
+#### Neurips Information Extraction Policy
+
+{% hint style="info" %}
+Note that emails do not have a range of dates for when they were valid in the user's Profile. The Neurips policy addresses this issue.
+{% endhint %}
+
+1. Uses the domains and computes subdomains from the Education & Career History section.
+2. Uses the domains and computes subdomains from the emails listed in the Advisors, Relations & Conflicts section.
+3. Uses the domains and computes subdomains from the Emails listed in the Emails section, if and only if, no domains were available in the Education & Career History and Advisors, Relations & Conflicts sections.
+4. Uses the publication ids in OpenReview that the user authored.
+
+### Conflict Detection
+
+Once all the information is extracted from the users' Profiles, the following rules apply to find a conflict between User A and User B:
+
+* If any of the domains/subdomains from the Education & Career History section of user A matches at least one of the domains/subdomains of the same section of User B, then a conflict is detected.
+* If any of the domains/subdomains from the Advisors, Relations & Conflicts section or the Emails section of user A matches at least one of the domains/subdomains of the same sections of User B, then a conflict is detected.
+* If any of the publications of User A is the same as one of the publications of User B. In other words, if User A and User B are coauthors, then a conflict is detected.
+
+### Troubleshoot Paper Matching
+
 Running the paper matching setup should output a comment on your venue request page. If there were members missing profiles or publications, the message will identify them and say 'Affinity scores and/or conflicts could not be computed for these users. Please ask these users to sign up in OpenReview and upload their papers. Alternatively, you can remove these users from the Reviewers group.' This message does not mean that the process failed, but that those members were excluded from the calculations. You have two options:&#x20;
 
 1. Remove reviewers without profiles from the reviewers group.&#x20;
