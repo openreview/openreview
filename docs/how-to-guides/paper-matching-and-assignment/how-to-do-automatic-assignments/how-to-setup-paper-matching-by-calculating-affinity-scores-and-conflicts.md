@@ -1,7 +1,7 @@
 # How to setup paper matching by calculating affinity scores and conflicts
 
 {% hint style="info" %}
-Before calculating affinity scores and conflicts, you should make sure that your submission deadline has passed and that you have run either the ‘[Post Submission Stage](../../../reference/stages/post-submission-stage.md)’ or the ‘[Review Stage](../../../reference/stages/review-stage.md)’.
+If you are using the API V1, before calculating affinity scores and conflicts you should make sure that your submission deadline has passed and that you have run either the ‘[Post Submission Stage](../../../reference/stages/post-submission-stage.md)’ or the ‘[Review Stage](../../../reference/stages/review-stage.md)’.
 {% endhint %}
 
 You can calculate affinity scores and conflicts for your venue using OpenReview's 'Paper Matching Setup' feature. Paper Matching Setup is enabled for any venue that selected an option for the 'Paper Matching' question on the venue request form. This feature allows Program Chairs to compute or upload affinity scores and/or compute conflicts.
@@ -12,13 +12,13 @@ You can find the 'Paper Matching Setup' button on your venue request form next t
 
 Clicking it should bring up the following form. The 'Matching Group' is a dropdown menu of the groups you can use in the matcher (Reviewers, Area Chairs, Senior Area Chairs), depending on whichever you selected for your venue. You can select if you would like affinity scores and/or conflicts computed. Alternatively, you can compute and upload your own affinity scores using the OpenReview expertise API: https://github.com/openreview/openreview-expertise
 
-![](<../../../.gitbook/assets/image (1) (1).png>)
+<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 ### Conflict Detection Policy
 
 Conflict detection uses the information of the users' coauthors from publications in OpenReview as long as they are publicly visible and the users' Profile. Therefore, the more complete and accurate the information in the Profile is, the better the conflict detection.
 
-The sections of the Profile used for conflict detection are the Emails section, the Education & Career History section, and the Advisors, Relations & Conflicts section.
+The sections of the Profile used for conflict detection are the _Emails_ section, the _Education & Career History_ section, and the _Advisors, Relations & Conflicts_ section.
 
 Another parameter that can be controlled is the amount of years you want to consider when looking at conflicts. For example, there might be two users who worked at company A at some point. However, User A worked at Company C ten years ago and User B just started working at Company C. If the amount of years is set to 5, for example, a conflict won't be detected between User A and User B because only the history, relations and publications from the past 5 years will be taken into consideration. **By default, all relations, history, and publications are taken into consideration for conflict detection.**
 
@@ -26,24 +26,24 @@ Another parameter that can be controlled is the amount of years you want to cons
 Since a lot of users use email services such as gmail.com, a list of common domains is used to filter them out before conflicts are computed.
 {% endhint %}
 
-There are two policies when computing conflicts: default and neurips.
+There are two policies when computing conflicts: **Default** and **NeurIPS**.
 
 #### Default Information Extraction Policy
 
-1. Uses the domains and computes subdomains from the Education & Career History section.
-2. Uses the domains and computes subdomains from the emails listed in the Advisors, Relations & Conflicts section.
-3. Uses the domains and computes subdomains from the Emails listed in the Emails section.
+1. Uses the domains and computes subdomains from the _Education & Career History_ section.
+2. Uses the domains and computes subdomains from the emails listed in the _Advisors, Relations & Conflicts_ section.
+3. Uses the domains and computes subdomains from the emails listed in the _Emails_ section.
 4. Uses the publication ids in OpenReview that the user authored.
 
-#### Neurips Information Extraction Policy
+#### NeurIPS Information Extraction Policy
 
 {% hint style="info" %}
-Note that emails do not have a range of dates for when they were valid in the user's Profile. The Neurips policy addresses this issue.
+Note that emails do not have a range of dates for when they were valid in the user's Profile. The NeurIPS policy addresses this issue.
 {% endhint %}
 
-1. Uses the domains and computes subdomains from the Education & Career History section.
-2. Uses the domains and computes subdomains from the emails listed in the Advisors, Relations & Conflicts section.
-3. Uses the domains and computes subdomains from the Emails listed in the Emails section, if and only if, no domains were available in the Education & Career History and Advisors, Relations & Conflicts sections.
+1. Uses the domains and computes subdomains from the _Education & Career History_ section. All intern positions are ignored.
+2. Uses the domains and computes subdomains from the emails listed in the _Advisors, Relations & Conflicts_ section, if the relation is that of a Coworker or a Coauthor.
+3. Uses the domains and computes subdomains from the emails listed in the _Emails_ section, if and only if no domains were extracted from the _Education & Career History_ and _Advisors, Relations & Conflicts_ sections.
 4. Uses the publication ids in OpenReview that the user authored.
 
 ### Conflict Detection

@@ -35,4 +35,3 @@ On the Camera-Ready Revision page for the paper, in the General Info section the
 Modify the expiration date to the desired point in the future and click “Save Invitation”.
 
 The author or PCs are now free to update the PDF.\
-****

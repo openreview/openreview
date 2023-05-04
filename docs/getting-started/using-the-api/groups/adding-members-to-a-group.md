@@ -9,4 +9,3 @@ You have two options to edit the Reviewers group:
    \
    `client.add_members_to_group(group, ['melisa@mail.com', '~Melisa_Bok1'])`
 
-``

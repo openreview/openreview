@@ -83,4 +83,4 @@
 
 #### Preview
 
-![](<../../.gitbook/assets/image (8).png>)
+![](<../../.gitbook/assets/image (8) (2).png>)

@@ -70,7 +70,7 @@ If you are testing your venue on the dev site, you may want to generate some tes
     }
     ```
 
-    ****\
+    \
     **Invitation**: The ID of your venue's submission invitation. It will take the form of your venue id + /-/Submission. \
     \
     **Readers/Writers**: A list of the venue ID  + all author profile IDs. After the submission deadline, these values will be automatically updated to match the visibility settings selected in the venue request form. \
@@ -142,7 +142,7 @@ If you are testing your venue on the dev site, you may want to generate some tes
     note.content['pdf'] = url
     ```
 
-    ****\
+    \
     **Invitation**: The ID of your venue's submission invitation. It will take the form of your venue id + /-/Submission. \
     \
     **Readers/Writers**: A list of the venue ID  + all author profile IDs. After the submission deadline, these values will be automatically updated to match the visibility settings selected in the venue request form. \

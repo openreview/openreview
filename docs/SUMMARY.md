@@ -123,6 +123,7 @@
   * [How to loop through Accepted Papers and print the Authors and their Affiliations](how-to-guides/data-retrieval-and-modification/how-to-loop-through-accepted-papers-and-print-the-authors-and-their-affiliations.md)
   * [How to add/remove fields from a submission](how-to-guides/data-retrieval-and-modification/how-to-add-remove-fields-from-a-submission.md)
   * [How to get all the Reviews that I have written and their corresponding Submissions](how-to-guides/data-retrieval-and-modification/how-to-get-all-the-reviews-that-i-have-written-and-their-corresponding-submissions.md)
+  * [How to get all Registration Notes](how-to-guides/data-retrieval-and-modification/how-to-get-all-registration-notes.md)
 
 ## Reference
 
@@ -151,6 +152,7 @@
       * [Inference](reference/api-v2/entities/edit/inference.md)
 * [Stages](reference/stages/README.md)
   * [Revision](reference/stages/revision.md)
+  * [Registration Stage](reference/stages/registration-stage.md)
   * [Review Stage](reference/stages/review-stage.md)
   * [Bid Stage](reference/stages/bid-stage.md)
   * [Decision Stage](reference/stages/decision-stage.md)
@@ -161,6 +163,7 @@
   * [Ethics Review Stage](reference/stages/ethics-review-stage.md)
 * [Default Forms](reference/default-forms/README.md)
   * [Default Submission Form](reference/default-forms/default-submission-form.md)
+  * [Default Registration Form](reference/default-forms/default-registration-form.md)
   * [Default Comment Form](reference/default-forms/default-comment-form.md)
   * [Default Review Form](reference/default-forms/default-review-form.md)
   * [Default Meta Review Form](reference/default-forms/default-meta-review-form.md)

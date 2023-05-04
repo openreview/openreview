@@ -265,7 +265,7 @@ Given the example below, the value "\~Some\_Reviewer1" would be valid.
 
 ### Field attributes
 
-* `type`: define **** the type value that field is going to have.
+* `type`: define the type value that field is going to have.
 
 {% hint style="info" %}
 The field `type` is mandatory in all the fields whose type cannot be determined by the name of the field. Note how in the example below the field invitation/edit/signatures defines param/regex without a type keyword. This is because we know the type of the field `signatures`. We know is of type `groups[]`, so there is no need to define it. On the other hand, the field `invitation/edit/note/content/title/value` has to define the type since the fields inside content can be anything.
