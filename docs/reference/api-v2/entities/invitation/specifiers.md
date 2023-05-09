@@ -30,7 +30,7 @@ Whenever `param` is present, the user is expected to input a value for that fiel
 "title": {
     "value": {
         "param": {
-            "type": "string"
+            "type": "string",
             "const": "This is a title"
         }
     }
@@ -55,7 +55,7 @@ Fields that are specified as constants in the Invitation do NOT need to be passe
 "title": {
     "value": {
         "param": {
-            "type": "string"
+            "type": "string",
             "enum": ["This is a title", "This is{3,5} [a|b] regex"]
         }
     }
@@ -68,7 +68,7 @@ Fields that are specified as constants in the Invitation do NOT need to be passe
 "title": {
     "value": {
         "param": {
-            "type": "string"
+            "type": "string",
             "regex": "^This .+ title$"
         }
     }
@@ -81,7 +81,7 @@ Fields that are specified as constants in the Invitation do NOT need to be passe
 "grade": {
     "value": {
         "param": {
-            "type": "integer"
+            "type": "integer",
             "range": [0, 10]
         }
     }
