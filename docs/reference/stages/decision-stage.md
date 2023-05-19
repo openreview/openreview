@@ -79,7 +79,7 @@ The Decision Stage should not be run until after the submission deadline, except
 
 <summary>Additional Decision Form Options</summary>
 
-* Adds or overwrites fields to the Decision Form. Expects valid JSON surrounded by a single pair of curly braces {}. Read more about the accepted field types [here](broken-reference).&#x20;
+* Adds or overwrites fields to the Decision Form. Expects valid JSON surrounded by a single pair of curly braces {}. Read more about the accepted field types [here](../../getting-started/frequently-asked-questions/what-field-types-are-supported-in-the-forms.md).&#x20;
 * Optional&#x20;
 * Defaults to [default Decision Form](../default-forms/default-decision-form.md)
 
@@ -89,7 +89,7 @@ The Decision Stage should not be run until after the submission deadline, except
 
 <summary>Decisions File</summary>
 
-* Allows for bulk upload of decisions. Expects a csv containing the paper\_id, decision, and comment for one paper per line. Does not expect a header/column names. The comment column is optional.&#x20;
+* Allows for bulk upload of decisions. Expects a csv containing the paper\_number, decision, and comment for one paper per line. Does not expect a header/column names. The comment column is optional.&#x20;
 * Optional&#x20;
 * Defaults to manual Decisions.&#x20;
 

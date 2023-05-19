@@ -93,7 +93,7 @@ The Review Stage should not be run until after the submission deadline, except i
 
 <summary>Additional Review Form Options </summary>
 
-* Adds or overwrites fields to the Review Form. Expects valid JSON surrounded by a single pair of curly braces {}. Read more about the accepted field types [here](broken-reference).&#x20;
+* Adds or overwrites fields to the Review Form. Expects valid JSON surrounded by a single pair of curly braces {}. Read more about the accepted field types [here](../../getting-started/frequently-asked-questions/what-field-types-are-supported-in-the-forms.md).&#x20;
 * Optional&#x20;
 * Defaults to [default Review Form](../default-forms/default-review-form.md).
 

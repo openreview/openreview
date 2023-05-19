@@ -50,9 +50,9 @@ Double blind venues can only run the Submission Revision Stage after the submiss
 
 <summary>Submission Revision Additional Options </summary>
 
-* Additional options that can be added to submissions. Expects valid JSON surrounded by a single pair of curly braces {}. Read more about the accepted field types [here](broken-reference).
+* Additional options that can be added to submissions. Expects valid JSON surrounded by a single pair of curly braces {}. Read more about the accepted field types [here](../../getting-started/frequently-asked-questions/what-field-types-are-supported-in-the-forms.md).
 * Optional&#x20;
-* Default options for revision are all fields of the Submission Form.&#x20;
+* Default options for revision are all fields of the [Submission Form](../default-forms/default-submission-form.md).&#x20;
 
 </details>
 
@@ -62,6 +62,6 @@ Double blind venues can only run the Submission Revision Stage after the submiss
 
 * Fields that the authors will not be able to edit. Expects a comma separated list of field names in lowercase.
 * Optional&#x20;
-* Default options for revision are all fields of the Submission Form.&#x20;
+* Default options for revision are all fields of the [Submission Form](../default-forms/default-submission-form.md).&#x20;
 
 </details>
