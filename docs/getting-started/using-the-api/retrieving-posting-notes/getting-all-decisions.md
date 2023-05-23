@@ -5,8 +5,23 @@ To get all decisions for a venue, you can do the following:&#x20;
 1. Get all submissions for your venue. You can do this by passing your venue's submission invitation into get\_all\_notes_._ You should also pass in details = "directReplies" to obtain any notes that reply to each submission.&#x20;
 
 ```python
+# API V1 (Single Blind Submissions)
 submissions = client.get_all_notes(
     invitation="Your/Venue/ID/-/Submission",
+    details='directReplies'
+)
+
+# API V1 (Double Blind Submissions)
+submissions = client.get_all_notes(
+    invitation="Your/Venue/ID/-/Blind_Submission",
+    details='directReplies'
+)
+
+# API V2
+venue_group_settings = client.get_group(venue_id).content
+submission_invitation = venue_group_settings['submission_id']['value']
+submissions = client.get_all_notes(
+    invitation=submission_invitation,
     details='directReplies'
 )
 ```
