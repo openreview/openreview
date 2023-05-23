@@ -11,12 +11,22 @@ submissions = client.get_all_notes(
 )
 ```
 
-2\. For each submission, add any replies with the Decision invitation to a list of decisions.&#x20;
+2\. For each submission, add any replies with the Decision invitation to a list of decisions. Depending on the API version, the code varies slightly.
 
 ```python
-decisions = [] 
+decisions = []
+
+# API V1
 for submission in submissions:
     decisions = decisions + [reply for reply in submission.details["directReplies"] if reply["invitation"].endswith("Decision")]
+    
+# API V2
+venue_group_settings = client.get_group(venue_id).content
+decision_invitation_name = venue_group_settings['decision_name']['value']
+for submission in submissions:
+    for reply in submission.details['directReplies']:
+        if any(invitation.endswith(decision_invitation_name) for invitation in reply['invitations']):
+            decisions.append(reply)
 ```
 
 3\. The decisions list now contains all of the decisions for your venue.
