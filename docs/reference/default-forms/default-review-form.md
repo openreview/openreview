@@ -91,7 +91,7 @@
         "input": "select"
       }
     },
-    "order": 3,
+    "order": 3
   },
   "confidence": {
     "value": {

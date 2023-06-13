@@ -2,9 +2,9 @@
 
 Reviewers will see their assigned papers in their Reviewer console and in their Task list. Depending on what method you used to assign Reviewers to papers, they may have already been notified of their assignments:&#x20;
 
-#### Manual Assignment from the Program Chair Console&#x20;
+#### Manual Assignment from the Program Chair Console (API 1 venues only)&#x20;
 
-&#x20;If you assigned reviewers manually using the dropdown in the Program Chair console, they would have received an email for each assignment.&#x20;
+If you assigned reviewers manually using the dropdown in the Program Chair console, they would have received an email for each assignment.&#x20;
 
 #### Automatic Assignment Deployed through the Edge Browser
 

@@ -332,15 +332,7 @@ Not all types can become arrays. The exceptions are `date` and `file`.
 The fields optional and deletable can be used at the same time or omitted. Their behavior is defined below:
 {% endhint %}
 
-| Optional  | Deletable | Behavior                                 |
-| --------- | --------- | ---------------------------------------- |
-| True      | True      | Field is optional and can be deleted     |
-| True      | False     | Field can be added but not deleted       |
-| False     | True      | Undefined                                |
-| False     | False     | Field is mandatory and cannot be deleted |
-| True      | undefined | Field can be added but not deleted       |
-| undefined | True      | Field is optional and can be deleted     |
-| undefined | undefined | Field is mandatory and cannot be deleted |
+<table><thead><tr><th width="154.33333333333331">Optional</th><th width="131">Deletable</th><th>Behavior</th></tr></thead><tbody><tr><td>True</td><td>True</td><td>Field is optional and can be deleted</td></tr><tr><td>True</td><td>False</td><td>Field can be added but not deleted</td></tr><tr><td>False</td><td>True</td><td>Undefined</td></tr><tr><td>False</td><td>False</td><td>Field is mandatory and cannot be deleted</td></tr><tr><td>True</td><td>undefined</td><td>Field can be added but not deleted</td></tr><tr><td>undefined</td><td>True</td><td>Field is optional and can be deleted</td></tr><tr><td>undefined</td><td>undefined</td><td>Field is mandatory and cannot be deleted</td></tr></tbody></table>
 
 ## Representation specifiers
 
