@@ -115,7 +115,10 @@
     "value": {
       "param": {
         "type": "string",
-        "regex": "[\\S\\s]{1,5000}"
+        "minLength": 1,
+        "maxLength": 5000,
+        "input": "textarea",
+        "markdown": true
       }
     },
     "description": "Abstract of paper. Add TeX formulas using the following formats: $In-line Formula$ or $$Block Formula$$",

@@ -47,7 +47,9 @@
       "value": {
         "param": {
           "type": "string",
-          "regex": "[\\S\\s]{1,200000}"
+          "minLength": 1,
+          "maxLength": 20000,
+          "input": "textarea",
         }
       }
     }
