@@ -1,33 +1,5 @@
 # Default Decision Form
 
-#### API V1 JSON
-
-```json
-{
-  "title": {
-      "order": 1,
-      "required": true,
-      "value": "Paper Decision"
-  },
-  "decision": {
-      "order": 2,
-      "required": true,
-      "value-radio": [
-          "Accept (Oral)",
-          "Accept (Poster)",
-          "Reject"
-      ],
-      "description": "Decision"
-  },
-  "comment": {
-      "order": 3,
-      "required": false,
-      "value-regex": "[\\S\\s]{0,5000}",
-      "description": ""
-  }
-}
-```
-
 #### API V2 JSON
 
 ```json
@@ -53,7 +25,7 @@
   },
   "comment": {
     "order": 3,
-    "description": ""
+    "description": "",
     "value": {
       "param": {
         "type": "string",
@@ -63,6 +35,34 @@
         "optional": true
       }
     } 
+  }
+}
+```
+
+#### API V1 JSON
+
+```json
+{
+  "title": {
+      "order": 1,
+      "required": true,
+      "value": "Paper Decision"
+  },
+  "decision": {
+      "order": 2,
+      "required": true,
+      "value-radio": [
+          "Accept (Oral)",
+          "Accept (Poster)",
+          "Reject"
+      ],
+      "description": "Decision"
+  },
+  "comment": {
+      "order": 3,
+      "required": false,
+      "value-regex": "[\\S\\s]{0,5000}",
+      "description": ""
   }
 }
 ```

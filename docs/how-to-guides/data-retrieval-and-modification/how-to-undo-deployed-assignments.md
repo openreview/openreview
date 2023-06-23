@@ -19,29 +19,9 @@ for group in grouped_edges:
 
 3\. Now all of the assignments have been reverted, but before you can deploy a new matching you will need to change the status of the deployed matching configuration from 'Deployed' to 'Complete'. In order to do this, you will first need to find the matching configuration ID.&#x20;
 
-* **API V1**
-
-First, find the assignment configuration note with a status of 'Deployed':
-
-```
-notes = client.get_notes(invitation='Your/Venue/ID/Reviewers/-/Assignment_Configuration')
-
-for note in notes:
-    if note.content['status'] == 'Deployed:
-        configuration_note = note
-        break
-```
-
-Once you have this note, do the following:
-
-```python
-configuration_note.content['status'] = 'Complete'
-client.post_note(configuration_note)
-```
-
 * **API V2**
 
-First, find the assignment configruation note with a status of 'Deployed':
+First, find the assignment configuration note with a status of 'Deployed':
 
 ```
 notes = client.get_notes(invitation='Your/Venue/ID/Reviewers/-/Assignment_Configuration')
@@ -66,3 +46,24 @@ note=openreview.api.Note(
 ```
 
 4\. Now you should have the option to deploy a new matching configuration.
+
+* **API V1**
+
+First, find the assignment configuration note with a status of 'Deployed':
+
+```
+notes = client.get_notes(invitation='Your/Venue/ID/Reviewers/-/Assignment_Configuration')
+
+for note in notes:
+    if note.content['status'] == 'Deployed:
+        configuration_note = note
+        break
+```
+
+Once you have this note, do the following:
+
+```python
+configuration_note.content['status'] = 'Complete'
+client.post_note(configuration_note)
+```
+

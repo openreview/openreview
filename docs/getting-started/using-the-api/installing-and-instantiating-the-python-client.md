@@ -13,16 +13,16 @@ pip3 install -e .
 ```python
 import openreview
 
-# API V1
-client = openreview.Client(
-    baseurl='https://api.openreview.net',
+# API V2
+client = openreview.api.OpenReviewClient(
+    baseurl='https://api2.openreview.net',
     username=<your username>,
     password=<your password>
 )
 
-# API V2
-client = openreview.api.OpenReviewClient(
-    baseurl='https://api2.openreview.net',
+# API V1
+client = openreview.Client(
+    baseurl='https://api.openreview.net',
     username=<your username>,
     password=<your password>
 )
