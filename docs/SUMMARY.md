@@ -109,6 +109,7 @@
   * [How to email the authors of accepted papers](how-to-guides/communication/how-to-email-the-authors-of-accepted-papers.md)
 * [Submitting papers, comments, reviews, and decisions](how-to-guides/submitting-papers-comments-reviews-and-decisions/README.md)
   * [How to add formatting to reviews or comments](how-to-guides/submitting-papers-comments-reviews-and-decisions/how-to-add-formatting-to-reviews-or-comments.md)
+  * [How to edit the Review Revision](how-to-guides/submitting-papers-comments-reviews-and-decisions/how-to-edit-the-review-revision.md)
   * [How to add formulas or use mathematical notation](how-to-guides/submitting-papers-comments-reviews-and-decisions/how-to-add-formulas-or-use-mathematical-notation.md)
   * [How to edit a submission after the deadline - Authors](how-to-guides/submitting-papers-comments-reviews-and-decisions/how-to-edit-a-submission-after-the-deadline-authors.md)
   * [How to Upload Paper Decisions in Bulk](how-to-guides/submitting-papers-comments-reviews-and-decisions/how-to-upload-paper-decisions-in-bulk.md)
