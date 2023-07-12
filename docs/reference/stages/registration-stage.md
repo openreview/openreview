@@ -6,7 +6,7 @@ The Registration Stage creates a registration task for reviewers (and ACs, if ap
 
 **When to Use it**
 
-The Registration Stage can be run an any point during your workflow, though it is usually enabled at the begining to collect information from reviewers and/or ACs. It can also be used to ask users to update their profiles and import their publications.
+The Registration Stage can be run an any point during your workflow, though it is usually enabled at the beginning to collect information from reviewers and/or ACs. It can also be used to ask users to update their profiles and import their publications.
 
 **Options**
 

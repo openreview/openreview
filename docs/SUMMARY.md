@@ -37,6 +37,7 @@
   * [Notes](getting-started/using-the-api/retrieving-posting-notes/README.md)
     * [Posting a Support Request Form](getting-started/using-the-api/retrieving-posting-notes/posting-a-support-request-form.md)
     * [Posting a Test Submission](getting-started/using-the-api/notes/posting-a-test-submission.md)
+    * [Getting all Submissions](getting-started/using-the-api/notes/getting-all-submissions.md)
     * [Getting all Reviews](getting-started/using-the-api/retrieving-posting-notes/getting-all-reviews.md)
     * [Getting all MetaReviews](getting-started/using-the-api/retrieving-posting-notes/getting-all-metareviews.md)
     * [Getting all Decisions](getting-started/using-the-api/retrieving-posting-notes/getting-all-decisions.md)
@@ -123,6 +124,7 @@
   * [How to Undo Deployed Assignments](how-to-guides/data-retrieval-and-modification/how-to-undo-deployed-assignments.md)
   * [How to loop through Accepted Papers and print the Authors and their Affiliations](how-to-guides/data-retrieval-and-modification/how-to-loop-through-accepted-papers-and-print-the-authors-and-their-affiliations.md)
   * [How to add/remove fields from a submission](how-to-guides/data-retrieval-and-modification/how-to-add-remove-fields-from-a-submission.md)
+  * [How to manually change the readers of a note](how-to-guides/data-retrieval-and-modification/how-to-manually-change-the-readers-of-a-note.md)
   * [How to get all the Reviews that I have written and their corresponding Submissions](how-to-guides/data-retrieval-and-modification/how-to-get-all-the-reviews-that-i-have-written-and-their-corresponding-submissions.md)
   * [How to get all Registration Notes](how-to-guides/data-retrieval-and-modification/how-to-get-all-registration-notes.md)
 
