@@ -16,7 +16,7 @@
 ### Program Chairs
 
 * [How can I access the request form for my venue](../hosting-a-venue-on-openreview/navigating-your-venue-pages.md)?&#x20;
-* [How can I override the information on my venue homepage](../../how-to-guides/modifying-venue-homepages/how-to-override-your-venue-homepage.md)?
+* [How can I override the information on my venue homepage](../../how-to-guides/modifying-venue-homepages/how-to-customize-your-venue-homepage.md)?
 * [How do I recruit reviewers?](how-do-i-recruit-reviewers.md)
 * [How can I edit the Submission Form? ](../hosting-a-venue-on-openreview/customizing-your-submission-form.md)
 * [How can I extend the Submission deadline](../hosting-a-venue-on-openreview/changing-your-submission-deadline.md)?

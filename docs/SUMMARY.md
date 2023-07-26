@@ -66,7 +66,7 @@
 ## How-To Guides
 
 * [Modifying Venue Homepages](how-to-guides/modifying-venue-homepages/README.md)
-  * [How to override your venue homepage](how-to-guides/modifying-venue-homepages/how-to-override-your-venue-homepage.md)
+  * [How to customize your venue homepage](how-to-guides/modifying-venue-homepages/how-to-customize-your-venue-homepage.md)
   * [How to modify the homepage layout to show decision tabs](how-to-guides/modifying-venue-homepages/how-to-modify-the-homepage-layout-to-show-decision-tabs.md)
   * [How do I recruit reviewers?](getting-started/frequently-asked-questions/how-do-i-recruit-reviewers.md)
 * [Managing Groups](how-to-guides/managing-groups/README.md)
