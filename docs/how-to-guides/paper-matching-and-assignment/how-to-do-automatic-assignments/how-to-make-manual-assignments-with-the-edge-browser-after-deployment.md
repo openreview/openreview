@@ -3,7 +3,7 @@
 There are two ways to assign members after assignments have been deployed:
 
 1. The option 'Assign' directly assigns the reviewer to the paper and sends an email notification.
-2. The option 'Invite Assignment' sends an invitation email to the reviewer with an accept/decline link. If you would like to use this option, you will need to contact info@openreview.net to enable its functionality.
+2. (**This option is not currently supported for venues set to "manual" assignments**) The option 'Invite Assignment' sends an invitation email to the reviewer with an accept/decline link. If you would like to use this option, you will need to contact info@openreview.net to enable its functionality.
 
 Any changes made after deployment are immediately visible to the assigned Reviewers or Area Chairs, and it is not necessary to deploy again.
 

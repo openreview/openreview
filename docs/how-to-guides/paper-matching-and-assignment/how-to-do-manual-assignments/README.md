@@ -1,14 +1,14 @@
 # How to do manual assignments
 
-{% hint style="info" %}
-This top section is only relevant to API 1 venues, scroll down for API 2.
-{% endhint %}
-
-**If you selected to use affinity scores, conflicts, bids, or reviewer recommendation scores, you will not be able to use the following options. Instead, follow the guide on** [**how to do automatic assignments**](../how-to-do-automatic-assignments/)**.** &#x20;
+**If you selected "Automatic" for Submission Reviewer Assignment, instead follow the guide on** [**how to do automatic assignments**](../how-to-do-automatic-assignments/)**.** &#x20;
 
 [**API 2 venues**](./#assigning-reviewers-api-2-venues)
 
 [**API 1 venues**](./#assigning-reviewers-api-1-venues)
+
+{% hint style="info" %}
+The "Invite Assignment" button is not currently available for manual assignments.
+{% endhint %}
 
 ### Assigning Reviewers (API 2 venues)
 
