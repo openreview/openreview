@@ -76,6 +76,7 @@
   * [How to test your venue workflow](how-to-guides/workflow/how-to-test-your-venue-workflow.md)
   * [How to have different tracks or types of submissions for a single venue](how-to-guides/workflow/how-to-have-different-tracks-or-types-of-submissions-for-a-single-venue.md)
   * [How to Make Submissions Available Before the Submission Deadline](how-to-guides/workflow/how-to-make-submissions-available-before-the-submission-deadline.md)
+  * [Desk Reject Submissions that are Missing PDFs](how-to-guides/workflow/desk-reject-submissions-that-are-missing-pdfs.md)
   * [How to begin the Review Stage while Submissions are Open](how-to-guides/workflow/how-to-begin-the-review-stage-while-submissions-are-open.md)
   * [How to Change Who can Access Submissions After the Deadline](how-to-guides/workflow/how-to-change-who-can-access-submissions-after-the-deadline.md)
   * [How to Enable Commenting on Submissions](how-to-guides/workflow/how-to-enable-commenting-on-submissions.md)
