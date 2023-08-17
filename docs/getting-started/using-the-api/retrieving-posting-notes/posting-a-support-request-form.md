@@ -1,5 +1,9 @@
 # Posting a Support Request Form
 
+{% hint style="info" %}
+Currently all request forms are being posted with API 1. If you want to submit a request using the python client, then you should be creating an API 1 client.
+{% endhint %}
+
 While a support request form can most easily be submitted through the UI, some venues that have multiple deadlines a year and need to submit multiple venue requests with the same settings may find it easier to do this programmatically through the API.&#x20;
 
 1. If you have not done so, you will need to [install and instantiate the openreview-py client](../installing-and-instantiating-the-python-client.md).&#x20;

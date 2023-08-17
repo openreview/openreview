@@ -21,6 +21,21 @@ profiles = openreview.tools.get_profiles(
 
 If you want to get all the profiles and their publication, you can use the previous call and add the parameter `with_publications=True`
 
+If you want to query the profiles of each author per submission, then you can get [all submissions for your venue](https://docs.openreview.net/getting-started/using-the-api/notes/getting-all-submissions) (click the link to learn how to get different submissions) and then loop through each submission getting the author IDs and querying the profiles.
+
+```python
+# API 2 example of getting author profile data for accepted submissions
+
+submissions = client.get_all_notes(content={'venueid':'Your/Venue/ID'})
+
+author_profiles = []
+
+for submission in submissions:
+    author_profiles = openreview.tools.get_profiles(client, submission.content['authorids']['value'])
+    # you can loop through author_profiles and get data for each profile
+    
+```
+
 ### Finding profile relations
 
 Relations can be extracted in two ways: (1) from the Profile object itself, or (2) from coauthored Notes in the system.

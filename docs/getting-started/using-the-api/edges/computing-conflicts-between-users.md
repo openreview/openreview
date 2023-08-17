@@ -12,6 +12,23 @@ note = client.get_note(<submission_id>)
 3\. Get the profiles of the authors of the submission and the reviewers. The reviewer group id should be something like your conference id/Paper#/Reviewers, for example robot-learning.org/CoRL/2022/Conference/Paper99/Reviewers if the submission of interest is paper number 99.
 
 ```python
+# API 2
+
+author_profiles = openreview.tools.get_profiles(
+    client, 
+    submission.content['authorids']['value'],
+    with_publications=True
+)
+reviewers = openreview.tools.get_profiles(
+    client,
+    client.get_group(reviewer_group_id).members,
+    with_publications=True
+)
+```
+
+```python
+# API 1
+
 author_profiles = openreview.tools.get_profiles(
     client,
     note.content["authorids"],

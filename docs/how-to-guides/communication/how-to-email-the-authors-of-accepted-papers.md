@@ -12,26 +12,25 @@ Since the Submissions do not contain the decisions, we first need to retrieve al
 
 Retrieve Submissions and Decisions:
 
-```
+```python
 submissions = client.get_all_notes(invitation = 'Your/Venue/ID/-/Submission', details='directReplies')
 id_to_submission = {note.id: note for note in submissions}
 all_decision_notes = [] 
 for submission in submissions: 
     all_decision_notes = all_decision_notes + [reply for reply in submission.details["directReplies"] if reply["invitation"].endswith("Decision")]
-
 ```
 
 It is convenient to place all the submissions in a dictionary with their id as the key so that we can retrieve an accepted submission using its id.
 
 We then filter the Decision notes that were accepted and use their forum ID to get the corresponding Submission:
 
-```
+```python
 accepted_submissions = [id_to_submission[note["forum"]] for note in all_decision_notes if 'Accept' in note["content"]["decision"]]
 ```
 
 You can then message the author ids of each accepted submission.&#x20;
 
-```
+```python
 for submission in accepted_submissions: 
     subject = f'Message regarding Paper #{submission.number}'
     message = f'Hello, please go to your submission and do x, y, z. Find your submission here: https://openreview.net/forum?id={submission.forum}'
@@ -45,23 +44,27 @@ This is very similar to the previous example. The only difference is that we nee
 
 Retrieve Submissions and Decisions:
 
-```
-submissions = client.get_all_notes(invitation = 'Your/Venue/ID/-/Blind_Submission', details='directReplies')
+```python
+submissions = client.get_all_notes(invitation = 'Your/Venue/ID/-/Blind_Submission', details='directReplies,original')
 blind_notes = {note.id: note for note in submissions}
 all_decision_notes = [] 
-for submission in blind_notes: 
-    all_decision_notes = all_decision_notes + [reply for reply in submission.details["directReplies"] if reply["invitation"].endswith("Decision")]
+for submission_id, submission in blind_notes.items(): 
+        all_decision_notes = all_decision_notes + [reply for reply in submission.details["directReplies"] if reply["invitation"].endswith("Decision")]
 ```
 
 We then filter the Decision notes that were accepted and use their forum ID to get the corresponding Submission:
 
-```
-accepted_submissions = [blind_notes[decision_note.forum].details['original'] for decision_note in all_decision_notes if 'Accept' in decision_note["content"]['decision']]
+```python
+accepted_submissions = []
+
+for decision_note in all_decision_notes:
+    if 'Accept' in decision_note["content"]['decision']:
+        accepted_submissions.append(blind_notes[decision_note['forum']].details['original'])
 ```
 
 You can then message the author ids of each accepted submission.&#x20;
 
-```
+```python
 for submission in accepted_submissions: 
     subject = f'Message regarding Paper #{submission.number}'
     message = f'Hello, please go to your submission and do x, y, z. Find your submission here: https://openreview.net/forum?id={submission.forum}
