@@ -62,6 +62,7 @@
   * [Manually adding a publication to your profile](getting-started/creating-an-openreview-profile/manually-adding-a-publication-to-your-profile.md)
   * [Finding and adding a Semantic Scholar URL to your profile](getting-started/creating-an-openreview-profile/finding-and-adding-a-semantic-scholar-url-to-your-profile.md)
 * [Using the New Forum Page](getting-started/using-the-new-forum-page.md)
+* [Live Chat on the Forum Page](getting-started/live-chat-on-the-forum-page.md)
 
 ## How-To Guides
 

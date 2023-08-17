@@ -6,10 +6,6 @@ description: Learn about the differences and new features of the  forum page.
 
 OpenReview is releasing a major update of the forum page for venues using the new API (v2). While the interface will look familiar, it should be faster, more flexible, and offer new ways to quickly find the content you are looking for.
 
-#### Accessing the Page
-
-The new forum UI is enabled by default. In case you face unexpected issues, you can switch back to the original forum UI by changing the URL of any existing TMLR forum page from   `/forum` to `/forum-original`. For example: [https://openreview.net/forum-original?id=8HuyXvbvqX](https://openreview.net/forum-original?id=8HuyXvbvqX).
-
 #### Anatomy of a Forum Reply
 
 Here is an example of a typical forum comment:
