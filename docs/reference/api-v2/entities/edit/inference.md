@@ -48,6 +48,12 @@ For the following examples, assume that the following [Invitation](../invitation
               optional: true,
               deletable: true
             }
+          },
+          readers: {
+            param: {
+              regex: '^~.*$|OpenReview\.net\/Conference'
+              deletable: true
+            }
           }
         },
         authors: {
@@ -142,7 +148,8 @@ Let's say that we now want to add the field abstract to the Note. We can create 
     writers: [ 'OpenReview.net/Conference', '~Author_One1' ],
     content: {
       abstract: {
-        value: 'Abstract'
+        value: 'Abstract',
+        readers: [ 'OpenReview.net/Conference', '~Author_One1' ]
       }
     }
   }
@@ -164,7 +171,8 @@ Notice that we now pass the field `note.id` to the Edit. This indicates what Not
       value: 'Title'
     },
     abstract: {
-      value: 'Abstract'
+      value: 'Abstract',
+      readers: [ 'OpenReview.net/Conference', '~Author_One1' ]
     },
     authors: {
       value: [ 'Author One' ],
@@ -219,6 +227,7 @@ The resulting Note will look like this:
     },
     abstract: {
       value: 'Revised Abstract'
+      readers: [ 'OpenReview.net/Conference', '~Author_One1' ]
     },
     authors: {
       value: [ 'Author One' ],
@@ -250,7 +259,7 @@ In order to remove a field from a Note, we can pass the object `{ delete: true }
     writers: [ 'OpenReview.net/Conference', '~Author_One1' ],
     content: {
       abstract: {
-        value: { 'delete': true }
+        readers: { 'delete': true }
       }
     }
   }
@@ -258,6 +267,60 @@ In order to remove a field from a Note, we can pass the object `{ delete: true }
 ```
 
 The resulting Note will look like this:
+
+```javascript
+{
+  id: 'mIcD4PJBaU'
+  invitations: [ 'OpenReview.net/Conference/-/Submission' ],
+  signatures: [ '~Author_One1' ],
+  readers: [ 'everyone' ],
+  writers: [ 'OpenReview.net/Conference', '~Author_One1' ],
+  domain: 'OpenReview.net/Conference',
+  content: {
+    title: {
+      value: 'Title'
+    },
+    abstract: {
+      value: 'Revised Abstract'
+    },
+    authors: {
+      value: [ 'Author One' ],
+      readers: [ 'OpenReview.net/Conference', '~Author_One1' ]
+    },
+    authorids: {
+      value: [ '~Author_One1' ],
+      readers: [ 'OpenReview.net/Conference', '~Author_One1' ]
+    }
+  }
+}
+```
+
+In this case the abstract now inherits the readers of the Note, just like title. The `authors` and `authorids` fields are still only visible to a subset of people.
+
+You can completely remove the abstract by now deleting the `value` field:
+
+```javascript
+{
+  invitation: 'OpenReview.net/Conference/-/Submission',
+  signatures: [ '~Author_One1' ],
+  readers: [ 'OpenReview.net/Conference', '~Author_One1' ],
+  writers: [ 'OpenReview.net/Conference' ],
+  domain: 'OpenReview.net/Conference',
+  note: {
+    id: 'mIcD4PJBaU',
+    signatures: [ '~Author_One1' ],
+    readers: [ 'everyone' ],
+    writers: [ 'OpenReview.net/Conference', '~Author_One1' ],
+    content: {
+      abstract: {
+        value: { 'delete': true }
+      }
+    }
+  }
+}
+```
+
+The resulting Note now looks like this:
 
 ```javascript
 {
@@ -283,7 +346,7 @@ The resulting Note will look like this:
 }
 ```
 
-The resulting Note will look exactly the same as the first Note that was created from the first Edit. The difference is that we can see the history of changes by querying the Edits associated to the Note.
+The Note will now look exactly the same as the first Note that was created from the first Edit. The difference is that we can see the history of changes by querying the Edits associated to the Note.
 
 ### Destructive Changes
 
