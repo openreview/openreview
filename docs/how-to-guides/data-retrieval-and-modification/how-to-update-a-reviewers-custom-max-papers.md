@@ -1,6 +1,6 @@
 # How to Update a Reviewer's Custom Max Papers
 
-Reviewers have the option to submit a form requesting a custom number of papers to review. The range of this custom number is defined by the organizers of the venue. Reviewers can set this vale during the recruitment period by submitting a form that creates a Note with the Invitation \<your\_venue\_id>/Reviewers/-/Reduced\_Load. When paper matching setup is run, this note is converted to an Edge with the Invitation \<your\_venue\_id>/Reviewers/-/Custom\_Max\_Papers.&#x20;
+Reviewers have the option to submit a form requesting a custom number of papers to review. The range of this custom number is defined by the organizers of the venue. Reviewers can set this vale during the recruitment period by submitting a form that creates a Note with the Invitation \<your\_venue\_id>/Reviewers/-/Recruitment. When paper matching setup is run, this note is converted to an Edge with the Invitation \<your\_venue\_id>/Reviewers/-/Custom\_Max\_Papers.&#x20;
 
 **To create a reviewers' Custom Max Papers after having run Paper Matching Setup, you can do the following:**
 
