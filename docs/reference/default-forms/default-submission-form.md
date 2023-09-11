@@ -39,8 +39,9 @@
     "value": {
       "param": {
         "type": "string",
-        "regex": "(^$)|[^;,\\n]+(,[^,\\n]+)*"
-        "optional": true
+        "regex": "(^$)|[^;,\\n]+(,[^,\\n]+)*",
+        "optional": true,
+        "deletable": true
       }
     },
     "description": "Comma separated list of keywords.",
@@ -51,7 +52,8 @@
       "param": {
         "type": "string",
         "regex": "[^\\n]{0,250}",
-        "optional": true
+        "optional": true,
+        "deletable": true
       }
     },
     "description": "\"Too Long; Didn't Read\": a short sentence describing your paper",

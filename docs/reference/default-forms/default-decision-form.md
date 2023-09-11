@@ -32,7 +32,8 @@
         "minLength": 1,
         "maxLength": 5000,
         "input": "textarea",
-        "optional": true
+        "optional": true,
+        "deletable": true
       }
     } 
   }

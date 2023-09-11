@@ -2,7 +2,7 @@
 
 **API V2 JSON**
 
-```
+```json
 {
     "profile_confirmed": {
         "description": "In order to avoid conflicts of interest in reviewing, we ask that all reviewers take a moment to update their OpenReview profiles (link in instructions above) with their latest information regarding email addresses, work history and professional relationships. Please confirm that your OpenReview profile is up-to-date by selecting 'Yes'".,

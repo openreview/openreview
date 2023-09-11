@@ -14,8 +14,7 @@ You can customize your venue’s submission form using the [Revision](../../refe
         "enum": [
           "I have read and agree with the workshop's policy on behalf of myself and my co-authors."
         ],
-        "input": "radio",
-        "optional": true
+        "input": "radio"
       }
     }
   }

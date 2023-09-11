@@ -11,7 +11,8 @@ You can add supplementary material to the submission form by clicking on the 'Re
                 "type": "file",
                 "extensions": ["zip", "pdf"],
                 "maxSize": 50,
-                "optional": true
+                "optional": true,
+                "deletable": true
             }
         },
         "description": "All supplementary material must be self-contained and zipped into a single file. Note that supplementary material will be visible to reviewers and the public throughout and after the review period, and ensure all material is anonymized. The maximum file size is 100MB.",

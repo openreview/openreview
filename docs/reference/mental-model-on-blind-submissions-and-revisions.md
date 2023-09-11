@@ -1,5 +1,11 @@
 # Mental Model on Blind Submissions and Revisions
 
+{% hint style="info" %}
+This is only valid for API V1.
+
+API V2 allows to hide fields in the same Note. Therefore, blind submissions are unnecessary because author related fields can have restricted readership.
+{% endhint %}
+
 OpenReview anonymizes author information for double blind conferences using the Blind Submission invitation. This information may later be revealed depending on the policies of the conference.
 
 All the submissions in a Conference are represented by Notes in OpenReview. Therefore, a Note will contain all the Submission information. In order to anonymize a Note, another Note pointing to the original Note is created, as can be seen in the diagram below. This new Note is an exact copy of the original Note except that it hides the authors’ identities.
