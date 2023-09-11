@@ -31,6 +31,17 @@ The Review Stage should not be run until after the submission deadline, except i
 
 <details>
 
+<summary>Review Expiration Date</summary>
+
+* After this date, no more reviews can be submitted. This is the hard deadline reviewers will not be able to see.
+* Enter a time and date in GMT using the following format: YYYY/MM/DD HH:MM (e.g. 2019/01/31 23:59)
+* Optional
+* Default is 30 minutes after the review deadline
+
+</details>
+
+<details>
+
 <summary>Make Reviews Public</summary>
 
 * If yes, sets the readers of existing and future reviews to 'everyone'.&#x20;

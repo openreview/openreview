@@ -10,7 +10,7 @@ You can add supplementary material to the submission form by clicking on the 'Re
             "param": {
                 "type": "file",
                 "extensions": ["zip", "pdf"],
-                "maxSize": 100,
+                "maxSize": 50,
                 "optional": true
             }
         },
