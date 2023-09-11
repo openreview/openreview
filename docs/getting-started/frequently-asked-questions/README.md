@@ -7,7 +7,7 @@
 * [How can I import papers from DBLP](../creating-an-openreview-profile/importing-papers-from-dblp.md)?&#x20;
 * [How can I add a Semantic Scholar URL to my profile](../creating-an-openreview-profile/finding-and-adding-a-semantic-scholar-url-to-your-profile.md)?&#x20;
 * [My profile is "limited". What does that mean? ](my-profile-is-limited-.-what-does-that-mean.md)
-* [How can I add formatting to my reviews/comments](../../how-to-guides/submitting-papers-comments-reviews-and-decisions/how-to-add-formatting-to-reviews-or-comments.md)?
+* [How can I add formatting to my reviews/comments](../../how-to-guides/submissions-comments-reviews-and-decisions/how-to-add-formatting-to-reviews-or-comments.md)?
 * [Why is my LaTeX code not displaying properly](../../reference/openreview-tex/common-issues-with-latex-code-display.md)?&#x20;
 * [What should I do if I find a vulnerability in OpenReview](what-should-i-do-if-i-find-a-vulnerability-in-openreview.md)?&#x20;
 * [How can I report a bug or request a feature](how-can-i-report-a-bug-or-request-a-feature.md)?

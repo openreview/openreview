@@ -1,4 +1,4 @@
-# Posting a Test Submission
+# How to Post a Test Submission
 
 If you are testing your venue on the dev site, you may want to generate some test submissions. This can be accomplished manually through the UI, but it may be faster to do it with python using the guide below.&#x20;
 
@@ -18,7 +18,7 @@ If you are testing your venue on the dev site, you may want to generate some tes
 
 
 * Familiarize yourself with the submission invitation. Every content field of your note will need to be in the format specified by the submission invitation, and all the fields that do not contain `optional: true` are mandatory.
-*   Create your note. If you were submitting a note through the [default submission form](../../../reference/default-forms/default-submission-form.md#api-v2-json), it would look something like this:&#x20;
+*   Create your note. If you were submitting a note through the [default submission form](../../reference/default-forms/default-submission-form.md#api-v2-json), it would look something like this:&#x20;
 
     ```python
     note = openreview.Note(
@@ -104,7 +104,7 @@ If you are testing your venue on the dev site, you may want to generate some tes
 
 
 3. Familiarize yourself with the submission invitation. Every content field of your note will need to be in the format specified by the submission invitation, and any fields marked as "required" will need to be present in the note.&#x20;
-4.  Create your note. If you were submitting a note through the [default submission form](../../../reference/default-forms/default-submission-form.md#api-v1-json), it would look something like this:&#x20;
+4.  Create your note. If you were submitting a note through the [default submission form](../../reference/default-forms/default-submission-form.md#api-v1-json), it would look something like this:&#x20;
 
     ```python
     note = openreview.Note(

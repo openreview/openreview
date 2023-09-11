@@ -1,8 +1,12 @@
-# Exporting all Reviews into a CSV
+# How to Export All Reviews into a CSV
+
+{% hint style="danger" %}
+This how-to only works for API 1 venues
+{% endhint %}
 
 Say you want to export all of the reviews for a given venue into a csv file.&#x20;
 
-1. If you have not done so, you will need to [install and instantiate the openreview-py client](../installing-and-instantiating-the-python-client.md).&#x20;
+1. If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).&#x20;
 2. Retrieve all of the Reviews. Reviews generally follow the invitation Your/Venue/ID/-/Official\_Review. We can retrieve them by getting all of the direct replies to each submission and finding those with invitations ending in Official\_Review.&#x20;
 
 Single blind venues can do this like so:&#x20;

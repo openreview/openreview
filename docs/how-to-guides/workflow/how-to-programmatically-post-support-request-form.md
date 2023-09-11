@@ -1,12 +1,12 @@
-# Posting a Support Request Form
+# How to Programmatically Post Support Request Form
 
 {% hint style="info" %}
 Currently all request forms are being posted with API 1. If you want to submit a request using the python client, then you should be creating an API 1 client.
 {% endhint %}
 
-While a support request form can most easily be submitted through the UI, some venues that have multiple deadlines a year and need to submit multiple venue requests with the same settings may find it easier to do this programmatically through the API.&#x20;
+While a support request form can most easily be [submitted through the UI](https://openreview.net/group?id=OpenReview.net/Support), some venues that have multiple deadlines a year and need to submit multiple venue requests with the same settings may find it easier to do this programmatically through the API.&#x20;
 
-1. If you have not done so, you will need to [install and instantiate the openreview-py client](../installing-and-instantiating-the-python-client.md).&#x20;
+1. If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).&#x20;
 2. Familiarize yourself with the venue request form. Note which fields are required, and which are optional. You can [view the form through the UI](https://openreview.net/group?id=OpenReview.net/Support) or [view it in JSON](https://api.openreview.net/invitations?id=OpenReview.net/Support/-/Request\_Form). &#x20;
 3. Choose your program chairs, and create a list of their email addresses.&#x20;
 
