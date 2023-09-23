@@ -1,4 +1,4 @@
-# Getting all Decisions
+# How to Get All Decisions
 
 To get all decisions for a venue, you can do the following:&#x20;
 
@@ -37,7 +37,7 @@ venue_group_settings = client.get_group(venue_id).content
 decision_invitation_name = venue_group_settings['decision_name']['value']
 for submission in submissions:
     for reply in submission.details['directReplies']:
-        if any(invitation.endswith(decision_invitation_name) for invitation in reply['invitations']):
+        if any(invitation.endswith(f'/-/{decision_invitation_name}') for invitation in reply['invitations']):
             decisions.append(reply)
             
 # API V1
