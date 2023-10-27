@@ -26,7 +26,7 @@
           "Accept (Poster)",
           "Reject"
         ],
-        "type": "select"
+        "input": "radio"
       }
     },
     "order": 2
@@ -41,7 +41,8 @@
           "3: The area chair is somewhat confident",
           "2: The area chair is not sure",
           "1: The area chair's evaluation is an educated guess"
-        ]
+        ],
+        "input": "radio"
       }
     },
     "order": 3
