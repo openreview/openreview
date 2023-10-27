@@ -10,7 +10,24 @@ As a venue organizer, you may hide fields in a comment or a submission. Comments
 
 If you want to restrict the visibility of a field to specific users, use the `readers` property. You can use this property to hide fields that **have sensitive information** such as the name of the authors in a submission.
 
-To apply this feature, simply add the readers property to that particular field in the [Invitation](../../reference/api-v2/entities/invitation.md). Please see the [speficiers](../../reference/api-v2/entities/invitation/specifiers.md) section to know the different options you have when defining the `readers` field.
+To apply this feature, simply add the readers property to that particular field in the [Invitation](../../reference/api-v2/entities/invitation.md). The following example defines the `readers` field as a constant, where only the Program Chairs and Senior Area Chairs of a particular submission can see `restricted_field`. Note the use of [Dollar Sign Notation](../../reference/api-v2/entities/invitation/dollar-sign-notation.md) to point to the Senior Area Chairs. This specific example could be used for any forum reply, such as reviews, meta reviews, decisions, and comments.
+
+```javascript
+restricted_field: {
+  value: {
+    param: {
+      type: 'string',
+      optional: true
+    }
+  },
+  readers: [
+    'Your/Venue/ID/Program_Chairs',
+    'Your/Venue/ID/Submission${7/content/noteNumber/value}/Senior_Area_Chairs'
+  ]
+}
+```
+
+Please see the [speficiers](../../reference/api-v2/entities/invitation/specifiers.md) section to know the different options you have when defining the `readers` field.
 
 ```javascript
 restricted_field: {
