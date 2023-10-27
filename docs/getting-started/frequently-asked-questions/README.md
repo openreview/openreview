@@ -11,6 +11,7 @@
 * [Why is my LaTeX code not displaying properly](../../reference/openreview-tex/common-issues-with-latex-code-display.md)?&#x20;
 * [What should I do if I find a vulnerability in OpenReview](what-should-i-do-if-i-find-a-vulnerability-in-openreview.md)?&#x20;
 * [How can I report a bug or request a feature](how-can-i-report-a-bug-or-request-a-feature.md)?
+* [How do I obtain a letter of proof for my services as a reviewer](how-do-i-obtain-a-letter-of-proof-for-my-services-as-a-reviewer.md)?
 * [What should I do if my question is not answered here](what-should-i-do-if-my-question-is-not-answered-here.md)?&#x20;
 
 ### Program Chairs
