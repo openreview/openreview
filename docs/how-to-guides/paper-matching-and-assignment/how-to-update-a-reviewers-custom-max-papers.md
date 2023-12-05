@@ -49,8 +49,8 @@ custom_max_papers_edge = edges[0]
 The edge has a "weight" field. This represents the custom amount of papers they have agreed to review. To change it, you can set it to the new desired number of papers and repost the Edge.&#x20;
 
 ```python
-edge.weight = 2
-client.post_edge(edge)
+custom_max_papers_edge.weight = 2
+client.post_edge(custom_max_papers_edge)
 ```
 
 Once the edge is posted, it will appear in the reviewers console as the following image:
