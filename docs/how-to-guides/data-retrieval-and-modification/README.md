@@ -6,7 +6,7 @@
 
 [How to add/remove bids programatically](../paper-matching-and-assignment/how-to-add-remove-bids-programmatically.md)
 
-[How to Sync Manual and Automatic Assignments](../paper-matching-and-assignment/how-to-sync-manual-and-automatic-assignments.md)
+[How to Sync Manual and Automatic Assignments](how-to-sync-manual-and-automatic-assignments.md)
 
 [How to Export all Submission Attachments](how-to-export-all-submission-attachments.md)
 

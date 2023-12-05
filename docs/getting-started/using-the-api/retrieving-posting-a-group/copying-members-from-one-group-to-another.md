@@ -4,7 +4,7 @@ Some venues with multiple deadlines a year may want to reuse the same reviewer a
 
 #### Programmatically
 
-1. If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).
+1. If you have not done so, you will need to [install and instantiate the openreview-py client](../installing-and-instantiating-the-python-client.md).
 2. Get the group you are taking members from. You can get an individual group by its id. If you are copying reviewers from one venue iteration to another, for example, do the following: &#x20;
 
 ```
@@ -28,13 +28,13 @@ client.add_members_to_group("<second_venue_id>/Reviewers", reviewers)
 1. Navigate to https://openreview.net/group/edit?id=\<first\_venue\_id>/Reviewers
 2. Under Group Members section click on Select All
 
-<figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption><p>Select All</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption><p>Select All</p></figcaption></figure>
 
 3. Then click on Copy Selected
 
-<figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption><p>Copy Selected</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption><p>Copy Selected</p></figcaption></figure>
 
 4. Navigate to https://openreview.net/group/edit?id=\<second\_venue\_id>/Reviewers
 5. Under the Group Members section select the text box area and click on Add to Group
 
-<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
