@@ -20,7 +20,7 @@ If you have identified a reproducible problem in OpenReview, we want to hear abo
 
 ### Identify Where to Report
 
-If you have found a vulnerability in the system, instead of opening an issue, contact us at info@openreview.net. We will investigate and do our best to quickly fix the problem.
+If you have found a security vulnerability in the system, instead of opening an issue, please contact us at security@openreview.net. We will investigate and do our best to quickly fix the problem.
 
 If you have a problem with your account that requires you to share personal information such as your email or name, please contact us at info@openreview.net.
 
