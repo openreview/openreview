@@ -4,7 +4,7 @@
 The following instructions only apply to API 2 venues
 {% endhint %}
 
-First you'll need to query the API to get the notes. You can find directions on getting different notes listed under the [Notes](broken-reference) page. When you have the note IDs, post an edit for each note.
+First you'll need to query the API to get the notes. You can find directions on getting different notes (submissions, reviews, metareviews, decisions) listed under [Data Retrieval and Modification](./). When you have the note IDs, post an edit for each note.
 
 ```
 client.post_note_edit(
