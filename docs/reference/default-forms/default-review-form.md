@@ -5,7 +5,7 @@
 ```json
  {
   "title": {
-    "value":
+    "value": {
       "param": {
         "type": "string",
         "regex": ".{0,500}"
@@ -30,7 +30,7 @@
   "rating": {
     "value": {
       "param": {
-        "type": "string",
+        "type": "integer",
         "enum": [
             { "value": 10, "description": "10: Top 5% of accepted papers, seminal paper" },
             { "value": 9, "description": "9: Top 15% of accepted papers, strong accept" },
@@ -51,7 +51,7 @@
   "confidence": {
     "value": {
       "param": {
-        "type": "string",
+        "type": "integer",
         "enum": [
            { "value": 5, "description": "5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature" },
            { "value": 4, "description": "4: The reviewer is confident but not absolutely certain that the evaluation is correct" },
