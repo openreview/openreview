@@ -18,7 +18,7 @@ Workflow details and timing were planned extensively with the OpenReview team, a
 
 Below is a summary of key workflow steps and services. (Detailed workflow is described [here](https://docs.google.com/document/d/1JKNmfEBC2yVXCU-3YLn4MQd4KKWrP-hU9TmAWaBzZCs/edit).)
 
-
+***
 
 **Reviewer recruiting**. NeurIPS PCs invited over 13k reviewers, 1k area chairs and 155 senior area chairs. With the permission of ICLR, OpenReview also shared with the PCs the list of accepted authors of the previous ICLR conference from 2016 until 2021.
 

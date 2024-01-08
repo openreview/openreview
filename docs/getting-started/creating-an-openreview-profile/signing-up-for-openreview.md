@@ -16,7 +16,11 @@ If you forgot your password associated with a profile, enter your email address 
 
 #### **Sign Up**&#x20;
 
-If no existing profiles belong to you and you would like to create a new one, you can fill in your email address in the text field next to the ‘Sign Up’ option and click the button. You will then be prompted to enter a new password and send a confirmation email. Clicking the link in the confirmation email will bring you to the registration page.
+If no existing profiles belong to you and you would like to create a new one, you can fill in your email address in the text field next to the ‘Sign Up’ option and click the button. If you sign up with a public domain or an email domain that is not included in our institution list you will see a warning: &#x20;
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2024-01-04 at 5.02.31 PM.png" alt="The warning reads: gmail.com does not appear in our list of publishing institutions. It can take up to 2 weeks for profiles using public email services to be activated. To activate immediately, please sign up with an email address that uses an educational or employing institution domain. If your institution is not yet in our list, contact us to request that it be added."><figcaption><p>Email domain warning.</p></figcaption></figure>
+
+You can contact us to add the institutional or company domain, otherwise signing up with a public domain may spend up to 2 weeks in moderation. After typing your email you will then be prompted to enter a new password and send a confirmation email. Clicking the link in the confirmation email will bring you to the registration page.
 
 #### **Profile Registration**&#x20;
 
