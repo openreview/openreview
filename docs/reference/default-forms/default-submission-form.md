@@ -47,14 +47,8 @@
     "description": "Comma separated list of keywords.",
     "order": 6
   },
-  "TL;DR": {
+  "TLDR": {
     "value": {
-      "param": {
-        "type": "string",
-        "regex": "[^\\n]{0,250}",
-        "optional": true,
-        "deletable": true
-      }
     },
     "description": "\"Too Long; Didn't Read\": a short sentence describing your paper",
     "order": 7
