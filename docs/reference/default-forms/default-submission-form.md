@@ -49,6 +49,13 @@
   },
   "TLDR": {
     "value": {
+      "param": {
+        "fieldName": "TL;DR",
+        "type": "string",
+        "maxLength": 250,
+        "optional": true,
+        "deletable": true
+      }
     },
     "description": "\"Too Long; Didn't Read\": a short sentence describing your paper",
     "order": 7
