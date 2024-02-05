@@ -5,6 +5,7 @@
 * [How can I add or remove a name from my profile](../creating-an-openreview-profile/add-or-remove-a-name-from-your-profile.md)?&#x20;
 * [How can I add or remove an email address from my profile](../creating-an-openreview-profile/add-or-remove-an-email-address-from-your-profile.md)?&#x20;
 * [How can I import papers from DBLP](../creating-an-openreview-profile/importing-papers-from-dblp.md)?&#x20;
+* [How do I complete my tasks?](how-do-i-complete-my-tasks.md)
 * [How can I add a Semantic Scholar URL to my profile](../creating-an-openreview-profile/finding-and-adding-a-semantic-scholar-url-to-your-profile.md)?&#x20;
 * [My profile is "limited". What does that mean? ](my-profile-is-limited-.-what-does-that-mean.md)
 * [How can I add formatting to my reviews/comments](../../how-to-guides/submissions-comments-reviews-and-decisions/how-to-add-formatting-to-reviews-or-comments.md)?

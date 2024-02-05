@@ -25,6 +25,7 @@
   * [My Profile is "Limited". What does that mean?](getting-started/frequently-asked-questions/my-profile-is-limited-.-what-does-that-mean.md)
   * [What field types are supported in the forms?](getting-started/frequently-asked-questions/what-field-types-are-supported-in-the-forms.md)
   * [How do I obtain a letter of proof for my services as a reviewer?](getting-started/frequently-asked-questions/how-do-i-obtain-a-letter-of-proof-for-my-services-as-a-reviewer.md)
+  * [How do I complete my tasks?](getting-started/frequently-asked-questions/how-do-i-complete-my-tasks.md)
 * [Using the API](getting-started/using-the-api/README.md)
   * [Installing and Instantiating the Python client](getting-started/using-the-api/installing-and-instantiating-the-python-client.md)
   * [Groups](getting-started/using-the-api/groups.md)
