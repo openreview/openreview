@@ -1,8 +1,48 @@
 # How to Export All Reviews into a CSV
 
-{% hint style="danger" %}
-This how-to only works for API 1 venues
-{% endhint %}
+API 2 Venues
+
+To export all reviews for a given venue into a csv file:
+
+1. If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).&#x20;
+2. Retrieve all of the Reviews. Follow this link and complete all three steps for API 2 venues to [Get All the Reviews](how-to-get-all-reviews.md#venues-using-api-v2)&#x20;
+3. Get the super review invitation. You can check out the [default review form](../../reference/default-forms/default-review-form.md#api-v2-json) if you need a reference. You'll need the content of the super invitation to create the headers for the csv.
+
+```python
+invitation = client.get_invitation(f'{venue_id}/-/{review_name}')
+content = invitation.edit['invitation']['edit']['note']['content']
+print(content)
+```
+
+4. If you did not use any custom fields for the review form, we would expect a list like \["title", "review", "rating", "confidence"]. Now create a list of the review form fields found in the content.
+
+```python
+keylist = list(content.keys())
+```
+
+5. If you haven't already, `import csv`. Then iterate through the list of reviews stored in 'reviews' and for each one, append the values associated to the keys in your keylist. If a value does not exist for that key, put an empty string in its place. You may also want to know which submission each review is associated with. You can get the forum of each review, which corresponds to the forum page of its associated submission. For example, if a review's forum is aBcDegh, you could find that submission at https://openreview.net/forum?id=aBcDegh. To create a csv that includes the review forums, do this:
+
+```python
+with open('reviews.csv', 'w') as outfile:
+    csvwriter = csv.writer(outfile, delimiter=',')
+    # Write header 
+    keylist.insert(0,'forum')
+    t = csvwriter.writerow(keylist)
+    for review in reviews:
+        valueList = []
+        valueList.append(review.forum)
+        for key in keylist:
+            if (key != 'forum'):
+                if review.content.get(key)['value']:
+                    valueList.append(review.content.get(key)['value'])
+                else:
+                    valueList.append('')
+        s = csvwriter.writerow(valueList)
+```
+
+6. There should now be a csv of exported reviews in the directory in which you are working.&#x20;
+
+API 1 Venues
 
 Say you want to export all of the reviews for a given venue into a csv file.&#x20;
 
