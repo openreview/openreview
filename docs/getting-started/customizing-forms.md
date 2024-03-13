@@ -352,3 +352,65 @@ How these each affect a field are best shown below in some common form patterns
 <figure><img src="../.gitbook/assets/submissionsupplementary.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
+
+### Setting the Readers of a Field
+
+If you want to limit who in the committee can see a particular field in a form, this is done by adding a `readers` field. Please follow this link for more detailed information on [hiding or revealing fields](../how-to-guides/submissions-comments-reviews-and-decisions/how-to-hide-reveal-fields.md). Below are two examples, one for the [submission form](hosting-a-venue-on-openreview/customizing-your-submission-form.md) and one for the meta review form. Notice the different use of dollar sign notation. The notation used for the meta review form will also work for other replies to the forum: reviews, comments, and decisions.
+
+{% tabs %}
+{% tab title="Submission" %}
+```
+{
+  "supplementary_material": {
+    "order": 10,
+    "description": "All supplementary material must be self-contained and zipped into a single file. Note that supplementary material will be visible to reviewers and the public throughout and after the review period, and ensure all material is anonymized. The maximum file size is 200MB.",
+    "value": {
+      "param": {
+        "type": "file",
+        "extensions": [
+          "zip",
+          "pdf",
+          "tgz",
+          "gz"
+        ],
+        "maxSize": 200,
+        "optional": true
+      }
+    },
+    "readers": [
+    "Your/Venue/ID/Program_Chairs",
+    "Your/Venue/ID/Submission${4/number}/Senior_Area_Chairs",
+    "Your/Venue/ID/Submission${4/number}/Authors"
+    ]
+  }
+}
+```
+{% endtab %}
+
+{% tab title="Meta Review" %}
+```
+{
+  "recommendation": {
+    "order": 10,
+    "description": "Please provide your recommendation based on the manuscript, reviews, author responses and your discussion with the reviewers.",
+    "value": {
+      "param": {
+        "type": "string",
+        "enum": [
+          "Accept (Oral)",
+          "Accept (Poster)",
+          "Reject"
+        ],
+        "input": "radio"
+      }
+    },
+    "readers": [
+    "Your/Venue/ID/Program_Chairs",
+    "Your/Venue/ID/Submission${7/content/noteNumber/value}/Area_Chairs",
+    "Your/Venue/ID/Submission${7/content/noteNumber/value}/Reviewers"
+  ]
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
