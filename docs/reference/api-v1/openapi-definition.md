@@ -1,9 +1,5 @@
 # OpenAPI definition
 
-{% swagger src="../../.gitbook/assets/api.yml" path="undefined" method="undefined" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endswagger %}
-
 {% swagger src="../../.gitbook/assets/api.yml" path="/register" method="post" %}
 [api.yml](../../.gitbook/assets/api.yml)
 {% endswagger %}
