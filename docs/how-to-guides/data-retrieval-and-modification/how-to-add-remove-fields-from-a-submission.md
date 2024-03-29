@@ -1,9 +1,5 @@
 # How to add/remove fields from a submission
 
-{% hint style="info" %}
-This documentation is only valid for the API V2
-{% endhint %}
-
 ## Editing a submission as an organizer
 
 Organizers of the venue have access to an Invitation that lets them edit any part of a submission associated to their venue. This Invitation is called "[Meta Invitation](../../reference/api-v2/entities/invitation/types-and-structure.md#meta-invitations)".

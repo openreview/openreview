@@ -6,10 +6,3 @@ If program organizers want to revert a submission withdrawal, they can do so by 
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-07-21 at 2.40.46 PM.png" alt=""><figcaption><p>Withdrawal Reversion button</p></figcaption></figure>
 
-### API 1 venues
-
-Withdrawn submissions can be restored by deleting the withdraw note. On the forum of the withdrawn submission there will be a note like the following:&#x20;
-
-![](../../.gitbook/assets/withdraw\_note.png)
-
-Using the trashcan button to delete this note will restore the submission.&#x20;

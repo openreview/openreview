@@ -9,14 +9,6 @@ The submission deadline set through the venue request form is actually only the 
 expdate = 1650639704000
 ```
 
-**Depending on the API version that your venue is using, you will need to update the `expdate` value differently.**
-
-{% hint style="info" %}
-Depending on the Invitation used to create the Invitation Edit, some other fields may be required. To read more about how Invitations work, refer to the [Invitations section](../../reference/api-v2/entities/invitation.md).
-{% endhint %}
-
-### API V2
-
 Create an Invitation Edit
 
 ```python
@@ -33,22 +25,3 @@ client.post_invitation_edit(
 )
 ```
 
-### API V1
-
-Retrieve your invitation:&#x20;
-
-```python
-invitation = client.get_invitation("<Your/Venue/ID/-/Submission")
-```
-
-Set the expiration date, or `expdate`.&#x20;
-
-```python
-invitation.expdate = expdate
-```
-
-Post your changes.
-
-```python
-client.post_invitation(invitation)
-```

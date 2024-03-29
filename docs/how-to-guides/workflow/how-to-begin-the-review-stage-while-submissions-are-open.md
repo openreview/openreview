@@ -1,5 +1,3 @@
 # How to begin the Review Stage while Submissions are Open
 
-**This option is only available for Single Blind, public venues.**&#x20;
-
-In order to begin reviewing while still accepting submissions, you will need to run the ‘Post Submission Stage’  with 'Force: True' in order to create paper groups. Then you can run the [Review Stage](../../reference/stages/review-stage.md). You will need to repeat these two steps continuously until the Submission deadline has passed to generate the paper groups and review invitations for new submissions.
+In order to begin reviewing while still accepting submissions, you will need to change the submission deadline to a past date, otherwise the Paper Matching Setup button won't be available. Run the Paper Matching Setup for reviewers and then you can access the [matching](../paper-matching-and-assignment/how-to-do-automatic-assignments/how-to-run-a-paper-matching.md) from the PC console. Set your submission deadline back to its original time. You will need to run the Paper Matching Setup after the Submission Deadline expires to assign reviewers to new submissions and if you added new reviewers to the reviewer's group. You can use the [Review Stage](../../reference/stages/review-stage.md) at anytime to set the configuration and the stage will run automatically when the Start Date passes.&#x20;

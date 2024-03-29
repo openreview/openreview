@@ -2,7 +2,7 @@
 
 There are two ways to customize your venue homepage using Markdown. All Markdown should be validated to ensure that it will not break the layout of the page: [https://stackedit.io/](https://stackedit.io/)
 
-### Group Editor (only possible for API 2 venues)
+### Group Editor&#x20;
 
 Go to your homepage https://openreview.net/group?id=Your/Venue/ID
 
@@ -12,7 +12,7 @@ Go to your homepage https://openreview.net/group?id=Your/Venue/ID
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-07-26 at 2.46.05 PM.png" alt="" width="375"><figcaption><p>View of the Group UI code highlighting the instructions field</p></figcaption></figure>
 
-### Homepage Override field (both API 1 and 2)
+### Homepage Override field&#x20;
 
 On the request form for your venue, click on the ‘Revision’ button and modify the Homepage Override field, which expects valid JSON.
 

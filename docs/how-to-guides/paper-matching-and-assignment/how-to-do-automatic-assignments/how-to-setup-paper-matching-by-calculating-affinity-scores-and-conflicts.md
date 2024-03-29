@@ -1,10 +1,6 @@
 # How to setup paper matching by calculating affinity scores and conflicts
 
-{% hint style="info" %}
-If you are using the API V1, before calculating affinity scores and conflicts you should make sure that your submission deadline has passed and that you have run either the ‘[Post Submission Stage](../../../reference/stages/post-submission-stage.md)’ or the ‘[Review Stage](../../../reference/stages/review-stage.md)’.
-{% endhint %}
-
-You can calculate affinity scores and conflicts for your venue using OpenReview's 'Paper Matching Setup' feature. Paper Matching Setup is enabled for any venue that selected an option for the 'Paper Matching' question on the venue request form. This feature allows Program Chairs to compute or upload affinity scores and/or compute conflicts.
+You can calculate affinity scores and conflicts for your venue using OpenReview's 'Paper Matching Setup' feature. Paper Matching Setup is enabled for any venue and the button is activated once the Submission Deadline has passed. This feature allows Program Chairs to compute or upload affinity scores and/or compute conflicts.
 
 You can find the 'Paper Matching Setup' button on your venue request form next to 'Remind Recruitment'.
 

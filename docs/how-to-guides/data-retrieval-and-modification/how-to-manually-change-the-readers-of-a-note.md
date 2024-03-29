@@ -1,9 +1,5 @@
 # How to manually change the readers of a note
 
-{% hint style="info" %}
-The following instructions only apply to API 2 venues
-{% endhint %}
-
 First you'll need to query the API to get the notes. You can find directions on getting different notes (submissions, reviews, metareviews, decisions) listed under [Data Retrieval and Modification](./). When you have the note IDs, post an edit for each note.
 
 ```

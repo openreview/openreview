@@ -29,21 +29,11 @@ client.post_edge(edge)
 
 #### Restoring bids:
 
-To restore bids, you need to get the deleted bid and remove the `ddate` value. This is achieved by passing an object `{ delete: true }` **in case you are using API V2**. Be aware that the invitation must allow a this operation by passing an object with "`deletable: true`", otherwise, this action cannot be performed.
+To restore bids, you need to get the deleted bid and remove the `ddate` value. This is achieved by passing an object `{ delete: true }`. Be aware that the invitation must allow a this operation by passing an object with "`deletable: true`", otherwise, this action cannot be performed.
 
 ```python
 edge = client.get_edge(bid_id)
 edge.ddate = { 'delete': True }
-edge.signatures = ["ICML.cc/2023/Conference"]
-edge.nonreaders = None
-client.post_edge(edge)
-```
-
-**If you are using API V1**, then you need to pass the value `None` instead.
-
-```python
-edge = client.get_edge(bid_id)
-edge.ddate = None
 edge.signatures = ["ICML.cc/2023/Conference"]
 edge.nonreaders = None
 client.post_edge(edge)

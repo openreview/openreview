@@ -1,9 +1,5 @@
 # How to hide/reveal fields
 
-{% hint style="danger" %}
-This only applies to API V2 venues
-{% endhint %}
-
 As a venue organizer, you may hide fields in a comment or a submission. Comments (decisions, reviews, official comments, public comments, etc.) and submissions are represented by [Notes](../../reference/api-v2/entities/note/) in OpenReview.
 
 #### Hide a field using the readers property
