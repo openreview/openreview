@@ -9,11 +9,11 @@ venue_id = "<venue_id>"
 
 submissions = client.get_all_notes(invitation=f'{venue_id}/-/Submission')
 #gets the desk rejection name of the invitation
-desk_rejection_name = client.get_group("<venue_id>").content['desk_rejection_name']['value']
+desk_rejection_name = client.get_group(venue_id).content['desk_rejection_name']['value']
     
 # for each submission note that does not contain a pdf field, post a desk rejection note
 for submission in submissions:
-    if 'pdf' not in submission.content:
+    if not submission.content.get('pdf', {}).get('value'):
         desk_reject_note = client.post_note_edit(
                     invitation=f'{venue_id}/Submission{submission.number}/-/{desk_rejection_name}',
                     signatures=[f'{venue_id}/Program_Chairs'],
@@ -25,5 +25,3 @@ for submission in submissions:
                 )
         print(submission.number, "is desk rejected")
 ```
-
-The "readers" field needs to be adjusted to match the values of the Desk Reject invitation in order to post the desk reject note.
