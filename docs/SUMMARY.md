@@ -65,7 +65,7 @@
   * [How to Programmatically Post Support Request Form](how-to-guides/workflow/how-to-programmatically-post-support-request-form.md)
   * [How to test your venue workflow](how-to-guides/workflow/how-to-test-your-venue-workflow.md)
   * [How to Post a Test Submission](how-to-guides/workflow/how-to-post-a-test-submission.md)
-  * [How to have different tracks or types of submissions for a single venue](how-to-guides/workflow/how-to-have-different-tracks-or-types-of-submissions-for-a-single-venue.md)
+  * [How to support different tracks for a venue](how-to-guides/workflow/how-to-have-different-tracks-or-types-of-submissions-for-a-single-venue.md)
   * [How to Make Submissions Available Before the Submission Deadline](how-to-guides/workflow/how-to-make-submissions-available-before-the-submission-deadline.md)
   * [How to Change the Expiration Date of the Submission Invitation](how-to-guides/workflow/how-to-change-the-expiration-date-of-the-submission-invitation.md)
   * [Desk Reject Submissions that are Missing PDFs](how-to-guides/workflow/desk-reject-submissions-that-are-missing-pdfs.md)

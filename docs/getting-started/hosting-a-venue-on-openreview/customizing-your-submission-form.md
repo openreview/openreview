@@ -39,6 +39,26 @@ If you want to limit who in the program committee can read a field in the submis
 }
 </code></pre>
 
+If you have [reviewed our support for "tracks" in a single venue](../../how-to-guides/workflow/how-to-have-different-tracks-or-types-of-submissions-for-a-single-venue.md) and you think this is what your venue needs, you can add a "track" field to your submission form if you are using separate reviewing pools for track submissions.
 
+```json
+{
+  "track": {
+    "description": "Please select the track you are submitting to.",
+    "order": 2,
+    "value": {
+      "param": {
+        "type": "string",
+        "enum": [
+          "Track 1",
+          "Track 2",
+          "Track 3"
+        ],
+        "input": "radio"
+      }
+    }
+  }
+}
+```
 
 To remove fields, enter a comma-separated list of lowercase field names in the ‘Remove Submission Options’ field. To learn more about accepted field types, refer [here](../frequently-asked-questions/what-field-types-are-supported-in-the-forms.md).&#x20;
