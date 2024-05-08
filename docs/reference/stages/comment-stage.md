@@ -47,3 +47,12 @@ Double blind venues can only run the Comment Stage after the submission deadline
 * Required
 
 </details>
+
+<details>
+
+<summary>Enable Chat Between Committee Members</summary>
+
+* An experimental feature that allows committee members to chat with each other. Only the selected participants that are members of the reviewing committee will be using this feature. Default is "Yes, enable chat between committee members".&#x20;
+* Optional
+
+</details>
