@@ -27,6 +27,7 @@
   * [How do I recruit reviewers?](getting-started/frequently-asked-questions/how-do-i-recruit-reviewers.md)
   * [How do I obtain a letter of proof for my services as a reviewer?](getting-started/frequently-asked-questions/how-do-i-obtain-a-letter-of-proof-for-my-services-as-a-reviewer.md)
   * [How do I complete my tasks?](getting-started/frequently-asked-questions/how-do-i-complete-my-tasks.md)
+  * [How do I merge my profiles?](getting-started/frequently-asked-questions/how-do-i-merge-my-profiles.md)
 * [Using the API](getting-started/using-the-api/README.md)
   * [Installing and Instantiating the Python client](getting-started/using-the-api/installing-and-instantiating-the-python-client.md)
   * [Groups](getting-started/using-the-api/groups.md)
