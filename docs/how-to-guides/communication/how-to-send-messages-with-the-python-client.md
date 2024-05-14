@@ -12,7 +12,7 @@ To send a message to all of your venue's authors, or example:&#x20;
 subject = 'Your message subject'
 message = 'Hello, please go to your submission and do x, y, and z.'
 recipients = ['Your/Conference/ID/Authors']
-parentGroup = f'Your/Conference/ID/Paper{submission_number}/Authors'
+parentGroup = f'Your/Conference/ID/Submission{submission_number}/Authors'
 client.post_message(subject, recipients, message, parentGroup=parentGroup)
 ```
 
@@ -24,7 +24,7 @@ for submission in submissions:
     subject = f'Message regarding Paper #{submission.number}'
     message = f'Hello, please go to your submission and do x, y, z. Find your submission here: https://openreview.net/forum?id={submission.forum}'
     recipients = submission.content['authorids']
-    parentGroup = f'Your/Conference/ID/Paper{submission.number}/Authors'
+    parentGroup = f'Your/Conference/ID/Submission{submission.number}/Authors'
     client.post_message(subject, recipients, message, parentGroup=parentGroup)
 ```
 
