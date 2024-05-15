@@ -4,7 +4,7 @@ Live chat is a new OpenReview feature available to all venues to support synchro
 
 This feature was developed with encouragement and funding from the Alfred P. Sloan Foundation. For more information, see the Motivations section below.
 
-#### Enabling Live Chat:
+#### Enabling Live Chat
 
 Program Chairs can enable this feature from the venue management forum using a [Comment Stage](../reference/stages/comment-stage.md). First, click the Comment Stage button, then select the option "Enable Chat Between Committee Members". Members of the committee must be selected as participants.&#x20;
 
@@ -20,6 +20,7 @@ Once enabled, the live chat interface will be visible on all forum pages under t
 * Replies: Users can reply to specific message from earlier in the chat by hovering over the message and clicking the Reply button.
 * Permalinks: Users can copy a URL pointing to a specific chat message by hovering over the message and clicking the Copy Link button.
 * Notifications: Browser and email notifications are supported. User should enable browser notifications from their browser. Email notifications will be sent in bulk either every 5 messages or every 4 hours.&#x20;
+* Reactions: Users can add emoji "reactions" to chat messages, in the same way they can react to messages on apps like Slack and GitHub. To add a reaction, hover over the message and click the "Add Reaction" button, then select the emoji you want to use. All the reactions a message has gotten will be shown below the message content as separate buttons. Clicking one of these buttons will either add a reaction of that type, or remove your reaction if you have already added one.
 
 #### Motivation
 
