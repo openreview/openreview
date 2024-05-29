@@ -2,6 +2,7 @@
 
 ### General&#x20;
 
+* [Why does it take two weeks to moderate my profile?](why-does-it-take-two-weeks-to-moderate-my-profile.md)
 * [How can I add or remove a name from my profile](../creating-an-openreview-profile/add-or-remove-a-name-from-your-profile.md)?&#x20;
 * [How can I add or remove an email address from my profile](../creating-an-openreview-profile/add-or-remove-an-email-address-from-your-profile.md)?&#x20;
 * [How can I import papers from DBLP](../creating-an-openreview-profile/importing-papers-from-dblp.md)?&#x20;
