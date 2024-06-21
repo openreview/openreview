@@ -6,7 +6,7 @@ There are two types of email template tags: Tags that are handled on the backend
 
 Backend tags can be used anywhere, including when sending messages directly using the API or via the openreview-py library. Frontend tags can only be used on specific pages, such as the Area Chair console and the Program Chair console. A list of all available tags is below:
 
-Backend tags: `{{fullname}}`, `{{firstname}}`
+Backend tags: `{{fullname}}`
 
 Frontend tags: `[[SUBMIT_REVIEW_LINK]]`
 
