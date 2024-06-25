@@ -2,8 +2,8 @@
 
 ### General&#x20;
 
-* [Why does it take two weeks to moderate my profile?](why-does-it-take-two-weeks-to-moderate-my-profile.md)
 * [How can I add or remove a name from my profile](../creating-an-openreview-profile/add-or-remove-a-name-from-your-profile.md)?&#x20;
+* [How do I locate the date a submission is made public?](how-do-i-locate-the-date-a-submission-is-made-public.md)
 * [How can I add or remove an email address from my profile](../creating-an-openreview-profile/add-or-remove-an-email-address-from-your-profile.md)?&#x20;
 * [How can I import papers from DBLP](../creating-an-openreview-profile/importing-papers-from-dblp.md)?&#x20;
 * [How do I complete my tasks?](how-do-i-complete-my-tasks.md)
@@ -15,7 +15,6 @@
 * [How can I report a bug or request a feature](how-can-i-report-a-bug-or-request-a-feature.md)?
 * [How do I obtain a letter of proof for my services as a reviewer](how-do-i-obtain-a-letter-of-proof-for-my-services-as-a-reviewer.md)?
 * [What should I do if my question is not answered here](what-should-i-do-if-my-question-is-not-answered-here.md)?&#x20;
-* [How do I merge my profiles?](../creating-an-openreview-profile/merging-profiles.md)
 
 ### Program Chairs
 
@@ -30,7 +29,7 @@
 * [How can I manually assign Reviewers/Area Chairs](../../how-to-guides/paper-matching-and-assignment/how-to-do-manual-assignments.md)?&#x20;
 * [How can I automatically assign Reviewers/Area Chairs](../../how-to-guides/paper-matching-and-assignment/how-to-do-automatic-assignments/)?
 * [What customizations are available for emails sent through OpenReview](../../how-to-guides/communication/how-to-customize-emails-sent-through-openreview.md)?&#x20;
-* [Why is the author group empty, and how can I contact the authors](broken-reference)?&#x20;
+* [What do the different 'status' values mean in the message logs?](what-do-the-different-status-values-mean-in-the-message-logs.md)
 * [How can I contact Reviewers, Area Chairs, and/or Authors](../../how-to-guides/communication/how-to-send-messages-through-the-ui.md)?
 * [Where can I view the Camera-Ready Versions](../../how-to-guides/data-retrieval-and-modification/how-to-view-camera-ready-revisions.md)?
 * [How can I export all supplementary material/PDF/zip files](../../how-to-guides/data-retrieval-and-modification/how-to-export-all-submission-attachments.md)?&#x20;

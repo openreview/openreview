@@ -6,6 +6,10 @@ https://api2.openreview.net/groups?members=\<email or profile ID>\&details=writa
 
 This will return a JSON with the property `id` and `details.writable`. If a group has `details.writable=true`, that group `id` can be used as your `parentGroup`.
 
+{% hint style="info" %}
+If addressing the recipients in the 'message', please use the preferred name listed in the user's profile.
+{% endhint %}
+
 To send a message to all of your venue's authors, or example:&#x20;
 
 ```python
