@@ -64,6 +64,7 @@
   * [How to Recruit and Remind Recruited Reviewers](how-to-guides/managing-groups/how-to-recruit-and-remind-recruited-reviewers.md)
   * [How to have multiple Reviewer or Area Chair groups](how-to-guides/managing-groups/how-to-have-multiple-reviewer-or-area-chair-groups.md)
   * [How to Add and Remove Members from a Group](how-to-guides/managing-groups/how-to-add-members-to-a-group.md)
+  * [Publication Chairs](how-to-guides/managing-groups/publication-chairs.md)
   * [How to Copy Members from One Group to Another](getting-started/using-the-api/retrieving-posting-a-group/copying-members-from-one-group-to-another.md)
 * [Workflow](how-to-guides/workflow/README.md)
   * [How to Programmatically Post Support Request Form](how-to-guides/workflow/how-to-programmatically-post-support-request-form.md)
