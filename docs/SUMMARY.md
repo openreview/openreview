@@ -29,6 +29,7 @@
   * [How do I complete my tasks?](getting-started/frequently-asked-questions/how-do-i-complete-my-tasks.md)
   * [Why does it take two weeks to moderate my profile?](getting-started/frequently-asked-questions/why-does-it-take-two-weeks-to-moderate-my-profile.md)
   * [What do the different 'status' values mean in the message logs?](getting-started/frequently-asked-questions/what-do-the-different-status-values-mean-in-the-message-logs.md)
+  * [I am an Independent Researcher, how do I sign up?](getting-started/frequently-asked-questions/i-am-an-independent-researcher-how-do-i-sign-up.md)
   * [How do I locate the date a submission is made public?](getting-started/frequently-asked-questions/how-do-i-locate-the-date-a-submission-is-made-public.md)
 * [Using the API](getting-started/using-the-api/README.md)
   * [Installing and Instantiating the Python client](getting-started/using-the-api/installing-and-instantiating-the-python-client.md)
