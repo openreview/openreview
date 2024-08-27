@@ -6,15 +6,23 @@ description: >-
 
 # Customizing Forms
 
-## Introduction and Formatting
+## Where to customize forms
 
-Many OpenReview forms are customizable from the different buttons on the venue request form. You can find where to input your customizations by clicking on a button (for example, "**Review Stage**") and finding the large text box under "**Additional \_\_\_\_\_ Options**". Under "**Revision**", you'll find that this box modifies the submission form under the heading "**Additional Submission Options**". For the "**Review Stage**", the heading will be "**Additional Review Form Options**"
+Many OpenReview forms are customizable from the different buttons on the [venue request form](hosting-a-venue-on-openreview/navigating-your-venue-pages.md). You can find where to input your customizations by clicking on a button (for example, "**Review Stage**") and finding the large text box under "**Additional \_\_\_\_\_ Options**". Under "**Revision**", you'll find that this box modifies the submission form under the heading "**Additional Submission Options**". For the "**Review Stage**", the heading will be "**Additional Review Form Options**"
 
 {% hint style="info" %}
 Some buttons configure other parts of the workflow that do not have an associated form, in which case there will not be an additional options text box.
 {% endhint %}
 
-These text boxes accept a valid JSON object. The following is an example where the _title_ field gets replaced with a radio button:
+{% hint style="info" %}
+Whenever possible, forms should be customized through the venue request form following the directions above rather than editing an [invitation](../reference/api-v2/entities/invitation.md) directly - this saves your changes in the case that you update any other settings for your venue.
+{% endhint %}
+
+## Essential structure of custom fields
+
+These text boxes accept a valid JSON object with fields and values. The following is an example where the _title_ field gets replaced with a radio button, like so:
+
+<figure><img src="../.gitbook/assets/titleExample.png" alt=""><figcaption><p>Preview of how this field will be rendered on OpenReview</p></figcaption></figure>
 
 ```
 {
@@ -32,29 +40,17 @@ These text boxes accept a valid JSON object. The following is an example where t
 }
 ```
 
-<figure><img src="../.gitbook/assets/titleExample.png" alt=""><figcaption><p>Preview of how this field will be rendered on OpenReview</p></figcaption></figure>
+&#x20;Note that correct indentation levels and matched brackets are necessary for valid JSON.
 
-We can use this example to learn about the general pattern of the different form options.&#x20;
+The primary fields of the entry are:
 
-```
-{
-    "title": {...}
-}
-```
+`title` - This will be the name of the field in the form
 
-First, the outermost key is always the name of the field.
+`order` - Determines where in the form the field will appear
 
-```
-{
-    "title": {
-        "order": 1,
-        "description": "Title of the paper",
-        "value": {...}
-    }
-}
-```
+`description` - Will show up in the form as instructions or description&#x20;
 
-One level below, we find the keys `order` and `description`. These are _representation specifiers_ and they are used to define the formatting and design of the field. Generally, these are the only fields you'll find at this level, along with the `value` object.
+&#x20;`value` - Will have subfields (under `param`) determining the format of the field and the options for responses
 
 ```
 "value": {
@@ -66,21 +62,52 @@ One level below, we find the keys `order` and `description`. These are _represen
 }
 ```
 
-At this level, you'll also see the `value` object and within it, the `param` object. When making a field that is asking for user input, you will _**always**_ see this pattern of `"value": { "param": {...} }`. Inside the `param` object, you find _validation specifiers_ along with _representation specifiers_.
+When making a field that is asking for user input, you will _**always**_ see this pattern of `"value": { "param": {...} }`. Inside the `param` object are fields determining what the user sees in the input form along with what the user is allowed to submit: these are _representation specifiers_ and _validation specifiers_.&#x20;
 
 {% hint style="danger" %}
 Both validation and representation specifiers can be found inside the `param` object
 {% endhint %}
 
-Validation specifiers are used by the back-end to allow or disallow data submitted on the form. In this example, only a single string is allowed, and that string must be one of the values defined in the `enum` array. Specifically, a string that has the value "`Test Submission Title`"
+## &#x20;Specifiers
+
+This section will introduce common specifiers used in customizing forms. Further information about specifiers can be found [here](../reference/api-v2/entities/invitation/specifiers.md).&#x20;
+
+### Representation Specifiers
+
+Representation specifiers determine how the user will input their response into the field (for example a textbox or a checklist). These will be defined in the `param` object.
+
+The `input` specifier determines the rendering on the form and can have the following values (see below for examples of how different input types render):&#x20;
+
+* `text`
+* `select`
+* `checkbox`
+* `textarea`
+* `radio`
+
+`default` is the default value of the box that will appear when the widget is initialized
+
+`markdown` is a boolean value (true/false) that enables markdown for this text field
+
+`scroll` is a boolean that adds a scroll bar to a `textarea` input
 
 ### Validation Specifiers
 
-The `type` specifiers supported by the forms are `string`, `string[]` (string array) and `file`.
+Validation specifiers are used by the back-end to ensure data submitted through the form conforms to certain requirements. In the example above, only a single string is allowed, and that string must be one of the values defined in the `enum` array. Specifically, a string that has the value "`Test Submission Title`"
 
-`string` fields can be simply validated by length using `maxLength` or `minLength`. For example, `"maxLength": 5`, or `"minLength": 5`. If you want the data in this field to follow a more structured pattern, you can also define a `regex`, for example `"regex": "[^;,\n]+(,[^,\n]+)*"`. You can also use `enum` to restrict the user to select a string from a set of strings.
+`optional` is a boolean (true/false) value that indicates whether or not this field is required to be present when the form is submitted. By default all fields in the form are required, and you can add `optional : true` to indicate a required field.
 
-`string[]` fields are generally going to be used with `enum` to allow users to select multiple strings from a set of strings.
+{% hint style="info" %}
+Required fields have their field names prefixed with an asterisk
+{% endhint %}
+
+`type` specifiers require the input to be of a specific type:  options are `string`, `string[]` (string array) and `file`.
+
+`string` fields can be further validated by using fields to describe the structure of a valid string input. Some of these field are:
+
+* `"maxLength":`  set the maximum number of characters of the input
+* `"minLength":`set the minimum number of characters of the input
+* `"regex":` use regular expressions to define acceptable string structures
+* `"enum":` restrict the user to a predefined set of strings (usually used with `type: string[]``)`
 
 `file` fields are specifically validated with `maxSize` and `extensions`. `maxSize` is an integer that specifies the size of the largest file that can be uploaded on the form in megabytes. `extensions` is a list of strings that are extensions, for example `"extensions": ["pdf", "zip"]`.
 
@@ -92,35 +119,9 @@ Extensions that have a "." in them are **not** supported. The following field wo
 ```
 {% endhint %}
 
-`optional` is a boolean (true/false) value that indicates whether or not this field is required to be present when the form is submitted. Generally, "optional": true is added to the param object to indicate an optional field, and is omitted for required fields. This is because the default behavior is that a field is required.
 
-{% hint style="info" %}
-Required fields have their field names prefixed with an asterisk
-{% endhint %}
 
-### Representation Specifiers
 
-`order` determines the order in which the field is going to be rendered in the form
-
-`description` is a short and brief explanation of what is expected, or any additional information about the field
-
-The following specifiers are defined in the `param` object:
-
-`default` is the value that is going to be shown when the widget is initialized
-
-`markdown` is a boolean value that enables markdown for this text field
-
-`scroll` is a boolean that adds a scroll bar to a `textarea` input
-
-The `input` specifier determines the rendering on the form and can have the following values:&#x20;
-
-* `text`
-* `select`
-* `checkbox`
-* `textarea`
-* `radio`
-
-How these each affect a field are best shown below in some common form patterns
 
 ## Examples of Common Form Patterns
 
