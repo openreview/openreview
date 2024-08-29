@@ -43,6 +43,8 @@
   * [Enabling an Abstract Registration Deadline](getting-started/hosting-a-venue-on-openreview/enabling-an-abstract-registration-deadline.md)
 * [Creating an OpenReview Profile](getting-started/creating-an-openreview-profile/README.md)
   * [Signing up for OpenReview](getting-started/creating-an-openreview-profile/signing-up-for-openreview.md)
+  * [Resending an activation link](getting-started/creating-an-openreview-profile/resending-an-activation-link.md)
+  * [Expediting Profile Activation](getting-started/creating-an-openreview-profile/expediting-profile-activation.md)
   * [Add or remove a name from your profile](getting-started/creating-an-openreview-profile/add-or-remove-a-name-from-your-profile.md)
   * [Add or remove an email address from your profile](getting-started/creating-an-openreview-profile/add-or-remove-an-email-address-from-your-profile.md)
   * [Finding your profile ID](getting-started/creating-an-openreview-profile/finding-your-profile-id.md)
