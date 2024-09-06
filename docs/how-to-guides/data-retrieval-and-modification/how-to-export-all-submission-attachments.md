@@ -15,9 +15,9 @@ notes = client.get_all_notes(invitation = "Your/Venue/ID/-/Submission")
 
 ```python
 for note in notes:
-    if(note.content.get("pdf")):
+    if(note.content.get("pdf",{}).get('value')):
         f = client.get_attachment(note.id,'pdf')
-        with open(f'paper{note.number}.pdf','wb') as op: 
+        with open(f'submission{note.number}.pdf','wb') as op: 
             op.write(f)
 ```
 
@@ -25,8 +25,8 @@ for note in notes:
 
 ```python
 for note in notes:
-    if(note.content.get("supplementary_material")):
+    if(note.content.get("supplementary_material",{}).get('value')):
         f = client.get_attachment(note.id,'supplementary_material')
-        with open(f'paper{note.number}_supplementary_material.zip','wb') as op: 
+        with open(f'submission{note.number}_supplementary_material.zip','wb') as op: 
             op.write(f)
 ```
