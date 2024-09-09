@@ -35,7 +35,7 @@
   * [Installing and Instantiating the Python client](getting-started/using-the-api/installing-and-instantiating-the-python-client.md)
   * [Groups](getting-started/using-the-api/groups.md)
 * [Hosting a venue on OpenReview](getting-started/hosting-a-venue-on-openreview/README.md)
-  * [Creating your Venue Instance: Submitting a Venue Request Form](getting-started/hosting-a-venue-on-openreview/creating-your-venue-instance-submitting-a-venue-request-form.md)
+  * [Creating your Venue Instance](getting-started/hosting-a-venue-on-openreview/creating-your-venue-instance-submitting-a-venue-request-form.md)
   * [Navigating your Venue Pages](getting-started/hosting-a-venue-on-openreview/navigating-your-venue-pages.md)
   * [Customizing your submission form](getting-started/hosting-a-venue-on-openreview/customizing-your-submission-form.md)
   * [Enabling Supplementary Material Upload](getting-started/hosting-a-venue-on-openreview/enabling-supplementary-material-upload.md)
@@ -94,7 +94,7 @@
   * [How to Compute Conflicts Between Users](how-to-guides/paper-matching-and-assignment/how-to-compute-conflicts-between-users.md)
   * [How to Post a Custom Conflict](how-to-guides/paper-matching-and-assignment/how-to-post-a-custom-conflict.md)
   * [How to add/remove bids programmatically](how-to-guides/paper-matching-and-assignment/how-to-add-remove-bids-programmatically.md)
-  * [How to do manual assignments](how-to-guides/paper-matching-and-assignment/how-to-do-manual-assignments.md)
+  * [How to do manual assignments](how-to-guides/paper-matching-and-assignment/how-to-do-manual-assignments/README.md)
   * [How to Do Automatic Assignments](how-to-guides/paper-matching-and-assignment/how-to-do-automatic-assignments/README.md)
     * [How to setup paper matching by calculating affinity scores and conflicts](how-to-guides/paper-matching-and-assignment/how-to-do-automatic-assignments/how-to-setup-paper-matching-by-calculating-affinity-scores-and-conflicts.md)
     * [How to run a paper matching](how-to-guides/paper-matching-and-assignment/how-to-do-automatic-assignments/how-to-run-a-paper-matching.md)
@@ -138,6 +138,10 @@
   * [How to Get All MetaReviews](how-to-guides/data-retrieval-and-modification/how-to-get-all-metareviews.md)
   * [How to Get All Decisions](how-to-guides/data-retrieval-and-modification/how-to-get-all-decisions.md)
   * [How to Get All Venues](how-to-guides/data-retrieval-and-modification/how-to-get-all-venues.md)
+
+## Workflows
+
+* [Example Workflow](workflows/conferences.md)
 
 ## Reference
 

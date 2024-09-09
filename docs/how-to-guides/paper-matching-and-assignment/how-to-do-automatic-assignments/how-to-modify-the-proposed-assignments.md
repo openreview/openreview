@@ -1,8 +1,8 @@
 # How to modify the proposed assignments
 
-The edge browser is a tool for visualizing edges, or assignments, created by OpenReview’s automatic paper matching algorithm. You can use it to browse, sort, search, and create proposed assignments between reviewers and papers before deploying them.&#x20;
+The edge browser is a tool for visualizing edges, or assignments, created by OpenReview’s automatic paper matching algorithm. You can use it to browse, sort, search, and create proposed assignments between Senior Area Chairs and Area Chairs, Area Chairs and submissions, or Reviewers and submissions before deploying them.&#x20;
 
-When you first open the edge browser, all papers will appear in a column on the left. You can click on a certain paper to see a second column of reviewers pop up to the right. Similarly, if you click on a reviewer, all of their assigned papers will pop up in another column to the right, and so on.
+When you first open the edge browser, all papers will appear in a column on the left. You can click on a certain paper to see a second column of reviewers pop up to the right. Similarly, if you click on a Reviewer (Senior Area Chair or Area Chair), all of their assignments will pop up in another column to the right, and so on.
 
 ![](<../../../.gitbook/assets/image (8) (1).png>)
 

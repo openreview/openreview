@@ -1,8 +1,10 @@
 # Post Submission Stage
 
+The Post Submission Stage is run automatically after the submission deadline.
+
 #### What it Does&#x20;
 
-The Post Submission Stage creates Paper groups and sets the readers of submissions accordingly. It also creates the anonymized versions of submissions, if applicable.&#x20;
+The Post Submission Stage creates Paper groups and sets the readers of submissions accordingly. It also creates the anonymized versions of submissions, if applicable.
 
 #### When to Use it
 

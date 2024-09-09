@@ -1,19 +1,16 @@
 # How to run a paper matching
 
-In order to automatically assign Reviewers and Area Chairs, you must:
+### Running Paper Matching
 
-1. Enable the 'Review' or 'Post Submission' stage from your venue request form. This can only be done AFTER the submission deadline has passed.&#x20;
-   1. The [Review Stage](../../../reference/stages/review-stage.md) sets the readership of reviews.
-   2. The [Post Submission](../../../reference/stages/post-submission-stage.md) stage sets readership of submissions.
-2. Use the 'Paper Matching Setup' button on your venue request form to [calculate affinity scores and conflicts.](how-to-setup-paper-matching-by-calculating-affinity-scores-and-conflicts.md)
+In order to run the matching for Senior Area Chairs, Area Chairs, and Reviewers,  you must first run [Setup Paper Matching](how-to-setup-paper-matching-by-calculating-affinity-scores-and-conflicts.md) from the venue request form.
 
-After you complete these steps, a link for 'Paper Assignments' should appear on your Program Chair console.
+Once that is done, a link for 'Paper Assignments' should appear on your Program Chair console.
 
 ![](<../../../.gitbook/assets/image (2) (1).png>)
 
-Clicking on one of the assignment links will bring you to the assignment page, where you can create a new matching configuration. If members of your reviewer or area chairs group have profiles without publications, you will need to select ‘Yes’ for ‘Allow Zero Score Assignments’ in order to obtain a solution. Please note that all members of a group must have OpenReview profiles in order for the automatic assignment algorithm to run. Any members without profiles must be removed from the group before this step.
+Clicking on one of the assignment links will bring you to the assignment page, where you can create a new matching configuration. If members of your Senior Area Chair, Area Chair or Reviewer group have profiles without publications, you will need to select ‘Yes’ for ‘Allow Zero Score Assignments’ in order to obtain a solution. Please note that all members of a group must have OpenReview profiles in order for the automatic assignment algorithm to run. Any members without profiles must be removed from the group before this step.
 
-You can learn more about our automatic paper matching algorithm from its github repo: https://github.com/openreview/openreview-matcher. To create a new matching, click the 'New Assignment Configuration'. This will pull up a form with some default values pertaining to your matching settings:
+You can learn more about our automatic paper matching algorithm from its [GitHub repository](https://github.com/openreview/openreview-matcher). To create a new matching, click the 'New Assignment Configuration'. This will pull up a form with some default values pertaining to your matching settings:
 
 <details>
 
@@ -154,7 +151,17 @@ After filling out the matching configuration form and hitting submit, you should
 
 ![](<../../../.gitbook/assets/image (2) (1) (2).png>)
 
-You can view, edit or copy the values you filled out in the matching form. When you are happy with your configuration, you should hit 'Run Matcher' and wait until its status is 'Complete'. This generates proposed assignments, with options to browse assignments, view statistics or deploy matching. If you click ‘Browse Assignments’ you will be brought to the edge browser, where you can browse, edit, and create proposed assignments.&#x20;
+You can view, edit or copy the values you filled out in the matching form. When you are happy with your configuration, you should hit 'Run Matcher' and wait until its status is 'Complete'.
+
+### Modifying Proposed Assignments
+
+Once the Matching algorithm completes, the proposed assignments will be generated with options to browse them, view statistics or deploy proposed assignments. If you click ‘Browse Assignments’ you will be brought to the edge browser, where you can browse, edit, and create proposed assignments. You can read more about modifying proposed assignments [here](how-to-modify-the-proposed-assignments.md).
+
+{% hint style="warning" %}
+Be careful before deploying proposed assignments! Do not deploy them unless you are sure that you are satisfied with them. Undoing a deployment is difficult and in most cases it requires the OpenReview staff intervention which can only be done during office hours.
+{% endhint %}
+
+### Troubleshooting Matcher
 
 If you get "No Solution" after running the matcher, you can view the configuration to see the entire error message. If the message is something like the following:
 

@@ -1,6 +1,10 @@
 # How to Recruit and Remind Recruited Reviewers
 
-On the [request form for your venue](../../getting-started/hosting-a-venue-on-openreview/navigating-your-venue-pages.md), click on the ‘Recruitment’ button to recruit reviewers (and ACs if applicable). You can use the 'Remind Recruitment' button to send a reminder to Reviewers who have not yet accepted or declined your invitation.
+On the [request form for your venue](../../getting-started/hosting-a-venue-on-openreview/navigating-your-venue-pages.md), click on the ‘Recruitment’ button to recruit reviewers (and ACs/SACs if applicable). You can use the 'Remind Recruitment' button to send a reminder to Reviewers who have not yet accepted or declined your invitation.
+
+{% hint style="info" %}
+Recruitment can be done at any point.
+{% endhint %}
 
 Make sure to pay close attention to the Invitee Details on the Recruitment form. Invitees must be formatted in a specific way to send the messages otherwise the messages will fail to send and will return a status error.
 
@@ -8,6 +12,6 @@ Make sure to pay close attention to the Invitee Details on the Recruitment form.
 
 * All invited reviewers will appear in the group venue\_id/Reviewers/Invited&#x20;
 * Reviewers who accept the invitation will be added to the group venue\_id/Reviewers
-* Reviewers who decline the invitation will be added to the group venue\_id/Reviewers\_Declined.&#x20;
+* Reviewers who decline the invitation will be added to the group venue\_id/Reviewers\_Declined.
 
-You can find links to these groups on your PC console.&#x20;
+You can find links to these groups on your PC console.

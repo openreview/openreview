@@ -2,11 +2,11 @@
 
 **What it Does**
 
-The Registration Stage creates a registration task for reviewers (and ACs, if applicable).
+The Registration Stage creates a registration task for Reviewers and/or Area Chairs which asks them to confirm that their profile is complete and has publications. Organizers can also ask other questions related to the venue related to reduced quota, emergency reviewers, etc. The responses can be accessed from the Organizer's console (e.g. [Program Chair console](../../getting-started/hosting-a-venue-on-openreview/navigating-your-venue-pages.md#program-chair-console)) or our API directly.
 
 **When to Use it**
 
-The Registration Stage can be run an any point during your workflow, though it is usually enabled at the beginning to collect information from reviewers and/or ACs. It can also be used to ask users to update their profiles and import their publications.
+The Registration Stage can be run an any point during your workflow, though it is usually enabled at the beginning to collect information from Reviewers, Area Chairs and/or Senior Area Chairs.
 
 **Options**
 
