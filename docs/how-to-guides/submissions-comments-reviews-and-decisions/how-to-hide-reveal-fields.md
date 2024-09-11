@@ -42,7 +42,7 @@ restricted_field: {
 }
 ```
 
-Please see the [speficiers](../../reference/api-v2/entities/invitation/specifiers.md) section to know the different options you have when defining the `readers` field.
+Please see the [specifiers](../../reference/api-v2/entities/invitation/specifiers.md) section to know the different options you have when defining the `readers` field.
 
 ```json
 restricted_field: {
@@ -61,9 +61,12 @@ restricted_field: {
 }
 ```
 
-Adding the readers property is not sufficient for the field to be hidden. You still need to post an Edit including the value of the readers field. The following change only allows the users in the `readers` field to see `restricted_field`.
+Note: For notes that have already been posted, adding or changing the readers property in the invitation will not change the note. In that case, you will want to update each note with an Edit modifying the readers field. &#x20;
+
+The following change only allows the users in the `readers` field to see `restricted_field`.
 
 ```json
+
 restricted_field: {
   value: 'Not for your eyes',
   readers: [ '~Author_One1', '~Author_Two1', 'OpenReview.net/Conference' ]
