@@ -1,6 +1,10 @@
-# Fields
+---
+description: >-
+  Edges can only have certain fields and have a specific format. Some of these
+  fields are the same as other objects and some are specific to the Edge object.
+---
 
-Notes can only have certain fields and have a specific format. Some of these fields are the same as other objects and some are specific to the Note object.
+# Fields
 
 ## id
 
@@ -45,6 +49,10 @@ The `nonreaders` field is an array with Group ids that indicates who cannot retr
 ## writers
 
 The `writers` field is an array with Group ids that indicates who can modify the Edge.&#x20;
+
+## domain
+
+The `domain` is a string that groups all the entities of a venue. Its value is usually set automatically and cannot be modified.
 
 ## head
 

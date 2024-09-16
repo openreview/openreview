@@ -158,6 +158,8 @@
   * [Entities](reference/api-v2/entities/README.md)
     * [Edge](reference/api-v2/entities/edge/README.md)
       * [Fields](reference/api-v2/entities/edge/fields.md)
+    * [Group](reference/api-v2/entities/group/README.md)
+      * [Fields](reference/api-v2/entities/group/fields.md)
     * [Note](reference/api-v2/entities/note/README.md)
       * [Fields](reference/api-v2/entities/note/fields.md)
     * [Invitation](reference/api-v2/entities/invitation.md)

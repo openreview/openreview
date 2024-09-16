@@ -1,6 +1,11 @@
-# Fields
+---
+description: >-
+  Invitations can only have certain fields and have a specific format. Some of
+  these fields are the same as other objects and some are specific to the
+  Invitation object.
+---
 
-Invitations can only have certain fields and have a specific format. Some of these fields are the same as other objects and some are specific to the Invitation object.
+# Fields
 
 ## id
 
@@ -48,7 +53,7 @@ The `invitations` field contains all the Invitations that were used to create th
 
 ## domain
 
-The `domain` is a string that groups all the entities of a venue. Its value is set automatically and cannot be modified.
+The `domain` is a string that groups all the entities of a venue. Its value is usually set automatically and cannot be modified.
 
 ## signatures
 
@@ -89,10 +94,6 @@ The `dateprocesses` field is an array containing different dates and delays. It 
 ## web
 
 The `web` field contains javascript code that runs when the Invitation is loaded in the UI. If the field `web` is not present, a default UI is shown for the Invitation.
-
-## replyForumViews
-
-TODO
 
 ## edit
 

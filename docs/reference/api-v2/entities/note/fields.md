@@ -1,6 +1,10 @@
-# Fields
+---
+description: >-
+  Notes can only have certain fields and have a specific format. Some of these
+  fields are the same as other objects and some are specific to the Note object.
+---
 
-Notes can only have certain fields and have a specific format. Some of these fields are the same as other objects and some are specific to the Note object.
+# Fields
 
 ## id
 
@@ -48,7 +52,7 @@ The `invitations` field contains all the Invitations that were used to create th
 
 ## domain
 
-The `domain` is a string that groups all the entities of a venue. Its value is set automatically and cannot be modified.
+The `domain` is a string that groups all the entities of a venue. Its value is usually set automatically and cannot be modified.
 
 ## signatures
 

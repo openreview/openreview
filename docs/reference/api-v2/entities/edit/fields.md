@@ -1,6 +1,10 @@
-# Fields
+---
+description: >-
+  Edits can only have certain fields and have a specific format. Some of these
+  fields are the same as other objects and some are specific to the Edit object.
+---
 
-Edits can only have certain fields and have a specific format. Some of these fields are the same as other objects and some are specific to the Edit object.
+# Fields
 
 ### id
 
@@ -36,7 +40,7 @@ The `invitation` field contains the Invitation id used to create or modify the E
 
 ### domain
 
-The `domain` is a string that groups all the entities of a venue. Its value is set automatically and cannot be modified.
+The `domain` is a string that groups all the entities of a venue. Its value is usually set automatically and cannot be modified.
 
 ### signatures
 
