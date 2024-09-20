@@ -13,6 +13,8 @@
 ## Getting Started
 
 * [Frequently Asked Questions](getting-started/frequently-asked-questions/README.md)
+  * [I accidentally withdrew a submission, what do I do?](getting-started/frequently-asked-questions/i-accidentally-withdrew-a-submission-what-do-i-do.md)
+  * [How do I add a Program Chair to my venue?](getting-started/frequently-asked-questions/how-do-i-add-a-program-chair-to-my-venue.md)
   * [When will I be able to withdraw my submission?](getting-started/frequently-asked-questions/when-will-i-be-able-to-withdraw-my-submission.md)
   * [An author of a submission cannot access their own paper, what is the problem?](getting-started/frequently-asked-questions/an-author-of-a-submission-cannot-access-their-own-paper-what-is-the-problem.md)
   * [What should I do if I find a vulnerability in OpenReview?](getting-started/frequently-asked-questions/what-should-i-do-if-i-find-a-vulnerability-in-openreview.md)
