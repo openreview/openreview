@@ -60,6 +60,10 @@
 * [Using the New Forum Page](getting-started/using-the-new-forum-page.md)
 * [Live Chat on the Forum Page](getting-started/live-chat-on-the-forum-page.md)
 
+## Workflows
+
+* [Example Workflow](workflows/conferences.md)
+
 ## How-To Guides
 
 * [Modifying Venue Homepages](how-to-guides/modifying-venue-homepages/README.md)
@@ -140,10 +144,6 @@
   * [How to Get All MetaReviews](how-to-guides/data-retrieval-and-modification/how-to-get-all-metareviews.md)
   * [How to Get All Decisions](how-to-guides/data-retrieval-and-modification/how-to-get-all-decisions.md)
   * [How to Get All Venues](how-to-guides/data-retrieval-and-modification/how-to-get-all-venues.md)
-
-## Workflows
-
-* [Example Workflow](workflows/conferences.md)
 
 ## Reference
 
