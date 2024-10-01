@@ -5,7 +5,9 @@
 1. Log in using the email address associated with any one of your profiles. Preferably, the one you want to merge the other profiles into.
 2. Add the email address that is already confirmed in your other profile to the profile you're currently logged into. (You can skip to step 3 if you have already added this email address.)
 3. Click on "Confirm."
-4. You will receive an email to confirm the profile merge.
+4. You will receive an email to confirm the profile merge. Click on this link - make sure you are logged into the account from which you requested to do the merge.
+
+&#x20;If you get an 'Merge Forbidden' message, try logging out, logging into the other OpenReview profile, then opening that link again.
 
 ### If you got an error during profile registration:
 
