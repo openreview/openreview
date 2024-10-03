@@ -63,6 +63,7 @@ Set up matching should be done in the direction Senior Area Chairs-> Area Chairs
 3. [Run matching](../how-to-guides/paper-matching-and-assignment/how-to-do-automatic-assignments/how-to-run-a-paper-matching.md)
 4. Look at, and potentially [modify](../how-to-guides/paper-matching-and-assignment/how-to-do-automatic-assignments/how-to-modify-the-proposed-assignments.md) proposed assignments
 5. [Deploy](../how-to-guides/paper-matching-and-assignment/how-to-do-automatic-assignments/how-to-deploy-the-proposed-assignments.md) assignments
+6. [Confirm](../how-to-guides/workflow/how-to-change-who-can-access-submissions-after-the-deadline.md) that assigned program committee are readers of their assigned submissions
 
 Each of these steps needs to be completed for each group being matched (e.g. Area Chairs - Submissions , Reviewers - Submissions)- Described further in steps 11-16 below.
 
@@ -81,6 +82,10 @@ If you decide to directly assign Senior Area Chairs to submissions, skip to step
 The next step is to assign the program committee to each submission. If your conference is smaller than 2000 submissions, this can be run by you directly, otherwise please contact OpenReview.
 
 It is very important that all Program Committee members (Senior Area Chairs, Area Chairs, and Reviewers) have a complete OpenReview profile (an active profile with at least one active institution and one publication).  We recommend removing from the committee groups all the profiles that are not complete before running the matching system.
+
+{% hint style="info" %}
+To make sure that the program committee can access their assignments, ensure that they are listed as readers in the Submission Readers field of the venue request form, othewise update this value in the Post Submission stage.
+{% endhint %}
 
 #### 12. (Optional) Bidding period for Senior Area Chairs, Area Chairs and Reviewers
 
