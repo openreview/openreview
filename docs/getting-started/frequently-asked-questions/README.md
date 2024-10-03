@@ -17,6 +17,7 @@
 
 ## For Authors/Reviewers
 
+* [I am a reviewer but I can't access my assigned submissions, what do I do?](i-am-a-reviewer-but-i-cant-access-my-assigned-submissions-what-do-i-do.md)
 * [How do I locate the date a submission is made public?](how-do-i-locate-the-date-a-submission-is-made-public.md)
 * [How can I add formatting to my reviews/comments](../../how-to-guides/submissions-comments-reviews-and-decisions/how-to-add-formatting-to-reviews-or-comments.md)?
 * [Why is my LaTeX code not displaying properly](../../reference/openreview-tex/common-issues-with-latex-code-display.md)?&#x20;
@@ -35,6 +36,7 @@
 * [How can I edit the Submission Form? ](../hosting-a-venue-on-openreview/customizing-your-submission-form.md)
 * [How can I test my venue workflow](../../how-to-guides/workflow/how-to-test-your-venue-workflow.md)?&#x20;
 * [What customizations are available for emails sent through OpenReview](../../how-to-guides/communication/how-to-customize-emails-sent-through-openreview.md)?&#x20;
+* [Reviewers for my venue cannot see their assigned submissions, what should I do?](reviewers-for-my-venue-cannot-see-their-assigned-submissions-what-should-i-do.md)
 * [What field types are supported in the forms](what-field-types-are-supported-in-the-forms.md)?&#x20;
 * [What do the default submission, review, metareview, and decision forms look like](../../reference/default-forms/)?&#x20;
 
