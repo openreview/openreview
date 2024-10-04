@@ -11,3 +11,7 @@ They'll see a list of different venue IDs and the number of pending and complete
 <figure><img src="../../.gitbook/assets/Screen Shot 2024-01-30 at 3.59.47 PM.png" alt="" width="375"><figcaption><p>Reviewer console listing tasks</p></figcaption></figure>
 
 To view the tasks, click on the arrow next to the venue ID or "Show pending tasks and completed tasks". Clicking on a task link will redirect the user to another page to complete the task. When the task is completed it will be grayed out on the Tasks page. When the expiration date for that task expires the task will disappear from the Tasks page.
+
+Note: Some tasks, such as Expertise Selection, will continue to show as pending until the task expires, at which time it will be removed from the queue.
+
+See also: [I am a reviewer and I don't have papers for Expertise Selection, what do I do?](i-am-a-reviewer-and-i-dont-have-papers-for-expertise-selection-what-do-i-do.md)

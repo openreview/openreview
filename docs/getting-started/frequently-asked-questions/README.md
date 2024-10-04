@@ -14,6 +14,7 @@
 * [How do I complete my tasks?](how-do-i-complete-my-tasks.md)
 * [How can I add a Semantic Scholar URL to my profile](../creating-an-openreview-profile/finding-and-adding-a-semantic-scholar-url-to-your-profile.md)?&#x20;
 * [My profile is "limited". What does that mean? ](my-profile-is-limited-.-what-does-that-mean.md)
+* [How do I upload a publication with a license that is not listed?](how-do-i-upload-a-publication-with-a-license-that-is-not-listed.md)
 
 ## For Authors/Reviewers
 
@@ -24,6 +25,7 @@
 * [How do I obtain a letter of proof for my services as a reviewer](how-do-i-obtain-a-letter-of-proof-for-my-services-as-a-reviewer.md)?
 * [When will I be able to withdraw my submission?](when-will-i-be-able-to-withdraw-my-submission.md)
 * [I accidentally withdrew a submission, what do I do?](i-accidentally-withdrew-a-submission-what-do-i-do.md)
+* [I am a reviewer and I don't have papers for Expertise Selection, what do I do?](i-am-a-reviewer-and-i-dont-have-papers-for-expertise-selection-what-do-i-do.md)
 
 ## For Program Chairs
 
