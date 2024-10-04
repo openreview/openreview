@@ -1,12 +1,12 @@
 # How to Export All Reviews into a CSV
 
-API 2 Venues
+## API 2 Venues (most common)
 
 To export all reviews for a given venue into a csv file:
 
 1. If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).&#x20;
-2. Retrieve all of the Reviews. Follow this link and complete all three steps for API 2 venues to [Get All the Reviews](how-to-get-all-reviews.md#venues-using-api-v2)&#x20;
-3. Get the super review invitation. You can check out the [default review form](../../reference/default-forms/default-review-form.md#api-v2-json) if you need a reference. You'll need the content of the super invitation to create the headers for the csv.
+2. Retrieve all of the Reviews into the a `reviews` variable. Follow this link and complete all three steps for API 2 venues to [Get All the Reviews](how-to-get-all-reviews.md#venues-using-api-v2)&#x20;
+3. Get the super review invitation. You can check out the [default review form](../../reference/default-forms/default-review-form.md#api-v2-json) if you need a reference. You'll need the content of the super invitation to create the headers for the .csv.
 
 ```python
 invitation = client.get_invitation(f'{venue_id}/-/{review_name}')
@@ -40,41 +40,22 @@ with open('reviews.csv', 'w') as outfile:
         s = csvwriter.writerow(valueList)
 ```
 
-6. There should now be a csv of exported reviews in the directory in which you are working.&#x20;
+6. There should now be a .csv of exported reviews in the directory in which you are working.&#x20;
 
-API 1 Venues
+## API 1 Venues
 
 Say you want to export all of the reviews for a given venue into a csv file.&#x20;
 
 1. If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).&#x20;
-2. Retrieve all of the Reviews. Reviews generally follow the invitation Your/Venue/ID/-/Official\_Review. We can retrieve them by getting all of the direct replies to each submission and finding those with invitations ending in Official\_Review.&#x20;
-
-Single blind venues can do this like so:&#x20;
-
-```python
-submissions = client.get_all_notes(invitation="Your/Venue/ID/-/Submission", details='directReplies')
-reviews = [] 
-for submission in submissions:
-    reviews = reviews + [reply for reply in submission.details["directReplies"] if reply["invitation"].endswith("Official_Review")]
-```
-
-whereas double blind venues should replace "Submission" in the invitation with "Blind\_Submission":&#x20;
-
-```python
-submissions = client.get_all_notes(invitation="Your/Venue/ID/-/Blind_Submission", details='directReplies')
-reviews = [] 
-for submission in submissions: 
-    reviews = reviews + [reply for reply in submission.details["directReplies"] if reply["invitation"].endswith("Official_Review")]
-```
-
-3\. Next, get the super review invitation. This is the overall review invitation which each of the Paper#/-/Official\_Review invitations are based off of, and it follows the format Venue/ID/-/Official\_Review.&#x20;
+2. Retrieve all of the Reviews into a `reviews` object following the instructions [here](how-to-get-all-reviews.md).&#x20;
+3. Next, get the super review invitation. This is the overall review invitation which each of the Paper#/-/Official\_Review invitations are based off of, and it follows the format Venue/ID/-/Official\_Review.&#x20;
 
 ```python
 invitation = client.get_invitation("<Your/Venue/Id/-/Official_Review>")
 print(invitation.content)
 ```
 
-4\. Generate a list of the fields in the content in the Review invitation. For reference, this is what the default review invitation content looks like in JSON:&#x20;
+4. Generate a list of the fields in the content in the Review invitation. For reference, this is what the default review invitation content looks like in JSON:&#x20;
 
 ```python
 {
@@ -127,7 +108,7 @@ so we would expect a list like \["title", "review", "rating", "confidence"]. Thi
 keylist = list(review_invitation.reply['content'].keys())
 ```
 
-5\. If you haven't already, import csv. Then iterate through the list of reviews stored in 'reviews' and for each one, append the values associated to the keys in your keylist. If a value does not exist for that key, put an empty string in its place.&#x20;
+5. If you haven't already, import csv. Then iterate through the list of reviews stored in 'reviews' and for each one, append the values associated to the keys in your keylist. If a value does not exist for that key, put an empty string in its place.&#x20;
 
 ```python
 import csv
@@ -138,15 +119,22 @@ with open('reviews.csv', 'w') as outfile:
     for review in reviews:
         valueList = []
         for key in keylist:
-            if review["content"].get(key):
-                valueList.append(review["content"].get(key))
+            if review.content.get(key):
+                if 'value' in review.content[key].keys():
+                    valueList.append(review.content.get(key)['value'])
+                else:
+                    valueList.append(review.content.get(key))
             else:
                 valueList.append('')
         s = csvwriter.writerow(valueList)
 outfile.close()  
 ```
 
-6\. The previous example only exports the content fields of each review. You may also want to know which submission each review is associated with. You can get the forum of each review, which corresponds to the forum page of its associated submission. For example, if a review's forum is aBcDegh, you could find that submission at https://openreview.net/forum?id=aBcDegh. To create a csv that includes the review forums, do this:
+6. There should now be a csv of exported reviews in the directory in which you are working.&#x20;
+
+### Adding submission information to the exported csv (both API2 and API1)
+
+You may also want to know which submission each review is associated with. You can get the forum of each review, which corresponds to the forum page of its associated submission. For example, if a review's forum is aBcDegh, you could find that submission at https://openreview.net/forum?id=aBcDegh. To create a csv that includes the review forums, do this:
 
 ```python
 with open('reviews.csv', 'w') as outfile:
@@ -156,15 +144,49 @@ with open('reviews.csv', 'w') as outfile:
     t = csvwriter.writerow(keylist)
     for review in reviews:
         valueList = []
-        valueList.append(review["forum"])
+        valueList.append(review.forum)
         for key in keylist:
             if (key != 'forum'):
-                if review["content"].get(key):
-                    valueList.append(review["content"].get(key))
+                if 'value' in review.content[key].keys():
+                    valueList.append(review.content.get(key)['value'])
                 else:
-                    valueList.append('')
+                    valueList.append(review.content.get(key))
+            else:
+                valueList.append('')
         s = csvwriter.writerow(valueList)
 outfile.close()      
 ```
 
-7\. There should now be a csv of exported reviews in the directory in which you are working.&#x20;
+### Adding reviewer information to the exported csv (both API2 and API1)
+
+You may also want to know the profile information of the reviewer associated with a review. First, create a mapping between the Reviewer ID (anonymous) and Profile ID:
+
+```python
+reviewerID_to_profileID =  {group.id.split('/')[-1]  : group.members[0] for group in submission_groups if '/Reviewer_' in group.id}
+```
+
+Then you can use this map to find the profile ID of the reviewer for a review:
+
+```python
+with open('reviews.csv', 'w') as outfile:
+    csvwriter = csv.writer(outfile, delimiter=',')
+    # Write header 
+    keylist.insert(0,'profileID')
+    t = csvwriter.writerow(keylist)
+    for review in reviews:
+        valueList = []
+        valueList.append(reviewerID_to_profileID[review.signatures[0].split('/')[-1]])
+        for key in keylist:
+            if (key != 'profileID'):
+                if review.content.get(key):
+                    valueList.append(review.content.get(key))
+                else:
+                    valueList.append('')
+        s = csvwriter.writerow(valueList)
+outfile.close()    
+```
+
+If you want additional information about the reviewer, you can get their profile using the Profile ID (see [How to Get Profiles and Their Relations](how-to-get-profiles-and-their-relations.md) for more guidance).
+
+
+

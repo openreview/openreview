@@ -41,7 +41,7 @@ submissions = client.get_all_notes(
 ```python
 reviews = [] 
 for submission in submissions:
-    reviews = reviews + [reply for reply in submission.details["directReplies"] if reply["invitation"].endswith("Official_Review")]
+    reviews = reviews + [openreview.Note.from_json(reply) for reply in submission.details["directReplies"] if reply["invitation"].endswith("Official_Review")]
 ```
 
 3\. The list reviews now contains all of the reviews for your venue.
@@ -62,7 +62,7 @@ submissions = client.get_all_notes(
 ```python
 reviews = [] 
 for submission in submissions:
-    reviews = reviews + [reply for reply in submission.details["directReplies"] if reply["invitation"].endswith("Official_Review")]
+    reviews = reviews + [openreview.Note.from_json(reply) for reply in submission.details["directReplies"] if reply["invitation"].endswith("Official_Review")]
 ```
 
 3\. The list reviews now contains all of the reviews for your venue.
