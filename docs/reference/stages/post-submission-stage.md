@@ -4,16 +4,14 @@ The Post Submission Stage is run automatically after the submission deadline.
 
 #### What it Does&#x20;
 
-The Post Submission Stage creates Paper groups and sets the readers of submissions accordingly. It also creates the anonymized versions of submissions, if applicable.
+The Post Submission Stage creates groups for reviewers of each paper (Paper Groups) and sets the readers of submissions according to the submissions readers field. It also creates the anonymized versions of submissions, if applicable.
 
 #### When to Use it
 
-The Post Submission Stage should be used when paper groups and blind copies need to be created. In general, this should be done:&#x20;
+The Post Submission Stage runs automatically after the Abstract Registration Deadline (if applicable). Otherwise, it will run after the Submission Deadline. Venue organizers may also run the Post Submission Stage to:&#x20;
 
-* After the Abstract Registration deadline to allow authors to revise their submissions&#x20;
-* After the Submission Deadline to hide fields from authors or update submission readers&#x20;
-* After the submission deadline has passed a second time after having been extended
-* When the readers of the submissions need to be updated
+* Update the readers of the submissions - for example to make reviewers readers of submissions after the submission deadline
+* Hide fields of submissions, for example hiding a submission field from reviewers during the review stage.
 
 <details>
 
