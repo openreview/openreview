@@ -69,11 +69,15 @@ Each of these steps needs to be completed for each group being matched (e.g. Are
 
 #### 10.  Assign Senior Area Chairs to Area Chairs
 
-Most venues assign SACs to submissions by first assigning them to Area Chairs. Here you may decide whether to have SACs automatically assigned to ACs or allow them to bid on ACs based on affinity scores by following steps 1-5 above.&#x20;
+Most venues assign SACs to submissions by first assigning them to Area Chairs. Here you may decide whether to have SACs automatically assigned to ACs or [allow them to bid on ACs ](../how-to-guides/workflow/how-to-enable-bidding-for-senior-area-chair-assignment.md)based on affinity scores by following steps 1-5 above.&#x20;
 
-Program Chairs can make reassignments after the proposed assignments are deployed, or [undeploy](../how-to-guides/paper-matching-and-assignment/how-to-undo-deployed-assignments.md) assignments.
+To assign SACs to ACs, choose 'Senior Area Chairs' as the matching group in paper matching setup. Then in the Paper Matching Stage, SACs will be the matching group, and ACs will be in the Submissions field.&#x20;
 
-**It is very important to do this step before assigning submissions to Area Chairs because Senior Area Chair conflicts are transferred to their assigned Area Chairs.**
+Note: Matching between SACs and ACs will not calculate conflicts. Instead, the conflicts to the SACs will be transferred to the ACs and calculated at the AC matching stage.
+
+Program Chairs can make reassignments after the proposed assignments are deployed or [undeploy](../how-to-guides/paper-matching-and-assignment/how-to-undo-deployed-assignments.md) assignments.
+
+**It is very important to deploy Senior Area Chair assignments before assigning submissions to Area Chairs to allow conflicts to be transferred successfully.**
 
 If you decide to directly assign Senior Area Chairs to submissions, skip to step 12.&#x20;
 

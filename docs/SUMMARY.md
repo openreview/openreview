@@ -99,6 +99,7 @@
   * [How to Undo a Paper Withdrawal](how-to-guides/workflow/how-to-undo-a-paper-withdrawal.md)
   * [How to enable Camera Ready Revision Upload for accepted papers](how-to-guides/workflow/how-to-enable-camera-ready-revision-upload-for-accepted-papers.md)
   * [How to make papers public after decisions are made](how-to-guides/workflow/how-to-make-papers-public-after-decisions-are-made.md)
+  * [How to enable bidding for Senior Area Chair Assignment](how-to-guides/workflow/how-to-enable-bidding-for-senior-area-chair-assignment.md)
   * [How to release the identities of authors of accepted papers only](how-to-guides/workflow/how-to-release-the-identities-of-authors-of-accepted-papers-only.md)
 * [Paper Matching and Assignment](how-to-guides/paper-matching-and-assignment/README.md)
   * [How to Compute Conflicts Between Users](how-to-guides/paper-matching-and-assignment/how-to-compute-conflicts-between-users.md)
