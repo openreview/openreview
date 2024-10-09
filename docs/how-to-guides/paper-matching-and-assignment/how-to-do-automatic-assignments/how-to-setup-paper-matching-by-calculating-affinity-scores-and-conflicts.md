@@ -94,7 +94,7 @@ OpenReview has different models available to compute affinity scores between use
 
 If you want to learn more about the models, you can find the open source repository [here](https://github.com/openreview/openreview-expertise).
 
-You may also choose to upload your scores by selecting _No._
+You may also choose to upload your scores by selecting _No._ Directions for how to format uploaded scores are in the description of the field in the Paper Matching Setup.&#x20;
 
 ### Troubleshoot Paper Matching
 
