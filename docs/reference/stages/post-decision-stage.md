@@ -28,15 +28,6 @@ The Post Decision Stage will only appear after the Decision Stage deadline. If y
 
 <details>
 
-<summary>Home Page Tab Names</summary>
-
-* Creates or overwrites decision tabs on the venue homepage. Valid JSON with keys matching the decision options expected.&#x20;
-* Optional&#x20;
-
-</details>
-
-<details>
-
 <summary>Send Decision Notifications</summary>
 
 * Select whether or not you would like to send notification emails to authors when you submit Post Decision Stage.&#x20;

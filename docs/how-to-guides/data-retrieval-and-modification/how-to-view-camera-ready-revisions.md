@@ -2,6 +2,10 @@
 
 If you enabled a Submission Revision Stage to allow authors to revise their submissions or submit Camera-Ready Revisions, the authors will have used these invitations to directly revise their existing submissions. This means that in order to see the final versions you can simply go to the forum of each submission. You can also click 'show revisions'  to see the revision history for each paper.&#x20;
 
+{% hint style="info" %}
+Ensure that the [Post Decision Stage](../../reference/stages/post-decision-stage.md) has been run prior to following the steps below.&#x20;
+{% endhint %}
+
 If you need a way to see which authors have submitted camera-ready revisions, you will first need to [install and setup the python client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).
 
 The first step is to [get all submissions](how-to-get-all-submissions.md) with a corresponding camera-ready invitation. The following example will be for "accepted" papers.&#x20;
