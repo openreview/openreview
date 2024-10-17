@@ -37,6 +37,7 @@
   * [Reviewers for my venue cannot see their assigned submissions, what should I do?](getting-started/frequently-asked-questions/reviewers-for-my-venue-cannot-see-their-assigned-submissions-what-should-i-do.md)
   * [I am a reviewer and I don't have papers for Expertise Selection, what do I do?](getting-started/frequently-asked-questions/i-am-a-reviewer-and-i-dont-have-papers-for-expertise-selection-what-do-i-do.md)
   * [How do I upload a publication with a license that is not listed?](getting-started/frequently-asked-questions/how-do-i-upload-a-publication-with-a-license-that-is-not-listed.md)
+  * [I didn't receive a password reset email, what do I do?](getting-started/frequently-asked-questions/i-didnt-receive-a-password-reset-email-what-do-i-do.md)
 * [Using the API](getting-started/using-the-api/README.md)
   * [Installing and Instantiating the Python client](getting-started/using-the-api/installing-and-instantiating-the-python-client.md)
   * [Groups](getting-started/using-the-api/groups.md)
