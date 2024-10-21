@@ -105,6 +105,7 @@
 * [Paper Matching and Assignment](how-to-guides/paper-matching-and-assignment/README.md)
   * [How to Compute Conflicts Between Users](how-to-guides/paper-matching-and-assignment/how-to-compute-conflicts-between-users.md)
   * [How to Post a Custom Conflict](how-to-guides/paper-matching-and-assignment/how-to-post-a-custom-conflict.md)
+  * [How to create your own Conflict Policy](how-to-guides/paper-matching-and-assignment/how-to-create-your-own-conflict-policy.md)
   * [How to add/remove bids programmatically](how-to-guides/paper-matching-and-assignment/how-to-add-remove-bids-programmatically.md)
   * [How to do manual assignments](how-to-guides/paper-matching-and-assignment/how-to-do-manual-assignments/README.md)
   * [How to Do Automatic Assignments](how-to-guides/paper-matching-and-assignment/how-to-do-automatic-assignments/README.md)

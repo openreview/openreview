@@ -9,14 +9,14 @@ If you are using automatic matching, you can generate conflicts automatically wi
 invitation = "<your_venue_id>/Reviewers/-/Conflict"
 ```
 
-1. Set a variable 'tail' to the user you are generating the conflict for. Set a variable 'head' to the forum of the submission you want to create the conflict for. For example:
+3. Set a variable 'tail' to the user you are generating the conflict for. Set a variable 'head' to the forum of the submission you want to create the conflict for. For example:
 
 ```python
 tail = "~User_One1"
 head = "ggVj9Mmq2-a"
 ```
 
-1. Set the readers of this conflict. In general, this should include the tail of the edge and anyone who might be making assignments for this group, such as Area Chairs or Senior Area Chairs. You can confirm who the readers should be by going to openreview.net/invitation/edit?id=\<conflict\_invitation> and checking the readers in the reply field.
+4. Set the readers of this conflict. In general, this should include the tail of the edge and anyone who might be making assignments for this group, such as Area Chairs or Senior Area Chairs. You can confirm who the readers should be by going to openreview.net/invitation/edit?id=\<conflict\_invitation> and checking the readers in the reply field.
 
 ```python
 readers = [
@@ -26,13 +26,13 @@ readers = [
 ]
 ```
 
-1. Optionally set a label for your custom conflicts. This can help you query and retrieve them later.&#x20;
+5. Optionally set a label for your custom conflicts. This can help you query and retrieve them later.&#x20;
 
 ```python
 label = "Custom Conflict"
 ```
 
-1. Finally, create and post an edge with a weight of -1 between the user and the paper. This will make the conflict a hard constraint.&#x20;
+6. Finally, create and post an edge with a weight of -1 between the user and the paper. This will make the conflict a hard constraint.&#x20;
 
 ```python
 client.post_edge(openreview.Edge(
