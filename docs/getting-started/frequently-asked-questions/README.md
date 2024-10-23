@@ -20,6 +20,7 @@
 ## For Authors/Reviewers
 
 * [I am a reviewer but I can't access my assigned submissions, what do I do?](i-am-a-reviewer-but-i-cant-access-my-assigned-submissions-what-do-i-do.md)
+* [How do I add/change an author of my submission after the deadline?](how-do-i-add-change-an-author-of-my-submission-after-the-deadline.md)
 * [How do I locate the date a submission is made public?](how-do-i-locate-the-date-a-submission-is-made-public.md)
 * [How can I add formatting to my reviews/comments](../../how-to-guides/submissions-comments-reviews-and-decisions/how-to-add-formatting-to-reviews-or-comments.md)?
 * [Why is my LaTeX code not displaying properly](../../reference/openreview-tex/common-issues-with-latex-code-display.md)?&#x20;
