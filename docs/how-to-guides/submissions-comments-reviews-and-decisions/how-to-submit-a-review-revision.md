@@ -1,8 +1,6 @@
 # How to submit a Review Revision
 
-The Review Revision Stage is run when PCs want to add new fields to a review for reviewers to fill out usually after the rebuttal period. These new fields are often the final rating of the paper and the justification for changing the rating. This stage cannot be run from the venue request page and must be requested.
-
-When Review Revisions are active, reviewers will be able to edit their posted reviews. Reviewers will be able to submit multiple Review Revisions, with the last one being the final one shown in the Official Review.&#x20;
+If the PCs have activated the Review Revision Stage, reviewers will be able to edit their posted reviews. Reviewers will be able to submit multiple Review Revisions, with the last one being the final one shown in the Official Review.&#x20;
 
 To post a review revision:
 
