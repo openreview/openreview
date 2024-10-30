@@ -2,6 +2,10 @@
 
 If you received an email with the subject ‘OpenReview profile activation pending’, your profile is in moderation. The fastest way to activate an OpenReview Account is to ensure that you have an email associated with your school or company added and confirmed to your profile.
 
+{% hint style="info" %}
+Note: Do not try to register a second time with your institutional email, which often causes users to run into issues with duplicate information in their multiple profiles. Rather, add your institutional email to your pending account to expedite profile activation
+{% endhint %}
+
 ## How to add an institutional email to a pending account
 
 Please note that all three steps must be completed for the institutional email to be confirmed.
