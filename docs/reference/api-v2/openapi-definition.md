@@ -1,3 +1,9 @@
+---
+description: >-
+  You can find the definition online here:
+  https://api2.openreview.net/docs/api.yml
+---
+
 # OpenAPI definition
 
 {% swagger src="../../.gitbook/assets/api.yml" path="/login" method="post" %}
