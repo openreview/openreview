@@ -162,6 +162,7 @@ outfile.close()
 You may also want to know the profile information of the reviewer associated with a review. First, create a mapping between the Reviewer ID (anonymous) and Profile ID:
 
 ```python
+submission_groups = client.get_all_groups(prefix=f'{venue_id}/Submission')
 reviewerID_to_profileID =  {group.id.split('/')[-1]  : group.members[0] for group in submission_groups if '/Reviewer_' in group.id}
 ```
 
