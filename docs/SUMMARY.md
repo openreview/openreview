@@ -155,6 +155,7 @@
   * [How to Get All Decisions](how-to-guides/data-retrieval-and-modification/how-to-get-all-decisions.md)
   * [How to Get All Venues](how-to-guides/data-retrieval-and-modification/how-to-get-all-venues.md)
   * [How to Retrieve Data for ACM Proceedings](how-to-guides/data-retrieval-and-modification/how-to-retrieve-data-for-acm-proceedings.md)
+  * [How to Get Reviewer Ratings](how-to-guides/data-retrieval-and-modification/how-to-get-reviewer-ratings.md)
 
 ## Reference
 
