@@ -15,7 +15,8 @@ Please note that all three steps must be completed for the institutional email t
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-08-23 at 11.26.50 AM.png" alt="" width="563"><figcaption></figcaption></figure>
 
-3. Confirm that email by following the activation link sent to that email address.&#x20;
+3. DO NOT close your current window/tab. The verification number sent to your inbox needs to be input in the same window/tab.
+4. Confirm that email by pasting the verification code and clicking on Verify.&#x20;
 
 ## Common questions about pending profiles
 

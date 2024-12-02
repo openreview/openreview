@@ -6,7 +6,8 @@
 2. Click 'Edit Profile'.
 3. Locate the 'Emails' section and click the blue plus sign underneath your name.&#x20;
 4. Enter your email and then click 'Confirm'. An email will be sent to your new address.&#x20;
-5. Click the link in the confirmation email to confirm the email to your profile.
+5. DO NOT close your current window/tab. The verification number sent to your inbox needs to be input in the same window/tab.
+6. Confirm that email by pasting the verification code and clicking on Verify.&#x20;
 
 If you would like to make that email preferred, you can do so by clicking ‘Edit profile’ once more and selecting ‘Make Preferred’ next to your desired email. The option to make an email preferred will not appear until you have confirmed the new email to your profile.
 
