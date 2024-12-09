@@ -21,6 +21,7 @@
 
 * [I am a reviewer but I can't access my assigned submissions, what do I do?](i-am-a-reviewer-but-i-cant-access-my-assigned-submissions-what-do-i-do.md)
 * [How do I add/change an author of my submission after the deadline?](how-do-i-add-change-an-author-of-my-submission-after-the-deadline.md)
+* [Can I automatically transfer my Expertise Selection to another venue?](can-i-automatically-transfer-my-expertise-selection-to-another-venue.md)
 * [How do I locate the date a submission is made public?](how-do-i-locate-the-date-a-submission-is-made-public.md)
 * [How can I add formatting to my reviews/comments](../../how-to-guides/submissions-comments-reviews-and-decisions/how-to-add-formatting-to-reviews-or-comments.md)?
 * [Why is my LaTeX code not displaying properly](../../reference/openreview-tex/common-issues-with-latex-code-display.md)?&#x20;
@@ -34,6 +35,7 @@
 ### Setting up a venue
 
 * [How can I access the request form for my venue](../hosting-a-venue-on-openreview/navigating-your-venue-pages.md)?&#x20;
+* [How do I find a venue id?](how-do-i-find-a-venue-id.md)
 * [How do I add a Program Chair to my venue?](how-do-i-add-a-program-chair-to-my-venue.md)
 * [How can I override the information on my venue homepage](../../how-to-guides/modifying-venue-homepages/how-to-customize-your-venue-homepage.md)?
 * [How do I recruit reviewers?](how-do-i-recruit-reviewers.md)
