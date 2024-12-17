@@ -2,9 +2,9 @@
 
 ## Venues using API V2
 
-#### To get all reviews for a single-blind and double-blind venue, you can do the following:
+#### To get all reviews, you can do the following:
 
-1. Get all submissions for your venue. You can do this by passing your venue's submission invitation into get\_all\_notes_._ You should also pass in details = "directReplies" to obtain any notes that reply to each submission or details = "replies" to get all notes (direct replies and replies of replies that are nested).
+1. Get all submissions for your venue. You can do this by passing your venue's submission invitation into get\_all\_note&#x73;_._ You should also pass in details = "directReplies" to obtain any notes that reply to each submission or details = "replies" to get all notes (direct replies and replies of replies that are nested).
 
 ```python
 venue_id = 'Your/Venue/ID'
@@ -23,11 +23,29 @@ reviews=[openreview.api.Note.from_json(reply) for s in submissions for reply in 
 
 3\. The list reviews now contains all of the reviews for your venue.
 
+
+
+### How to get review revisions
+
+If you would also like to find the revisions for a given review, you can do so by getting the review id and then getting the edits for that review. These edits will give every edit that ultimately resulted in the final review, but may not contain the final review as is.&#x20;
+
+An example for getting the edits for a single review is below:
+
+<pre class="language-python"><code class="lang-python">#get the ID for the first review
+example_review = reviews[0]
+<strong>review_id = example_review.id
+</strong><strong>
+</strong><strong>#get the revisions
+</strong>edits = client.get_note_edits(review_id)
+</code></pre>
+
+
+
 ## Venues using API V1
 
 #### To get all reviews for a double-blind venue, you can do the following:&#x20;
 
-1. Get all submissions for your venue. You can do this by passing your venue's submission invitation into get\_all\_notes_._ You should also pass in details = "directReplies" to obtain any notes that reply to each submission.&#x20;
+1. Get all submissions for your venue. You can do this by passing your venue's submission invitation into get\_all\_note&#x73;_._ You should also pass in details = "directReplies" to obtain any notes that reply to each submission.&#x20;
 
 ```python
 submissions = client.get_all_notes(
@@ -48,7 +66,7 @@ for submission in submissions:
 
 #### To get all reviews for a single-blind venue, you can do the following:
 
-1. Get all submissions for your venue. You can do this by passing your venue's submission invitation into get\_all\_notes_._ You should also pass in details = "directReplies" to obtain any notes that reply to each submission.&#x20;
+1. Get all submissions for your venue. You can do this by passing your venue's submission invitation into get\_all\_note&#x73;_._ You should also pass in details = "directReplies" to obtain any notes that reply to each submission.&#x20;
 
 ```python
 submissions = client.get_all_notes(
