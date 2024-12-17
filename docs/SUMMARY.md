@@ -154,6 +154,8 @@
   * [How to Get All Submissions](how-to-guides/data-retrieval-and-modification/how-to-get-all-submissions.md)
   * [How to Get All Reviews](how-to-guides/data-retrieval-and-modification/how-to-get-all-reviews.md)
   * [How to Export All Reviews into a CSV](how-to-guides/data-retrieval-and-modification/how-to-export-all-reviews-into-a-csv.md)
+  * [How to get all Rebuttals](how-to-guides/data-retrieval-and-modification/how-to-get-all-rebuttals.md)
+  * [How to Get All Official Comments](how-to-guides/data-retrieval-and-modification/how-to-get-all-official-comments.md)
   * [How to Get All MetaReviews](how-to-guides/data-retrieval-and-modification/how-to-get-all-metareviews.md)
   * [How to Get All Decisions](how-to-guides/data-retrieval-and-modification/how-to-get-all-decisions.md)
   * [How to Get All Venues](how-to-guides/data-retrieval-and-modification/how-to-get-all-venues.md)
