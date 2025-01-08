@@ -1,9 +1,11 @@
-# How to make manual assignments with the edge browser after deployment
+# How to modify assignments after deployment
 
-There are two ways to assign members after assignments have been deployed:
+**If you selected "Manual" for Submission Reviewer Assignment, instead follow the guide on** [**how to do manual assignments**](../how-to-do-manual-assignments/)**.** &#x20;
+
+There are two ways to assign a role after assignments have been deployed:
 
 1. The option 'Assign' directly assigns the reviewer to the paper and sends an email notification.
-2. (**This option is not currently supported for venues set to "manual" assignments**) The option 'Invite Assignment' sends an invitation email to the reviewer with an accept/decline link. If you would like to use this option, you will need to contact info@openreview.net to enable its functionality.
+2. The option 'Invite Assignment' sends an invitation email to the member with an accept/decline link.
 
 Any changes made after deployment are immediately visible to the assigned Reviewers or Area Chairs, and it is not necessary to deploy again.
 
