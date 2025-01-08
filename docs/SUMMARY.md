@@ -143,6 +143,7 @@
   * [How to hide/reveal fields](how-to-guides/submissions-comments-reviews-and-decisions/how-to-hide-reveal-fields.md)
   * [Update camera-ready PDFs after the deadline expires](how-to-guides/submissions-comments-reviews-and-decisions/update-camera-ready-pdfs-after-the-deadline-expires.md)
 * [Data Retrieval and Modification](how-to-guides/data-retrieval-and-modification/README.md)
+  * [How to check the API version of a venue](how-to-guides/data-retrieval-and-modification/how-to-check-the-api-version-of-a-venue.md)
   * [How to view Camera-Ready Revisions](how-to-guides/data-retrieval-and-modification/how-to-view-camera-ready-revisions.md)
   * [How to Export all Submission Attachments](how-to-guides/data-retrieval-and-modification/how-to-export-all-submission-attachments.md)
   * [How to loop through Accepted Papers and print the Authors and their Affiliations](how-to-guides/data-retrieval-and-modification/how-to-loop-through-accepted-papers-and-print-the-authors-and-their-affiliations.md)

@@ -30,17 +30,6 @@
 * [I accidentally withdrew a submission, what do I do?](i-accidentally-withdrew-a-submission-what-do-i-do.md)
 * [I am a reviewer and I don't have papers for Expertise Selection, what do I do?](i-am-a-reviewer-and-i-dont-have-papers-for-expertise-selection-what-do-i-do.md)
 
-- [I am a reviewer but I can't access my assigned submissions, what do I do?](i-am-a-reviewer-but-i-cant-access-my-assigned-submissions-what-do-i-do.md)
-- [How do I add/change an author of my submission after the deadline?](how-do-i-add-change-an-author-of-my-submission-after-the-deadline.md)
-- [How do I locate the date a submission is made public?](how-do-i-locate-the-date-a-submission-is-made-public.md)
-- [How can I add formatting to my reviews/comments](../../how-to-guides/submissions-comments-reviews-and-decisions/how-to-add-formatting-to-reviews-or-comments.md)?
-- [Why is my LaTeX code not displaying properly](../../reference/openreview-tex/common-issues-with-latex-code-display.md)?&#x20;
-- [How do I obtain a letter of proof for my services as a reviewer](how-do-i-obtain-a-letter-of-proof-for-my-services-as-a-reviewer.md)?
-- [When will I be able to withdraw my submission?](when-will-i-be-able-to-withdraw-my-submission.md)
-- [I accidentally withdrew a submission, what do I do?](i-accidentally-withdrew-a-submission-what-do-i-do.md)
-- [I am a reviewer and I don't have papers for Expertise Selection, what do I do?](i-am-a-reviewer-and-i-dont-have-papers-for-expertise-selection-what-do-i-do.md)
-- [I want to delete my withdrawn or desk-rejected paper, what do I do?](i-want-to-delete-my-withdrawn-or-desk-rejected-paper-what-do-i-do.md)
-
 ## For Program Chairs
 
 ### Setting up a venue
@@ -57,7 +46,7 @@
 * [What field types are supported in the forms](what-field-types-are-supported-in-the-forms.md)?&#x20;
 * [What do the default submission, review, metareview, and decision forms look like](../../reference/default-forms/)?&#x20;
 
-### Managing Active Venues
+### Managing active venues
 
 * [How can I extend the Submission deadline](../hosting-a-venue-on-openreview/changing-your-submission-deadline.md)?
 * [How can I release reviews](../../how-to-guides/workflow/how-to-release-reviews.md)?
