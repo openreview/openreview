@@ -3,7 +3,7 @@
 If you are using automatic matching, you can generate conflicts automatically with Paper Matching Setup. Sometimes Program Chairs additionally want to create custom conflicts between certain users and certain papers. This can be done by posting an edge to the conflict edge invitation for your venue.&#x20;
 
 1. If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).
-2. Determine the conflict invitation you will be using. If you are creating a custom conflict edge for a reviewer, it would be \<your\_venue\_id>/Reviewers/-/Conflict. If it is for an Area Chair, it would be \<your\_venue\_id>/Area_\__Chairs/-/Conflict.
+2. Determine the conflict invitation you will be using. If you are creating a custom conflict edge for a reviewer, it would be \<your\_venue\_id>/Reviewers/-/Conflict. If it is for an Area Chair, it would be \<your\_venue\_id>/Are&#x61;_\__&#x43;hairs/-/Conflict.
 
 ```python
 invitation = "<your_venue_id>/Reviewers/-/Conflict"

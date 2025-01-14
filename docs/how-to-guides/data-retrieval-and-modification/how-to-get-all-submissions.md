@@ -1,4 +1,4 @@
-# Getting all Submissions
+# How to Get All Submissions
 
 ### API 2 venues
 
@@ -45,7 +45,7 @@ Parameters you can use when [querying API 2 notes](https://docs.openreview.net/r
 
 ### API 1 venues
 
-To get all 'active' submissions for a double-blind venue **,** pass your venue's blind submission invitation into get\_all\_notes_._
+To get all 'active' submissions for a double-blind venue **,** pass your venue's blind submission invitation into get\_all\_note&#x73;_._
 
 ```python
 submissions = client.get_all_notes(

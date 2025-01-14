@@ -17,7 +17,7 @@ first_reviewer_group = client.get_group("<first_venue_id>/Reviewers")
 reviewers = first_reviewer_group.members
 ```
 
-4\. Finally, you can use add\_members_\__to\_group to add those members to your new Reviewers group.&#x20;
+4\. Finally, you can use add\_member&#x73;_\__&#x74;o\_group to add those members to your new Reviewers group.&#x20;
 
 ```
 client.add_members_to_group("<second_venue_id>/Reviewers", reviewers)
