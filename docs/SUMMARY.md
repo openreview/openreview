@@ -72,6 +72,7 @@
 ## Workflows
 
 * [Example Workflow](workflows/conferences.md)
+* [ARR Commitment Venues](workflows/arr-commitment-venues.md)
 
 ## How-To Guides
 
