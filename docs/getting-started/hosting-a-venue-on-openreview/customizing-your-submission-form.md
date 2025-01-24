@@ -18,7 +18,7 @@ You can customize the [default submission form](../../reference/default-forms/de
       "value": {
           "param": {
             "type": "profile[]",
-            "regex": "~.*",
+            "regex": "~.*"
           }
       },
       "description": "Please nominate an author to serve as a reviewer using their profile ID (e.g. ~First_Last1)",
