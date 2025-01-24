@@ -68,4 +68,4 @@ client.post_edge(custom_max_papers_edge)
 
 Once the edge is posted, it will appear in the reviewer's or area chair's console as the following image:
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>Reviewer Console</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Reviewer Console</p></figcaption></figure>

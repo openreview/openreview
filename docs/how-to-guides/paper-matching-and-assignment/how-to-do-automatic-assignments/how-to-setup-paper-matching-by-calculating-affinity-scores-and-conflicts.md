@@ -12,7 +12,7 @@ Calculating affinity scores can be lengthy process depending on the size of your
 
 You can find the 'Paper Matching Setup' button on your venue request form. **The button will become available after the submission deadline**.
 
-![](<../../../.gitbook/assets/image (4) (1).png>)
+![](<../../../.gitbook/assets/image (4) (1) (2).png>)
 
 Clicking it should bring up the following form. The 'Matching Group' is a dropdown menu of the groups you can use in the matcher (Reviewers, Area Chairs, Senior Area Chairs), depending on whichever you selected for your venue. You can select if you would like affinity scores and/or conflicts computed. Alternatively, you can compute and upload your own affinity scores using the [OpenReview expertise API](https://github.com/openreview/openreview-expertise).
 
