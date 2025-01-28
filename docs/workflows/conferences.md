@@ -143,15 +143,27 @@ The deadline field of the Review Stage form will be the one shown to reviewers a
 
 If there are still pending reviews, setting Release Reviews to Authors to "Yes, reviews should be revealed when they are posted to the paper's authors", will release all posted reviews, and later will release pending reviews after they are posted.
 
-#### 20. (optional) Rebuttal stage
+### (Optional) Rebuttal Stage
 
-Usually venues have a rebuttal period where Authors can reply to the Reviewers. In OpenReview, the rebuttal period can start at any time using the [rebuttal stage](../reference/stages/rebuttal-stage.md). They can choose between settings to allow a free number of rebuttal comments or require authors to have one rebuttal per Submission/Review. PCs may also use the [comment stage](../reference/stages/comment-stage.md) so that reviewers can optionally reply to the authors and keep threaded discussions.
+#### 20. Start Rebuttal stage
 
-#### 21.  (optional) [Submission Revision Stage](../reference/stages/submission-revision-stage.md)
+Usually venues have a rebuttal period where Authors can reply to the Reviewers. In OpenReview, the rebuttal period can start at any time using the [rebuttal stage](../reference/stages/rebuttal-stage.md). They can choose between settings to allow a free number of rebuttal comments or require authors to have one rebuttal per Submission/Review.&#x20;
+
+{% hint style="info" %}
+Readers of the rebuttal must match the review readers. PCs can check the review readers selected in the Review Stage, in particular: Release Reviews To Authors and Release Reviews To Authors, and match the rebuttal readers to these options
+{% endhint %}
+
+
+
+PCs may also use the [comment stage](../reference/stages/comment-stage.md) so that reviewers can optionally reply to the authors and keep threaded discussions.
+
+### (Optional) Submission revision stage
+
+#### 21.  Start [Submission Revision Stage](../reference/stages/submission-revision-stage.md)
 
 You may optionally allow authors to revise their submissions, including limiting which fields can be edited. This stage can be enabled any time after the submission deadline has passed.
 
-### Meta-review Stage
+### (Optional) Meta-review Stage
 
 #### 22. [Start meta review period](conferences.md#metareview-stage)
 
