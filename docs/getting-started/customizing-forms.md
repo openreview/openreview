@@ -108,7 +108,9 @@ Required fields have their field names prefixed with an asterisk
 * `"minLength":`set the minimum number of characters of the input
 * `"regex":` use regular expressions to define acceptable string structures
 * `"enum":` restrict the user to a predefined set of strings
-* `"items":` an array of strings as indicated by its type (only used with `type: string[]` )
+* `"items":` an array of strings as indicated by its type (only used with `type: string[]` ) \*\*
+
+\*\* All values in `"items"` will be considered required unless specified otherwise with `"optional": true`. Please see [multiple choices](customizing-forms.md#multiple-choices) for an example.
 
 `file` fields are specifically validated with `maxSize` and `extensions`. `maxSize` is an integer that specifies the size of the largest file that can be uploaded on the form in megabytes. `extensions` is a list of strings that are extensions, for example `"extensions": ["pdf", "zip"]`.
 
@@ -262,8 +264,8 @@ Extensions that have a "." in them are **not** supported. The following field wo
         "type": "string[]",
         "optional": true,
         "items": [
-          { "value": "Requirement 1", "description": "Requirement 1"},
-          { "value": "Requirement 2", "description": "Requirement 1"}
+          { "value": "Requirement 1", "description": "Requirement 1", "optional": true},
+          { "value": "Requirement 2", "description": "Requirement 1", "optional": true}
         ],
         "input": "checkbox"
       }
@@ -284,34 +286,34 @@ Extensions that have a "." in them are **not** supported. The following field wo
       "param": {
         "type": "string[]",
         "items": [
-            { "value": "Commonsense Reasoning", "description": "Commonsense Reasoning" },
-            { "value": "Computational Social Science and Cultural Analytics", "description": "Computational Social Science and Cultural Analytics" },
-            { "value": "Dialogue and Interactive Systems", "description": "Dialogue and Interactive Systems" },
-            { "value": "Discourse and Pragmatics", "description": "Discourse and Pragmatics" },
-            { "value": "Efficient Methods for NLP", "description": "Efficient Methods for NLP" },
-            { "value": "Ethics in NLP", "description": "Ethics in NLP" },
-            { "value": "Human-Centered NLP", "description": "Human-Centered NLP" },
-<strong>            { "value": "Information Extraction", "description": "Information Extraction" },
-</strong>            { "value": "Information Retrieval and Text Mining", "description": "Information Retrieval and Text Mining" },
-            { "value": "Interpretability, Interactivity, and Analysis of Models for NLP", "description": "Interpretability, Interactivity, and Analysis of Models for NLP" },
-            { "value": "Language Grounding to Vision, Robotics and Beyond", "description": "Language Grounding to Vision, Robotics and Beyond" },
-            { "value": "Language Modeling and Analysis of Language Models", "description": "Language Modeling and Analysis of Language Models" },
-            { "value": "Linguistic Theories, Cognitive Modeling, and Psycholinguistics", "description": "Linguistic Theories, Cognitive Modeling, and Psycholinguistics" },
-            { "value": "Machine Learning for NLP", "description": "Machine Learning for NLP" },
-            { "value": "Machine Translation", "description": "Machine Translation" },
-            { "value": "Multilinguality and Linguistic Diversity", "description": "Multilinguality and Linguistic Diversity" },
-            { "value": "Natural Language Generation", "description": "Natural Language Generation" },
-<strong>            { "value": "NLP Applications", "description": "NLP Applications" },
-</strong><strong>            { "value": "Phonology, Morphology, and Word Segmentation", "description": "Phonology, Morphology, and Word Segmentation" },
-</strong>            { "value": "Question Answering", "description": "Question Answering" },
-            { "value": "Resources and Evaluation", "description": "Resources and Evaluation" },
-            { "value": "Semantics: Lexical", "description": "Semantics: Lexical" },
-<strong>            { "value": "Semantics: Lexical, Sentence level, Document Level, Textual Inference, etc.", "description": "Semantics: Lexical, Sentence level, Document Level, Textual Inference, etc." },
-</strong>            { "value": "Sentiment Analysis, Stylistic Analysis, and Argument Mining", "description": "Sentiment Analysis, Stylistic Analysis, and Argument Mining" },
-            { "value": "Speech and Multimodality", "description": "Speech and Multimodality" },
-            { "value": "Summarization", "description": "Summarization" },
-            { "value": "Syntax, Parsing and their Applications", "description": "Syntax, Parsing and their Applications" },
-            { "value": "Theme Track: Large Language Models and the Future of NLP", "description": "Theme Track: Large Language Models and the Future of NLP" }
+            { "value": "Commonsense Reasoning", "description": "Commonsense Reasoning", "optional": true },
+            { "value": "Computational Social Science and Cultural Analytics", "description": "Computational Social Science and Cultural Analytics", "optional": true },
+            { "value": "Dialogue and Interactive Systems", "description": "Dialogue and Interactive Systems", "optional": true },
+            { "value": "Discourse and Pragmatics", "description": "Discourse and Pragmatics", "optional": true },
+            { "value": "Efficient Methods for NLP", "description": "Efficient Methods for NLP", "optional": true },
+            { "value": "Ethics in NLP", "description": "Ethics in NLP", "optional": true },
+            { "value": "Human-Centered NLP", "description": "Human-Centered NLP", "optional": true },
+<strong>            { "value": "Information Extraction", "description": "Information Extraction", "optional": true },
+</strong>            { "value": "Information Retrieval and Text Mining", "description": "Information Retrieval and Text Mining", "optional": true },
+            { "value": "Interpretability, Interactivity, and Analysis of Models for NLP", "description": "Interpretability, Interactivity, and Analysis of Models for NLP", "optional": true },
+            { "value": "Language Grounding to Vision, Robotics and Beyond", "description": "Language Grounding to Vision, Robotics and Beyond", "optional": true },
+            { "value": "Language Modeling and Analysis of Language Models", "description": "Language Modeling and Analysis of Language Models", "optional": true },
+            { "value": "Linguistic Theories, Cognitive Modeling, and Psycholinguistics", "description": "Linguistic Theories, Cognitive Modeling, and Psycholinguistics", "optional": true },
+            { "value": "Machine Learning for NLP", "description": "Machine Learning for NLP", "optional": true },
+            { "value": "Machine Translation", "description": "Machine Translation", "optional": true },
+            { "value": "Multilinguality and Linguistic Diversity", "description": "Multilinguality and Linguistic Diversity", "optional": true },
+            { "value": "Natural Language Generation", "description": "Natural Language Generation", "optional": true },
+<strong>            { "value": "NLP Applications", "description": "NLP Applications", "optional": true },
+</strong><strong>            { "value": "Phonology, Morphology, and Word Segmentation", "description": "Phonology, Morphology, and Word Segmentation", "optional": true },
+</strong>            { "value": "Question Answering", "description": "Question Answering", "optional": true },
+            { "value": "Resources and Evaluation", "description": "Resources and Evaluation", "optional": true },
+            { "value": "Semantics: Lexical", "description": "Semantics: Lexical", "optional": true },
+<strong>            { "value": "Semantics: Lexical, Sentence level, Document Level, Textual Inference, etc.", "description": "Semantics: Lexical, Sentence level, Document Level, Textual Inference, etc.", "optional": true },
+</strong>            { "value": "Sentiment Analysis, Stylistic Analysis, and Argument Mining", "description": "Sentiment Analysis, Stylistic Analysis, and Argument Mining", "optional": true },
+            { "value": "Speech and Multimodality", "description": "Speech and Multimodality", "optional": true },
+            { "value": "Summarization", "description": "Summarization", "optional": true },
+            { "value": "Syntax, Parsing and their Applications", "description": "Syntax, Parsing and their Applications", "optional": true },
+            { "value": "Theme Track: Large Language Models and the Future of NLP", "description": "Theme Track: Large Language Models and the Future of NLP", "optional": true }
         ],
         "input": "select"
       }
