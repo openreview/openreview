@@ -62,6 +62,21 @@ Fields that are specified as constants in the Invitation do NOT need to be passe
 }
 ```
 
+*   `items`: valid values must be listed in the items array. Notice that each item is an object that must contain the field `value` or `prefix` and optionally the fields `optional` and `description`. The values in `items` must be of the same type and should match the type specified in the field type. In the example below the title field will be an array of strings as indicated by its type.
+
+    ```json
+    "title": {
+        "value": {
+            "param": {
+                "type": "string[]",
+                "items": [
+                  { "value": "title 1", "description": "This is the first title" },
+                  { "value": "title 2", "description": "This is the second title" },
+                ],
+            },
+        }
+    }
+    ```
 * `regex`: valid values need to match the specified regex. The type of the field should be string. In the example below, "This asdf title" is a valid value.
 
 {% hint style="info" %}
