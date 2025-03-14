@@ -42,6 +42,7 @@
   * [I didn't receive a password reset email, what do I do?](getting-started/frequently-asked-questions/i-didnt-receive-a-password-reset-email-what-do-i-do.md)
   * [How do I add/change an author of my submission after the deadline?](getting-started/frequently-asked-questions/how-do-i-add-change-an-author-of-my-submission-after-the-deadline.md)
   * [How do I find a venue id?](getting-started/frequently-asked-questions/how-do-i-find-a-venue-id.md)
+  * [Why can't I update my DBLP link?](getting-started/frequently-asked-questions/why-cant-i-update-my-dblp-link.md)
 * [Using the API](getting-started/using-the-api/README.md)
   * [Installing and Instantiating the Python client](getting-started/using-the-api/installing-and-instantiating-the-python-client.md)
   * [Groups](getting-started/using-the-api/groups.md)

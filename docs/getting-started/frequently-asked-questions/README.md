@@ -16,6 +16,7 @@
 * [How can I add a Semantic Scholar URL to my profile](../creating-an-openreview-profile/finding-and-adding-a-semantic-scholar-url-to-your-profile.md)?&#x20;
 * [My profile is "limited". What does that mean? ](my-profile-is-limited-.-what-does-that-mean.md)
 * [How do I upload a publication with a license that is not listed?](how-do-i-upload-a-publication-with-a-license-that-is-not-listed.md)
+* [Why can't I update my DBLP link?](why-cant-i-update-my-dblp-link.md)
 
 ## For Authors/Reviewers
 
