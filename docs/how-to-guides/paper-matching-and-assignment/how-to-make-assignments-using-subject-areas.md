@@ -204,7 +204,7 @@ for submission in submissions:
                 if s in subject:
                     #print(f"Reviewer ID: {reviewer_id}, Subject: {subject}")
                     client.post_edge(openreview.api.Edge(
-                        invitation=f'{venue_id}/-/Subject_Score',
+                        invitation=f'{venue_id}/Reviewers/-/Subject_Score',
                         signatures=[venue_id],
                         head=submission_id,
                         tail=reviewer_id,
