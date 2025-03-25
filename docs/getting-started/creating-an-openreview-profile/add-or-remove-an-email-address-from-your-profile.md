@@ -11,10 +11,14 @@
 
 If you would like to make that email preferred, you can do so by clicking ‘Edit profile’ once more and selecting ‘Make Preferred’ next to your desired email. The option to make an email preferred will not appear until you have confirmed the new email to your profile.
 
-#### Removing email addresses from your profile
+
 
 {% hint style="info" %}
-OpenReview uses email addresses associated with current or former affiliations for profile deduplication, conflict detection, and paper coreference. For this reason, OpenReview prefers to keep all current and former institutional email addresses on each user's profile. OpenReview will only send messages to the address marked as “Preferred”. OpenReview only displays obfuscated emails (\*\*\*\*@umass.edu) and never releases full email addresses to the public.
+We recommend adding at least one permanent (non-institutional) email to your profile to allow you to retain ownership of your account should you lose access to your institutional email
 {% endhint %}
 
-If there is an email address you want removed from your profile, please reach out to info@openreview.net.
+#### Removing email addresses from your profile
+
+OpenReview uses email addresses associated with current or former affiliations for profile deduplication, conflict detection, and paper coreference. For this reason, OpenReview prefers to keep all current and former institutional email addresses on each user's profile. OpenReview will only send messages to the address marked as “Preferred”. OpenReview only displays obfuscated emails (\*\*\*\*@umass.edu) and never releases full email addresses to the public.
+
+If there is an email address you want removed from your profile, please reach out to info@openreview.net. Please note that if you have changed institutions, we ask you to add and confirm your new institutional email before requesting that we remove an old or expired email.
