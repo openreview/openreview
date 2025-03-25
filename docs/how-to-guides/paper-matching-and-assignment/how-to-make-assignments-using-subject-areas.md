@@ -123,7 +123,7 @@ client.post_invitation_edit(
                   ],
                 "signatures": {
                     "param": {
-                      "regex": f"{venue_id}/Program_Chairs",
+                      "regex": f"{venue_id}$|{venue_id}/Program_Chairs",
                       "default": [
                         f"{venue_id}/Program_Chairs"
                       ]
