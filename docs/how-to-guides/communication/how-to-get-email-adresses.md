@@ -15,4 +15,4 @@ profiles = openreview.tools.get_profiles(client, [profile_id]) # you can also pa
 <strong>user_email = profiles[0].get_preferred_email()
 </strong></code></pre>
 
-For more information on the params excepted for get\_profiles(), please see the [documentation](https://openreview-py.readthedocs.io/en/latest/api.html#openreview.tools.get_profiles).
+For more information on the params accepted for get\_profiles(), please see the [documentation](https://openreview-py.readthedocs.io/en/latest/api.html#openreview.tools.get_profiles).
