@@ -1,4 +1,8 @@
-# Profiles
+# How to Get Profiles and Their Relations
+
+{% hint style="info" %}
+Emails are obfuscated in the profile data. For example,  \*\*\*\*@umass.edu
+{% endhint %}
 
 ### Querying profiles
 
@@ -67,4 +71,3 @@ Getting coauthorship relations from Notes:
 >>> coauthors.remove(profile.id) # make sure that the list doesn't include the author themselves
 >>> print(sorted(list(coauthors)))
 ```
-
