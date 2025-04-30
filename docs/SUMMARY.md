@@ -74,6 +74,9 @@
 
 * [Example Workflow](workflows/conferences.md)
 * [ARR Commitment Venues](workflows/arr-commitment-venues.md)
+* [Exercises for workflow chairs](workflows/exercises-for-workflow-chairs/README.md)
+  * [Prerequisites](workflows/exercises-for-workflow-chairs/prerequisites.md)
+  * [Exercise: Posting LLM generated reviews](workflows/exercises-for-workflow-chairs/exercise-posting-llm-generated-reviews.md)
 
 ## How-To Guides
 
@@ -153,6 +156,7 @@
   * [How to loop through Accepted Papers and print the Authors and their Affiliations](how-to-guides/data-retrieval-and-modification/how-to-loop-through-accepted-papers-and-print-the-authors-and-their-affiliations.md)
   * [How to add/remove fields from a submission](how-to-guides/data-retrieval-and-modification/how-to-add-remove-fields-from-a-submission.md)
   * [How to manually change the readers of a note](how-to-guides/data-retrieval-and-modification/how-to-manually-change-the-readers-of-a-note.md)
+  * [How to post/delete an Official Review using Python](how-to-guides/data-retrieval-and-modification/how-to-post-delete-an-official-review-using-python.md)
   * [How to Get Profiles and Their Relations](how-to-guides/data-retrieval-and-modification/how-to-get-profiles-and-their-relations.md)
   * [How to Get All the Reviews that I have written and their Corresponding Submissions](how-to-guides/data-retrieval-and-modification/how-to-get-all-the-reviews-that-i-have-written-and-their-corresponding-submissions.md)
   * [How to Get All Registration Notes](how-to-guides/data-retrieval-and-modification/how-to-get-all-registration-notes.md)
