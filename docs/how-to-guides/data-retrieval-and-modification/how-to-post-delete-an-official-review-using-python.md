@@ -2,14 +2,14 @@
 
 ## Requirements
 
-[Install and instantiate the python client](https://docs.openreview.net/getting-started/using-the-api/installing-and-instantiating-the-python-client).
+[Install and instantiate the python client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).
 
 ## Posting a review
 
-To post a review, you will need to post a [Note Edit](https://docs.openreview.net/reference/api-v2/entities/edit) by calling [`post_note_edit`](https://github.com/openreview/openreview-py/blob/791983ca7794cdf53affce9d0e12c6a8bcb1dc36/openreview/api/client.py#L2275) . It requires at least 3 fields, `invitation` , `signatures` , and `note`:
+To post a review, you will need to post a [Note Edit](../../reference/api-v2/entities/edit/) by calling [`post_note_edit`](https://github.com/openreview/openreview-py/blob/791983ca7794cdf53affce9d0e12c6a8bcb1dc36/openreview/api/client.py#L2275) . It requires at least 3 fields, `invitation` , `signatures` , and `note`:
 
-* [**Invitation**](https://docs.openreview.net/reference/api-v2/entities/invitation): The ID of the paper's specific Official Review invitation. Any time you post data you need to specify an invitation.
-* [**Signatures**](https://docs.openreview.net/reference/api-v2/entities/edit/fields#signatures): The ID of the user creating the edit. Reviews are usually anonymous so we sign them with the reviewer's anon group ID to hide their identity. The anon group contains the user's profile ID as a member. Only the member of the group has permissions to use the anon group to sign a Note Edit. The reviewer anon group ID is in the format of: `<venue_id>/Submission<number>/<reviewer name>_` .
+* [**Invitation**](../../reference/api-v2/entities/invitation.md): The ID of the paper's specific Official Review invitation. Any time you post data you need to specify an invitation.
+* [**Signatures**](../../reference/api-v2/entities/edit/fields.md#signatures): The ID of the user creating the edit. Reviews are usually anonymous so we sign them with the reviewer's anon group ID to hide their identity. The anon group contains the user's profile ID as a member. Only the member of the group has permissions to use the anon group to sign a Note Edit. The reviewer anon group ID is in the format of: `<venue_id>/Submission<number>/<reviewer name>_` .
   * To find the anon ID for a reviewer of a paper, call [`get_groups`](https://github.com/openreview/openreview-py/blob/791983ca7794cdf53affce9d0e12c6a8bcb1dc36/openreview/api/client.py#L836) . The following will look for all groups that  match the specified prefix and signatory:
 
 ```python
@@ -18,7 +18,7 @@ anon_group_id = anon_groups[0].id
 # Result: <venue_id>/Submission<number>/Reviewer_ABCD>
 ```
 
-* [**Note**](https://docs.openreview.net/reference/api-v2/entities/note): This is the object that will contain the contents of your review inside the Note.content. To know what fields are required in the Note content, look at what is specified in the /-/Official\_Review invitation.&#x20;
+* [**Note**](../../reference/api-v2/entities/note/): This is the object that will contain the contents of your review inside the Note.content. To know what fields are required in the Note content, look at what is specified in the /-/Official\_Review invitation.&#x20;
 
 The full `post_note_edit` call will look like this:
 
@@ -43,8 +43,8 @@ To view the note in the UI, go to: openreview.net/forum?id=\<review\_note.forum>
 
 To delete a review, you need to post a Note Edit with `post_note_edit` and pass 2 fields to the Note, the `id` and `ddate` :&#x20;
 
-* [**ID**](https://docs.openreview.net/reference/api-v2/entities/note/fields#id)**:** The ID of the Note you wish to delete. The simplest way to find the ID of a specific Note is to find the review in the UI, copy the URL, and get the ID from the `noteId` param.
-* [**Ddate**](https://docs.openreview.net/reference/api-v2/entities/note/fields#ddate)**:** The deletion date is a unix timestamp in milliseconds.
+* [**ID**](../../reference/api-v2/entities/note/fields.md#id)**:** The ID of the Note you wish to delete. The simplest way to find the ID of a specific Note is to find the review in the UI, copy the URL, and get the ID from the `noteId` param.
+* [**Ddate**](../../reference/api-v2/entities/note/fields.md#ddate)**:** The deletion date is a unix timestamp in milliseconds.
 
 For the `invitation` passed in the Edit, there are 2 options:
 
