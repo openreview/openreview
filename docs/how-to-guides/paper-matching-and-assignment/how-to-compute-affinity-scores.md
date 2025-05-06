@@ -7,7 +7,7 @@ description: Using the Python client to request scores from our Expertise API
 ## Introduction
 
 {% hint style="danger" %}
-**Important**: For large conferences with 2000 submissions or more, please contact info@openreview.net for computing scores for submissions.
+**Important**: For large conferences with 2000 submissions or more, please [Contact Support](https://openreview.net/contact) to compute scores for submissions.
 
 However, manually computing scores between users for any combination of area chairs and senior area chairs for these large venues is **allowed**
 {% endhint %}
