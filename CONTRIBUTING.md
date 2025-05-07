@@ -6,13 +6,13 @@ The goal of this document is to provide a high-level overview of how you can get
 
 ## Asking Questions
 
-The issue tracker is intended for bugs found in the system. If your question is related to how OpenReview works, rather than opening an issue, please first check our [FAQ](https://openreview.net/faq). If you cannot find the answer there, please contact the organizers of your venue or contact us at info@openreview.net.
+The issue tracker is intended for bugs found in the system. If your question is related to how OpenReview works, rather than opening an issue, please first check our [FAQ](https://openreview.net/faq). If you cannot find the answer there, please contact the organizers of your venue or contact us using our [Feedback Form](https://openreview.net/contact).
 
 ## Providing Feedback
 
 **Your comments and feedback are welcome**
 
-You can use the [discussions](https://github.com/openreview/openreview/discussions) or send us an email directly to info@openreview.net.
+You can use the [discussions](https://github.com/openreview/openreview/discussions) or the [Feedback Form](https://openreview.net/contact).
 
 ## Reporting Issues
 
@@ -22,7 +22,7 @@ If you have identified a reproducible problem in OpenReview, we want to hear abo
 
 If you have found a security vulnerability in the system, instead of opening an issue, please contact us at security@openreview.net. We will investigate and do our best to quickly fix the problem.
 
-If you have a problem with your account that requires you to share personal information such as your email or name, please contact us at info@openreview.net.
+If you have a problem with your account that requires you to share personal information such as your email or name, please [Contact Us](https://openreview.net/contact).
 
 If you have found a bug that does not compromise the system or its data, feel free to open an issue using the template to describe it as best as you can.
 
