@@ -57,4 +57,4 @@ You can see a list of all the edits of a given note by clicking on the Revisions
 
 #### Providing Feedback
 
-We hope that you find the new functionality useful. If there is anything you would like to see changed or added please send an email to [info@openreview.net](mailto:info@openreview.net) with the subject "New Forum Page Feedback".
+We hope that you find the new functionality useful. If there is anything you would like to see changed or added please fill out the [Feedback Form](https://openreview.net/contact) with the subject "New Forum Page Feedback".

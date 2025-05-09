@@ -63,7 +63,7 @@ The best way to do this is to create a [Reviewer Registration](../../reference/s
 
 ### Next Steps
 
-To continue with the setup you can either use the python client to post the invitation edit and edges that will be shared below or you can email support at info@openreview.net for assistance.
+To continue with the setup you can either use the python client to post the invitation edit and edges that will be shared below or you can [Contact Support](https://openreview.net/contact) for assistance.
 
 ### Score Invitation
 

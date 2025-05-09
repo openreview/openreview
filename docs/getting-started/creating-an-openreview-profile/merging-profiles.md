@@ -16,8 +16,8 @@ Sample: \[link] is already in use by \[user]
 This can happen because you have previously registered an account with this information with OpenReview, or because the publication information is associated with a pre-created account.
 
 1. Finish profile registration **without** the link that caused the error
-2. Email info@openreview.net with your profile ID and the profile ID that you wish to merge with.
+2. Fill out the [Feedback Form](https://openreview.net/contact) and include in the message your profile ID and the profile ID that you wish to merge with.
 
 ### Other cases
 
-If you do not recognize a profile flagged as duplicate being yours, or do not have access to the email address of the other profile, please reach out to us at info@openreview.net.
+If you do not recognize a profile flagged as duplicate being yours, or do not have access to the email address of the other profile, please [contact us](https://openreview.net/contact).

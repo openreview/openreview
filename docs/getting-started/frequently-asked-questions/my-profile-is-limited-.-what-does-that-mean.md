@@ -12,4 +12,4 @@ If you were notified that your profile has been limited, this means that the nam
 * Find the field where you can enter your year of birth, and enter the information.
 * Click Save at the bottom of the page.
 
-OpenReview will routinely check for SDN matches, and if your birth year has been updated, your profile will return to active. Note that this change will not be immediate. If you believe you have been waiting longer than expected and your profile has not been reactivated, you can reach out to info@openreview.net to request that your profile be updated.&#x20;
+OpenReview will routinely check for SDN matches, and if your birth year has been updated, your profile will return to active. Note that this change will not be immediate. If you believe you have been waiting longer than expected and your profile has not been reactivated, you can reach out to us using the [Feedback Form](https://openreview.net/contact).

@@ -8,7 +8,7 @@ You could also add fields to a review for reviewers to fill out, such as after t
 
 This stage cannot be run from the venue request page and must be requested.
 
-To request the Review Revision Stage, please email info@openreview.net with the following information:
+To request the Review Revision Stage, please [Contact Support](https://openreview.net/contact) with the following information:
 
 1. Start date, Due date, and Expiration date for the invitation, with the day, time, timezone for each.
 2. Fields that reviewers should be able to change in the review, including existing and new fields
