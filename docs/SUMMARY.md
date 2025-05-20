@@ -153,7 +153,7 @@
   * [How to check the API version of a venue](how-to-guides/data-retrieval-and-modification/how-to-check-the-api-version-of-a-venue.md)
   * [How to view Camera-Ready Revisions](how-to-guides/data-retrieval-and-modification/how-to-view-camera-ready-revisions.md)
   * [How to Export all Submission Attachments](how-to-guides/data-retrieval-and-modification/how-to-export-all-submission-attachments.md)
-  * [How to loop through Accepted Papers and print the Authors and their Affiliations](how-to-guides/data-retrieval-and-modification/how-to-loop-through-accepted-papers-and-print-the-authors-and-their-affiliations.md)
+  * [How to get custom submission and author export](how-to-guides/data-retrieval-and-modification/how-to-loop-through-accepted-papers-and-print-the-authors-and-their-affiliations.md)
   * [How to add/remove fields from a submission](how-to-guides/data-retrieval-and-modification/how-to-add-remove-fields-from-a-submission.md)
   * [How to manually change the readers of a note](how-to-guides/data-retrieval-and-modification/how-to-manually-change-the-readers-of-a-note.md)
   * [How to post/delete an Official Review using Python](how-to-guides/data-retrieval-and-modification/how-to-post-delete-an-official-review-using-python.md)
