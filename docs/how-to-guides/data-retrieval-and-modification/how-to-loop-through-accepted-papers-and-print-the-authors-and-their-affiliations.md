@@ -1,4 +1,4 @@
-# How to get custom submission and author export
+# How to create a custom submission export
 
 While exports are available for submissions in the UI, if you want to create an export with information not available from the default export, you can use the Python client to do so.
 
@@ -52,11 +52,15 @@ subset_df = df[['number','title','authors','authorids']]
 subset_df.to_csv('submission_information.csv', index=False)
 ```
 
-If all you need is submission information, you can export the data here, or if you want to get more information about the authors, you can follow the directions below.&#x20;
+If all you need is submission information, you can export the data at this point. If you want to integrate this information with other fields, such as author information, reviews, etc.&#x20;
 
-#### Getting Profile Information
+### Combining Submissions with Other information
 
-Once the DataFrame is created, you will need to get the profiles for authors to get author information.
+First you will need to get the relevant data in a tabular format in order to be able to combine the DataFrames.
+
+#### Profiles
+
+You can get a list of all profile IDs for authors from your newly created DataFrame.&#x20;
 
 ```python
 #get a list of all authors
@@ -65,85 +69,9 @@ all_author_ids = set(id for ids in subset_df['authorids'] for id in ids)
 profiles = openreview.tools.get_profiles(client_v2,all_author_ids)
 ```
 
-Because profiles are nested dictionaries, you need to flatten the dictionary to create the fields, then extract the content, similarly to how the submission content was extracted. The original profile information looks something like this:
+Once you have a list of profiles, refer to the script at the end of [this](../../getting-started/using-the-api/objects-in-openreview/introduction-to-profiles.md) page to create a DataFrame.&#x20;
 
-```
-{'active': True,
- 'content': {'emails': ['name@university.edu'],
-             'emailsConfirmed': ['name@university.edu'],
-             'history': [{'end': None,
-                          'institution': {'country': 'US',
-                                          'domain': 'university.edu'},
-                          'position': 'PhD Student',
-                          'start': 2017}],
-             'homepage': 'https://test.com',
-             'names': [{'fullname': 'First Last',
-                        'preferred': True,
-                        'username': '~First_Last2'}],
-             'preferredEmail': 'name@university.edu',
-             'relations': []},
- 'id': '~First_Last2',
- ...<other metacontent>...
- 
- }
-
-
-```
-
-After flattening, it would look like this:
-
-<table><thead><tr><th width="51.8984375"></th><th>preferredEmail</th><th>homepage</th><th>emails_0</th><th>names_0_preferred</th><th>names_0_fullname</th><th>names_0_username</th><th>history_0_position</th><th>history_0_start</th><th>history_0_end</th><th>history_0_institution_country</th><th>history_0_institution_domain</th><th>emailsConfirmed_0</th><th>profile_id</th></tr></thead><tbody><tr><td>0</td><td>name@university.edu</td><td>https://test.com</td><td>name@university.edu</td><td>True</td><td>First Last</td><td>~First_Last2</td><td>PhD Student</td><td>2017</td><td>None</td><td>US</td><td>university.edu</td><td>name@university.edu</td><td>~First_Last2</td></tr></tbody></table>
-
-
-
-There will be multiple columns for some profile fields recording each of the entries, for example: `names_0_preferred, names_0_fullname`. Because profiles have different numbers of affiliations in their profile, some of these columns will be null for some profiles.&#x20;
-
-
-
-```python
-from collections.abc import MutableMapping
-
-def flatten_dict(d, parent_key='', sep='_'):
-    """
-    Recursively flattens a dictionary, concatenating nested keys.
-    """
-    items = []
-    for k, v in d.items():
-        new_key = f"{parent_key}{sep}{k}" if parent_key else k
-        if isinstance(v, MutableMapping):
-            items.extend(flatten_dict(v, new_key, sep=sep).items())
-        elif isinstance(v, list):
-            for i, elem in enumerate(v):
-                # Handle lists of dictionaries by adding an index
-                if isinstance(elem, MutableMapping):
-                    items.extend(flatten_dict(elem, f"{new_key}_{i}", sep=sep).items())
-                else:
-                    # Just add the element if it's not a dictionary
-                    items.append((f"{new_key}_{i}", elem))
-        else:
-            items.append((new_key, v))
-    return dict(items)
-
-def extract_content(d):
-    flattened = flatten_dict(d.content)
-    content = {k: v for k, v in flattened.items()}
-    content['profile_id'] =d.id
-    return(content)
-
-
-#Create a DataFrame with the flattened profile content + profile ID
-profile_df = pd.DataFrame([extract_content(note) for note in profiles])
-
-#extract the columns you want included in the data
-relevant_columns = ['profile_id'] + [c for c in profile_df.columns if 'history_0' in c] 
-profile_df_subset = profile_df[relevant_columns]
-
-
-
-
-```
-
-The output will have the structure in the example aboveNow that you have the two <kbd>`DataFrames`</kbd> , you can combine them in a variety of ways. Below are a few specific examples:
+The profile and Submission DataFrame can then be combined in a variety of ways.&#x20;
 
 #### Example: Check if any authors have a particular trait
 
@@ -192,23 +120,5 @@ df_merged = df_merged.drop(columns='authorids')
 
 ```
 
-#### Example: Add preferredEmails to submission DataFrame
 
-This example will get a list of preferred emails for all authors listed for a submission:
-
-```python
-# Step 1: Explode the 'authorids' list into separate rows
-df_exploded = df.explode('authorids')
-
-# Step 2: Merge with df_profiles to get PreferredEmail
-df_merged = pd.merge(df_exploded, profile_df[['profile_id','preferredEmail']], left_on='authorids', right_on='profile_id', how='left')
-
-# Step 3: Group by 'submission_number' and aggregate 'PreferredEmail' into a list
-df_result = df_merged.groupby('number')['preferredEmail'].apply(list).reset_index()
-
-# Optional: Rename the column to 'preferred_emails'
-df_submission_with_emails = pd.merge(subset_df, df_result, on='number', how='left')
-
-print(df_submission_with_emails)
-```
 

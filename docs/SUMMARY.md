@@ -47,6 +47,7 @@
   * [Installing and Instantiating the Python client](getting-started/using-the-api/installing-and-instantiating-the-python-client.md)
   * [Objects in OpenReview](getting-started/using-the-api/objects-in-openreview/README.md)
     * [Introduction to Groups](getting-started/using-the-api/objects-in-openreview/groups.md)
+    * [Introduction to Profiles](getting-started/using-the-api/objects-in-openreview/introduction-to-profiles.md)
 * [Hosting a venue on OpenReview](getting-started/hosting-a-venue-on-openreview/README.md)
   * [Creating your Venue Instance](getting-started/hosting-a-venue-on-openreview/creating-your-venue-instance-submitting-a-venue-request-form.md)
   * [Navigating your Venue Pages](getting-started/hosting-a-venue-on-openreview/navigating-your-venue-pages.md)
@@ -154,7 +155,7 @@
   * [How to check the API version of a venue](how-to-guides/data-retrieval-and-modification/how-to-check-the-api-version-of-a-venue.md)
   * [How to view Camera-Ready Revisions](how-to-guides/data-retrieval-and-modification/how-to-view-camera-ready-revisions.md)
   * [How to Export all Submission Attachments](how-to-guides/data-retrieval-and-modification/how-to-export-all-submission-attachments.md)
-  * [How to get custom submission and author export](how-to-guides/data-retrieval-and-modification/how-to-loop-through-accepted-papers-and-print-the-authors-and-their-affiliations.md)
+  * [How to create a custom submission export](how-to-guides/data-retrieval-and-modification/how-to-loop-through-accepted-papers-and-print-the-authors-and-their-affiliations.md)
   * [How to add/remove fields from a submission](how-to-guides/data-retrieval-and-modification/how-to-add-remove-fields-from-a-submission.md)
   * [How to manually change the readers of a note](how-to-guides/data-retrieval-and-modification/how-to-manually-change-the-readers-of-a-note.md)
   * [How to post/delete an Official Review using Python](how-to-guides/data-retrieval-and-modification/how-to-post-delete-an-official-review-using-python.md)
@@ -171,6 +172,7 @@
   * [How to Get All Venues](how-to-guides/data-retrieval-and-modification/how-to-get-all-venues.md)
   * [How to Retrieve Data for ACM Proceedings](how-to-guides/data-retrieval-and-modification/how-to-retrieve-data-for-acm-proceedings.md)
   * [How to Get Reviewer Ratings](how-to-guides/data-retrieval-and-modification/how-to-get-reviewer-ratings.md)
+  * [How to Get All Profiles](how-to-guides/data-retrieval-and-modification/how-to-get-all-profiles.md)
 
 ## Reference
 
@@ -199,6 +201,8 @@
     * [Edit](reference/api-v2/entities/edit/README.md)
       * [Fields](reference/api-v2/entities/edit/fields.md)
       * [Inference](reference/api-v2/entities/edit/inference.md)
+    * [Profile](reference/api-v2/entities/profile/README.md)
+      * [Fields](reference/api-v2/entities/profile/fields.md)
 * [Stages](reference/stages/README.md)
   * [Revision](reference/stages/revision.md)
   * [Registration Stage](reference/stages/registration-stage.md)
