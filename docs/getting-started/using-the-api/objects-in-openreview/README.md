@@ -10,7 +10,7 @@ OpenReview consists of different objects used to hold or interact with data. Thi
 
 **Edits**: Mechanism for creating or modifying entities like Notes, Groups, and Invitations. An Edit encapsulates the changes and, upon submission, undergoes an inference process to apply these changes to the target entity. This allows for a record of all changes within the system.
 
-**Profiles**: Represent individual users with unique identifiers (e.g., `~First_Last1`). They store user information such as names, emails, affiliations, and relationships (e.g., co-authors, advisors). Profiles are  linked to different roles and permissions in the system via Groups.
+[**Profiles**](introduction-to-profiles.md): Represent individual users with unique identifiers (e.g., `~First_Last1`). They store user information such as names, emails, affiliations, and relationships (e.g., co-authors, advisors). Profiles are  linked to different roles and permissions in the system via Groups.
 
 
 

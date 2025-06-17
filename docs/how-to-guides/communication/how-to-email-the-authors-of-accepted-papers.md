@@ -12,7 +12,7 @@ PCs can utilize the python client to send customized messages or to a more contr
 
 #### I want to email authors of all accepted submissions:
 
-First, you will need to [get all of the accepted submissions](../data-retrieval-and-modification/how-to-get-all-submissions.md) for your venue.
+First, you will need to [get all of the accepted submissions](broken-reference) for your venue.
 
 Second, loop through the submissions and for each submission send an email using the `authorids` in the submission.content. This message will be sent to all the authors of the submission.
 

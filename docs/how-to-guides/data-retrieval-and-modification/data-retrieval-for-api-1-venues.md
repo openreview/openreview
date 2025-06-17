@@ -1,48 +1,110 @@
-# How to Export All Reviews into a CSV
+# Data Retrieval for API 1 Venues
 
-## API 2 Venues (most common)
+### Submissions
 
-To export all reviews for a given venue into a csv file:
-
-1. If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).&#x20;
-2. Retrieve all of the Reviews into the a `reviews` variable. Follow this link and complete all three steps for API 2 venues to [Get All the Reviews](broken-reference)&#x20;
-3. Get the super review invitation. You can check out the [default review form](../../reference/default-forms/default-review-form.md#api-v2-json) if you need a reference. You'll need the content of the super invitation to create the headers for the .csv.
+To get all 'active' submissions for a double-blind venue **,** pass your venue's blind submission invitation into get\_all\_note&#x73;_._
 
 ```python
-invitation = client.get_invitation(f'{venue_id}/-/{review_name}')
-content = invitation.edit['invitation']['edit']['note']['content']
-print(content)
+submissions = client.get_all_notes(
+    invitation="Your/Venue/ID/-/Blind_Submission"
+    )
 ```
 
-4. If you did not use any custom fields for the review form, we would expect a list like \["title", "review", "rating", "confidence"]. Now create a list of the review form fields found in the content.
+To get all submissions for a double-blind venue regardless of their status (active, withdrawn or desk rejected), pass your venue's submission invitation to get\_all\_notes().
 
 ```python
-keylist = list(content.keys())
+submissions = client.get_all_notes(
+    invitation="Your/Venue/ID/-/Submission"
+    )
 ```
 
-5. If you haven't already, `import csv`. Then iterate through the list of reviews stored in 'reviews' and for each one, append the values associated to the keys in your keylist. If a value does not exist for that key, put an empty string in its place. You may also want to know which submission each review is associated with. You can get the forum of each review, which corresponds to the forum page of its associated submission. For example, if a review's forum is aBcDegh, you could find that submission at https://openreview.net/forum?id=aBcDegh. To create a csv that includes the review forums, do this:
+As a program organizer, to get only the "accepted" submissions for double-blind venues, query using the Blind submission invitation and include 'directReplies' and 'original' in the details.&#x20;
 
 ```python
-with open('reviews.csv', 'w') as outfile:
-    csvwriter = csv.writer(outfile, delimiter=',')
-    # Write header 
-    keylist.insert(0,'forum')
-    t = csvwriter.writerow(keylist)
-    for review in reviews:
-        valueList = []
-        valueList.append(review.forum)
-        for key in keylist:
-            if (key != 'forum'):
-                if review.content.get(key)['value']:
-                    valueList.append(review.content.get(key)['value'])
-                else:
-                    valueList.append('')
-        s = csvwriter.writerow(valueList)
+# Double-blind venues
+
+submissions = client.get_all_notes(invitation = 'Your/Venue/ID/-/Blind_Submission', details='directReplies,original')
+blind_notes = {note.id: note for note in submissions}
+all_decision_notes = [] 
+for submission_id, submission in blind_notes.items(): 
+        all_decision_notes = all_decision_notes + [reply for reply in submission.details["directReplies"] if reply["invitation"].endswith("Decision")]
+
+accepted_submissions = []
+
+for decision_note in all_decision_notes:
+    if 'Accept' in decision_note["content"]['decision']:
+        accepted_submissions.append(blind_notes[decision_note['forum']].details['original'])
 ```
 
-6. There should now be a .csv of exported reviews in the directory in which you are working.&#x20;
+As a program organizer, to get only the "accepted" submissions, query using the Submission invitation and include 'directReplies' in the details.
 
-## API 1 Venues
+```python
+# Single-blind venues
+
+submissions = client.get_all_notes(invitation = 'Your/Venue/ID/-/Submission', details='directReplies')
+notes = {note.id: note for note in submissions}
+all_decision_notes = [] 
+for submission_id, submission in notes.items(): 
+        all_decision_notes = all_decision_notes + [reply for reply in submission.details["directReplies"] if reply["invitation"].endswith("Decision")]
+
+accepted_submissions = []
+
+for decision_note in all_decision_notes:
+    if 'Accept' in decision_note["content"]['decision']:
+        accepted_submissions.append(notes[decision_note['forum']])
+```
+
+Parameters you can use when [querying API 1 notes](https://api.openreview.net/notes).
+
+
+
+## Reviews
+
+#### To get all reviews for a double-blind venue, you can do the following:&#x20;
+
+1. Get all submissions for your venue. You can do this by passing your venue's submission invitation into get\_all\_note&#x73;_._ You should also pass in details = "directReplies" to obtain any notes that reply to each submission.&#x20;
+
+```python
+submissions = client.get_all_notes(
+    invitation="Your/Venue/ID/-/Blind_Submission",
+    details='directReplies'
+)
+```
+
+2\. For each submission, add any replies with the Official Review invitation to a list of Reviews.&#x20;
+
+```python
+reviews = [] 
+for submission in submissions:
+    reviews = reviews + [openreview.Note.from_json(reply) for reply in submission.details["directReplies"] if reply["invitation"].endswith("Official_Review")]
+```
+
+3\. The list reviews now contains all of the reviews for your venue.
+
+#### To get all reviews for a single-blind venue, you can do the following:
+
+1. Get all submissions for your venue. You can do this by passing your venue's submission invitation into get\_all\_note&#x73;_._ You should also pass in details = "directReplies" to obtain any notes that reply to each submission.&#x20;
+
+```python
+submissions = client.get_all_notes(
+    invitation="Your/Venue/ID/-/Submission",
+    details='directReplies'
+)
+```
+
+2\. For each submission, add any replies with the Official Review invitation to a list of Reviews.&#x20;
+
+```python
+reviews = [] 
+for submission in submissions:
+    reviews = reviews + [openreview.Note.from_json(reply) for reply in submission.details["directReplies"] if reply["invitation"].endswith("Official_Review")]
+```
+
+3\. The list reviews now contains all of the reviews for your venue.
+
+## Exporting data
+
+
 
 Say you want to export all of the reviews for a given venue into a csv file.&#x20;
 
@@ -188,6 +250,4 @@ outfile.close()
 ```
 
 If you want additional information about the reviewer, you can get their profile using the Profile ID (see [How to Get Profiles and Their Relations](how-to-get-profiles-and-their-relations.md) for more guidance).
-
-
 

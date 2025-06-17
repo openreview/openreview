@@ -1,5 +1,10 @@
 # How to test your venue workflow
 
+See also:
+
+* [Post a test submission](how-to-create-change-and-delete-notes.md)
+* Post, edit, and remove reviews
+
 If you wish to test your venue workflow, please use the dev site, as testing on your live venue page can cause collisions and issues when you run your workflow live. To do so, please go to [dev.openreview.net](https://dev.openreview.net/) and complete the following steps:
 
 1. Create a profile for yourself
@@ -12,6 +17,8 @@ If you wish to test your venue workflow, please use the dev site, as testing on 
 * **Emails are disabled** on the dev site, except for **signup confirmation links**. This means that your test emails will not actually be sent, but they will show up in the messages tab of the site.
 * If you want to test with **real author names**, you must **create those profiles on the dev site**. Some profiles may already exist from previous testing.
 * The Post Decision stage should **only** be run after testing is complete.
+
+
 
 
 

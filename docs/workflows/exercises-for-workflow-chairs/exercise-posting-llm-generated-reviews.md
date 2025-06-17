@@ -3,7 +3,7 @@
 ## Setup:
 
 1. Complete [Prerequisites](prerequisites.md)
-2. [Add submissions to the dev site](../../how-to-guides/workflow/how-to-post-a-test-submission.md)
+2. [Add submissions](../../how-to-guides/workflow/how-to-create-change-and-delete-notes.md) (make sure this is on the dev site)
 3. Open the [Review Stage](../../reference/stages/review-stage.md) (step 17 in the [Example Workflow](../conferences.md))
 
 ## Part 1: Posting LLM generated reviews
@@ -65,13 +65,13 @@ Typically when adding to the SubmissionX/Reviewers group we always add a user's 
 
 ### 3. Post reviews using your LLM
 
-Follow the directions here to [post reviews](../../how-to-guides/data-retrieval-and-modification/how-to-post-delete-an-official-review-using-python.md) using your LLM.
+Follow the directions here to [post reviews](../../how-to-guides/workflow/how-to-create-change-and-delete-notes.md) using your LLM.
 
 **Check your work**: Go to one of the submission pages (you can navigate here from the PC Console), and check for your review.&#x20;
 
 ### 3. Delete an LLM review
 
-Follow the directions here to [delete reviews](../../how-to-guides/data-retrieval-and-modification/how-to-post-delete-an-official-review-using-python.md) using your LLM.
+Follow the directions here to [delete reviews](../../how-to-guides/workflow/how-to-create-change-and-delete-notes.md) using your LLM.
 
 **Check your work**: Go to the submission page (you can navigate here from the PC Console), and check that the review was deleted.
 

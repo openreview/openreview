@@ -56,8 +56,7 @@
 * [How can I automatically assign Reviewers/Area Chairs](../../how-to-guides/paper-matching-and-assignment/how-to-do-automatic-assignments/)?
 * [What do the different 'status' values mean in the message logs?](what-do-the-different-status-values-mean-in-the-message-logs.md)
 * [How can I contact Reviewers, Area Chairs, and/or Authors](../../how-to-guides/communication/how-to-send-messages-through-the-ui.md)?
-* [Where can I view the Camera-Ready Versions](../../how-to-guides/data-retrieval-and-modification/how-to-view-camera-ready-revisions.md)?
-* [How can I export all supplementary material/PDF/zip files](../../how-to-guides/data-retrieval-and-modification/how-to-export-all-submission-attachments.md)?&#x20;
+* [How can I export all supplementary material/PDF/zip files](broken-reference)?&#x20;
 * [An author of a submission cannot access their own paper, what is the problem](an-author-of-a-submission-cannot-access-their-own-paper-what-is-the-problem.md)?&#x20;
 * [What is the max file size for uploads](what-is-the-max-file-size-for-uploads-1.md)?&#x20;
 * [What is the difference between due date (duedate) and expiration date (expdate)](what-is-the-difference-between-due-date-duedate-and-expiration-date-expdate.md)?&#x20;

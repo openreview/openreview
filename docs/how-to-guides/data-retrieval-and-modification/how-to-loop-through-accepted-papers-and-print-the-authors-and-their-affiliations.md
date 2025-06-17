@@ -5,13 +5,13 @@ While exports are available for submissions in the UI, if you want to create an 
 ### Get Submissions
 
 1. If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).&#x20;
-2. [Get the submissions](how-to-get-all-submissions.md) that you want to export.
+2. [Get the submissions](broken-reference) that you want to export.
 
 ### Extract data
 
 There are a couple methods that you can use to extract information from the submissions. Which method you use depends on how many papers you have, how many fields you want to extract, and personal preference.&#x20;
 
-No matter the method you use, it is important to understand the structure of the data- both Notes (Submissions) and Profiles have nested dictionaries stored within the `content` property. Functionally, what that means in this case is:
+No matter the method you use, it is important to understand the structure of the data- both [Notes](../../getting-started/using-the-api/objects-in-openreview/introduction-to-notes.md) (Submissions) and [Profiles](../../getting-started/using-the-api/objects-in-openreview/introduction-to-profiles.md) have nested dictionaries stored within the `content` property. Functionally, what that means in this case is:
 
 1. If you query for a field that doesn't exist, the code will exit with an error. Rather than getting the value directly, I recommend using the `.get(<fieldname>,<null_value>)` dictionary method. This will return the value of the field if it exists, and another value if the field doesn't exist, rather than giving an error. Typically, the null value should match the type of the expected output.&#x20;
 2. For querying most fields in a submission/profile, you will need to look within the `content` property (see example in 3. below)
