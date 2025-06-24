@@ -142,7 +142,7 @@ The data structure of the above forum is as below:
 
 ### Creating, Editing, and Deleting Notes (Inference)
 
-Operations on Notes are performed via **Edits.** The first Edit posted is for the creation of the note, any revisions of the notes can be made by posting Edits with the relevant fields, and deleting a Note object is done by posting and Edit adding a date to the `ddate` field. See below for examples of each operation.
+Operations on Notes are performed via [**Edits**](introduction-to-edits.md)**.** The first Edit posted is for the creation of the note, any revisions of the notes can be made by posting Edits with the relevant fields, and deleting a Note object is done by posting and Edit adding a date to the `ddate` field. See below for examples of each operation.
 
 To create/modify a Note, you post an Edit with the necessary fields:
 
@@ -152,7 +152,7 @@ To create/modify a Note, you post an Edit with the necessary fields:
 
 ### Note Validation
 
-Before the Edit is posted, the content of both the Edit and the Note within is checked to ensure that it fits the parameters of the Invitation. In particular, the dictionary `content` needs to include only fields specified in the invitation. Between the notes and all edits of the note, all required fields must be present in the note.&#x20;
+Before the [Edit](introduction-to-edits.md) is posted, the content of both the Edit and the Note within is checked to ensure that it fits the parameters of the Invitation. In particular, the dictionary `content` needs to include only fields specified in the invitation. Between the notes and all edits of the note, all required fields must be present in the note.&#x20;
 
 
 

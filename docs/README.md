@@ -1,6 +1,6 @@
 # OpenReview Documentation
 
-The OpenReview Documentation is divided into 3 main sections:
+The OpenReview Documentation is divided into 4 main sections:
 
 * [Getting Started](broken-reference): Contains the FAQ, how to create a Venue, how to create a profile, and how to interact with the API.
 * [Workflows](workflows/conferences.md): An overview of a typical conference workflow with step by step instructions for configuring each stage of your venue.
@@ -10,3 +10,4 @@ The OpenReview Documentation is divided into 3 main sections:
 {% hint style="info" %}
 You can use the Search bar in the top right corner to search for keywords in the entire OpenReview documentation.
 {% endhint %}
+

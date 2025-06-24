@@ -1,8 +1,13 @@
 # How to create, change, and delete notes
 
+See also:&#x20;
+
+
+
 Jump to:
 
 * [Quickstart: posting a test submission](how-to-create-change-and-delete-notes.md#id-1.-posting-creating-a-note)
+* [Quickstart: automatically posting desk rejections](how-to-create-change-and-delete-notes.md#quickstart-posting-a-desk-rejection-for-submissions-missing-pdfs)
 * [Quickstart: changing readers](how-to-create-change-and-delete-notes.md#quickstart-update-the-readers-of-a-note)
 * [Quickstart: posting and deleting test reviews](how-to-create-change-and-delete-notes.md#quickstart-posting-editing-and-deleting-a-test-review)
 * [Quickstart: deleting fields](how-to-create-change-and-delete-notes.md#id-3.-deleting-notes-and-fields)
@@ -59,9 +64,35 @@ note = openreview_client.post_note_edit(
 )
 ```
 
+### Quickstart: Posting a desk rejection for submissions missing PDFs
 
+PCs may want to programmatically desk-reject submissions that are missing PDF files once the submission deadline has passed. You can use the script below to do so.&#x20;
 
-### QuickStart: Posting a Support Request Form With Python&#x20;
+```python
+venue_id = "<VENUE_ID>"
+​
+submissions = client.get_all_notes(invitation=f'{venue_id}/-/Submission')
+#gets the desk rejection name of the invitation
+desk_rejection_name = client.get_group(venue_id).content['desk_rejection_name']['value']
+    
+# for each submission note that does not contain a pdf field, post a desk rejection note
+for submission in submissions:
+    #Check for a pdf field value
+    if not submission.content.get('pdf', {}).get('value'): 
+        desk_reject_note = client.post_note_edit(
+                    #desk rejection invitation
+                    invitation=f'{venue_id}/Submission{submission.number}/-/{desk_rejection_name}',
+                    signatures=[f'{venue_id}/Program_Chairs'],
+                    note=openreview.api.Note(
+                        content = {
+                        'desk_reject_comments': { 'value': 'No PDF.' }
+                        }
+                    )
+                )
+        print(submission.number, "is desk rejected")
+```
+
+### Quickstart: Posting a Support Request Form With Python&#x20;
 
 While a support request form can most easily be [submitted through the UI](https://openreview.net/group?id=OpenReview.net/Support), some venues that have multiple deadlines a year and need to submit multiple venue requests with the same settings may find it easier to do this programmatically through the API. While most notes are posted with the API2 client, this note must be posted with the [API 1 client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).
 
@@ -168,6 +199,8 @@ for note_to_change in notes_to_change:
 
 
 ```
+
+For more examples, see: how to [hide/reveal fields](../submissions-comments-reviews-and-decisions/how-to-hide-reveal-fields.md).
 
 ## 3. Deleting Notes and fields
 
