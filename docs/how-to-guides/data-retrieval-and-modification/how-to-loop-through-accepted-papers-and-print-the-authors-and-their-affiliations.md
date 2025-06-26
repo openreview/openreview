@@ -25,7 +25,7 @@ The simplest method is to loop through all submissions and extract the relevant 
 ```python
 for submission in submissions:
     print(submission.number, submission.content['title'].get(['value'],'')) 
-    author_profiles = openreview.tools.get_profiles(client, submission.content['authorids'].get(['value'],'')
+    author_profiles = openreview.tools.get_profiles(client, submission.content['authorids'].get(['value'],''))
     for author_profile in author_profiles:
         print(author_profile.get_preferred_name(pretty=True), author_profile.content.get('history', [{}])[0])
 ```
@@ -37,7 +37,7 @@ The second method is to generate a DataFrame with all of the data in the submiss
 
 
 ```python
-import pandas
+import pandas as pd
 
 def extract_content_values(note):
     content = {k: v.get('value', None) for k, v in note.content.items()}
