@@ -94,7 +94,7 @@ The `input` specifier determines the rendering on the form and can have the foll
 
 Validation specifiers are used by the back-end to ensure data submitted through the form conforms to certain requirements. In the example above, only a single string is allowed, and that string must be one of the values defined in the `enum` array. Specifically, a string that has the value "`Test Submission Title`"
 
-`optional` is a boolean (true/false) value that indicates whether or not this field is required to be present when the form is submitted. By default all fields in the form are required, and you can add `optional : true` to indicate a required field.
+`optional` is a boolean (true/false) value that indicates whether or not this field is required to be present when the form is submitted. By default all fields in the form are required, and you can add `optional : true` to indicate an optional field.
 
 {% hint style="info" %}
 Required fields have their field names prefixed with an asterisk
