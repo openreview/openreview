@@ -31,8 +31,8 @@ Important parameters for this function include:&#x20;
 
 ```python
 venue_id = "YOUR_VENUE_ID"
-group_name = "Reviewers"#optional #represent spaces with _
-stage_name = "Registration" #represent spaces with _
+group_name = "Reviewers" # optional #represent spaces with _
+stage_name = "Registration" # represent spaces with _
 
 invitation_id = f"{venue_id}/{group_name}/-/{stage_name}"
 
@@ -66,7 +66,7 @@ submission_name = venue_group.content['submission_name']['value']
 submissions = client_v2.get_all_notes(invitation=f'{venue_id}/-/{submission_name}')
 ```
 
-Note, the <kbd>`venueid`</kbd> field in the content of the note is used to differentiate between accepted, withdrawn, rejected, and desk rejected submissions. Accepted submissions use the original venue id:
+Note, the `venueid` field in the content of the note is used to differentiate between accepted, withdrawn, rejected, and desk rejected submissions. Accepted submissions use the original venue id:
 
 ```python
 accepted_submissions = client.get_all_notes(content={'venueid':venue_id} )
@@ -101,9 +101,10 @@ When you're working with OpenReview, you might want to retrieve all the reviews,
 
 ### Quickstart: Getting Reviews, Meta Reviews, Comments, Decisions, Rebuttals
 
-<pre class="language-python"><code class="lang-python">venue_id = "&#x3C;YOUR_VENUE_ID>"
+```python
+venue_id = "<YOUR_VENUE_ID>"
 reply_type = "Official_Review" #also: "Meta_Review","Official_Comment", "Decision", "Rebuttal" etc.
 submissions = client_v2.get_all_notes(invitation=f'{venue_id}/-/{submission_name}',details = 'replies')
-<strong>replies = [reply for submission in submissions for reply in submission.details['replies'] if reply_type in reply['invitation']]
-</strong></code></pre>
+replies = [reply for submission in submissions for reply in submission.details['replies'] if any(invitation.endswith(reply_type) for invitation in reply['invitations'])]
+```
 
