@@ -159,7 +159,6 @@
   * [How to Get Profiles and Their Relations](how-to-guides/data-retrieval-and-modification/how-to-get-profiles-and-their-relations.md)
   * [How to Get All the Reviews that I have written and their Corresponding Submissions](how-to-guides/data-retrieval-and-modification/how-to-get-all-the-reviews-that-i-have-written-and-their-corresponding-submissions.md)
   * [How to Export All Reviews into a CSV](how-to-guides/data-retrieval-and-modification/how-to-export-all-reviews-into-a-csv.md)
-  * [How to Get All Venues](how-to-guides/data-retrieval-and-modification/how-to-get-all-venues.md)
   * [How to Retrieve Data for ACM Proceedings](how-to-guides/data-retrieval-and-modification/how-to-retrieve-data-for-acm-proceedings.md)
   * [How to Get Reviewer Ratings](how-to-guides/data-retrieval-and-modification/how-to-get-reviewer-ratings.md)
   * [How to Get All Profiles](how-to-guides/data-retrieval-and-modification/how-to-get-all-profiles.md)
