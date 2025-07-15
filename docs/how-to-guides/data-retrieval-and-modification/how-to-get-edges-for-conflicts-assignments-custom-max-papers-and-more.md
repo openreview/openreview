@@ -1,6 +1,6 @@
 # How to get edges for Conflicts, Assignments, Custom Max Papers, and more
 
-If you want to get all edges for any type of Edge Invitation you can use the [`get_grouped_edges`](https://github.com/openreview/openreview-py/blob/faf9e0c94886150101b709407491f3c431f302ce/openreview/api/client.py#L1718) API call. The most common edges to retrieve are for Conflicts, Assignments and Custom Max Papers.
+If you want to get all edges for any type of Edge Invitation you can use the [`get_grouped_edges`](https://github.com/openreview/openreview-py/blob/faf9e0c94886150101b709407491f3c431f302ce/openreview/api/client.py#L1718) API call. The most common edges to retrieve are Conflicts, Assignments and Custom Max Papers.
 
 `get_grouped_edges` requires at least 2 fields:
 
@@ -76,11 +76,19 @@ custom_max_papers_invitation_id = venue_group.content['reviewers_custom_max_pape
 affinity_score_invitation_id = venue_group.content['reviewers_affinity_score_id']['value']
 ```
 
+* To get all Reviewer Bid edges, pass the Bid invitation ID. The full ID isn't stored in the venue group content, so you must build the string using the reviewer ID and bid name:
+
+```python
+reviewers_id = venue_group.content['reviewers_id']['value']
+bid_name = venue_group.content['bid_name']['value']
+bid_invitation_id = f'{reviewers_id}/-/{bid_name}'
+```
+
 To get the corresponding invitation IDs for Area Chairs or Senior Area Chairs, just replace `reviewers` with `area_chairs` or `senior_area_chairs`. For example, `area_chairs_assignment_id` or `senior_area_chairs_assignment_id`. If your venue uses other role names, those names will automatically get replaced in the invitation IDs.
 
 ## Optional parameters and other use cases
 
-It may be helpful to pass other parameters to `get_grouped_edges` to further filter the edges.
+It may be helpful to pass other parameters like `label` and `select` to `get_grouped_edges` to further filter the edges.
 
 ### Using `label` to map reviewer IDs to their proposed assignments
 
@@ -118,4 +126,4 @@ rev_assignment_count_map =  { group['id']['tail']: group['count'] for group in g
 Notice how `group['values']` changed to `group['count']` in the mapping. This happens only when we select the count.
 {% endhint %}
 
-You may also select by any field(s) of the Edge if you don't need to retrieve all the data in the edges. For example, you may pass `select='head,tail'` if you only want to see the head and tail of the edge.
+You may also select specific field(s) of the Edge if you don't need to retrieve all the data in the edges. For example, you may pass `select='head,tail'` if you only want to see the head and tail of the edge.
