@@ -136,6 +136,7 @@
   * [How to Get all Assignments for a User](how-to-guides/paper-matching-and-assignment/how-to-get-all-assignments-for-a-user.md)
   * [How to Update Custom Max Papers for Reviewers or ACs](how-to-guides/paper-matching-and-assignment/how-to-update-a-reviewers-custom-max-papers.md)
   * [How to Make Assignments using Subject Areas](how-to-guides/paper-matching-and-assignment/how-to-make-assignments-using-subject-areas.md)
+  * [Computing Affinity Scores and Conflicts for large venues](how-to-guides/paper-matching-and-assignment/computing-affinity-scores-and-conflicts-for-large-venues.md)
 * [Communication](how-to-guides/communication/README.md)
   * [How to send messages through the UI](how-to-guides/communication/how-to-send-messages-through-the-ui.md)
   * [How to customize emails sent through OpenReview](how-to-guides/communication/how-to-customize-emails-sent-through-openreview.md)
