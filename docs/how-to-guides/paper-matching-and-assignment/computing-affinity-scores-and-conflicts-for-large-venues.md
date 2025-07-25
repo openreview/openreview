@@ -121,7 +121,7 @@ for job in res['results']:
         print(job['jobId'])
 ```
 
-### Check the status of score computation
+### 3. Check the status of score computation
 
 ```python
 # Use API 2 client
@@ -137,9 +137,11 @@ print(results['status'])
 
 If for any reason it errors, you can call `request_expertise` again to recompute scores.
 
-### 3. Retrieve scores and convert to CSV
+### 4. Retrieve scores and convert to CSV
 
-#### Retrieving scores: When the scores are complete, you can retrieve the scores
+#### Retrieving scores:&#x20;
+
+When the scores are complete, you can retrieve the scores:
 
 ```python
 results = client_v2.get_expertise_results(job_id)
@@ -156,7 +158,7 @@ pd.DataFrame.from_records(result['results']).to_csv('expertise_results.csv', ind
 
 This creates a CSV with columns: Paper ID, Profile ID, Score.
 
-### 3. Upload Scores
+### 5. Upload Scores
 
 ```python
 venue = openreview.helpers.get_conference(client_v1, request_form_id) # Use API 1 client
@@ -178,8 +180,8 @@ By assignment time there should be no email members in the group.
 
 `setup_committee_matching` params:
 
-* committee\_id: The ID of the group for which you are uploading scores.
-* compute\_affinity\_scores: The path to the affinity score CSV.
+* **committee\_id**: The ID of the group for which you are uploading scores.
+* **compute\_affinity\_scores**: The path to the affinity score CSV.
 
 **If uploading fails:**&#x20;
 
@@ -194,7 +196,7 @@ client_v2.delete_edges(invitation='venue.get_affinity_score_id(venue.get_reviewe
 client_v2.get_edges_count(invitation='venue.get_affinity_score_id(venue.get_reviewers_id())')
 ```
 
-### 4. Computing and uploading conflicts
+### 6. Computing and uploading conflicts
 
 ```python
 venue = openreview.helpers.get_conference(client_v1, request_form_id) # Use API 1 client
@@ -223,7 +225,7 @@ By assignment time there should be no email members in the group.
   * More information on policies can be found [here](how-to-do-automatic-assignments/how-to-setup-paper-matching-by-calculating-affinity-scores-and-conflicts.md).
 * **compute\_conflicts\_n\_years**: The number of years to consider when looking at a user's History.
 
-#### If uploading fails:&#x20;
+**If uploading fails**:&#x20;
 
 1. Delete the conflict edges.
 2. Check that the edge count is 0.
