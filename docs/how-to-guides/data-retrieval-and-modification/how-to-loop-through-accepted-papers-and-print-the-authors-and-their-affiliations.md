@@ -5,7 +5,7 @@ While exports are available for submissions in the UI, if you want to create an 
 ### Get Submissions
 
 1. If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).&#x20;
-2. [Get the submissions](broken-reference) that you want to export.
+2. [Get the submissions](how-to-get-all-notes-for-submissions-reviews-rebuttals-etc.md#quickstart-getting-all-submissions) that you want to export.
 
 ### Extract data
 
@@ -42,6 +42,7 @@ import pandas as pd
 def extract_content_values(note):
     content = {k: v.get('value', None) for k, v in note.content.items()}
     content['number'] = note.number
+    return content
 
 df = pd.DataFrame([extract_content_values(note) for note in submissions])
 
@@ -52,7 +53,7 @@ subset_df = df[['number','title','authors','authorids']]
 subset_df.to_csv('submission_information.csv', index=False)
 ```
 
-If all you need is submission information, you can export the data at this point. If you want to integrate this information with other fields, such as author information, reviews, etc.&#x20;
+If all you need is submission information, you can export the data at this point. If you want to integrate this information with other fields, such as author information, reviews, etc., refer to the next section.&#x20;
 
 ### Combining Submissions with Other information
 
