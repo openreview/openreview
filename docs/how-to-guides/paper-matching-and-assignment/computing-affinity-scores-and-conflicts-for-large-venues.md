@@ -23,6 +23,7 @@ The times depend on the number of Edges being posted. The larger the venue, the 
 * Compute affinity scores: \~12+ hours
 * Upload affinity scores: \~3+ hours
 * Compute and upload conflicts: \~3+ hours
+* Deleting edges: \~30+ minutes
 
 {% hint style="info" %}
 Make sure you have good internet connection since these processes take a long time. This also means you shouldn't upload scores and compute conflicts at the same time.
