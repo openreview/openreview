@@ -6,210 +6,202 @@ description: >-
 
 # OpenAPI definition
 
-{% openapi-operation spec="openreview-api" path="/login" method="post" %}
-[OpenAPI openreview-api](https://api2.openreview.net/docs/api.yml)
+{% openapi-operation spec="openreview-api-v6-70-5" path="/activate/{token}" method="put" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
 {% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/register" method="post" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/profile/moderate" method="post" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/activate/{token}" method="put" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/activatelink/{token}" method="put" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/profile/moderate" method="post" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/activatable/{token}" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/activatelink/{token}" method="put" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/activatable" method="post" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/activatable/{token}" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/reset/{token}" method="put" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/activatable" method="post" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/logout" method="post" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/reset/{token}" method="put" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/resettable/{token}" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/logout" method="post" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/refreshToken" method="post" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/resettable/{token}" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/resettable" method="post" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/refreshToken" method="post" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/impersonate" method="post" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/resettable" method="post" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/tildeusername" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/impersonate" method="post" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/user/confirm" method="post" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/tildeusername" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/attachment" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/user/confirm" method="post" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/attachment" method="put" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/attachment" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/attachment/chunk" method="put" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/attachment" method="put" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/pdf" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/attachment/chunk" method="put" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/pdf/{id}" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/pdf" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/pdf/compare" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/pdf/{id}" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/edges" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/pdf/compare" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/edges" method="post" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/edges" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/edges/rename" method="post" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/edges" method="post" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/edges/count" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/edges/rename" method="post" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/edges/archive" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/edges/count" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/feedback" method="put" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/edges/archive" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/profiles" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/feedback" method="put" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/profiles" method="post" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/profiles" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/profiles/search" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/profiles" method="post" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/profiles/search" method="post" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/profiles/search" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/references" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/profiles/search" method="post" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/groups" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/references" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/groups/members" method="put" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/groups" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/groups/edits" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/groups/members" method="put" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/groups/edits" method="post" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/groups/edits" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/notes/edits" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/groups/edits" method="post" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
-
-{% openapi src="../../.gitbook/assets/api.yml" path="/notes/edits" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
-
-{% openapi src="../../.gitbook/assets/api.yml" path="/notes/edits" method="post" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/notes/edits" method="post" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
 {% openapi src="../../.gitbook/assets/api.yml" path="/notes" method="get" %}
 [api.yml](../../.gitbook/assets/api.yml)
 {% endopenapi %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/notes/search" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/notes/search" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/notes/search" method="post" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/notes/search" method="post" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/invitations/edits" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/invitations/edits" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/invitations/edits" method="post" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/invitations/edits" method="post" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/invitations" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/invitations" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/tags" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/tags" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/tags" method="post" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/tags" method="post" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/messages" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/messages" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/messages" method="post" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/messages" method="post" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/messages/requests" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/messages/requests" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/messages/requests" method="post" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/messages/requests" method="post" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/messages/viewed" method="post" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/messages/viewed" method="post" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
 
-{% openapi src="../../.gitbook/assets/api.yml" path="/logs/process" method="get" %}
-[api.yml](../../.gitbook/assets/api.yml)
-{% endopenapi %}
+{% openapi-operation spec="openreview-api-v6-70-5" path="/logs/process" method="get" %}
+[OpenAPI openreview-api-v6-70-5](https://api2.openreview.net/docs/api.yml)
+{% endopenapi-operation %}
