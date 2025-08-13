@@ -182,6 +182,8 @@
   * [Entities](reference/api-v2/entities/README.md)
     * [Edge](reference/api-v2/entities/edge/README.md)
       * [Fields](reference/api-v2/entities/edge/fields.md)
+    * [Tags](reference/api-v2/entities/tag/README.md)
+      * [Fields](reference/api-v2/entities/tag/fields.md)
     * [Group](reference/api-v2/entities/group/README.md)
       * [Fields](reference/api-v2/entities/group/fields.md)
     * [Note](reference/api-v2/entities/note/README.md)
