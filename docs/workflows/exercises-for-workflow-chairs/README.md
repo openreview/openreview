@@ -6,8 +6,7 @@ These exercises are designed to guide workflow chairs through specific tasks tha
 
 Basic Exercises
 
-* Understanding Notes
-* Understanding Invitations
+* [Understanding Notes](exercise-understanding-notes.md)
 
 
 
