@@ -7,7 +7,7 @@ If you want to get all edges for any type of Edge Invitation you can use the [`g
 * [**Invitation**](../../reference/api-v2/entities/invitation.md): The ID of the Edge Invitation.
 * **Groupby**: The field of the [Edge](../../reference/api-v2/entities/edge/) you want to group the edges by. Typically you will group by the edge's `head` or `tail`.  The value of head and tail are determined by their Invitation. You can view the invitation by going to: `https://openreview.net/invitation/edit?id=invitation_id`
 
-`get_grouped_edges` will return list of dictionaries each containing 2 keys: `id` and `values`. The `id` will contain the field you grouped by and `values` will contain all the edges in that group.
+`get_grouped_edges` will return list of dictionaries each containing 2 keys: `id` and `values`. The `id` will contain the field you grouped by and `values` will contain all the edges in that group. The edges are in JSON format.
 
 ## Getting all Conflict Edges for the Reviewers Group
 

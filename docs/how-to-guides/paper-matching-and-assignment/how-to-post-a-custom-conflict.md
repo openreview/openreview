@@ -58,3 +58,9 @@ client_v2.post_edge(openreview.api.Edge(
     "<your_venue_id>"
 ]))
 ```
+
+7. If you're posting a lot of conflicts, you can build a list of Edges and post them all at once with `post_bulk_edges`.
+
+```
+openreview.tools.post_bulk_edges(client=client_v2, edges=[list of conflict Edges])
+```
