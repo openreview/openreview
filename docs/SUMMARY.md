@@ -4,6 +4,11 @@
 
 * [OpenReview Documentation](README.md)
 
+## New Venue UI (beta)
+
+* [Overview](new-venue-ui-beta/overview.md)
+* [Example Workflow](new-venue-ui-beta/readme.md)
+
 ## Reports
 
 * [Conferences](reports/conferences/README.md)
