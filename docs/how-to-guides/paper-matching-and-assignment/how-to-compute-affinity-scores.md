@@ -37,7 +37,7 @@ Next, request a job using the `request_expertise` function of the client. In the
     group_id='Conference/Year/Area_Chairs',
     venue_id=None,
     alternate_match_group='Conference/Year/Area_Chairs',
-    expertise_selection_id='Conference/Year/Area_Chairs/-/Expertise_Selection'
+    expertise_selection_id='Conference/Year/Area_Chairs/-/Expertise_Selection',
     model='specter2+scincl',
 )
 </code></pre>
@@ -65,7 +65,7 @@ The `response` variable will contain a dictionary with your job ID, for example:
 
 You can use the function `get_expertise_results` to fetch your scores. Here is an example of the function call:
 
-```
+```python
 results = client.get_expertise_results(
     '12345',
     wait_for_complete=True
