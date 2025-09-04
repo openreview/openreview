@@ -34,10 +34,11 @@ Next, request a job using the `request_expertise` function of the client. In the
 
 <pre class="language-python"><code class="lang-python"><strong>response = client.request_expertise(
 </strong>    name='AC_Scores',
-    group_id='Conference/Year/Senior_Area_Chairs',
+    group_id='Conference/Year/Area_Chairs',
     venue_id=None,
-    alternate_match_group='Conference/Year/Senior_Area_Chairs',
-    model='specter+mfr',
+    alternate_match_group='Conference/Year/Area_Chairs',
+    expertise_selection_id='Conference/Year/Area_Chairs/-/Expertise_Selection'
+    model='specter2+scincl',
 )
 </code></pre>
 
@@ -56,7 +57,7 @@ In this case, **`venue_id`** is `None` because we're looking to compute scores b
 {% endhint %}
 
 * **`alternate_match_group`** is the ID of the group which you would like to score against the first group. If this value is not `None`, then the Expertise API will perform a user-to-user score computation
-* **`model`** is the name of the model that will be used to compute the scores. We support several models that you find described [here](https://github.com/openreview/openreview-expertise), but we strongly suggest that you use `specter+mfr`
+* **`model`** is the name of the model that will be used to compute the scores. We support several models that you find described [here](https://github.com/openreview/openreview-expertise), but we strongly suggest that you use `specter2+scincl`.
 
 The `response` variable will contain a dictionary with your job ID, for example: `{'jobId': '12345'}`. This is the value that you will use to query the status and results of your scores.
 
@@ -71,7 +72,7 @@ results = client.get_expertise_results(
 )
 ```
 
-The first argument is the jobId that you received from your call to `request_expertise`. The **wait\_for\_complete** argument will continue to query the Expertise API automatically until the scores are complete. When the scores are complete, `get_expertise_results` will return a dictionary with the following schema:
+The first argument is the `jobId` that you received from your call to `request_expertise`. The **wait\_for\_complete** argument will continue to query the Expertise API automatically until the scores are complete. When the scores are complete, `get_expertise_results` will return a dictionary with the following schema:
 
 ```json
 {
