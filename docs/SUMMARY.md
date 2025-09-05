@@ -49,6 +49,7 @@
   * [How do I find a venue id?](getting-started/frequently-asked-questions/how-do-i-find-a-venue-id.md)
   * [Why can't I update my DBLP link?](getting-started/frequently-asked-questions/why-cant-i-update-my-dblp-link.md)
   * [I had an account previously, but lost access to my email, what do I do?](getting-started/frequently-asked-questions/i-had-an-account-previously-but-lost-access-to-my-email-what-do-i-do.md)
+  * [How do I hide a submission field from the submission's readers?](getting-started/frequently-asked-questions/how-do-i-hide-a-submission-field-from-the-submissions-readers.md)
 * [Objects in OpenReview](getting-started/objects-in-openreview/README.md)
   * [Introduction to Groups](getting-started/objects-in-openreview/groups.md)
   * [Introduction to Profiles](getting-started/objects-in-openreview/introduction-to-profiles.md)
