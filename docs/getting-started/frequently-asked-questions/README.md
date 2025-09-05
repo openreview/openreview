@@ -15,9 +15,9 @@
 * [How can I import papers from DBLP](../creating-an-openreview-profile/importing-papers-from-dblp.md)?
 * [How do I complete my tasks?](how-do-i-complete-my-tasks.md)
 * [How can I add a Semantic Scholar URL to my profile](../creating-an-openreview-profile/finding-and-adding-a-semantic-scholar-url-to-your-profile.md)?&#x20;
+* [Why can't I import my publication data from Google Scholar?](why-cant-i-import-my-publication-data-from-google-scholar.md)
 * [My profile is "limited". What does that mean? ](my-profile-is-limited-.-what-does-that-mean.md)
 * [How do I upload a publication with a license that is not listed?](how-do-i-upload-a-publication-with-a-license-that-is-not-listed.md)
-* [Why can't I update my DBLP link?](why-cant-i-update-my-dblp-link.md)
 
 ## For Authors/Reviewers
 
