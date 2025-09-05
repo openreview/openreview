@@ -177,7 +177,6 @@
   * [How to Export All Reviews into a CSV](how-to-guides/data-retrieval-and-modification/how-to-export-all-reviews-into-a-csv.md)
   * [How to Retrieve Data for ACM Proceedings](how-to-guides/data-retrieval-and-modification/how-to-retrieve-data-for-acm-proceedings.md)
   * [How to Get Reviewer Ratings](how-to-guides/data-retrieval-and-modification/how-to-get-reviewer-ratings.md)
-  * [How to Get All Profiles](how-to-guides/data-retrieval-and-modification/how-to-get-all-profiles.md)
   * [How to Get all Notes (for submissions, reviews, rebuttals, etc)](how-to-guides/data-retrieval-and-modification/how-to-get-all-notes-for-submissions-reviews-rebuttals-etc.md)
   * [Data Retrieval for API 1 Venues](how-to-guides/data-retrieval-and-modification/data-retrieval-for-api-1-venues.md)
 
