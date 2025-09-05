@@ -10,17 +10,6 @@
 
 ### Modifying an existing profile
 
-* [How can I add or remove a name from my profile](../creating-an-openreview-profile/add-or-remove-a-name-from-your-profile.md)?&#x20;
-* [How can I add or remove an email address from my profile](../creating-an-openreview-profile/add-or-remove-an-email-address-from-your-profile.md)?&#x20;
-* [How can I import papers from DBLP](../creating-an-openreview-profile/importing-papers-from-dblp.md)?
-* [How do I complete my tasks?](how-do-i-complete-my-tasks.md)
-* [How can I add a Semantic Scholar URL to my profile](../creating-an-openreview-profile/finding-and-adding-a-semantic-scholar-url-to-your-profile.md)?&#x20;
-* [Why can't I import my publication data from Google Scholar?](why-cant-i-import-my-publication-data-from-google-scholar.md)
-* [My profile is "limited". What does that mean? ](my-profile-is-limited-.-what-does-that-mean.md)
-* [How do I upload a publication with a license that is not listed?](how-do-i-upload-a-publication-with-a-license-that-is-not-listed.md)
-
-## For Authors/Reviewers
-
 * [I am a reviewer but I can't access my assigned submissions, what do I do?](i-am-a-reviewer-but-i-cant-access-my-assigned-submissions-what-do-i-do.md)
 * [How do I add/change an author of my submission after the deadline?](how-do-i-add-change-an-author-of-my-submission-after-the-deadline.md)
 * [How do I locate the date a submission is made public?](how-do-i-locate-the-date-a-submission-is-made-public.md)

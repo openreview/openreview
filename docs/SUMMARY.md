@@ -51,6 +51,7 @@
   * [Why can't I update my DBLP link?](getting-started/frequently-asked-questions/why-cant-i-update-my-dblp-link.md)
   * [I had an account previously, but lost access to my email, what do I do?](getting-started/frequently-asked-questions/i-had-an-account-previously-but-lost-access-to-my-email-what-do-i-do.md)
   * [How do I hide a submission field from the submission's readers?](getting-started/frequently-asked-questions/how-do-i-hide-a-submission-field-from-the-submissions-readers.md)
+  * [I don't want my profile visible to the public, how do I change this?](getting-started/frequently-asked-questions/i-dont-want-my-profile-visible-to-the-public-how-do-i-change-this.md)
 * [Objects in OpenReview](getting-started/objects-in-openreview/README.md)
   * [Introduction to Groups](getting-started/objects-in-openreview/groups.md)
   * [Introduction to Profiles](getting-started/objects-in-openreview/introduction-to-profiles.md)
