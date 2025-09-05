@@ -159,7 +159,7 @@
   * [How to Send Decision Notifications Using the UI](how-to-guides/communication/how-to-send-decision-notifications-using-the-ui.md)
   * [How to view messages sent through OpenReview](how-to-guides/communication/how-to-view-messages-sent-through-openreview.md)
   * [How to email the authors of accepted submissions](how-to-guides/communication/how-to-email-the-authors-of-accepted-papers.md)
-  * [How to get email adresses](how-to-guides/communication/how-to-get-email-adresses.md)
+  * [How to get email addresses](how-to-guides/communication/how-to-get-email-addresses.md)
 * [Submissions, comments, reviews, and decisions](how-to-guides/submissions-comments-reviews-and-decisions/README.md)
   * [How to add formatting to reviews or comments](how-to-guides/submissions-comments-reviews-and-decisions/how-to-add-formatting-to-reviews-or-comments.md)
   * [How to submit a Review Revision](how-to-guides/submissions-comments-reviews-and-decisions/how-to-submit-a-review-revision.md)

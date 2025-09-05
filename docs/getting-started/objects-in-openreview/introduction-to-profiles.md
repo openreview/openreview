@@ -12,7 +12,7 @@ A profile typically includes:
 
 * **Profile ID:** This is the unique identifier in the system, in the format `~First_Last1` This is also sometimes referred to as a "tilde id".  While each tilde ID points to a single profile, a profile may have multiple tilde IDs associated with it as a result of adding an alternate name or merging profiles.
 * **Name(s)**: Full name and any alternate names (e.g., name changes, nicknames).
-* **Email(s)**: Verified email addresses associated with the user. Only the email domains are publicly displayed- even PCs will not see the full emails for users submitting to their venue. Note, if you need to get the full author emails, refer to the instructions [here](../../how-to-guides/communication/how-to-get-email-adresses.md).
+* **Email(s)**: Verified email addresses associated with the user. Only the email domains are publicly displayed- even PCs will not see the full emails for users submitting to their venue. Note, if you need to get the full author emails, refer to the instructions [here](../../how-to-guides/communication/how-to-get-email-addresses.md).
 * **Affiliations**: Work history or institutional associations.
 * **Publications**: Papers the user has authored or co-authored.
 
