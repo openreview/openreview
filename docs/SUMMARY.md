@@ -126,6 +126,7 @@
   * [How to enable bidding for Senior Area Chair Assignment](how-to-guides/workflow/how-to-enable-bidding-for-senior-area-chair-assignment.md)
   * [How to release the identities of authors of accepted papers only](how-to-guides/workflow/how-to-release-the-identities-of-authors-of-accepted-papers-only.md)
   * [How to enable the Review Revision Stage](how-to-guides/workflow/how-to-enable-the-review-revision-stage.md)
+  * [How to remove the Abstract Registration Deadline](how-to-guides/workflow/how-to-remove-the-abstract-registration-deadline.md)
 * [Paper Matching and Assignment](how-to-guides/paper-matching-and-assignment/README.md)
   * [How to Compute Conflicts Between Users](how-to-guides/paper-matching-and-assignment/how-to-compute-conflicts-between-users.md)
   * [How to Post a Custom Conflict](how-to-guides/paper-matching-and-assignment/how-to-post-a-custom-conflict.md)
