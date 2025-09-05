@@ -6,7 +6,9 @@ You can customize the [default submission form](../../reference/default-forms/de
 
 {% tabs %}
 {% tab title="Website" %}
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2024-11-06 at 2.58.20 PM.png" alt=""><figcaption></figcaption></figure>
+
+
 {% endtab %}
 
 {% tab title="JSON" %}
