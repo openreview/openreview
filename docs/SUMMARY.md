@@ -88,6 +88,7 @@
   * [Prerequisites](workflows/exercises-for-workflow-chairs/prerequisites.md)
   * [Exercise: Posting LLM generated reviews](workflows/exercises-for-workflow-chairs/exercise-posting-llm-generated-reviews.md)
   * [Exercise: Understanding Notes](workflows/exercises-for-workflow-chairs/exercise-understanding-notes.md)
+  * [Exercise: Getting profile information](workflows/exercises-for-workflow-chairs/exercise-getting-profile-information.md)
 
 ## How-To Guides
 

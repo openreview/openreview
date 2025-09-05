@@ -10,4 +10,3 @@
 
 [How to Export All Reviews into a CSV](how-to-export-all-reviews-into-a-csv.md)
 
-[How to Get All Venues](broken-reference)
