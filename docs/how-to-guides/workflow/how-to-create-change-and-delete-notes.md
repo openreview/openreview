@@ -1,9 +1,5 @@
 # How to create, change, and delete notes
 
-See also:&#x20;
-
-
-
 Jump to:
 
 * [Quickstart: posting a test submission](how-to-create-change-and-delete-notes.md#id-1.-posting-creating-a-note)

@@ -2,12 +2,12 @@
 
 See also:
 
-* [Technical Reference for Edits](../../../reference/api-v2/entities/edit/)
-* [How to create, edit, and delete notes](../../../how-to-guides/workflow/how-to-create-change-and-delete-notes.md)
+* [Technical Reference for Edits](../../reference/api-v2/entities/edit/)
+* [How to create, edit, and delete notes](../../how-to-guides/workflow/how-to-create-change-and-delete-notes.md)
 
 In OpenReview, an **Edit** is the object used for creating, modifying, or deleting entities (such as Notes, Groups, Edges, etc.). Edits are posted and then **applied via inference rules** defined by invitations.
 
-See the[ API reference ](../../../reference/api-v2/entities/edit/)for a comprehensive description of the fields of the Edit object. Most commonly, you will interact with the following key fields:
+See the[ API reference ](../../reference/api-v2/entities/edit/)for a comprehensive description of the fields of the Edit object. Most commonly, you will interact with the following key fields:
 
 * `invitation`: ID of the invitation that governs the operation
 * `signatures`: Who is performing the edit
@@ -67,5 +67,15 @@ There are two different reader fields here - one for the Edit (outer layer) and 
  'tcdate': 1750702362496,
  'tmdate': 1750702362496,
  'writers': ['TC/2024/Conference']}
+```
+
+### How to Get Edits
+
+To get all edits, use the following code:&#x20;
+
+```python
+note_id = ''
+edits = client_v2.get_note_edits(note_id)
+edits
 ```
 

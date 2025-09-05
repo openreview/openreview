@@ -7,7 +7,7 @@ Jump to:
 
 See also:
 
-* [Introduction to Notes](../../getting-started/using-the-api/objects-in-openreview/introduction-to-notes.md) for the structure of notes
+* [Introduction to Notes](../../getting-started/objects-in-openreview/introduction-to-notes.md) for the structure of notes
 * [Custom Submission Exports](how-to-loop-through-accepted-papers-and-print-the-authors-and-their-affiliations.md) for generating structured exports for submissions and other information
 
 This covers getting notes in API v2. All current venues, and most past venues have migrated to API v2. However, if you want to get data from older venues, you may need to follow the [directions for API v1](data-retrieval-for-api-1-venues.md).&#x20;

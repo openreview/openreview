@@ -11,7 +11,7 @@ While exports are available for submissions in the UI, if you want to create an 
 
 There are a couple methods that you can use to extract information from the submissions. Which method you use depends on how many papers you have, how many fields you want to extract, and personal preference.&#x20;
 
-No matter the method you use, it is important to understand the structure of the data- both [Notes](../../getting-started/using-the-api/objects-in-openreview/introduction-to-notes.md) (Submissions) and [Profiles](../../getting-started/using-the-api/objects-in-openreview/introduction-to-profiles.md) have nested dictionaries stored within the `content` property. Functionally, what that means in this case is:
+No matter the method you use, it is important to understand the structure of the data- both [Notes](../../getting-started/objects-in-openreview/introduction-to-notes.md) (Submissions) and [Profiles](../../getting-started/objects-in-openreview/introduction-to-profiles.md) have nested dictionaries stored within the `content` property. Functionally, what that means in this case is:
 
 1. If you query for a field that doesn't exist, the code will exit with an error. Rather than getting the value directly, I recommend using the `.get(<fieldname>,<null_value>)` dictionary method. This will return the value of the field if it exists, and another value if the field doesn't exist, rather than giving an error. Typically, the null value should match the type of the expected output.&#x20;
 2. For querying most fields in a submission/profile, you will need to look within the `content` property (see example in 3. below)
@@ -70,7 +70,7 @@ all_author_ids = set(id for ids in subset_df['authorids'] for id in ids)
 profiles = openreview.tools.get_profiles(client_v2,all_author_ids)
 ```
 
-Once you have a list of profiles, refer to the script at the end of [this](../../getting-started/using-the-api/objects-in-openreview/introduction-to-profiles.md) page to create a DataFrame.&#x20;
+Once you have a list of profiles, refer to the script at the end of [this](../../getting-started/objects-in-openreview/introduction-to-profiles.md) page to create a DataFrame.&#x20;
 
 The profile and Submission DataFrame can then be combined in a variety of ways.&#x20;
 

@@ -2,7 +2,7 @@
 
 [Jump to QuickStart script for getting all profiles](introduction-to-profiles.md#quickstart-getting-all-profiles)
 
-[Technical Reference for Profiles](../../../reference/api-v2/entities/profile/)
+[Technical Reference for Profiles](../../reference/api-v2/entities/profile/)
 
 **Profiles** in OpenReview represent the identity of users on the platform—such as authors, reviewers, and area chairs. Each profile serves as a record user's publications, affiliations, and roles within the OpenReview system.&#x20;
 
@@ -12,7 +12,7 @@ A profile typically includes:
 
 * **Profile ID:** This is the unique identifier in the system, in the format `~First_Last1` This is also sometimes referred to as a "tilde id".  While each tilde ID points to a single profile, a profile may have multiple tilde IDs associated with it as a result of adding an alternate name or merging profiles.
 * **Name(s)**: Full name and any alternate names (e.g., name changes, nicknames).
-* **Email(s)**: Verified email addresses associated with the user. Only the email domains are publicly displayed- even PCs will not see the full emails for users submitting to their venue. Note, if you need to get the full author emails, refer to the instructions [here](../../../how-to-guides/communication/how-to-get-email-adresses.md).
+* **Email(s)**: Verified email addresses associated with the user. Only the email domains are publicly displayed- even PCs will not see the full emails for users submitting to their venue. Note, if you need to get the full author emails, refer to the instructions [here](../../how-to-guides/communication/how-to-get-email-adresses.md).
 * **Affiliations**: Work history or institutional associations.
 * **Publications**: Papers the user has authored or co-authored.
 
@@ -40,7 +40,7 @@ Other arguments that can be used to get additional informations along with the p
 
 ### **Structure of Profiles**
 
-Profiles are an OpenReview object that contains properties. The main three properties that you can expect to interact with are:  `id` , `state`, and `content`. For more details about each of these fields, see [here](../../../reference/api-v2/entities/profile/fields.md). Several of the fields of `content` include lists or lists of dictionaries, which means that it is necessary to understand the structure of the profile in order to get the profile information.in order to access this data, it is Because you need to flatten the dictionary to create the fields, then extract the content, similarly to how the submission content was extracted. The original profile information looks something like this:
+Profiles are an OpenReview object that contains properties. The main three properties that you can expect to interact with are:  `id` , `state`, and `content`. For more details about each of these fields, see [here](../../reference/api-v2/entities/profile/fields.md). Several of the fields of `content` include lists or lists of dictionaries, which means that it is necessary to understand the structure of the profile in order to get the profile information.in order to access this data, it is Because you need to flatten the dictionary to create the fields, then extract the content, similarly to how the submission content was extracted. The original profile information looks something like this:
 
 ```
 {'active': True,
@@ -121,4 +121,4 @@ relevant_columns = ['profile_id'] + [c for c in profile_df.columns if 'history_0
 profile_df_subset = profile_df[relevant_columns]
 ```
 
-Once the DataFrame is created, it is possible to create a CSV with this data, or merge it with other OpenReview data. See [here](../../../how-to-guides/data-retrieval-and-modification/how-to-loop-through-accepted-papers-and-print-the-authors-and-their-affiliations.md) for examples on how to combine profile with submission data.&#x20;
+Once the DataFrame is created, it is possible to create a CSV with this data, or merge it with other OpenReview data. See [here](../../how-to-guides/data-retrieval-and-modification/how-to-loop-through-accepted-papers-and-print-the-authors-and-their-affiliations.md) for examples on how to combine profile with submission data.&#x20;

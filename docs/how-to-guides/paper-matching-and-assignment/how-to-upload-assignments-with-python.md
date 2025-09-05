@@ -34,7 +34,7 @@ paper_id_to_assigned_users = {
 ```
 
 {% hint style="warning" %}
-The user IDs need to be their `profile.id`s. Any time you are adding users to groups or posting their edges, you use profile IDs. This is how we ensure data is synced between the consoles, assignment browser, and more. If you're unsure, get all profiles with: [`openreview.tools.get_profiles()`](../../getting-started/using-the-api/objects-in-openreview/introduction-to-profiles.md#getting-a-profile-or-profiles).
+The user IDs need to be their `profile.id`s. Any time you are adding users to groups or posting their edges, you use profile IDs. This is how we ensure data is synced between the consoles, assignment browser, and more. If you're unsure, get all profiles with: [`openreview.tools.get_profiles()`](../../getting-started/objects-in-openreview/introduction-to-profiles.md#getting-a-profile-or-profiles).
 {% endhint %}
 
 ### 1. Setup

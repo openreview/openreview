@@ -2,8 +2,8 @@
 
 See also:
 
-* [Technical reference for Groups](../../../reference/api-v2/entities/group/)
-* [Managing Groups for Venue Workflows](../../../how-to-guides/managing-groups/)
+* [Technical reference for Groups](../../reference/api-v2/entities/group/)
+* [Managing Groups for Venue Workflows](../../how-to-guides/managing-groups/)
 
 In OpenReview, a **Group** object represents a collection of users (individuals or other groups) and serves as the core mechanism for managing permissions, roles, and access control. Groups define who can read, write, sign, or modify content such as Notes and Invitations. They are hierarchical and addressable using a path-like ID (e.g., `ICLR.cc/2025/Conference/Reviewers`).
 
@@ -15,7 +15,7 @@ To give fine-grained control over readership, individuals within a conference ar
 
 ### **Structure**
 
-You can find a description of all fields of the `Group` object in the [API Reference](../../../reference/api-v2/entities/group/). You will most often interact with the following key fields:
+You can find a description of all fields of the `Group` object in the [API Reference](../../reference/api-v2/entities/group/). You will most often interact with the following key fields:
 
 * **id**: Unique identifier for the group (e.g., `ICLR.cc/2025/Conference/Reviewers`).
 * **members**: List of user IDs or group IDs that are members.
@@ -69,7 +69,7 @@ pending_members = [m for m in invited.members if not m in accepted.members and n
 
 ### Working with groups
 
-Most of the changes that you want to make with groups can be made from the UI. See the section [Managing Groups](../../../how-to-guides/managing-groups/) for specific instructions on working with groups. In some specific cases, you may need to programmatically create or modify groups.&#x20;
+Most of the changes that you want to make with groups can be made from the UI. See the section [Managing Groups](../../how-to-guides/managing-groups/) for specific instructions on working with groups. In some specific cases, you may need to programmatically create or modify groups.&#x20;
 
 #### Creating Groups
 

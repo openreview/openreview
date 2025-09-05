@@ -2,15 +2,15 @@
 
 See also:
 
-* [Technical Reference for Notes](../../../reference/api-v1/entities/note/)
-* [Guide for getting notes (submissions, reviews, etc)](../../../how-to-guides/data-retrieval-and-modification/how-to-get-all-notes-for-submissions-reviews-rebuttals-etc.md)
-* [Guide for exporting submission and other information](../../../how-to-guides/data-retrieval-and-modification/how-to-loop-through-accepted-papers-and-print-the-authors-and-their-affiliations.md)
+* [Technical Reference for Notes](../../reference/api-v1/entities/note/)
+* [Guide for getting notes (submissions, reviews, etc)](../../how-to-guides/data-retrieval-and-modification/how-to-get-all-notes-for-submissions-reviews-rebuttals-etc.md)
+* [Guide for exporting submission and other information](../../how-to-guides/data-retrieval-and-modification/how-to-loop-through-accepted-papers-and-print-the-authors-and-their-affiliations.md)
 
 ### What is a note?
 
 The **Note** is the core data object in OpenReview that is used to represent content such as submissions, reviews, comments, official responses, and more. Notes are created and governed by **invitations**, which define their schema and permissions.
 
-For detailed information about the Note object and its fields, see [here](../../../reference/api-v2/entities/note/). A few fields that are particularly important for interacting with notes are `id`,  `invitation` ,`readers` , and `content`.&#x20;
+For detailed information about the Note object and its fields, see [here](../../reference/api-v2/entities/note/). A few fields that are particularly important for interacting with notes are `id`,  `invitation` ,`readers` , and `content`.&#x20;
 
 * `id` - unique identifier for the Note
 * `invitation` is used to identify the schema used to generate and validate the note. In practice, this is most commonly used for identifying all notes for example identifying all Reviews or all Rebuttals.&#x20;
@@ -40,7 +40,7 @@ A **Reply** is a specific type of Note that is **linked to another Note**—such
 
 In OpenReview, typically Submissions are the top-level Note, and other Notes posted in relationship to the Submission is a reply. The example below shows a forum page for an example submission. In this case, the Submission is the top-level note, the Official Review is a reply to the Submission, and the Official Comment is a reply to the Official Comment.&#x20;
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-06-09 at 1.34.03 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-06-09 at 1.34.03 PM.png" alt=""><figcaption></figcaption></figure>
 
 The data structure of the above forum is as below:
 
