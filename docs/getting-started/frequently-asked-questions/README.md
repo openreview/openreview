@@ -6,6 +6,7 @@
 
 * [I am an Independent Researcher, how do I sign up?](i-am-an-independent-researcher-how-do-i-sign-up.md)
 * [I didn't receive a password reset email, what do I do?](i-didnt-receive-a-password-reset-email-what-do-i-do.md)
+* I had an account previously, but lost access to my email, what do I do?&#x20;
 
 ### Modifying an existing profile
 
