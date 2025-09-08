@@ -116,4 +116,4 @@
 
 #### Preview
 
-![Review](https://openreview.net/images/faq-review-form.png)
+<figure><img src="../../.gitbook/assets/reviewform.png" alt="Image of the default review form" width="563"><figcaption><p>Image of the default review form</p></figcaption></figure>

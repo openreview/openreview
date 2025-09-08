@@ -1,4 +1,6 @@
-# Creating your Venue Instance
+# Creating a New Venue
+
+These instructions are for those who would like to use OpenReview to host a conference, workshop, class project, symposium, or other event. If you are a journal hoping to use OpenReview, please email info@openreview.net.&#x20;
 
 ## Submitting a Venue Request Form
 

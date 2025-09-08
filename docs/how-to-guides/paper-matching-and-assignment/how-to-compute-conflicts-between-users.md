@@ -1,17 +1,20 @@
 # How to Compute Conflicts Between Users
 
-In general, conflicts can and should be computed using [Paper Matching Setup](how-to-do-automatic-assignments/how-to-setup-paper-matching-by-calculating-affinity-scores-and-conflicts.md). However, there may be cases where you do not want to re-compute conflicts for all reviewers and submissions or you want to use your own conflict policy to compute conflicts between users and submissions. You can use the python client to manually check for conflicts between the reviewers and authors like so:&#x20;
-
 ### Compute conflicts between reviewers and authors of a single submission
 
-1. If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).&#x20;
-2. Get the note that you are interested in computing conflicts for.&#x20;
+If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).&#x20;
+
+{% hint style="info" %}
+Read for more information about [conflict policies](how-to-do-automatic-assignments/how-to-setup-paper-matching-by-calculating-affinity-scores-and-conflicts.md).
+{% endhint %}
+
+### Compute conflicts between multiple reviewers and one submission
+
+1. Get the note that you are interested in computing conflicts for.&#x20;
 
 ```python
 note = client.get_note(<submission_id>)
 ```
-
-3\. Get profiles for the submission authors and the reviewers. The reviewer group id should be something like your conference id/Submission#/Reviewers, for example if your submission of interest is submission 99:
 
 ```python
 reviewer_group_id = "robot-learning.org/CoRL/2022/Conference/Submission99/Reviewers"
@@ -27,7 +30,8 @@ author_profiles = openreview.tools.get_profiles(
 reviewers = openreview.tools.get_profiles(
     client,
     client.get_group(reviewer_group_id).members,
-    with_publications=True
+    with_publications=True,
+    with_relations=True
 )
 ```
 
@@ -76,3 +80,50 @@ for reviewer in reviewers:
 {% endcode %}
 
 4. The last step is posting the conflict Edges. You can follow this [guide to post custom conflicts](how-to-post-a-custom-conflict.md), and keep the label as 'Conflict'.
+
+### Compute conflicts between multiple reviewers and all submissions
+
+1. Get [all active submissions under review](broken-reference) and save them to a variable "submissions".
+2. Get the profiles for the new reviewers.
+
+```python
+reviewers = openreview.tools.get_profiles(
+    client,
+    ids_or_emails=['reviewer1@gmail.com', '~Reviewer_Name1'],
+    with_publications=True,
+    with_relations=True
+)
+```
+
+3. For each submission, get the author\_profiles and then get conflicts for each reviewer.
+
+```python
+for submission in submissions:
+    author_profiles = openreview.tools.get_profiles(
+        client, 
+        submission.content['authorids']['value'],
+        with_publications=True
+    )
+    for reviewer in reviewers:
+        #print(reviewer.id, " conflicts computed")
+        conflicts = openreview.tools.get_conflicts(
+            author_profiles,
+            reviewer,
+            policy='default',
+            n_years=5
+        )
+        #print(conflicts)
+```
+
+Getting the author profiles for each submission can be inefficient if the venue has too many submissions, you can first query all the author profile ids and get all the profiles together:\
+
+
+```
+all_authorids = []
+for submission in submissions:
+    authorids = submission.content['authorids']['value']
+    all_authorids = all_authorids + authorids
+    
+author_profile_by_id = openreview.tools.get_profiles(client, list(set(all_authorids)), with_publications=True, with_relations=True, as_dict=True)
+
+```

@@ -6,19 +6,9 @@
 
 * [I am an Independent Researcher, how do I sign up?](i-am-an-independent-researcher-how-do-i-sign-up.md)
 * [I didn't receive a password reset email, what do I do?](i-didnt-receive-a-password-reset-email-what-do-i-do.md)
+* I had an account previously, but lost access to my email, what do I do?&#x20;
 
 ### Modifying an existing profile
-
-* [How can I add or remove a name from my profile](../creating-an-openreview-profile/add-or-remove-a-name-from-your-profile.md)?&#x20;
-* [How can I add or remove an email address from my profile](../creating-an-openreview-profile/add-or-remove-an-email-address-from-your-profile.md)?&#x20;
-* [How can I import papers from DBLP](../creating-an-openreview-profile/importing-papers-from-dblp.md)?
-* [How do I complete my tasks?](how-do-i-complete-my-tasks.md)
-* [How can I add a Semantic Scholar URL to my profile](../creating-an-openreview-profile/finding-and-adding-a-semantic-scholar-url-to-your-profile.md)?&#x20;
-* [My profile is "limited". What does that mean? ](my-profile-is-limited-.-what-does-that-mean.md)
-* [How do I upload a publication with a license that is not listed?](how-do-i-upload-a-publication-with-a-license-that-is-not-listed.md)
-* [Why can't I update my DBLP link?](why-cant-i-update-my-dblp-link.md)
-
-## For Authors/Reviewers
 
 * [I am a reviewer but I can't access my assigned submissions, what do I do?](i-am-a-reviewer-but-i-cant-access-my-assigned-submissions-what-do-i-do.md)
 * [How do I add/change an author of my submission after the deadline?](how-do-i-add-change-an-author-of-my-submission-after-the-deadline.md)
@@ -56,8 +46,7 @@
 * [How can I automatically assign Reviewers/Area Chairs](../../how-to-guides/paper-matching-and-assignment/how-to-do-automatic-assignments/)?
 * [What do the different 'status' values mean in the message logs?](what-do-the-different-status-values-mean-in-the-message-logs.md)
 * [How can I contact Reviewers, Area Chairs, and/or Authors](../../how-to-guides/communication/how-to-send-messages-through-the-ui.md)?
-* [Where can I view the Camera-Ready Versions](../../how-to-guides/data-retrieval-and-modification/how-to-view-camera-ready-revisions.md)?
-* [How can I export all supplementary material/PDF/zip files](../../how-to-guides/data-retrieval-and-modification/how-to-export-all-submission-attachments.md)?&#x20;
+* [How can I export all supplementary material/PDF/zip files](broken-reference)?&#x20;
 * [An author of a submission cannot access their own paper, what is the problem](an-author-of-a-submission-cannot-access-their-own-paper-what-is-the-problem.md)?&#x20;
 * [What is the max file size for uploads](what-is-the-max-file-size-for-uploads-1.md)?&#x20;
 * [What is the difference between due date (duedate) and expiration date (expdate)](what-is-the-difference-between-due-date-duedate-and-expiration-date-expdate.md)?&#x20;
