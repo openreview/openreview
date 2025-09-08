@@ -64,7 +64,7 @@ If you do not have an institutional affiliation, you may sign up as an Independe
 
 * **Validation errors for career/education history or institutional data**:  See See [Entering Institutional Data](entering-institutional-data.md) for a detailed description and examples.
 * **Relation not found in the dropdown menu**: If none of the existing relations are appropriate, you may type in a custom relationship to the textbox.
-* **Homepage duplication:** If you get an error that one of your links can't be added, it is either in the wrong format or already added to another account. Check that there are no exiting or claimable accounts with your email, and if you still don't recognize the account listed in the error, contact OpenReview Support (info@openreview.net).
+* **Homepage duplication:** If you get an error that one of your links can't be added, it is either in the wrong format or already added to another account. Check that there are no exiting or claimable accounts with your email, and if you still don't recognize the account listed in the error, contact OpenReview Support through our [Feedback form](https://openreview.net/contact).
 
 ### 3. Moderation
 

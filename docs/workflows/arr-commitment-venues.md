@@ -14,7 +14,7 @@ Once the commitment venue is deployed, there will be a field present in the subm
 
 ### Requesting ARR Reviews
 
-Please contact OpenReview (info@openreview.net) when the submission deadline has passed and you're ready to begin the reviewing process. By default we provide readership permissions for the ARR submission forum, Official Reviews, and Meta Reviews. **Please indicate whether you want us to include author responses to the official reviews.**
+Please [contact OpenReview Support](https://openreview.net/contact) when the submission deadline has passed and you're ready to begin the reviewing process. By default we provide readership permissions for the ARR submission forum, Official Reviews, and Meta Reviews. **Please indicate whether you want us to include author responses to the official reviews.**
 
 OpenReview will provide read access to ARR forums of committed papers to the venue (assigned ACs and PCs) or import ARR reviews into the venue's OpenReview instance depending on the API used for the original ARR submission.&#x20;
 

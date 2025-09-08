@@ -29,4 +29,4 @@ After you submit the form, our team will review it, ask for necessary modificati
 
 You can then edit some of your selected settings from the venue request form. Note that if you do not enter a submission start date, submissions will open immediately upon venue deployment.
 
-If you are following a journal-like workflow like TMLR, please get in touch with us at [info@openreview.net](mailto:info@openreview.net).
+If you are following a journal-like workflow like TMLR, please [get in touch with us](https://openreview.net/contact).

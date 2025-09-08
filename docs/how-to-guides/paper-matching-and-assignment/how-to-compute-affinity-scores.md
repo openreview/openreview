@@ -10,6 +10,7 @@ description: >-
 
 Affinity, or similarity, scores are numbers between 0 and 1 that are used to create matches between the different OpenReview objects. Scores between users and submissions are usually implicitly computed as part of the [**Paper Matching Setup**](https://docs.openreview.net/how-to-guides/paper-matching-and-assignment/how-to-do-automatic-assignments/how-to-setup-paper-matching-by-calculating-affinity-scores-and-conflicts). However, there may be times where you would like to compute scores in a way that is not offered by the previously mentioned step, like scores between two groups of users or scores between a group of users and desk rejected submissions. This can be done by querying our Expertise API through the Python client.
 
+
 {% hint style="info" %}
 **Note**: Users must have readership permission to the objects they are trying to compute the scores. The Expertise API uses the permission of the user to gather the data from the OpenReview API.
 {% endhint %}
