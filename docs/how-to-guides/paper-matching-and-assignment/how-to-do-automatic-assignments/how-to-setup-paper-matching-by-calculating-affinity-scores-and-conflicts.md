@@ -4,7 +4,7 @@
 
 The Setup Matching is the first step needed to make assignments between Senior Area Chairs, Area Chairs, Reviewers and submissions. Once this step is completed you can run the Matching following the instructions [here](how-to-run-a-paper-matching.md).
 
-You can calculate affinity scores and conflicts for your venue using OpenReview's 'Paper Matching Setup' feature. Paper Matching Setup is enabled for any venue and the button is activated once the Submission Deadline has passed. This feature allows Program Chairs to compute or upload affinity scores and/or compute conflicts.
+You can calculate affinity scores and conflicts for your venue using OpenReview's 'Paper Matching Setup' feature. Paper Matching Setup is enabled for any venue and the button is activated once the Submission Deadline (or Abstract Deadline, if there is one) has passed. This feature allows Program Chairs to compute or upload affinity scores and/or compute conflicts.
 
 {% hint style="danger" %}
 Calculating affinity scores can be lengthy process depending on the size of your venue. Therefore, only one setup matching can be run at a time.
