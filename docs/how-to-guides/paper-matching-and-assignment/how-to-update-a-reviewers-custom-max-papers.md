@@ -1,6 +1,10 @@
 # How to Update Custom Max Papers for Reviewers or ACs
 
-Reviewers have the option to submit a form requesting a custom number of papers to review. The range of this custom number is defined by the organizers of the venue. Reviewers can set this value during the recruitment period by submitting a form that creates a Note with the Invitation \<your\_venue\_id>/Reviewers/-/Recruitment. When paper matching setup is run, this note is converted to an Edge with the Invitation \<your\_venue\_id>/Reviewers/-/Custom\_Max\_Papers.&#x20;
+Reviewers have the option to submit a form requesting a custom number of papers to review. The range of this custom number is defined by the organizers of the venue. Reviewers can set this value during the recruitment period by submitting a form that creates a Note with the Invitation `<your_venue_id>/Reviewers/-/Recruitment`. When paper matching setup is run, this note is converted to an Edge with the Invitation `<your_venue_id>/Reviewers/-/Custom_Max_Papers`.&#x20;
+
+{% hint style="info" %}
+Refer to the invitation for edge configuration. You can view the invitation by going to: `https://openreview.net/invitation/edit?id=venue_id/role_name/-/Custom_Max_Papers`
+{% endhint %}
 
 **To create a reviewers' Custom Max Papers after having run Paper Matching Setup, you can do the following:**
 
@@ -39,7 +43,7 @@ profile.id
 **To change a reviewers' Custom Max Papers after having run Paper Matching Setup, you can do the following:**
 
 1. If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).&#x20;
-2. Retrieve the custom max papers edge for the reviewer or area chair. This edge will have the invitation \<your\_venue\_id>/Reviewers/-/Custom\_Max\_Papers or \<your\_venue\_id>/Area\_Chairs/-/Custom\_Max\_Papers and the user's profile ID as its tail, so you can retrieve it like so:&#x20;
+2. Retrieve the custom max papers edge for the reviewer or area chair. This edge will have the invitation `<your_venue_id>/Reviewers/-/Custom_Max_Papers` or `<your_venue_id>/Area_Chairs/-/Custom_Max_Papers` and the user's profile ID as its tail, so you can retrieve it like so:&#x20;
 
 ```python
 # For Reviewers
