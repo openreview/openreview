@@ -23,7 +23,7 @@ The params passed to the Custom Stage are listed below: &#x20;
 
 * `name`: The name of the custom stage or the Invitation you're creating (ex, "Review\_Revision").
 * `reply_to`: Specifies what the replies are related to. [Possible values for ReplyTo](https://github.com/openreview/openreview-py/blob/c0b2f2a0665eeb1c3667a58380507fbba6ab34cc/openreview/stages/venue_stages.py#L1493).
-* `source`: Specifies the submission source, whether it's all submissions or a subset. [Possible values for Source](https://github.com/openreview/openreview-py/blob/c0b2f2a0665eeb1c3667a58380507fbba6ab34cc/openreview/stages/venue_stages.py#L1487). Besides the possible values, you can use the expert mode where you can specify the stauts o f the submissions you want to enable the custom stage.&#x20;
+* `source`: Specifies the submission source, whether it's all submissions or a subset. [Possible values for Source](https://github.com/openreview/openreview-py/blob/c0b2f2a0665eeb1c3667a58380507fbba6ab34cc/openreview/stages/venue_stages.py#L1487). Besides the possible values, you can use the expert mode where you can [specify the status of the submissions](using-the-customstage.md#id-6.-opt-in-release-for-rejected-submissions) you want to enable the custom stage.&#x20;
 * `reply_type`: Specifies whether the the type is a reply or a revision to a note. [Possible values for ReplyType](https://github.com/openreview/openreview-py/blob/c0b2f2a0665eeb1c3667a58380507fbba6ab34cc/openreview/stages/venue_stages.py#L1500).
 * `start_date`: Sets the activation/start date for the invitation. Accepts timestamp in milliseconds.
 * `due_date`: Sets the displayed due date for the invitation. Accepts timestamp in milliseconds.
