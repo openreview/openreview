@@ -2,7 +2,7 @@
 
 #### What it Does&#x20;
 
-The Post Decision Stage updates the visibility and anonymity of submissions after decisions have been posted.
+The Post Decision Stage updates the visibility and anonymity of submissions after decisions have been posted. This updates the paper's status from active to accepted/rejected.
 
 #### When to Use it
 
