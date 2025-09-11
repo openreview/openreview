@@ -10,7 +10,6 @@ description: >-
 
 Affinity, or similarity, scores are numbers between 0 and 1 that are used to create matches between the different OpenReview objects. Scores between users and submissions are usually implicitly computed as part of the [**Paper Matching Setup**](https://docs.openreview.net/how-to-guides/paper-matching-and-assignment/how-to-do-automatic-assignments/how-to-setup-paper-matching-by-calculating-affinity-scores-and-conflicts). However, there may be times where you would like to compute scores in a way that is not offered by the previously mentioned step, like scores between two groups of users or scores between a group of users and desk rejected submissions. This can be done by querying our Expertise API through the Python client.
 
-
 {% hint style="info" %}
 **Note**: Users must have readership permission to the objects they are trying to compute the scores. The Expertise API uses the permission of the user to gather the data from the OpenReview API.
 {% endhint %}
@@ -71,7 +70,7 @@ Use `request_paper_subset_expertise` function of the client to compute affinity 
 )
 </code></pre>
 
-This job will compute affinity scores between all the area chairs of the conference and the list of submissions passed as a parameter. The submission list should be a list of note objects, you can get them by using the function client.get\_notes() or client.get\_all\_notes() or you can follow this [link](../data-retrieval-and-modification/how-to-get-all-notes-for-submissions-reviews-rebuttals-etc.md) for more information.&#x20;
+This job will compute affinity scores between all the area chairs of the conference and the list of submissions passed as a parameter. The submission list should be a list of note objects, you can get them by using the function client.get\_notes() or client.get\_all\_notes() or you can follow this [link](../data-retrieval-and-modification/how-to-get-all-notes-for-submissions-reviews-rebuttals-etc.md) for more information.
 
 ## Requesting Scores for a subset of users
 
@@ -90,14 +89,14 @@ This job will compute affinity scores between a subset of area chairs and all th
 
 ## Check the status of the job
 
-Each request of expertise will return a job id that you can use to get the status and to retrieve the results.&#x20;
+Each request of expertise will return a job id that you can use to get the status and to retrieve the results.
 
 ```python
 job_id = response['jobId']
 status = client.get_expertise_status(job_id)
 ```
 
-Once the status is complete then you can start downloading the scores.&#x20;
+Once the status is complete then you can start downloading the scores.
 
 ## Retrieving The Scores
 
@@ -125,4 +124,64 @@ The first argument is the `jobId` that you received from your call to `request_e
 }
 ```
 
-The scores for our example will be stored in `results['results']`. Since we are doing a user-to-user computation, the objects in this array may look like: `{'match_member': '~UserA1', 'score': 0.61, 'submission_member': '~UserB1'}`, where `match_member` is a member from the group whose ID is `group_id` and `submission_member` is a member from the group whose ID is `alternate_match_group`
+The scores for our example will be stored in `results['results']`.&#x20;
+
+* If you computed user-to-user scores, the objects in this array may look like: `{'match_member': '~UserA1', 'score': 0.61, 'submission_member': '~UserB1'}`, where:
+  * `match_member` is a member from the group whose ID is `group_id`.
+  * `submission_member` is a member from the group whose ID is `alternate_match_group`.
+* If you computed a user-to-submission scores, the objects in this array may look like: `{'submission': 'paperID1', 'user': '~UserA1', 'score': 0.90}`, where:
+  * `submission` is the paper ID.
+  * `user` is a member from the group whose ID is `group_id` or from the `members` list if you [computed scores with a subset of users](how-to-compute-affinity-scores.md#requesting-scores-for-a-subset-of-users).
+
+## Converting expertise results to edges
+
+Once you retrieve the results, you may need to convert them to edges for upload. In this example, we'll create Area Chair affinity scores to papers.
+
+First, check the affinity score invitation to see how the edge is structured, such as the `head`, `tail`, and `readers`. You can view the invitation by going to: `https://openreview.net/invitation/edit?id=venue_id/role_name/-/Affinity_Score`.&#x20;
+
+Next, use the expertise results to create a list of lists where each sublist contains the data for 1 edge.
+
+```python
+scores = [
+    [ entry['submission'], entry['user'], entry['score'] ]
+    for entry in results['results']
+]
+```
+
+Then, we will loop through `scores` and create an Edge for each item.&#x20;
+
+Since we're creating Area Chair affinity scores, we'll use the following configuration:
+
+* **invitation**: The Area Chair affinity score invitation ID.
+* **head**: The ID of the paper.
+* **tail**: The profile ID of the Area Chair.
+* **weight**: The score between the paper and user.
+* **readers**: List containing: venue ID, the SAC group ID, and the tail of this edge.
+* **writers**: List containing: venue ID.
+* **signatures**: List containing: the Program Chair group ID.
+
+{% hint style="warning" %}
+This is only an example, you **must** refer to the invitation for the correct edge configuration.
+{% endhint %}
+
+```python
+edges = []
+for score_line in scores:
+    paper_note_id, profile_id, score = score_line
+    formatted_score = max(round(float(score), 4), 0) # Round to 4 decimal places, make it non-negative
+    edges.append(openreview.api.Edge(
+        invitation = "venue_id/Area_Chairs/-/Affinity_Score",
+        head = paper_note_id,
+        tail = profile_id,
+        weight = formatted_score,
+        readers = [
+            "venue_id",
+            "venue_id/Senior_Area_Chairs",
+            profile_id
+        ],
+        writers = ["venue_id"]
+        signatures = ["venue_id"]
+    ))
+```
+
+Now you have a list of edges ready to upload, follow [How to Upload Edges in Bulk](how-to-upload-edges-in-bulk.md).

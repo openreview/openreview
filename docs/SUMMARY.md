@@ -145,6 +145,7 @@
   * [How to enable Reviewer Reassignment for Area Chairs](how-to-guides/paper-matching-and-assignment/how-to-enable-reviewer-reassignment-for-area-chairs.md)
   * [How to Sync Manual and Automatic Assignments](how-to-guides/data-retrieval-and-modification/how-to-sync-manual-and-automatic-assignments.md)
   * [How to Compute Affinity Scores Manually](how-to-guides/paper-matching-and-assignment/how-to-compute-affinity-scores.md)
+  * [How to Upload Edges in Bulk](how-to-guides/paper-matching-and-assignment/how-to-upload-edges-in-bulk.md)
   * [How to Undo Deployed Assignments](how-to-guides/paper-matching-and-assignment/how-to-undo-deployed-assignments.md)
   * [How to Modify Reviewer Assignments as an Area Chair](how-to-guides/paper-matching-and-assignment/how-to-modify-reviewer-assignments-as-an-area-chair.md)
   * [How to Get all Assignments for a User](how-to-guides/paper-matching-and-assignment/how-to-get-all-assignments-for-a-user.md)
