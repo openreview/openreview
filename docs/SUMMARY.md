@@ -153,7 +153,7 @@
   * [How to Make Assignments using Subject Areas](how-to-guides/paper-matching-and-assignment/how-to-make-assignments-using-subject-areas.md)
   * [Computing Affinity Scores and Conflicts for large venues](how-to-guides/paper-matching-and-assignment/computing-affinity-scores-and-conflicts-for-large-venues.md)
   * [How to upload assignments with Python](how-to-guides/paper-matching-and-assignment/how-to-upload-assignments-with-python.md)
-  * [How to Use the Matcher to Deploy Multiple Matchings](how-to-guides/paper-matching-and-assignment/how-to-use-the-matcher-to-deploy-multiple-matchings.md)
+  * [How to Run Multiple Matchings](how-to-guides/paper-matching-and-assignment/how-to-run-multiple-matchings.md)
 * [Communication](how-to-guides/communication/README.md)
   * [How to send messages through the UI](how-to-guides/communication/how-to-send-messages-through-the-ui.md)
   * [How to customize emails sent through OpenReview](how-to-guides/communication/how-to-customize-emails-sent-through-openreview.md)
