@@ -1,4 +1,4 @@
-# How to Use the Matcher to Deploy Multiple Matchings
+# How to Run Multiple Matchings
 
 ## Prerequisites and Setup
 
@@ -8,7 +8,7 @@ Follow these instructions if you’ve already deployed assignments and want to u
 
 ## Overview
 
-The matcher is not aware of the current assignment data in OpenReview, so when you want to deploy more assignments we must set up the edges taking into account the current assignment data to ensure the matcher makes the correct new assignments.
+The matcher is not aware of the current assignment data in OpenReview. To deploy additional assignments, we must set up the edges so that the matcher can create the correct assignments.
 
 The UI currently doesn’t support deploying multiple assignment configurations, so you will also need to retrieve the Proposed Assignment edges created by the matcher and convert them to Assignment edges.
 
