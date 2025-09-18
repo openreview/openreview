@@ -78,7 +78,9 @@ openreview.tools.post_bulk_edges(client=client_v2, edges=conflict_edges)
 Example:
 
 {% hint style="warning" %}
-Refer to the Custom Max Papers invitation for edge configuration, e.g. for `readers`. You can view the invitation by going to: `https://openreview.net/invitation/edit?id=venue_id/role_name/-/Custom_Max_Papers`
+Refer to the Custom Max Papers invitation for edge configuration, e.g. for `readers`. You can view the invitation by going to: `https://openreview.net/invitation/edit?id=venue_id/role_name/-/Custom_Max_Papers`&#x20;
+
+Replace `${2/tail}` in the `readers` with the actual value of `tail`. In this example it is `mem`.
 {% endhint %}
 
 ```python
@@ -129,16 +131,19 @@ openreview.tools.post_bulk_edges(client=client_v2, edges=new_quota_edges)
 Custom User Demand edges are very similar to Custom Max Paper edges except that the `head` is the paper ID and `tail` is the group ID of the users you are assigning (e.g. `venue_id/Reviewers`).&#x20;
 
 1. [Get all active papers](../data-retrieval-and-modification/how-to-get-all-notes-for-submissions-reviews-rebuttals-etc.md#quickstart-getting-all-submissions)
-2. For each paper, build the Custom User Demand edges.
-   1. If you want to assign 2 new users for every paper, you set the `weight` to 2.
-   2. If you don’t want new assignments for some papers, you set those `weight`s to 0.
+2. For each paper, build the Custom User Demand edges. The `weight` is the number of users to assign to that paper.
+   1. If you want to assign 2 new users for every paper, you set all the `weight`s to 2.
+   2. If you want to assign users based on the number of missing reviews, you will need to [get all reviews](../data-retrieval-and-modification/how-to-get-all-notes-for-submissions-reviews-rebuttals-etc.md#quickstart-getting-reviews-meta-reviews-comments-decisions-rebuttals) and for each paper find how many are missing. Use that to set the `weight`.
+   3. If you don’t want new assignments for some papers, you set the `weight`s of those papers to 0.
 
 [Post edges in bulk](how-to-upload-edges-in-bulk.md).
 
 Example:
 
 {% hint style="warning" %}
-Refer to the Custom User Demands invitation for edge configuration, e.g. for `readers`. You can view the invitation by going to: `https://openreview.net/invitation/edit?id=venue_id/role_name/-/Custom_User_Demands`
+Refer to the Custom User Demands invitation for edge configuration, e.g. for `readers`. You can view the invitation by going to: `https://openreview.net/invitation/edit?id=venue_id/role_name/-/Custom_User_Demands`&#x20;
+
+Replace `${2/tail}` in the `readers` with the actual value of `tail`. In this example it is `venue_id/role_name`.
 {% endhint %}
 
 ```python
@@ -160,7 +165,7 @@ openreview.tools.post_bulk_edges(client=client_v2, edges=user_demand_edges)
 
 ### Create a new Assignment Configuration and run the matcher
 
-Now you can run the matcher. This will create Proposed Assignments and you can view the stats page to determine if you need a new matching.
+Now you can run the matcher for a new Assignment Configuration. This will create Proposed Assignments and you can view the stats page to determine if you need a new matching.
 
 ### Convert proposed assignments to assignment edges
 
@@ -177,7 +182,7 @@ venue = openreview.conference.helpers.get_conference(client_v1, request_form_id)
 papers = venue.get_submissions(sort='number:asc')
 ```
 
-Next, we will retrieve the Proposed Assignment edges for the new matching config and map the paper IDs (the `head`) to the edges for that paper. To do this, you need the title of the config found in the assignments page:
+Next, we will retrieve the Proposed Assignment edges for the new matching config and map the paper IDs (the `head`) to the edges for that paper. To do this, you need the `title` of the **new** config found in the assignments page:
 
 ```python
 proposed_assignment_edges =  { g['id']['head']: g['values'] for g in client_v2.get_grouped_edges(
@@ -275,3 +280,7 @@ This is so that the assignment browser doesn't show the extra conflicts. Pass th
 ```python
 client_v2.delete_edges(invitation='venue_id/role_name/-/Conflict', label='Current Assignment')
 ```
+
+### Viewing the new assignments
+
+The new assignments can be seen using the same "Edit Assignments" link next to the "Deployed" configuration. This shows all assignments.
