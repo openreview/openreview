@@ -46,7 +46,7 @@ If you get an error that says "please ensure the provided DBLP URL is yours", ma
 
 ### To remove publications imported from DBLP
 
-Go to your profile page and click 'Edit Profile'. Scroll to the bottom of the page and look for 'Publications' section. All publications associated with your profile will be listed here but those imported from DBLP will have a minus icon displayed after the title.
+Go to your profile page and click 'Edit Profile'. Click on the 'Personal Links' section to view the publications. All publications associated with your profile will be listed here but those imported from DBLP or ORCID will have a minus icon displayed after the title.
 
 ![](<../../.gitbook/assets/image (1) (1) (1).png>)
 
