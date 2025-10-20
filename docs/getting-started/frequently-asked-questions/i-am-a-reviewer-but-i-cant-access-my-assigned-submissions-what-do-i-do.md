@@ -6,5 +6,9 @@ If you are logged in and are still not able to see your assigned submissions (bu
 
 Please contact the venue organizers notifying them of the issue. The contact email can be found on the homepage of the venue.
 
+### Missing Fields
 
+If part of the submission is missing fields such as the PDF, the most likely causes are:
 
+1. These fields were optional in the submission
+2. The venue organizers have decided to hide the field in review. If you believe this to be in error, please contact the venue organizers.
