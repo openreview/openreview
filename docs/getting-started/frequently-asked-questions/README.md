@@ -32,6 +32,7 @@
 * [Reviewers for my venue cannot see their assigned submissions, what should I do?](reviewers-for-my-venue-cannot-see-their-assigned-submissions-what-should-i-do.md)
 * [What field types are supported in the forms](what-field-types-are-supported-in-the-forms.md)?&#x20;
 * [What do the default submission, review, metareview, and decision forms look like](../../reference/default-forms/)?&#x20;
+* [How can I allow LLM generated submissions?](how-can-i-allow-llm-generated-submissions.md)
 
 ### Managing active venues
 
