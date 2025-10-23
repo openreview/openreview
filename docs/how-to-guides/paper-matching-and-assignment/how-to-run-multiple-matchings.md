@@ -2,7 +2,11 @@
 
 ## Prerequisites and Setup
 
-Follow these instructions if you’ve already deployed assignments and want to use the matcher to assign more users to papers.
+Follow these instructions if you’ve already deployed assignments and want to use the matcher to assign more users to papers. For example:
+
+* Create phase 2 assignments
+* Assign emergency reviewers to papers missing 3 reviews
+* Assign any subset of users to any subset of papers
 
 [Create an OpenReview client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).
 
@@ -22,7 +26,7 @@ The general steps are:
 3. Post Custom User Demand edges for all papers
    1. This is the paper’s user quota and tells the matcher how many users to assign to each paper.
 4. Create a new Assignment Configuration and run the matcher.
-5. Convert proposed assignments to assignment edges.
+5. Deploy assignments
 6. Delete the “Current Assignment” conflicts.
 
 ## Setting up the matcher and deploying assignments
@@ -167,110 +171,38 @@ openreview.tools.post_bulk_edges(client=client_v2, edges=user_demand_edges)
 
 Now you can run the matcher for a new Assignment Configuration. This will create Proposed Assignments and you can view the stats page to determine if you need a new matching.
 
-### Convert proposed assignments to assignment edges
+In the Assignment Configuration:
 
-First, set up both API 1 and API 2 clients, set the role names for the group we are assigning, retrieve the Venue object, and get submissions:
+* Set a new `title`&#x20;
+* The `User Demand` value doesn't matter since you already posted edges for each paper setting their User Demand. You can set it to your venue's default quota.
+* Similarly, the `Max Papers` and `Min Papers` values don't matter since you should have already modified everyone's Custom Max Paper edges. You can set your venue's default quota. If any users are added to the group later, they will use the default.
 
-```python
-client_v1 = ...
-client_v2 = ...
+### Deploy assignments using python
 
-role_name = 'Area_Chairs'
-group_id = f'venue_id/{role_name}'
+The UI currently doesn't support deploying multiple matchings, so you will need to use python.
 
-venue = openreview.conference.helpers.get_conference(client_v1, request_form_id) # Uses API 1 client
-papers = venue.get_submissions(sort='number:asc')
-```
+1. Retrieve the `Venue` object for your venue. Use an **API 1** client.
+2. Call `venue.set_assignments()` and pass:
+   1. **`assignment_title`**: Title of new Assignment Configuration created in the previous step.
+   2. **`committee_id`**: ID of the Group getting assigned.
+   3. **`overwrite`**: Boolean that determines if the current assignments should be overwritten.&#x20;
+      1. If False, it will only post the new assignments.
+      2. If True, it will delete all current assignments and replace them with the new assignments.
 
-Next, we will retrieve the Proposed Assignment edges for the new matching config and map the paper IDs (the `head`) to the edges for that paper. To do this, you need the `title` of the **new** config found in the assignments page:
-
-```python
-proposed_assignment_edges =  { g['id']['head']: g['values'] for g in client_v2.get_grouped_edges(
-    invitation=venue.get_assignment_id(group_id),
-    label='name-of-new-matching', 
-    groupby='head', 
-    select=None)
-}
-```
-
-Then, we will create a function that process each submission, checks if there is a proposed assignment edge for that paper, and creates an Assignment edge. It also adds the user to the correct paper group:
+{% hint style="warning" %}
+Only use `overwrite = True` if you want to completely redo assignments.
+{% endhint %}
 
 ```python
-assignment_invitation_id = venue.get_assignment_id(group_id, deployed=True)
+venue_id = 'venue/year/conference'
+venue_group = client_v2.get_group(venue_id) # API 2 client
+venue = openreview.get_conference(client_v1, venue_group.content['request_form_id']['value']) # API 1 client
 
-def process_paper_assignments(paper):
-    paper_assignment_edges = []
-    if paper.id in proposed_assignment_edges:
-        paper_committee_id = venue.get_committee_id(name=role_name, number=paper.number)
-        proposed_edges=proposed_assignment_edges[paper.id]
-        assigned_users = []
-
-        for proposed_edge in proposed_edges:
-            assigned_user = proposed_edge['tail']
-            paper_assignment_edges.append(openreview.api.Edge(
-                invitation = assignment_invitation_id,
-                head = paper.id,
-                tail = assigned_user,
-                readers = proposed_edge['readers'],
-                nonreaders = proposed_edge.get('nonreaders'),
-                writers = proposed_edge['writers'],
-                signatures = proposed_edge['signatures'],
-                weight = proposed_edge.get('weight')
-            ))
-            assigned_users.append(assigned_user)
-        client_v2.add_members_to_group(paper_committee_id, assigned_users)
-        return paper_assignment_edges
-    else:
-        print('assignment not found', paper.id)
-        return []
-```
-
-**Note**: If your venue has SACs assigned to ACs and you are deploying AC assignments, you will need to modify the script to add the assigned SAC to the paper group as well. We do this by retrieving the SAC assignments and in `process_paper_assignments` we post a group edit to add the SAC to the paper's SAC group:
-
-```python
-sac_assignment_edges =  { g['id']['head']: g['values'] for g in client_v2.get_grouped_edges(
-    invitation=venue.get_assignment_id(venue.get_senior_area_chairs_id(), deployed=True),
-    groupby='head', 
-    select=None)} if not venue.sac_paper_assignments else {}
-
-def process_paper_assignments(paper):
-    paper_assignment_edges = []
-    if paper.id in proposed_assignment_edges:
-        paper_committee_id = venue.get_committee_id(name=role_name, number=paper.number)
-        proposed_edges=proposed_assignment_edges[paper.id]
-        assigned_users = []
-        for proposed_edge in proposed_edges:
-            assigned_user = proposed_edge['tail']
-            # -- New code block --
-            if sac_assignment_edges:
-                sac_assignments = sac_assignment_edges.get(assigned_user, [])
-                for sac_assignment in sac_assignments:
-                    assigned_sac = sac_assignment['tail']
-                    sac_group_id = venue.get_senior_area_chairs_id(number=paper.number)
-                    client_v2.post_group_edit(
-                        invitation = venue.get_meta_invitation_id(),
-                        readers = [venue.venue_id],
-                        writers = [venue.venue_id],
-                        signatures = [venue.venue_id],
-                        group = openreview.api.Group(
-                            id = sac_group_id,
-                            members = [assigned_sac]
-                        )
-                    )
-# ... rest of the function ...
-```
-
-Now we will call `openreview.tools.concurrent_requests()` which takes in a function and a list, where each item in the list will get passed to the function for processing. We will pass `process_paper_assignments` and the list of papers. The following will return a list of edges:
-
-```python
-assignment_edges = reduce(concat,openreview.tools.concurrent_requests(process_paper_assignments, papers))
-```
-
-Finally, we will post the edges in bulk:
-
-```python
-print('Posting assignment edges', len(assignment_edges))
-openreview.tools.post_bulk_edges(client=client_v2, edges=assignment_edges)
+venue.set_assignments(
+    assignment_title = 'new_assignment_configuration_title',
+    committee_id = f'{venue_id}/role_name',
+    overwrite = False
+)
 ```
 
 ### Delete the “Current Assignment” conflicts
@@ -284,3 +216,16 @@ client_v2.delete_edges(invitation='venue_id/role_name/-/Conflict', label='Curren
 ### Viewing the new assignments
 
 The new assignments can be seen using the same "Edit Assignments" link next to the "Deployed" configuration. This shows all assignments.
+
+### How to undo assignments
+
+If you want to undo assignments for any reason, you can call `venue.unset_assignments()`. This will undeploy assignments based on the Proposed Assignment edges in the specified Assignment Configuration. So if you made changes to the assignments after deployment, those reassignments won't be removed. You will need to handle them manually either through the UI or by deleting their edges and removing the users from the paper groups.
+
+Use this if you deployed assignments, made no modifications, then want to undeploy:
+
+```
+venue.unset_assignments(
+    assignment_title = 'new_assignment_configuration_title',
+    committee_id = f'{venue_id}/role_name'
+)
+```
