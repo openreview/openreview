@@ -244,6 +244,8 @@ client_v2.post_note_edit(invitation=f'{venue_id}/-/PC_Revision',
 
 ### Quickstart: Posting, editing, and deleting a test review
 
+1. Posting a new review note:
+
 ```python
 submission_number = '<SUBMISSION_NUMBER>'
 venue_id = '<VENUE ID>'
@@ -264,10 +266,12 @@ review_edit = client_v2.post_note_edit(
     )
 ```
 
+2. Editing an existing review note, you must specify the note ID:
+
 ```python
-#edit the review note
-anon_groups = client_v2.get_groups(prefix=f'{venue_id}/Submission{submission_number}/Reviewer_', signatory='~Reviewer_One1')
-anon_group_id = anon_groups[0].id
+# Edit the review note
+
+# Get review note
 review_notes = client_v2.get_notes(
     invitation=f'{venue_id}/Submission{submission_number}/-/Official_Review',
     signatures=[anon_group_id]
@@ -276,23 +280,22 @@ review_notes = client_v2.get_notes(
 # Assuming there's one review per reviewer
 original_review = review_notes[0]
 
-#Update the content of the review with the new content 
+# Update the content of the review with the new content 
 review_content = original_review.content
 review_content['rating']['value'] = 6
 
 # Step 2: Edit the review to update the rating
 edited_review = client_v2.post_note_edit(
     invitation=f'{venue_id}/Submission{submission_number}/-/Official_Review',
-    signatures=[anon_group_id],
+    signatures=original_review.signatures, # Using the signatures from the original note
     note=openreview.api.Note(
         id=original_review.id,
-        forum=original_review.forum,
-        replyto=original_review.replyto,
         content=review_content
-        
     )
 )
 ```
+
+3. Deleting a review note:
 
 ```python
 # Assuming the first one is the one we want to delete
@@ -308,6 +311,3 @@ deleted_note = reviewer_client.post_note_edit(
         ddate = openreview.tools.datetime_millis(dt.datetime.now()))
 )
 ```
-
-
-
