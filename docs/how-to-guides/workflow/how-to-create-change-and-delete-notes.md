@@ -247,13 +247,12 @@ client_v2.post_note_edit(invitation=f'{venue_id}/-/PC_Revision',
 ```python
 submission_number = '<SUBMISSION_NUMBER>'
 venue_id = '<VENUE ID>'
-invitation = client_v2.get_invitation(f'{venue_id}/Submission{submission_number}/-/Official_Review')
 
-anon_groups = client_v2.get_groups(prefix=f'{test_venue_id}/Submission1/Reviewer_', signatory='~Reviewer_One1')
+anon_groups = client_v2.get_groups(prefix=f'{venue_id}/Submission{submission_number}/Reviewer_', signatory='~Reviewer_One1')
 anon_group_id = anon_groups[0].id
 
 review_edit = client_v2.post_note_edit(
-    invitation=f'{test_venue_id}/Submission1/-/Official_Review',
+    invitation=f'{venue_id}/Submission{submission_number}/-/Official_Review',
     signatures=[anon_group_id],
     note=openreview.api.Note(
         content={
@@ -267,7 +266,7 @@ review_edit = client_v2.post_note_edit(
 
 ```python
 #edit the review note
-anon_groups = client_v2.get_groups(prefix=f'{test_venue_id}/Submission{submission_number}/Reviewer_', signatory='~Reviewer_One1')
+anon_groups = client_v2.get_groups(prefix=f'{venue_id}/Submission{submission_number}/Reviewer_', signatory='~Reviewer_One1')
 anon_group_id = anon_groups[0].id
 review_notes = client_v2.get_notes(
     invitation=f'{venue_id}/Submission{submission_number}/-/Official_Review',
@@ -283,7 +282,7 @@ review_content['rating']['value'] = 6
 
 # Step 2: Edit the review to update the rating
 edited_review = client_v2.post_note_edit(
-    invitation=f'{venue_id}/Submission1/-/Official_Review',
+    invitation=f'{venue_id}/Submission{submission_number}/-/Official_Review',
     signatures=[anon_group_id],
     note=openreview.api.Note(
         id=original_review.id,
@@ -301,7 +300,7 @@ note_to_delete = review_notes[0]
 
 # Step 2: Post a deletion edit - to delete the whole review
 deleted_note = reviewer_client.post_note_edit(
-    invitation=f'{test_venue_id}/Submission1/-/Official_Review',
+    invitation=f'{venue_id}/Submission{submission_number}/-/Official_Review',
     signatures=[anon_group_id],
     note=openreview.api.Note(
         id=note_to_delete.id,
