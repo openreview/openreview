@@ -34,6 +34,7 @@ Next, request a job using the `request_expertise` function of the client. In the
     venue_id=None,
     alternate_match_group='Conference/Year/Area_Chairs',
     expertise_selection_id='Conference/Year/Area_Chairs/-/Expertise_Selection',
+    alternate_expertise_selection_id='Conference/Year/Area_Chairs/-/Expertise_Selection',
     model='specter2+scincl',
 )
 </code></pre>
@@ -53,9 +54,29 @@ In this case, **`venue_id`** is `None` because we're looking to compute scores b
 {% endhint %}
 
 * **`alternate_match_group`** is the ID of the group which you would like to score against the first group. If this value is not `None`, then the Expertise API will perform a user-to-user score computation
+* **`expertise_selection_id`** is the ID of the Expertise Selection invitation for the `group_id`. This is how the expertise excludes publications that the users selected.
+* **`alternate_expertise_selection_id`** is the ID of the Expertise Selection invitation for the `alternate_match_group`. This is how the expertise excludes publications that the users selected.
 * **`model`** is the name of the model that will be used to compute the scores. We support several models that you find described [here](https://github.com/openreview/openreview-expertise), but we strongly suggest that you use `specter2+scincl`.
 
 The `response` variable will contain a dictionary with your job ID, for example: `{'jobId': '12345'}`. This is the value that you will use to query the status and results of your scores.
+
+{% hint style="warning" %}
+When computing scores between SACs and ACs, the `group_id` should be the SACs and the `alternate_match_group` should be the ACs.
+{% endhint %}
+
+## Requesting scores between a group and all papers
+
+You can use `request_expertise` to compute scores between any group and papers. The following example computes scores between reviewers and active papers:
+
+```python
+response = client.request_expertise(
+   name='venue-reviewers1',
+   group_id='Conference/Year/Reviewers',
+   venue_id='Conference/Year/Submission',
+   expertise_selection_id='Conference/Year/Reviewers/-/Expertise_Selection',
+   model='specter2+scincl'
+)
+```
 
 ## Requesting Scores for a subset of submissions
 
@@ -86,6 +107,54 @@ Use `request_user_subset_expertise` function of the client to compute affinity s
 </code></pre>
 
 This job will compute affinity scores between a subset of area chairs and all the active submissions.
+
+## Weighing publications
+
+All of these request expertise functions can take an optional `weight` argument specifying how certain types of publications should be weighted in someone's expertise. `weight` is a list of dictionaries. The default weight is 1 for all publications.
+
+For example, you can pass the following weights:
+
+```python
+weight = [
+   {
+      "articleSubmittedToOpenReview": True,
+      "weight": 2
+   },
+   {
+      "value": "OpenReview.net/Archive",
+      "weight": 0.2
+   },
+   {
+      "value": "OpenReview.net/Anonymous_Preprint",
+      "weight": 0.2
+   }
+]
+```
+
+This config tells the expertise to:
+
+* Weigh OpenReview publications twice as much as others.
+* Down-weight Archived and Anonymous Preprint papers.
+* DBLP papers would use the default weight of 1.
+
+You can also weigh publications from specific venues. For example:
+
+```python
+{
+   "prefix": "NeurIPS.cc",
+   "weight": 2
+},
+{
+   "value": "ICLR.cc/2025/Conference",
+   "weight": 2
+}
+```
+
+This config tells the expertise to:
+
+* Upweight all NeurIPS publications across all years.
+  * Use `prefix` to match all years of a venue.
+* Upweight _only_ ICLR 2025 Conference publications.
 
 ## Check the status of the job
 
@@ -133,11 +202,58 @@ The scores for our example will be stored in `results['results']`.&#x20;
   * `submission` is the paper ID.
   * `user` is a member from the group whose ID is `group_id` or from the `members` list if you [computed scores with a subset of users](how-to-compute-affinity-scores.md#requesting-scores-for-a-subset-of-users).
 
+## Converting expertise results to a CSV
+
+You may need to convert the expertise results to a CSV so you can upload them to the live site. For scores between:
+
+* Users and papers, the columns should be: paper ID, profile ID, score
+* SACs to ACs, the columns should be: AC profile ID, SAC profile ID, score
+
+If you set the group IDs correctly in the expertise request, you can just run the following to convert results to a CSV:
+
+```python
+import pandas as pd
+pd.DataFrame.from_records(result['results']).to_csv('expertise_results.csv', index=False, header=False)
+```
+
+Otherwise, if you for example mixed up the group IDs for SACs and ACs, you may need to switch the columns before upload.
+
+### Uploading scores from a CSV
+
+To upload scores, call `venue.setup_committee_matching()` and pass:
+
+* **`committee_id`**: The ID of the group for which you are uploading scores.
+* **`compute_affinity_scores`**: The path to the affinity score CSV.
+
+```python
+venue = openreview.helpers.get_conference(client_v1, request_form_id) # Use API 1 client
+
+no_profiles = venue.setup_committee_matching(
+   committee_id=venue.get_reviewers_id(),
+   compute_affinity_scores='expertise_results.csv'
+)
+print(no_profiles)
+```
+
+**Returns**: A dictionary showing users with no profiles and no publications.
+
+* These users should either be removed or be reminded to sign up.
+
+{% hint style="info" %}
+By assignment time there should be no email members in the group.
+{% endhint %}
+
 ## Converting expertise results to edges
 
-Once you retrieve the results, you may need to convert them to edges for upload. In this example, we'll create Area Chair affinity scores to papers.
+You may need to convert them to edges for upload. Example use cases:
 
-First, check the affinity score invitation to see how the edge is structured, such as the `head`, `tail`, and `readers`. You can view the invitation by going to: `https://openreview.net/invitation/edit?id=venue_id/role_name/-/Affinity_Score`.&#x20;
+* You computed scores for a subset of users to all papers
+* You computed scores for all users to a subset of papers
+* Or you just want to manually upload affinity score edges
+
+In this example, we'll create Area Chair affinity score edges to papers.
+
+First, **check the affinity score invitation** to see how the edge is structured, such as the `head`, `tail`, and `readers`. You can view the invitation by going to: `https://openreview.net/invitation/edit?id=venue_id/role_name/-/Affinity_Score`.&#x20;
 
 Next, use the expertise results to create a list of lists where each sublist contains the data for 1 edge.
 
@@ -152,13 +268,13 @@ Then, we will loop through `scores` and create an Edge for each item.&#x20;
 
 Since we're creating Area Chair affinity scores, we'll use the following configuration:
 
-* **invitation**: The Area Chair affinity score invitation ID.
-* **head**: The ID of the paper.
-* **tail**: The profile ID of the Area Chair.
-* **weight**: The score between the paper and user.
-* **readers**: List containing: venue ID, the SAC group ID, and the tail of this edge.
-* **writers**: List containing: venue ID.
-* **signatures**: List containing: the Program Chair group ID.
+* **`invitation`**: The Area Chair affinity score invitation ID.
+* **`head`**: The ID of the paper.
+* **`tail`**: The profile ID of the Area Chair.
+* **`weight`**: The score between the paper and user.
+* **`readers`**: List containing: venue ID, the SAC group ID, and the tail of this edge.
+* **`writers`**: List containing: venue ID.
+* **`signatures`**: List containing: the Program Chair group ID.
 
 {% hint style="warning" %}
 This is only an example, you **must** refer to the invitation for the correct edge configuration.
