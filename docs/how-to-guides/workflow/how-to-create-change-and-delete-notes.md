@@ -266,18 +266,19 @@ review_edit = client_v2.post_note_edit(
     )
 ```
 
-2. Editing an existing review note, you must specify the note ID:
+2. Editing an existing review note, you must specify the note ID.
+
+You can [get all reviews](../data-retrieval-and-modification/how-to-get-all-notes-for-submissions-reviews-rebuttals-etc.md#quickstart-getting-reviews-meta-reviews-comments-decisions-rebuttals), get a specific review, or get all reviews for one submission to edit (below):
 
 ```python
 # Edit the review note
 
-# Get review note
+# Get all reviews for a submission
 review_notes = client_v2.get_notes(
-    invitation=f'{venue_id}/Submission{submission_number}/-/Official_Review',
-    signatures=[anon_group_id]
+    invitation=f'{venue_id}/Submission{submission_number}/-/Official_Review'
 )
 
-# Assuming there's one review per reviewer
+# Get the review to edit
 original_review = review_notes[0]
 
 # Update the content of the review with the new content 
