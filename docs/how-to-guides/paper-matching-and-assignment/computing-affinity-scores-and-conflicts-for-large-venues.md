@@ -1,19 +1,19 @@
 # Computing Affinity Scores and Conflicts for large venues
 
-**Note:** This document is for large venues (>2000 submissions) that need to manually calculate scores. Smaller venues should refer to the directions [here](../../workflows/conferences.md).
+**Note:** This document is for large venues (>2000 submissions) that need to manually calculate scores and conflicts. Smaller venues should refer to the directions [here](../../workflows/conferences.md).
 
 ### Overview
 
 The sections below give detailed step-by-step instructions on how to complete this process. Below is an overview and important information about the process.&#x20;
 
-There are 3 separate steps:
+There are 3 steps:
 
-1. Compute affinity scores  with `request_expertise(...)`
+1. Compute affinity scores  with `client.request_expertise(...)`
 2. Upload affinity scores with  `venue.setup_committee_matching(compute_affinity_scores=...)`
 3. Compute and upload conflicts with  `venue.setup_committee_matching(compute_conflicts=..., compute_conflicts_n_years=...)`&#x20;
 
 {% hint style="info" %}
-Computing and uploading scores are two separate steps because you first have to call to the Expertise API, then retrieve the scores to upload later as CSV. However, for conflicts, `setup_committee_matching` handles both the computation and the upload of conflicts, so there is no need to run it twice.
+Computing and uploading scores are two separate steps because you first have to call to the Expertise API, then retrieve the scores to upload later as CSV. However, for conflicts, `setup_committee_matching` handles both the computation and the upload of conflicts.
 {% endhint %}
 
 #### **Estimated times:**
@@ -31,85 +31,53 @@ Make sure you have good internet connection since these processes take a long ti
 
 ### 1. Setup
 
-* Create all the necessary invitations by calling `setup_committee_matching` and passing no parameters:
+Create all the necessary invitations by calling `venue.setup_committee_matching()`. This also converts the IDs in the group to profile IDs:
 
 ```python
-venue = openreview.helpers.get_conference(client_v1, request_form_id) # Use API 1 client
-venue.setup_committee_matching()
+# Use API 1 client
+venue = openreview.helpers.get_conference(client_v1, request_form_id)
+venue.setup_committee_matching(committee_id=venue.get_reviewers_id())
+# For ACs: venue.setup_committee_matching(committee_id=venue.get_area_chairs_id())
+# For SACs: venue.setup_committee_matching(committee_id=venue.get_senior_area_chairs_id())
 ```
 
 ### 2. Computing scores
 
 If SACs are assigned to ACs, you can compute scores in the request form using Paper Matching Setup.
 
-For computing any role (SACs, ACs, Reviewers, etc) against submissions, call the expertise function below:
+For computing any role (SACs, ACs, Reviewers, etc) against submissions, call [`client.request_expertise()`](how-to-compute-affinity-scores.md#requesting-scores-between-a-group-and-all-papers). An example request can look like the following:
 
 ```python
 venue = openreview.helpers.get_conference(client_v1, request_form_id) # Use API 1 client
 
-role = venue.get_reviewers_id() #Role to compute
+role = venue.get_reviewers_id() # Role to compute
 
 # Use API 2 client
 job_id = client_v2.request_expertise(
-   name='venue-reviewers1', #Name of the scores
+   name='venue-reviewers1', # Name of the scores
    group_id=role,
    venue_id=venue.get_submission_venue_id(),
    expertise_selection_id=f'{role}/-/Expertise_Selection',
-   model='specter2+scincl',
-   weight=[ #update weights
-       {
-           "articleSubmittedToOpenReview": True,
-           "weight": 2
-       },
-       {
-           "value": "OpenReview.net/Archive",
-           "weight": 0.2
-       },
-       {
-           "value": "OpenReview.net/Anonymous_Preprint",
-           "weight": 0.2
-       }
-   ]
+   model='specter2+scincl'
 )
 
 ```
 
-Some important details about `request_expertise`:&#x20;
-
-**Returns**: A string representing the job ID.&#x20;
+**Returns**: A dictionary containing the job ID.&#x20;
 
 **Parameters:**
 
-* **name**: Name of the job. Make each job name unique so you can query your job later.
-* **group\_id**: The group you for which you are computing scores
-* **venue\_id**: This refers to the submission’s venueid field.&#x20;
+* **`name`**: Name of the job. Make each job name unique so you can query your job later.
+* **`group_id`**: The group you for which you are computing scores.
+* **`venue_id`**: This refers to the submission’s `venueid` field. In this example, we are using active submissions.
   * This tells the status of the submission, so this param is how we query submissions.
-* **expertise\_selection\_id**: The ID of the role’s Expertise Selection invitation.
+* **`expertise_selection_id`**: The ID of the role’s Expertise Selection invitation.
   * This is how users exclude publications from their expertise. So this param is saying to take into account any exclusions.
-* **model**: The expertise model used to compute scores.
-  * We recommend specter2+scincl, but we have many models.
-  * Model info: [https://github.com/openreview/openreview-expertise?tab=readme-ov-file#model-descriptions](https://github.com/openreview/openreview-expertise?tab=readme-ov-file#model-descriptions)
-* **weight**: List of dictionaries that specify weights for publications.
-  * The default weight is 1, but weights can be specified
-  * For example, the above config says:&#x20;
-    * Weigh OR publications twice as much as others.
-    * Downweight Archived and Anonymous Preprint papers.
-    * This leaves DBLP papers with the weight of 1.
-  * You can also weigh publications from specific venues. The following says:
-    * Upweight all NeurIPS publications across all years.
-      * Note: uses “prefix”
-    * Upweight only ICLR 2025 publications
+* **`model`**: The expertise model used to compute scores.
+  * We recommend `specter2+scincl`, but we have many models.
+  * Info on models can be found [here](https://github.com/openreview/openreview-expertise?tab=readme-ov-file#model-descriptions).
 
-```python
-{
-   "prefix": "NeurIPS.cc",
-   "weight": 2
-},
-{
-   "value": "ICLR.cc/2025/Conference",
-   "weight": 2
-}
-```
+You can also add an optional `weight` argument. See [Weighing Publications](how-to-compute-affinity-scores.md#weighing-publications).
 
 #### Retrieve Job ID
 
@@ -161,6 +129,8 @@ This creates a CSV with columns: Paper ID, Profile ID, Score.
 
 ### 5. Upload Scores
 
+You can upload scores by calling [venue.setup\_committee\_matching()](how-to-compute-affinity-scores.md#uploading-scores-from-a-csv):
+
 ```python
 venue = openreview.helpers.get_conference(client_v1, request_form_id) # Use API 1 client
 
@@ -171,6 +141,11 @@ no_profiles = venue.setup_committee_matching(
 print(no_profiles)
 ```
 
+`setup_committee_matching` params:
+
+* **`committee_id`**: The ID of the group for which you are uploading scores.
+* **`compute_affinity_scores`**: The path to the affinity score CSV.
+
 **Returns**: A dictionary showing users with no profiles and no publications.
 
 * These users should either be removed or be reminded to sign up.
@@ -178,11 +153,6 @@ print(no_profiles)
 {% hint style="info" %}
 By assignment time there should be no email members in the group.
 {% endhint %}
-
-`setup_committee_matching` params:
-
-* **committee\_id**: The ID of the group for which you are uploading scores.
-* **compute\_affinity\_scores**: The path to the affinity score CSV.
 
 **If uploading fails:**&#x20;
 
@@ -210,6 +180,14 @@ no_profiles = venue.setup_committee_matching(
 print(no_profiles)
 ```
 
+`setup_committee_matching` params:
+
+* **`committee_id`**: The ID of the group for which you are computing conflicts.
+* **`compute_conflicts`**: The conflict policy.
+  * We have 2 policies: `Default` and `NeurIPS`.&#x20;
+  * More information on policies can be found [here](how-to-do-automatic-assignments/how-to-setup-paper-matching-by-calculating-affinity-scores-and-conflicts.md).
+* **`compute_conflicts_n_years`**: The number of years to consider when looking at a user's History.
+
 **Returns**: A dictionary showing users with no profiles and no publications.
 
 * These users should either be removed or be reminded to sign up.
@@ -218,19 +196,11 @@ print(no_profiles)
 By assignment time there should be no email members in the group.
 {% endhint %}
 
-**setup\_committee\_matching** params:
-
-* **committee\_id**: The ID of the group for which you are computing conflicts.
-* **compute\_conflicts**: The conflict policy.
-  * We have 2 policies: `Default` and `NeurIPS`.&#x20;
-  * More information on policies can be found [here](how-to-do-automatic-assignments/how-to-setup-paper-matching-by-calculating-affinity-scores-and-conflicts.md).
-* **compute\_conflicts\_n\_years**: The number of years to consider when looking at a user's History.
-
 **If uploading fails**:&#x20;
 
 1. Delete the conflict edges.
 2. Check that the edge count is 0.
-3. Re-run setup\_committee\_matching.
+3. Re-run `setup_committee_matching`.
 
 ```python
 # Use API 2 client
