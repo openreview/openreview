@@ -208,7 +208,7 @@ By assignment time there should be no email members in the group.
 
 ```python
 # Use API 2 client
-client_v2.delete_edges(invitation='venue.get_conflict_score_id(venue.get_reviewers_id())')
+client_v2.delete_edges(invitation=venue.get_conflict_score_id(venue.get_reviewers_id()))
 
-client_v2.get_edges_count(invitation='venue.get_conflict_score_id(venue.get_reviewers_id())')
+client_v2.get_edges_count(invitation=venue.get_conflict_score_id(venue.get_reviewers_id()))
 ```
