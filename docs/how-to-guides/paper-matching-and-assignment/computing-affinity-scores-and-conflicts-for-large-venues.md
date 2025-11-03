@@ -169,6 +169,10 @@ client_v2.get_edges_count(invitation='venue.get_affinity_score_id(venue.get_revi
 
 ### 6. Computing and uploading conflicts
 
+{% hint style="warning" %}
+If SACs are assigned to ACs, you must deploy SAC assignments before computing AC conflicts. This is so that SAC conflicts can be transferred to the AC.
+{% endhint %}
+
 ```python
 venue = openreview.helpers.get_conference(client_v1, request_form_id) # Use API 1 client
 
