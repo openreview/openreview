@@ -80,7 +80,7 @@ response = client.request_expertise(
 
 ## Requesting Scores for a subset of submissions
 
-Use `request_paper_subset_expertise` function of the client to compute affinity scores for a subset of submissions and a venue group:
+Use the `request_paper_subset_expertise` function of the client to compute affinity scores for a subset of submissions and a venue group:
 
 <pre class="language-python"><code class="lang-python"><strong>response = client.request_paper_subset_expertise(
 </strong>    name='AC_Subset_Scores',
@@ -95,18 +95,56 @@ This job will compute affinity scores between all the area chairs of the confere
 
 ## Requesting Scores for a subset of users
 
-Use `request_user_subset_expertise` function of the client to compute affinity scores for all the submissions and a subset of users:
+Use the `request_user_subset_expertise` function of the client to compute affinity scores for all the submissions and a subset of users:
 
-<pre class="language-python"><code class="lang-python"><strong>response = client.request_user_subset_expertise(
-</strong>    name='AC_Subset_Scores',
+```python
+response = client.request_user_subset_expertise(
+    name='AC_Subset_Scores',
     members=['~Area_Chair1', '~Area_Chair2'],
     venue_id='Conference/Year/Submission',
     expertise_selection_id='Conference/Year/Area_Chairs/-/Expertise_Selection',
     model='specter2+scincl',
 )
-</code></pre>
+```
 
 This job will compute affinity scores between a subset of area chairs and all the active submissions.
+
+## Requesting scores between submissions of your venue
+
+Use the `request_paper_similarity` function of the client to compute affinity scores between submissions of your venue. This can help with finding duplicate submissions:
+
+```
+response = client.request_paper_similarity(
+    name='Paper-Paper-Scores',
+    venue_id='Conference/Year/Submission',
+    alternate_venue_id='Conference/Year/Submission',
+    sparse_value=5,
+    model='specter2+scincl',
+)
+```
+
+This job will compute the top 5 scores per paper among the active submissions of your venue. Since this is for papers within the same venue, pass the same value to `venue_id` and `alternate_venue_id`.
+
+If you want a file containing submission metadata with the scores, you can call `venue.compute_dual_submission_metadata()` and pass the job ID:
+
+```python
+venue = openreview.helpers.get_conference(client_v1, 'request_form_id') # API 1 client
+venue.compute_dual_submission_metadata(
+    alternate_venue=venue,
+    output_file_path='Path/To/File',
+    job_id='job_id',
+    sparse_value=5,
+    top_percent_cutoff=1,
+    author_overlap_only=False
+)
+```
+
+This creates a CSV containing paper IDs, scores, author lists, titles, and abstracts.&#x20;
+
+Since this is for papers within the same venue, pass the same venue object to `alternate_venue`. This uses the `sparse_value` and `top_percent_cutoff` to filter scores. By default, the top 1% of scores are returned.
+
+* If `author_overlap_only` is true, the file only includes rows where two papers share at least one author.
+* If `author_overlap_only` is false, the file includes all rows that meet the cutoff criteria.
 
 ## Weighing publications
 
