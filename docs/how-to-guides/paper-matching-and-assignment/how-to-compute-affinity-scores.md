@@ -61,7 +61,7 @@ In this case, **`venue_id`** is `None` because we're looking to compute scores b
 The `response` variable will contain a dictionary with your job ID, for example: `{'jobId': '12345'}`. This is the value that you will use to query the status and results of your scores.
 
 {% hint style="warning" %}
-When computing scores between SACs and ACs, the `group_id` should be the SACs and the `alternate_match_group` should be the ACs.
+For SAC-AC scores, the `group_id` should be the ACs and the `alternate_match_group` should be the SACs. This sets the column order in the results so you can [upload them as a CSV](how-to-compute-affinity-scores.md#converting-expertise-results-to-a-csv).
 {% endhint %}
 
 ## Requesting scores between a group and all papers
