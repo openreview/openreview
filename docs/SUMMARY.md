@@ -243,3 +243,6 @@
   * [Common Issues with LaTeX Code Display](reference/openreview-tex/common-issues-with-latex-code-display.md)
   * [OpenReview TeX support](reference/openreview-tex/openreview-tex-support.md)
 * [Mental Model on Blind Submissions and Revisions](reference/mental-model-on-blind-submissions-and-revisions.md)
+* [Console configuration](reference/console-configuration/README.md)
+  * [Author Console](reference/console-configuration/author-console.md)
+  * [Reviewer Console](reference/console-configuration/reviewer-console.md)
