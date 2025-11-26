@@ -83,7 +83,7 @@ for reviewer in reviewers:
 
 ### Compute conflicts between multiple reviewers and all submissions
 
-1. Get [all active submissions under review](broken-reference) and save them to a variable "submissions".
+1. Get [all active submissions under review](/broken/pages/ReOs7ESKAubL8cVC84Wm) and save them to a variable "submissions".
 2. Get the profiles for the new reviewers.
 
 ```python
@@ -115,8 +115,7 @@ for submission in submissions:
         #print(conflicts)
 ```
 
-Getting the author profiles for each submission can be inefficient if the venue has too many submissions, you can first query all the author profile ids and get all the profiles together:\
-
+Getting the author profiles for each submission can be inefficient if the venue has too many submissions, you can first query all the author profile ids and get all the profiles together:<br>
 
 ```
 all_authorids = []

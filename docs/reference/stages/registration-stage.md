@@ -91,4 +91,4 @@ If your venue has area chairs, you will see two registration buttons, one for re
 
 **How to Query**
 
-To query all registration notes submitted to your venue, follow [these instructions](broken-reference).
+To query all registration notes submitted to your venue, follow [these instructions](/broken/pages/59Bybal5opfCxbbQZVvd).

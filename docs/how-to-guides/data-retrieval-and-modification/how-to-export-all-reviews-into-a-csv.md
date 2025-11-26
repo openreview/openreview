@@ -5,7 +5,7 @@
 To export all reviews for a given venue into a csv file:
 
 1. If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).&#x20;
-2. Retrieve all of the Reviews into the a `reviews` variable. Follow this link and complete all three steps for API 2 venues to [Get All the Reviews](broken-reference)&#x20;
+2. Retrieve all of the Reviews into the a `reviews` variable. Follow this link and complete all three steps for API 2 venues to [Get All the Reviews](/broken/pages/ILgM2uZNzr0XKkEu0K5i#venues-using-api-v2)&#x20;
 3. Get the super review invitation. You can check out the [default review form](../../reference/default-forms/default-review-form.md#api-v2-json) if you need a reference. You'll need the content of the super invitation to create the headers for the .csv.
 
 ```python
@@ -47,7 +47,7 @@ with open('reviews.csv', 'w') as outfile:
 Say you want to export all of the reviews for a given venue into a csv file.&#x20;
 
 1. If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).&#x20;
-2. Retrieve all of the Reviews into a `reviews` object following the instructions [here](broken-reference).&#x20;
+2. Retrieve all of the Reviews into a `reviews` object following the instructions [here](/broken/pages/ILgM2uZNzr0XKkEu0K5i).&#x20;
 3. Next, get the super review invitation. This is the overall review invitation which each of the Paper#/-/Official\_Review invitations are based off of, and it follows the format Venue/ID/-/Official\_Review.&#x20;
 
 ```python

@@ -131,6 +131,7 @@
   * [How to enable the Review Revision Stage](how-to-guides/workflow/how-to-enable-the-review-revision-stage.md)
   * [How to remove the Abstract Registration Deadline](how-to-guides/workflow/how-to-remove-the-abstract-registration-deadline.md)
   * [Using the CustomStage](how-to-guides/workflow/using-the-customstage.md)
+  * [IEEE's eCF  Integration for Camera-Ready Submissions](how-to-guides/workflow/ieees-ecf-integration-for-camera-ready-submissions.md)
 * [Paper Matching and Assignment](how-to-guides/paper-matching-and-assignment/README.md)
   * [How to Compute Conflicts Between Users](how-to-guides/paper-matching-and-assignment/how-to-compute-conflicts-between-users.md)
   * [How to Post a Custom Conflict](how-to-guides/paper-matching-and-assignment/how-to-post-a-custom-conflict.md)

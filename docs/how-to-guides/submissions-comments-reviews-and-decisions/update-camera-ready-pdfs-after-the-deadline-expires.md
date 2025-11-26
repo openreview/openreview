@@ -38,4 +38,4 @@ After selecting the child invitation of the submission you wish to change, in th
 
 Modify the expiration date to the desired point in the future and click “Save Invitation”.
 
-The author or PCs are now free to update the PDF.\
+The author or PCs are now free to update the PDF.<br>
