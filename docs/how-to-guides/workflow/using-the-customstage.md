@@ -272,7 +272,7 @@ venue.custom_stage = openreview.stages.CustomStage(name='Author_Review_Rating',
             due_date=due_date,
             exp_date=exp_date,
             invitees=[openreview.stages.CustomStage.Participants.AUTHORS],
-            invitees=[openreview.stages.CustomStage.Participants.PROGRAM_CHAIRS],
+            readers=[openreview.stages.CustomStage.Participants.PROGRAM_CHAIRS],
             content=content,
             allow_de_anonymization=True)
 
