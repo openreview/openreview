@@ -75,6 +75,7 @@
   * [Expediting Profile Activation](getting-started/creating-an-openreview-profile/expediting-profile-activation.md)
   * [Add or remove a name from your profile](getting-started/creating-an-openreview-profile/add-or-remove-a-name-from-your-profile.md)
   * [Add or remove an email address from your profile](getting-started/creating-an-openreview-profile/add-or-remove-an-email-address-from-your-profile.md)
+  * [Selecting your pronouns](getting-started/creating-an-openreview-profile/selecting-your-pronouns.md)
   * [Finding your profile ID](getting-started/creating-an-openreview-profile/finding-your-profile-id.md)
   * [Entering Institutional Data](getting-started/creating-an-openreview-profile/entering-institutional-data.md)
   * [Importing papers from DBLP](getting-started/creating-an-openreview-profile/importing-papers-from-dblp.md)
