@@ -19,6 +19,7 @@ Reviewer Console config doc
 | submissionInvitationId      | `string`                                         | mandatory                         |
 | recruitmentInvitationId     | `string`                                         | mandatory                         |
 | customMaxPapersInvitationId | `string`                                         | mandatory                         |
+| edgeInvitationIds           | `Array.<string>`                                 | optional                          |
 | reviewLoad                  | `string` \| `number`                             | mandatory                         |
 | hasPaperRanking             | `boolean`                                        | mandatory                         |
 | reviewDisplayFields         | `Array.<string>`                                 | optional                          |
@@ -34,6 +35,7 @@ Reviewer Console config doc
   * .submissionInvitationId : `string`
   * .recruitmentInvitationId : `string`
   * .customMaxPapersInvitationId : `string`
+  * .edgeInvitationIds : `Array.<string>`
   * .reviewLoad : `string` | `number`
   * .hasPaperRanking : `boolean`
   * .reviewDisplayFields : `Array.<string>`
@@ -182,6 +184,18 @@ Related to recruitmentInvitationId and reviewLoad. The invitation to get custom 
 
 ```js
 { "customMaxPapersInvitationId": "ICLR.cc/202X/Conference/Reviewers/-/Custom_Max_Papers" }
+```
+
+#### ReviewerConsoleConfig.edgeInvitationIds : `Array.<string>`
+
+The invitations to get edge for the logged in reviewer. If edge exist the label or weight is shown at top of page. When there are multiple edges, the value is joined
+
+**Kind**: static property of `ReviewerConsoleConfig`\
+**Default**: `[]`\
+**Example**
+
+```js
+{ "edgeInvitationIds": ["ICLR.cc/202X/Conference/Reviewers/-/Review_Policy"] }
 ```
 
 #### ReviewerConsoleConfig.reviewLoad : `string` | `number`
