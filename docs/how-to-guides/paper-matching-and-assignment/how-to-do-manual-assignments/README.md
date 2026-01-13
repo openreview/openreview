@@ -2,6 +2,8 @@
 
 **If you selected "Automatic" for Submission Reviewer Assignment, instead follow the guide on** [**how to do automatic assignments**](../how-to-do-automatic-assignments/)**.** &#x20;
 
+**If you are using the new venue UI, please refer to the assignments section of the workflow** [**here**](../../../new-venue-ui-beta/)**.**
+
 {% hint style="info" %}
 The "Invite Assignment" button is not currently available for manual assignments.
 {% endhint %}
