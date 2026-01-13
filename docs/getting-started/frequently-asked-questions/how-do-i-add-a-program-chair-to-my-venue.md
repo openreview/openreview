@@ -8,3 +8,6 @@ After your venue is deployed, add Program Chair(s) by going to your Venue Reques
 Do not add members to the Program Chairs group directly. This will temporarily give the user access, but any changes to the venue configuration page will reset this group's membership to the users listed in the venue configuration page.&#x20;
 {% endhint %}
 
+{% hint style="info" %}
+If you receive the following message `Error: The value [VALUE] in field program_chair_emails does not match the invitation definition` , please check the formatting of the field, in particular that each PC email is comma-separated.
+{% endhint %}
