@@ -5,12 +5,20 @@ All exercises should be practiced on the dev site. For any exercise, you will ne
 1. Review the documentation [here](../../how-to-guides/workflow/how-to-test-your-venue-workflow.md) and create a venue request for the dev site.
 2. Instantiate the python client using your dev profile credentials:
 
-```
+```python
 import openreview
-client = openreview.api.Client(
+# API 1 client
+dev_client_v1 = openreview.Client(
+    baseurl='https://devapi.openreview.net',
+    username=dev_username,
+    password=dev_pass
+)
+
+# API 2 client
+dev_client_v2 = openreview.api.OpenReviewClient(
     baseurl='https://devapi2.openreview.net',
-    username=<your dev username>,
-    password=<your dev password>
+    username=dev_username,
+    password=dev_pass
 )
 ```
 
