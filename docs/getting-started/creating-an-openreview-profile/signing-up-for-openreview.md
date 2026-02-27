@@ -6,33 +6,31 @@ To create a profile, go to [https://openreview.net/signup](https://openreview.ne
 
 By checking the confirmation box, existing profiles with your name will be listed.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-10-18 at 11.03.49 AM.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-02-27 at 11.14.59 AM.png" alt=""><figcaption><p>Enter your full name on the signup page and click the confirmation checkbox.</p></figcaption></figure>
 
-Then, take one of the following actions, depending on whether there is a pre-created account, you already have a partial or complete OpenReview Profile, or you are signing up for the first time.
+Enter an email address and click the "Sign Up" button. You'll be prompted to create a password.
 
 {% hint style="info" %}
 OpenReview restricts duplication of certain profile information. Users who create multiple accounts will run into errors when updating their profile, so it is recommended that you make a new account only if there is no existing account.
 {% endhint %}
 
-#### Existing Profile Error
+#### Existing Profile Email
 
-If an error appears saying your email is already listed to a profile, this means that there may be a pre-created profile in OpenReview with your name. These are often associated with DBLP urls, and if you believe an account should belong to you, follow the directions to [Sign Up](https://openreview.net/signup) with your full name matching the profile ID in the error. Enter your email, click "signup", and enter a password, then proceed to the Profile Registration step.
+If a profile registered to this email already exists, an email is sent to that address to notify them.&#x20;
 
-#### **Send Activation Link**
+#### **Resend Activation Link**
 
-If there is a profile created with your name, but you didn't finish the activation process, you will see this option. Enter your email address and click ‘Send Activation Link’, you will receive an email with a link that will bring you to the OpenReview [registration page](signing-up-for-openreview.md#profile-registration) (Step 2).
-
-If you do not receive an activation email, refer to: [Resending an activation link](resending-an-activation-link.md)
+If there is a profile created with your name, but you didn't finish the activation process, you can resend the confirmation link, refer to: [Resending an activation link](resending-an-activation-link.md). Enter your email address and click ‘Didn't receive email confirmation?’, you will receive an email with a link that will bring you to the OpenReview [registration page](signing-up-for-openreview.md#profile-registration) (Step 2).
 
 #### **Reset Password**
 
-Existing active accounts will show up with the 'Reset Password' option, and the email domains associated with the account will be displayed. If you believe one of these is your profile, click 'Reset Password', enter your email address and click 'Reset Password' again to send a password reset email.
+If you don't remember the password to your profile and your profile is active, from the [login page](https://openreview.net/login) click on the 'Forgot your password?' link. You can also visit the [Request Password Reset](https://openreview.net/reset) page to send a password reset link to your registered email.
 
 If you do not receive a password reset email, refer to: [I didn't receive a password reset email, what do I do?](../frequently-asked-questions/i-didnt-receive-a-password-reset-email-what-do-i-do.md)
 
 #### **Create a new account**
 
-If no existing profiles belong to you and you would like to create a new one, you can fill in your email address in the text field next to the ‘Sign Up’ option and click the 'Sign Up' button. We recommend that you sign up with your institutional (university, company, or organization) email.
+If you have no existing profile, to create a new one fill in your email address in the text field next to the ‘Sign Up’ option and click the 'Sign Up' button. We recommend that you sign up with your institutional (university, company, or organization) email.
 
 If you sign up with a public domain or an email domain that is not included in our institution list you will see a warning:
 
@@ -57,6 +55,9 @@ Note: A landing page for an entire company, institution, or department, or a soc
 If you do not have an institutional affiliation, you may sign up as an Independent Researcher. See [here](../frequently-asked-questions/i-am-an-independent-researcher-how-do-i-sign-up.md) for detailed instructions on what to include in your profile.
 
 #### Common issues for Profile registration:
+
+* **Validation errors for career/education history or institutional data**: See See Entering Institutional Data for a detailed description and examples.
+* **Homepage duplication:** If you get an error that one of your links can't be added, it is either in the wrong format or already added to another account. Check that there are no exiting profiles with your email, and if you still don't recognize the account listed in the error, contact OpenReview Support through our [Feedback form](https://openreview.net/contact).
 
 ### 3. Moderation
 
