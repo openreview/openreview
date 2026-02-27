@@ -26,7 +26,7 @@ After creating an account, you can set your preferred email to your personal ema
 
 ### I have an institutional email in my profile, why is my profile still pending?
 
-Please check that your email has (confirmed) next to it in your profile page. If your email is confirmed, it is likely that your institution has not yet been added to our list. Submit a request for us to add your institution to our list through our Feedback form.
+Please check that your email has (confirmed) next to it in your profile page. If your email is confirmed, it is likely that your institution has not yet been added to our list. We routinely add new domains to the institution list.
 
 ### I don’t have an institutional email, what else can I do to speed up the process?
 

@@ -4,4 +4,4 @@ Participants signing up for an OpenReview profile will notice a [warning if they
 
 The warning was added by the staff in response to an increase in the number of fake/spam profiles being submitted with public domains, delaying moderation.&#x20;
 
-We encourage users to signup with their institutional (industry/government/university/research org) email domains to bypass moderation. "Institutional" in this case is defined as an established organization or corporation. If your domain is not recognized, please contact us through the feedback form shared in the signup page warning to add your domain to our list.&#x20;
+We encourage users to signup with their institutional (industry/government/university/research org) email domains to bypass moderation. "Institutional" in this case is defined as an established organization or corporation. If your domain is not recognized, please submit to moderation, we routinely add new domains to the list.

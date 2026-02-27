@@ -36,9 +36,9 @@ If no existing profiles belong to you and you would like to create a new one, yo
 
 If you sign up with a public domain or an email domain that is not included in our institution list you will see a warning:
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2024-01-04 at 5.02.31 PM.png" alt="The warning reads: gmail.com does not appear in our list of publishing institutions. It can take up to 2 weeks for profiles using public email services to be activated. To activate immediately, please sign up with an email address that uses an educational or employing institution domain. If your institution is not yet in our list, contact us to request that it be added."><figcaption><p>Email domain warning.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-02-27 at 10.20.10 AM.png" alt="The warning reads: gmail.com does not appear in our list of publishing institutions. It can take up to 2 weeks for profiles using public email services to be activated. To activate immediately, please sign up with an email address that uses an educational or employing institution domain. If your institution is not yet in our list, contact us to request that it be added."><figcaption><p>Email domain warning.</p></figcaption></figure>
 
-If you are using an institutional email and get this warning, contact support using Feedback to ask that your domain be added to the list. Signing up with a public domain may take up to 2 weeks in moderation. See [here](expediting-profile-activation.md) for tips on expediting this process.
+If you are using an institutional email and get this warning, please proceed with registration, we routinely add new, verified domains to the list. Signing up with a public domain may take up to 2 weeks in moderation. See [here](expediting-profile-activation.md) for tips on expediting this process.
 
 After typing your email you will then be prompted to enter a new password and send a confirmation email. Clicking the link in the confirmation email will bring you to the registration page.
 
@@ -57,10 +57,6 @@ Note: A landing page for an entire company, institution, or department, or a soc
 If you do not have an institutional affiliation, you may sign up as an Independent Researcher. See [here](../frequently-asked-questions/i-am-an-independent-researcher-how-do-i-sign-up.md) for detailed instructions on what to include in your profile.
 
 #### Common issues for Profile registration:
-
-* **Validation errors for career/education history or institutional data**: See See [Entering Institutional Data](entering-institutional-data.md) for a detailed description and examples.
-* **Relation not found in the dropdown menu**: If none of the existing relations are appropriate, you may type in a custom relationship to the textbox.
-* **Homepage duplication:** If you get an error that one of your links can't be added, it is either in the wrong format or already added to another account. Check that there are no exiting profiles with your email, and if you still don't recognize the account listed in the error, contact OpenReview Support through our [Feedback form](https://openreview.net/contact).
 
 ### 3. Moderation
 
