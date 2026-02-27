@@ -248,3 +248,4 @@
 * [Console configuration](reference/console-configuration/README.md)
   * [Author Console](reference/console-configuration/author-console.md)
   * [Reviewer Console](reference/console-configuration/reviewer-console.md)
+  * [Area Chair Console](reference/console-configuration/area-chair-console.md)
