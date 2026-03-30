@@ -1,5 +1,17 @@
 # How to get email addresses
 
+Emails in profiles are obfuscated for everyone including program chairs. However, to perform necessary actions, program chairs sometimes need to retrieve a user's email address to contact them.
+
+To get the preferred email address from a profile, a program chair should first impersonate the venue:
+
+1. Install the [openreview python library and create a client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).
+2. Impersonate the venue.
+
+```
+venue_id = '' # For example, 'aclweb.org/ACL/ARR/2025/February'
+client_v2.impersonate(venue_id)
+```
+
 ### Get Preferred Emails
 
 Emails can be retrieved for users by including `with_preferred_emails` in the call to `get_profiles`. &#x20;
