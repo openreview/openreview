@@ -135,7 +135,68 @@ client_v1.post_note(support_request)
 
 ## 2. Editing Notes
 
-Editing notes in API2 is done the same way as creating notes, by posting a note edit with new values for the fields.&#x20;
+Editing notes in API2 is done the same way as creating notes, by posting a note edit with new values for the fields. The basic note structure looks like this<br>
+
+<pre class="language-python"><code class="lang-python"><strong>note = openreview.api.Note(
+</strong>    invitation = 'OpenReview.net/Support/-/Request_Form', 
+    readers = ["OpenReview.net/Support"] + program_chair_emails,
+    writers = ["OpenReview.net/Support"] + program_chair_emails,
+    content = content,
+    signatures = [
+        &#x3C;your_profile_id>
+    ]
+
+</code></pre>
+
+The typical workflow for editing a note is this:&#x20;
+
+<pre class="language-python"><code class="lang-python"><strong>##get note
+</strong><strong>note_to_change = client_v2.get_note(&#x3C;note_id>)
+</strong><strong>##modify note
+</strong><strong>new_content = note_to_change.content
+</strong><strong>new_content[&#x3C;field>]["value"] = new_value
+</strong><strong>
+</strong><strong>##post change to venue
+</strong>client_v2.post_note_edit(invitation=&#x3C;venue_id>/Edit,
+        signatures=[venue_id],
+        note=openreview.api.Note(
+            id=note_to_change.id,
+            readers=note_to_change.readers,
+            content=new_content
+        )
+    )
+<strong>
+</strong><strong>
+</strong></code></pre>
+
+**Editing fields:** To edit fields, you can edit the `content` object within the note. This is a dictionary object with the key as field names and the following structure:
+
+```
+'authorids': {'readers': ['TC/2024/Conference',
+                                       'TC/2024/Conference/Submission1/Authors'],
+               'value': ['~SomeFirstName_User1',
+                           'author@mail.com',
+                           'andrew1@amazon.com']},
+```
+
+The `value`  is the value of the field, while the `readers` are who can see the field (see below).
+
+So to update the 'authorids' field, you would update `new_content['authorids']['value']`
+
+**Editing field readers:** The visibility of individual fields can be controlled by adding, removing, or editing the `readers` property of each field. This takes a list of ID or group names.&#x20;
+
+Common types of readers are:&#x20;
+
+* \["everyone"] - Public note, anyone can read it
+* \[\<venue\_id>] - Visible only to Program Chairs
+* \[\<venue\_id>, \<venue\_id>/Senior\_Area\_Chairs] - Visible only to Program Chairs and SACs
+* \[\<venue\_id>, \<venue\_id./Submission1/Authors] - Visible to the Program Chairs and the authors of Submission1
+
+{% hint style="info" %}
+The readers for individual fields should always consist of a subset of the note readers.
+{% endhint %}
+
+**Editing note readers:** To edit the readers of the entire note, you would edit the `readers` parameter of the entire Note object. This takes a list of ID or group names.&#x20;
 
 ### Quickstart: Update the readers of a note or field
 

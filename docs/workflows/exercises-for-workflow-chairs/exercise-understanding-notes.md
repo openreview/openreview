@@ -54,7 +54,7 @@ Run the following code, the output should match the number of submissions in you
 print(len(submissions))
 ```
 
-#### 4. Edit a Submission
+#### 4a. Edit a Submission - Title
 
 **Task**: Choose one of your submissions and edit the title\
 **Hints**:
@@ -63,6 +63,26 @@ print(len(submissions))
 
 **Check your work:**\
 Check the submission page on the OpenReview site. The submission should show the new title. When you click 'Show Revisions', you should see the old title in the original edit, and the current title in a more recent edit.&#x20;
+
+#### 4b. Edit a Submission - Readers
+
+**Task**: Choose one of your submissions and change the readers to \['everyone'], then change it back to its original settings\
+**Hints**:
+
+* Same guide: [**How to create, change, and delete notes**](https://docs.openreview.net/how-to-guides/workflow/how-to-create-change-and-delete-notes) — _Update the readers of a note_
+
+**Check your work:**\
+Check the submission page on the OpenReview site. There should be a property just under the title of the submission with the readers of the note listed.
+
+#### 4c. Edit a Submission - Field Readers
+
+**Task**: Choose one of your submissions and edit the readers of the `author_ids` field\
+**Hints**:
+
+* Same guide: [**How to create, change, and delete notes**](https://docs.openreview.net/how-to-guides/workflow/how-to-create-change-and-delete-notes) — _Update the field readers of a note_
+
+**Check your work:**\
+Check the submission page on the OpenReview site. There should be an eye icon next to the edited field saying who the readers of the field are
 
 #### 5. Delete a Note
 

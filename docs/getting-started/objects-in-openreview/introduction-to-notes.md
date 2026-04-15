@@ -2,7 +2,8 @@
 
 See also:
 
-* [Technical Reference for Notes](../../reference/api-v1/entities/note/)
+* [How-to guide for notes](../../how-to-guides/workflow/how-to-create-change-and-delete-notes.md)
+* [T](../../reference/api-v1/entities/note/)[echnical Reference for Notes](../../reference/api-v1/entities/note/)
 * [Guide for getting notes (submissions, reviews, etc)](../../how-to-guides/data-retrieval-and-modification/how-to-get-all-notes-for-submissions-reviews-rebuttals-etc.md)
 * [Guide for exporting submission and other information](../../how-to-guides/data-retrieval-and-modification/how-to-loop-through-accepted-papers-and-print-the-authors-and-their-affiliations.md)
 
