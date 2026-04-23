@@ -2,6 +2,22 @@
 
 For an overview and basics of form customization, see the comprehensive [Customizing Forms](../customizing-forms.md).&#x20;
 
+
+
+### For Conference Review Workflow Venues:
+
+
+
+To make changes to your submission form, navigate to your Workflow Timeline. Then go to the "Submission" Step — > Edit Fields — > Widget. This will allow you to edit the fields in your submission form.
+
+{% hint style="info" %}
+To hide a new field from reviewers, go to "Submission Change Before Bidding" and/or "Submission Change Before Reviewing" — > Edit Hide Fields. You can check which fields are visible to reviewers by going to any submission page and hovering over the eye icon next to the field name.
+{% endhint %}
+
+
+
+### For Request Form Venues:
+
 You can customize the [default submission form](../../reference/default-forms/default-submission-form.md) for your venue using the  [Revision](../../reference/stages/revision.md) button on your [venue request form](navigating-your-venue-pages.md#venue-request-form).  In the 'Additional Submission Options', field, enter valid JSON with the fields that you would like to add or change in your form. Shown below is an example of adding a field for authors to nominate a reviewer from the author list of their paper.
 
 {% tabs %}
