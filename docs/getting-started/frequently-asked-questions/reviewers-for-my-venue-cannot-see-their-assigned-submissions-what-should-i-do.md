@@ -4,7 +4,15 @@ In order for a reviewer to see their assigned submissions, they need to be logge
 
 If a specific reviewer cannot access their assigned submission, they may need to check that the email they received the invitation to is added and confirmed to their account- The email should be listed in their profile with (Confirmed) next to it. If this is not the case, they should follow the steps to [add an email ](../creating-an-openreview-profile/add-or-remove-an-email-address-from-your-profile.md)to their account.
 
-If all reviewers cannot access the forum page of their assigned submission, check that they are readers of the submission they are assigned to. On the [Venue Request Form](../hosting-a-venue-on-openreview/navigating-your-venue-pages.md), make sure that the Submission Readers field includes reviewers.  If reviewers are not listed as a reader, update the [Post Submission](../../reference/stages/post-submission-stage.md) stage to add them as readers for their submissions.
+If all reviewers cannot access the forum page of their assigned submission, check that they are readers of the submission they are assigned to.&#x20;
+
+### Conference Review Workflow Venues
+
+Reviewers are made readers of submissions in the Submission Change Before Reviewing step in the Workflow Timeline. If the step has not run yet, you can edit the date to the current time to activate the stage.&#x20;
+
+### Request Form Venues
+
+&#x20;On the [Venue Request Form](../hosting-a-venue-on-openreview/navigating-your-venue-pages.md), make sure that the Submission Readers field includes reviewers.  If reviewers are not listed as a reader, update the [Post Submission](../../reference/stages/post-submission-stage.md) stage to add them as readers for their submissions.
 
 
 
