@@ -4,10 +4,10 @@
 
 * [OpenReview Documentation](README.md)
 
-## New Venue UI (beta)
+## Conference Review Workflow
 
-* [Overview](new-venue-ui-beta/overview.md)
-* [Example Workflow](new-venue-ui-beta/readme.md)
+* [Overview](conference-review-workflow/overview.md)
+* [Example Workflow](conference-review-workflow/new-venue-ui-beta.md)
 
 ## Reports
 
@@ -88,15 +88,15 @@
 * [Using the New Forum Page](getting-started/using-the-new-forum-page.md)
 * [Live Chat on the Forum Page](getting-started/live-chat-on-the-forum-page.md)
 
-## Workflows
+## Venue Request Workflow
 
-* [Example Workflow](workflows/conferences.md)
-* [ARR Commitment Venues](workflows/arr-commitment-venues.md)
-* [Exercises for workflow chairs](workflows/exercises-for-workflow-chairs/README.md)
-  * [Prerequisites](workflows/exercises-for-workflow-chairs/prerequisites.md)
-  * [Exercise: Posting LLM generated reviews](workflows/exercises-for-workflow-chairs/exercise-posting-llm-generated-reviews.md)
-  * [Exercise: Understanding Notes](workflows/exercises-for-workflow-chairs/exercise-understanding-notes.md)
-  * [Exercise: Getting profile information](workflows/exercises-for-workflow-chairs/exercise-getting-profile-information.md)
+* [Example Workflow](venue-request-workflow/conferences.md)
+* [ARR Commitment Venues](venue-request-workflow/arr-commitment-venues.md)
+* [Exercises for workflow chairs](venue-request-workflow/exercises-for-workflow-chairs/README.md)
+  * [Prerequisites](venue-request-workflow/exercises-for-workflow-chairs/prerequisites.md)
+  * [Exercise: Posting LLM generated reviews](venue-request-workflow/exercises-for-workflow-chairs/exercise-posting-llm-generated-reviews.md)
+  * [Exercise: Understanding Notes](venue-request-workflow/exercises-for-workflow-chairs/exercise-understanding-notes.md)
+  * [Exercise: Getting profile information](venue-request-workflow/exercises-for-workflow-chairs/exercise-getting-profile-information.md)
 
 ## How-To Guides
 

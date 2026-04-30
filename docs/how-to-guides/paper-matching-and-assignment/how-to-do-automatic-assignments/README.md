@@ -1,6 +1,6 @@
 # How to do automatic assignments
 
-**If you are using the new venue UI, please refer to the assignments section of the workflow** [**here**](../../../new-venue-ui-beta/)**.**
+**If you are using the new venue UI, please refer to the assignments section of the workflow** [**here**](../../../conference-review-workflow/new-venue-ui-beta.md)**.**
 
 Venues that selected 'Automatic' for 'Submission Reviewer Assignment' in the venue request form will have the option to use automatic assignment by doing the following:
 

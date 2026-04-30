@@ -1,6 +1,6 @@
 # Computing Affinity Scores and Conflicts for large venues
 
-**Note:** This document is for large venues (>2000 submissions) that need to manually calculate scores and conflicts. Smaller venues should refer to the directions [here](../../workflows/conferences.md).
+**Note:** This document is for large venues (>2000 submissions) that need to manually calculate scores and conflicts. Smaller venues should refer to the directions [here](../../venue-request-workflow/conferences.md).
 
 ### Overview
 
