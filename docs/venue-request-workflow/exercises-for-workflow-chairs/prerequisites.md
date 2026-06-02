@@ -9,14 +9,14 @@ All exercises should be practiced on the dev site. For any exercise, you will ne
 import openreview
 # API 1 client
 dev_client_v1 = openreview.Client(
-    baseurl='https://devapi.openreview.net',
+    baseurl='https://api.dev.openreview.net',
     username=dev_username,
     password=dev_pass
 )
 
 # API 2 client
 dev_client_v2 = openreview.api.OpenReviewClient(
-    baseurl='https://devapi2.openreview.net',
+    baseurl='https://api2.dev.openreview.net',
     username=dev_username,
     password=dev_pass
 )
