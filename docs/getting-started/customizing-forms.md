@@ -1,12 +1,24 @@
 ---
 description: >-
   A guide for program chairs on how to customize the different forms available
-  to the reviewing committee
+  to the reviewing committee.
 ---
 
 # Customizing Forms
 
 ## Where to customize forms
+
+#### For Conference Review Workflow Venues:
+
+The form fields for all invitations are modified via the [Workflow Timeline](https://docs.openreview.net/conference-review-workflow/overview#id-2.-accessing-the-workflow-console). Here's an example of where to edit the fields for the submission form.&#x20;
+
+<figure><img src="../.gitbook/assets/Screenshot 2026-06-10 at 10.55.55 AM.png" alt="This image is a screenshot of the Submission invitation edit interface. It is cropped to focus on the section on editing form fields." width="375"><figcaption><p>Screenshot of the Submission Invitation edit interface, <br>focused on how to edit form fields.</p></figcaption></figure>
+
+However, at this time, `readers` can only be added to fields via the JSON content tab, this is very similar to the [original Request Form Venues](customizing-forms.md#for-request-form-venues). Please see [this guide](customizing-forms.md#setting-the-readers-of-a-field) about adding readers to fields to limit which groups can see them.
+
+<figure><img src="../.gitbook/assets/Screenshot 2026-06-10 at 10.56.07 AM.png" alt="Screenshot of the Edit form fields interface, focused on the various tabs starting with left to right: &#x22;Content JSON&#x22;, &#x22;Widgets&#x22;, and &#x22;Preview&#x22;" width="375"><figcaption><p>Screenshot of the Edit Form Fields interface, <br>and the tabs to edit and preview the fields.</p></figcaption></figure>
+
+#### For Request Form Venues:
 
 Many OpenReview forms are customizable from the different buttons on the [venue request form](hosting-a-venue-on-openreview/navigating-your-venue-pages.md). You can find where to input your customizations by clicking on a button (for example, "**Review Stage**") and finding the large text box under "**Additional \_\_\_\_\_ Options**". Under "**Revision**", you'll find that this box modifies the submission form under the heading "**Additional Submission Options**". For the "**Review Stage**", the heading will be "**Additional Review Form Options**"
 
@@ -94,10 +106,10 @@ The `input` specifier determines the rendering on the form and can have the foll
 
 Validation specifiers are used by the back-end to ensure data submitted through the form conforms to certain requirements. In the example above, only a single string is allowed, and that string must be one of the values defined in the `enum` array. Specifically, a string that has the value "`Test Submission Title`"
 
-`optional` is a boolean (true/false) value that indicates whether or not this field is required to be present when the form is submitted. By default all fields in the form are required, and you can add `optional : true` to indicate a required field.
+`optional` is a boolean (true/false) value that indicates whether or not this field is required to be present when the form is submitted. By default all fields in the form are required, and you can add `optional : true` to indicate an optional field.
 
 {% hint style="info" %}
-Required fields have their field names prefixed with an asterisk
+Required fields have their field names prefixed with an asterisk in the preview tab and note edit interface.
 {% endhint %}
 
 `type` specifiers require the input to be of a specific type:  options are `string`, `string[]` (string array) and `file`.
@@ -105,10 +117,10 @@ Required fields have their field names prefixed with an asterisk
 `string` fields can be further validated by using fields to describe the structure of a valid string input. Some of these field are:
 
 * `"maxLength":`  set the maximum number of characters of the input
-* `"minLength":`set the minimum number of characters of the input
-* `"regex":` use regular expressions to define acceptable string structures
-* `"enum":` restrict the user to a predefined set of strings
-* `"items":` an array of strings as indicated by its type (only used with `type: string[]` ) \*\*
+* `"minLength":` set the minimum number of characters of the input
+* `"regex":`  use regular expressions to define acceptable string structures
+* `"enum":`  restrict the user to a predefined set of strings
+* `"items":`  an array of strings as indicated by its type (only used with `type: string[]` ) \*\*
 
 \*\* All values in `"items"` will be considered required unless specified otherwise with `"optional": true`. Please see [multiple choices](customizing-forms.md#multiple-choices) for an example.
 
@@ -121,10 +133,6 @@ Extensions that have a "." in them are **not** supported. The following field wo
 "extensions": ["zip", "tar.gz"]
 ```
 {% endhint %}
-
-
-
-
 
 ## Examples of Common Form Patterns
 
@@ -358,7 +366,7 @@ Extensions that have a "." in them are **not** supported. The following field wo
 
 ### Setting the Readers of a Field
 
-If you want to limit who in the committee can see a particular field in a form, this is done by adding a `readers` field. Please follow this link for more detailed information on [hiding or revealing fields](../how-to-guides/submissions-comments-reviews-and-decisions/how-to-hide-reveal-fields.md). Below are two examples, one for the [submission form](hosting-a-venue-on-openreview/customizing-your-submission-form.md) and one for the meta review form. Notice the different use of dollar sign notation. The notation used for the meta review form will also work for other replies to the forum: reviews, comments, and decisions.
+If you want to limit who in the committee can see a particular field in a form, this is done by adding a `readers` field. Please follow this link for more detailed information on [hiding or revealing fields](../how-to-guides/submissions-comments-reviews-and-decisions/how-to-hide-reveal-fields.md). Below are two examples, one for the [submission form](hosting-a-venue-on-openreview/customizing-your-submission-form.md) and one for the meta review form. Notice the different use of dollar sign notation. The notation used for the meta review form will also work for other replies to the forum: reviews, comments, and decisions. Please scroll to see how best to setup `readers`  depending on which venue configuration was deployed.
 
 {% tabs %}
 {% tab title="Submission" %}
@@ -417,3 +425,4 @@ If you want to limit who in the committee can see a particular field in a form, 
 ```
 {% endtab %}
 {% endtabs %}
+
