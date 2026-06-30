@@ -71,13 +71,13 @@ Each of these steps needs to be completed for each group being matched (e.g. Are
 
 Most venues assign SACs to submissions by first assigning them to Area Chairs. Here you may decide whether to have SACs automatically assigned to ACs or [allow them to bid on ACs ](../how-to-guides/workflow/how-to-enable-bidding-for-senior-area-chair-assignment.md)based on affinity scores by following steps 1-5 above.&#x20;
 
-To assign SACs to ACs, choose 'Senior Area Chairs' as the matching group in paper matching setup. Then in the Paper Matching Stage, SACs will be the matching group, and ACs will be in the Submissions field.&#x20;
+Before assigning SACs to ACs, run Paper Matching Setup, choose 'Senior Area Chairs' as the matching group, and compute affinity scores. Then in the Assignment Configuration, SACs will be the match group, and ACs will be in the Submissions field.&#x20;
 
-Note: Matching between SACs and ACs will not calculate conflicts. Instead, the conflicts to the SACs will be transferred to the ACs and calculated at the AC matching stage.
+**Note**: Paper Matching Setup between SACs and ACs will not calculate conflicts. Most venues don't need this conflict check for SAC-AC assignments.
 
 Program Chairs can make reassignments after the proposed assignments are deployed or [undeploy](../how-to-guides/paper-matching-and-assignment/how-to-undo-deployed-assignments.md) assignments.
 
-**It is very important to deploy Senior Area Chair assignments before assigning submissions to Area Chairs to allow conflicts to be transferred successfully.**
+**You must deploy SAC-AC assignments before calculating AC-Paper conflicts.** If an SAC has a conflict with a paper, we transfer that conflict to their AC so that the AC won't get assigned to that paper.
 
 If you decide to directly assign Senior Area Chairs to submissions, skip to step 12.&#x20;
 
@@ -88,7 +88,7 @@ The next step is to assign the program committee to each submission. If your con
 It is very important that all Program Committee members (Senior Area Chairs, Area Chairs, and Reviewers) have a complete OpenReview profile (an active profile with at least one active institution and one publication).  We recommend removing from the committee groups all the profiles that are not complete before running the matching system.
 
 {% hint style="info" %}
-To make sure that the program committee can access their assignments, ensure that they are listed as readers in the Submission Readers field of the venue request form, othewise update this value in the Post Submission stage.
+To make sure that the program committee can access their assignments, ensure that they are listed as readers in the Submission Readers field of the venue request form, otherwise update this value in the Post Submission stage.
 {% endhint %}
 
 #### 12. (Optional) Bidding period for Senior Area Chairs, Area Chairs and Reviewers
