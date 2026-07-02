@@ -218,6 +218,7 @@
       * [Inference](reference/api-v2/entities/edit/inference.md)
     * [Profile](reference/api-v2/entities/profile/README.md)
       * [Fields](reference/api-v2/entities/profile/fields.md)
+* [Sign in with OpenReview](reference/sign-in-with-openreview.md)
 * [Stages](reference/stages/README.md)
   * [Revision](reference/stages/revision.md)
   * [Registration Stage](reference/stages/registration-stage.md)
