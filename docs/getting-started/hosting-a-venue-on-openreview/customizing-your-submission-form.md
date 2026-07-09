@@ -1,12 +1,8 @@
 # Customizing your submission form
 
-For an overview and basics of form customization, see the comprehensive [Customizing Forms](../customizing-forms.md).&#x20;
-
-
+For an overview and basics of form customization, see the comprehensive [Customizing Forms](../customizing-forms.md).
 
 ### For Conference Review Workflow Venues:
-
-
 
 To make changes to your submission form, navigate to your Workflow Timeline. Then go to the "Submission" Step — > Edit Fields — > Widget. This will allow you to edit the fields in your submission form.
 
@@ -14,17 +10,13 @@ To make changes to your submission form, navigate to your Workflow Timeline. The
 To hide a new field from reviewers, go to "Submission Change Before Bidding" and/or "Submission Change Before Reviewing" — > Edit Hide Fields. You can check which fields are visible to reviewers by going to any submission page and hovering over the eye icon next to the field name.
 {% endhint %}
 
-
-
 ### For Request Form Venues:
 
-You can customize the [default submission form](../../reference/default-forms/default-submission-form.md) for your venue using the  [Revision](../../reference/stages/revision.md) button on your [venue request form](navigating-your-venue-pages.md#venue-request-form).  In the 'Additional Submission Options', field, enter valid JSON with the fields that you would like to add or change in your form. Shown below is an example of adding a field for authors to nominate a reviewer from the author list of their paper.
+You can customize the [default submission form](../../reference/default-forms/default-submission-form.md) for your venue using the [Revision](../../reference/stages/revision.md) button on your [venue request form](navigating-your-venue-pages.md#venue-request-form). In the 'Additional Submission Options', field, enter valid JSON with the fields that you would like to add or change in your form. Shown below is an example of adding a field for authors to nominate a reviewer from the author list of their paper.
 
 {% tabs %}
 {% tab title="Website" %}
 <figure><img src="../../.gitbook/assets/Screenshot 2024-11-06 at 2.58.20 PM.png" alt=""><figcaption></figcaption></figure>
-
-
 {% endtab %}
 
 {% tab title="JSON" %}
@@ -48,6 +40,35 @@ You can customize the [default submission form](../../reference/default-forms/de
 The resulting field in the submission form would look like this:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-08-20 at 10.59.52 AM.png" alt=""><figcaption></figcaption></figure>
+
+The above field allows authors of submissions to nominate one or more co-authors to serve as reviewer. In order to check that the co-authors being added to this field are indeed an author of the submission, you need to add the following preprocess function to the submission invitation.
+
+```
+async function process(client, edit, invitation) {
+    client.throwErrors = true
+    
+    const { note } = edit
+
+    if (note.ddate) {
+      return
+    }
+
+    const profiles = await client.tools.getProfiles(note.content.authorids.value)
+    const profileIds = profiles.map(profile => profile.id)
+
+    let reviewerAuthorField = note.content.serve_as_reviewer?.value
+    if (reviewerAuthorField) {
+      const reviewerAuthorFields = Array.isArray(reviewerAuthorField) ? reviewerAuthorField : [reviewerAuthorField]
+      const reviewerAuthorProfiles = await client.tools.getProfiles(reviewerAuthorFields.map(field => field.includes('@') ? field.toLowerCase() : field))
+      const invalidReviewerAuthor = reviewerAuthorProfiles.find(elem => !profileIds.includes(elem.id));
+      if (invalidReviewerAuthor) {
+        return Promise.reject(new OpenReviewError({ name: 'Error', message: 'Enter a paper co-author to serve as a reviewer. ' + invalidReviewerAuthor.id + ' does not appear in the author list' }))
+      }
+    }
+}
+```
+
+To add this preprocess code, navigate to your venue's submission invitation: https://openreview.net/invitation/edit?id={venue\_id}/-/Submission, scroll down to the process functions and click on the "Pre Process" tab.&#x20;
 
 ## Common Customizations
 
@@ -74,7 +95,7 @@ The resulting field in the submission form would look like this:
 
 ### Limit read-permissions for certain fields
 
-The `readers` field can be used to list who will be allowed to read a specific field of the submission form. The example below limits the readers of the `private comments` field to just authors, Assigned Senior Area Chairs, and Program Chairs.&#x20;
+The `readers` field can be used to list who will be allowed to read a specific field of the submission form. The example below limits the readers of the `private comments` field to just authors, Assigned Senior Area Chairs, and Program Chairs.
 
 Note: Authors will not be able to read these fields if they are not in the readers list
 
@@ -97,8 +118,6 @@ Note: Authors will not be able to read these fields if they are not in the reade
   }
 }
 ```
-
-
 
 ### Adding tracks to your venue
 
@@ -125,4 +144,3 @@ Once you have [reviewed our support for "tracks" in a single venue](../../how-to
   }
 }
 ```
-
