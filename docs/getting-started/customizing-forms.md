@@ -10,13 +10,13 @@ description: >-
 
 #### For Conference Review Workflow Venues:
 
-The form fields for all invitations are modified via the [Workflow Timeline](https://docs.openreview.net/conference-review-workflow/overview#id-2.-accessing-the-workflow-console). Here's an example of where to edit the fields for the submission form.&#x20;
+The form fields for all invitations are modified via the [Workflow Timeline](https://docs.openreview.net/conference-review-workflow/overview#id-2.-accessing-the-workflow-console). Here's an example of where to edit the fields for the submission form.
 
-<figure><img src="../.gitbook/assets/Screenshot 2026-06-10 at 10.55.55 AM.png" alt="This image is a screenshot of the Submission invitation edit interface. It is cropped to focus on the section on editing form fields." width="375"><figcaption><p>Screenshot of the Submission Invitation edit interface, <br>focused on how to edit form fields.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-06-10 at 10.55.55 AM.png" alt="This image is a screenshot of the Submission invitation edit interface. It is cropped to focus on the section on editing form fields." width="375"><figcaption><p>Screenshot of the Submission Invitation edit interface,<br>focused on how to edit form fields.</p></figcaption></figure>
 
 However, at this time, `readers` can only be added to fields via the JSON content tab, this is very similar to the [original Request Form Venues](customizing-forms.md#for-request-form-venues). Please see [this guide](customizing-forms.md#setting-the-readers-of-a-field) about adding readers to fields to limit which groups can see them.
 
-<figure><img src="../.gitbook/assets/Screenshot 2026-06-10 at 10.56.07 AM.png" alt="Screenshot of the Edit form fields interface, focused on the various tabs starting with left to right: &#x22;Content JSON&#x22;, &#x22;Widgets&#x22;, and &#x22;Preview&#x22;" width="375"><figcaption><p>Screenshot of the Edit Form Fields interface, <br>and the tabs to edit and preview the fields.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-06-10 at 10.56.07 AM.png" alt="Screenshot of the Edit form fields interface, focused on the various tabs starting with left to right: &#x22;Content JSON&#x22;, &#x22;Widgets&#x22;, and &#x22;Preview&#x22;" width="375"><figcaption><p>Screenshot of the Edit Form Fields interface,<br>and the tabs to edit and preview the fields.</p></figcaption></figure>
 
 #### For Request Form Venues:
 
@@ -52,7 +52,7 @@ These text boxes accept a valid JSON object with fields and values. The followin
 }
 ```
 
-&#x20;Note that correct indentation levels and matched brackets are necessary for valid JSON.
+Note that correct indentation levels and matched brackets are necessary for valid JSON.
 
 The primary fields of the entry are:
 
@@ -60,9 +60,9 @@ The primary fields of the entry are:
 
 `order` - Determines where in the form the field will appear
 
-`description` - Will show up in the form as instructions or description&#x20;
+`description` - Will show up in the form as instructions or description
 
-&#x20;`value` - Will have subfields (under `param`) determining the format of the field and the options for responses
+`value` - Will have subfields (under `param`) determining the format of the field and the options for responses
 
 ```
 "value": {
@@ -74,21 +74,21 @@ The primary fields of the entry are:
 }
 ```
 
-When making a field that is asking for user input, you will _**always**_ see this pattern of `"value": { "param": {...} }`. Inside the `param` object are fields determining what the user sees in the input form along with what the user is allowed to submit: these are _representation specifiers_ and _validation specifiers_.&#x20;
+When making a field that is asking for user input, you will _**always**_ see this pattern of `"value": { "param": {...} }`. Inside the `param` object are fields determining what the user sees in the input form along with what the user is allowed to submit: these are _representation specifiers_ and _validation specifiers_.
 
 {% hint style="danger" %}
 Both validation and representation specifiers can be found inside the `param` object
 {% endhint %}
 
-## &#x20;Specifiers
+## Specifiers
 
-This section will introduce common specifiers used in customizing forms. Further information about specifiers can be found [here](../reference/api-v2/entities/invitation/specifiers.md).&#x20;
+This section will introduce common specifiers used in customizing forms. Further information about specifiers can be found [here](../reference/api-v2/entities/invitation/specifiers.md).
 
 ### Representation Specifiers
 
 Representation specifiers determine how the user will input their response into the field (for example a textbox or a checklist). These will be defined in the `param` object.
 
-The `input` specifier determines the rendering on the form and can have the following values (see below for examples of how different input types render):&#x20;
+The `input` specifier determines the rendering on the form and can have the following values (see below for examples of how different input types render):
 
 * `text`
 * `select`
@@ -112,15 +112,15 @@ Validation specifiers are used by the back-end to ensure data submitted through 
 Required fields have their field names prefixed with an asterisk in the preview tab and note edit interface.
 {% endhint %}
 
-`type` specifiers require the input to be of a specific type:  options are `string`, `string[]` (string array) and `file`.
+`type` specifiers require the input to be of a specific type: options are `string`, `string[]` (string array) and `file`.
 
 `string` fields can be further validated by using fields to describe the structure of a valid string input. Some of these field are:
 
-* `"maxLength":`  set the maximum number of characters of the input
+* `"maxLength":` set the maximum number of characters of the input
 * `"minLength":` set the minimum number of characters of the input
-* `"regex":`  use regular expressions to define acceptable string structures
-* `"enum":`  restrict the user to a predefined set of strings
-* `"items":`  an array of strings as indicated by its type (only used with `type: string[]` ) \*\*
+* `"regex":` use regular expressions to define acceptable string structures
+* `"enum":` restrict the user to a predefined set of strings
+* `"items":` an array of strings as indicated by its type (only used with `type: string[]` ) \*\*
 
 \*\* All values in `"items"` will be considered required unless specified otherwise with `"optional": true`. Please see [multiple choices](customizing-forms.md#multiple-choices) for an example.
 
@@ -205,7 +205,7 @@ Extensions that have a "." in them are **not** supported. The following field wo
 }
 ```
 
-<figure><img src="../.gitbook/assets/metareviewupdate (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/metareviewupdate.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Dropdown" %}
@@ -366,7 +366,7 @@ Extensions that have a "." in them are **not** supported. The following field wo
 
 ### Setting the Readers of a Field
 
-If you want to limit who in the committee can see a particular field in a form, this is done by adding a `readers` field. Please follow this link for more detailed information on [hiding or revealing fields](../how-to-guides/submissions-comments-reviews-and-decisions/how-to-hide-reveal-fields.md). Below are two examples, one for the [submission form](hosting-a-venue-on-openreview/customizing-your-submission-form.md) and one for the meta review form. Notice the different use of dollar sign notation. The notation used for the meta review form will also work for other replies to the forum: reviews, comments, and decisions. Please scroll to see how best to setup `readers`  depending on which venue configuration was deployed.
+If you want to limit who in the committee can see a particular field in a form, this is done by adding a `readers` field. Please follow this link for more detailed information on [hiding or revealing fields](../how-to-guides/submissions-comments-reviews-and-decisions/how-to-hide-reveal-fields.md). Below are two examples, one for the [submission form](hosting-a-venue-on-openreview/customizing-your-submission-form/) and one for the meta review form. Notice the different use of dollar sign notation. The notation used for the meta review form will also work for other replies to the forum: reviews, comments, and decisions. Please scroll to see how best to setup `readers` depending on which venue configuration was deployed.
 
 {% tabs %}
 {% tab title="Submission" %}
@@ -425,4 +425,3 @@ If you want to limit who in the committee can see a particular field in a form, 
 ```
 {% endtab %}
 {% endtabs %}
-

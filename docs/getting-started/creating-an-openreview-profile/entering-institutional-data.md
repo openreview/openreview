@@ -1,6 +1,6 @@
 # Entering Institutional Data
 
-To add institutional data to your OpenReview profile, go to your profile page at [https://openreview.net/profile](https://openreview.net/profile) and click 'Edit profile'. You must enter at least one position under 'Education & Career History' for your profile to be saved.&#x20;
+To add institutional data to your OpenReview profile, go to your profile page at [https://openreview.net/profile](https://openreview.net/profile) and click 'Edit profile'. You must enter at least one position under 'Education & Career History' for your profile to be saved.
 
 Each position requires at least the following information: Position, Start date, Institution Info (domain, name, and country).
 
@@ -20,12 +20,10 @@ Below are some examples of complete Education and Career History sections:
 
 As an example of complete institutional information, this sample user has one past affiliation as a PhD student and one current affiliation. Note that the institution domain, name, and country are all required for the changes to be saved.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-10-18 at 1.55.14 PM (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2024-10-18 at 1.55.14 PM.png" alt=""><figcaption></figcaption></figure>
 
 ### Example - complete profile with freeform data
 
 This sample profile includes one past affiliation with a small company not listed in the drop-down menu, and is currently an independent researcher. Here the domain and position information are typed in.
-
-
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-10-18 at 2.07.33 PM.png" alt=""><figcaption></figcaption></figure>

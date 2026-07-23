@@ -12,4 +12,4 @@ What we currently support:
 
 If the needs for your venue are not addressed here regarding tracks, please [Contact Support](https://openreview.net/contact). We can try to accommodate custom requests, however, we need to know at least one month before submissions open.
 
-If you want to accept distinct types of submissions that will all follow the same workflow, you can [add a ‘track’ field to your submission form](../../getting-started/hosting-a-venue-on-openreview/customizing-your-submission-form.md). If you reach out to [OpenReview support](https://openreview.net/contact), we can then customize your PC console to allow you to filter and sort by track or add roles for reviewers and ACs if you need a group per track.
+If you want to accept distinct types of submissions that will all follow the same workflow, you can [add a ‘track’ field to your submission form](../../getting-started/hosting-a-venue-on-openreview/customizing-your-submission-form/). If you reach out to [OpenReview support](https://openreview.net/contact), we can then customize your PC console to allow you to filter and sort by track or add roles for reviewers and ACs if you need a group per track.

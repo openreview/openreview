@@ -4,21 +4,21 @@ description: Guide based on ICLR venue
 
 # Example Workflow
 
-How to use this document: This document lists the major steps of running a conference venue.  Each step links to relevant documentation that explains it in depth.&#x20;
+How to use this document: This document lists the major steps of running a conference venue. Each step links to relevant documentation that explains it in depth.
 
 ### Setting up a venue
 
-#### 1. [Submit venue request through the OpenReview Site ](../getting-started/hosting-a-venue-on-openreview/creating-your-venue-instance-submitting-a-venue-request-form.md#submitting-a-venue-request-form)
+#### 1. [Submit venue request through the OpenReview Site](../getting-started/hosting-a-venue-on-openreview/creating-your-venue-instance-submitting-a-venue-request-form.md#submitting-a-venue-request-form)
 
 Fill out the venue request form and choose settings for your venue.
 
-OpenReview will review the request, ask for any necessary clarification, then you will receive an email notifying you that your venue has been deployed.&#x20;
+OpenReview will review the request, ask for any necessary clarification, then you will receive an email notifying you that your venue has been deployed.
 
 Also see:
 
 [Customizing venue homepage](../how-to-guides/modifying-venue-homepages/how-to-customize-your-venue-homepage.md)
 
-[Customizing submission form](../getting-started/hosting-a-venue-on-openreview/customizing-your-submission-form.md)
+[Customizing submission form](../getting-started/hosting-a-venue-on-openreview/customizing-your-submission-form/)
 
 #### 2. [Review venue pages](../getting-started/hosting-a-venue-on-openreview/navigating-your-venue-pages.md)
 
@@ -26,7 +26,7 @@ Ensure all PCs have OpenReview accounts associated with the email listed in the 
 
 #### 3. [Change settings of your venue as necessary from the venue request form](../reference/stages/revision.md)
 
-You may edit many settings for your venue through the 'Revision' button of the request form.&#x20;
+You may edit many settings for your venue through the 'Revision' button of the request form.
 
 #### 4. [Recruit Senior Area Chairs, Area Chairs, Reviewers](../how-to-guides/managing-groups/how-to-recruit-and-remind-recruited-reviewers.md)
 
@@ -67,11 +67,11 @@ Set up matching should be done in the direction Senior Area Chairs-> Area Chairs
 
 Each of these steps needs to be completed for each group being matched (e.g. Area Chairs - Submissions , Reviewers - Submissions)- Described further in steps 11-16 below.
 
-#### 10.  Assign Senior Area Chairs to Area Chairs
+#### 10. Assign Senior Area Chairs to Area Chairs
 
-Most venues assign SACs to submissions by first assigning them to Area Chairs. Here you may decide whether to have SACs automatically assigned to ACs or [allow them to bid on ACs ](../how-to-guides/workflow/how-to-enable-bidding-for-senior-area-chair-assignment.md)based on affinity scores by following steps 1-5 above.&#x20;
+Most venues assign SACs to submissions by first assigning them to Area Chairs. Here you may decide whether to have SACs automatically assigned to ACs or [allow them to bid on ACs ](../how-to-guides/workflow/how-to-enable-bidding-for-senior-area-chair-assignment.md)based on affinity scores by following steps 1-5 above.
 
-Before assigning SACs to ACs, run Paper Matching Setup, choose 'Senior Area Chairs' as the matching group, and compute affinity scores. Then in the Assignment Configuration, SACs will be the match group, and ACs will be in the Submissions field.&#x20;
+Before assigning SACs to ACs, run Paper Matching Setup, choose 'Senior Area Chairs' as the matching group, and compute affinity scores. Then in the Assignment Configuration, SACs will be the match group, and ACs will be in the Submissions field.
 
 **Note**: Paper Matching Setup between SACs and ACs will not calculate conflicts. Most venues don't need this conflict check for SAC-AC assignments.
 
@@ -79,13 +79,13 @@ Program Chairs can make reassignments after the proposed assignments are deploye
 
 **You must deploy SAC-AC assignments before calculating AC-Paper conflicts.** If an SAC has a conflict with a paper, we transfer that conflict to their AC so that the AC won't get assigned to that paper.
 
-If you decide to directly assign Senior Area Chairs to submissions, skip to step 12.&#x20;
+If you decide to directly assign Senior Area Chairs to submissions, skip to step 12.
 
 #### 11. [Setup Paper Matching between Senior Area Chairs/Area Chairs/Reviewers and submissions](../how-to-guides/paper-matching-and-assignment/how-to-do-automatic-assignments/how-to-setup-paper-matching-by-calculating-affinity-scores-and-conflicts.md)
 
 The next step is to assign the program committee to each submission. If your conference is smaller than 2000 submissions, this can be run by you directly, otherwise please contact OpenReview.
 
-It is very important that all Program Committee members (Senior Area Chairs, Area Chairs, and Reviewers) have a complete OpenReview profile (an active profile with at least one active institution and one publication).  We recommend removing from the committee groups all the profiles that are not complete before running the matching system.
+It is very important that all Program Committee members (Senior Area Chairs, Area Chairs, and Reviewers) have a complete OpenReview profile (an active profile with at least one active institution and one publication). We recommend removing from the committee groups all the profiles that are not complete before running the matching system.
 
 {% hint style="info" %}
 To make sure that the program committee can access their assignments, ensure that they are listed as readers in the Submission Readers field of the venue request form, otherwise update this value in the Post Submission stage.
@@ -93,9 +93,9 @@ To make sure that the program committee can access their assignments, ensure tha
 
 #### 12. (Optional) Bidding period for Senior Area Chairs, Area Chairs and Reviewers
 
-Program Chairs can optionally ask the Senior Area Chairs, Area Chairs and/or Reviewers to [bid on papers](../reference/stages/bid-stage.md).&#x20;
+Program Chairs can optionally ask the Senior Area Chairs, Area Chairs and/or Reviewers to [bid on papers](../reference/stages/bid-stage.md).
 
-PCs must make all the existing submissions visible to all the members of the Senior Area Chairs/Area Chair/Reviewers group hiding the PDF, supplementary material and any other fields they don’t want Senior Area Chairs/Area Chair/Reviewers to see by using the [Post Submission ](../reference/stages/post-submission-stage.md)stage.&#x20;
+PCs must make all the existing submissions visible to all the members of the Senior Area Chairs/Area Chair/Reviewers group hiding the PDF, supplementary material and any other fields they don’t want Senior Area Chairs/Area Chair/Reviewers to see by using the [Post Submission ](../reference/stages/post-submission-stage.md)stage.
 
 In order for conflicts to be taken into account in paper matching, matching set up (Step 14) must be run before the bid stage.
 
@@ -109,17 +109,15 @@ After computing affinity scores and optionally enabling the bidding process, Pro
 
 #### 14. (optional) Share _Reviewer-Submission_ proposed assignments with Area Chairs to review and edit.
 
-Some venues decide to share the _Reviewer-Submission_ assignments with the Area Chairs to review before releasing them to the Reviewers.&#x20;
+Some venues decide to share the _Reviewer-Submission_ assignments with the Area Chairs to review before releasing them to the Reviewers.
 
-In order to do this, Program Chairs need to [deploy](../how-to-guides/paper-matching-and-assignment/how-to-do-automatic-assignments/how-to-deploy-the-proposed-assignments.md) the _Area Chair-Submission_ assignments so that Area Chairs can see their own assigned submissions and choose a matching configuration to share the proposed assignments. Then you can [allow ACs to do reassignment](../how-to-guides/paper-matching-and-assignment/how-to-enable-reviewer-reassignment-for-area-chairs.md).&#x20;
+In order to do this, Program Chairs need to [deploy](../how-to-guides/paper-matching-and-assignment/how-to-do-automatic-assignments/how-to-deploy-the-proposed-assignments.md) the _Area Chair-Submission_ assignments so that Area Chairs can see their own assigned submissions and choose a matching configuration to share the proposed assignments. Then you can [allow ACs to do reassignment](../how-to-guides/paper-matching-and-assignment/how-to-enable-reviewer-reassignment-for-area-chairs.md).
 
 [Area Chairs can make modifications to these assignments and they can optionally invite external reviewers](../how-to-guides/paper-matching-and-assignment/how-to-do-automatic-assignments/how-to-modify-the-proposed-assignments.md). This must be requested to the support team.
 
 #### 15. [Deploy proposed assignments for Senior Area Chairs, Area Chairs and Reviewers](../how-to-guides/paper-matching-and-assignment/how-to-do-automatic-assignments/how-to-deploy-the-proposed-assignments.md)
 
 After the proposed assignments were reviewed by the Program Chairs and/or the Senior Area Chairs/Area Chairs, they can be deployed and be visible to the Reviewers. Deploying assignments doesn’t automatically send emails to the Reviewers- it is recommended that you as PCs notify them.
-
-
 
 **16. (optional) Modify assignments**
 
@@ -147,19 +145,17 @@ If there are still pending reviews, setting Release Reviews to Authors to "Yes, 
 
 #### 20. Start Rebuttal stage
 
-Usually venues have a rebuttal period where Authors can reply to the Reviewers. In OpenReview, the rebuttal period can start at any time using the [rebuttal stage](../reference/stages/rebuttal-stage.md). They can choose between settings to allow a free number of rebuttal comments or require authors to have one rebuttal per Submission/Review.&#x20;
+Usually venues have a rebuttal period where Authors can reply to the Reviewers. In OpenReview, the rebuttal period can start at any time using the [rebuttal stage](../reference/stages/rebuttal-stage.md). They can choose between settings to allow a free number of rebuttal comments or require authors to have one rebuttal per Submission/Review.
 
 {% hint style="info" %}
 Readers of the rebuttal must match the review readers. PCs can check the review readers selected in the Review Stage, in particular: Release Reviews To Authors and Release Reviews To Authors, and match the rebuttal readers to these options
 {% endhint %}
 
-
-
 PCs may also use the [comment stage](../reference/stages/comment-stage.md) so that reviewers can optionally reply to the authors and keep threaded discussions.
 
 ### (Optional) Submission revision stage
 
-#### 21.  Start [Submission Revision Stage](../reference/stages/submission-revision-stage.md)
+#### 21. Start [Submission Revision Stage](../reference/stages/submission-revision-stage.md)
 
 You may optionally allow authors to revise their submissions, including limiting which fields can be edited. This stage can be enabled any time after the submission deadline has passed.
 
@@ -175,7 +171,7 @@ Use this if you have Senior Area Chairs and want them to review, confirm, or rev
 
 #### 24. (optionaI) ACs rate reviews
 
-You may also optionally allow Area Chairs to submit ratings for their reviews (found in [venue request form](../getting-started/hosting-a-venue-on-openreview/navigating-your-venue-pages.md)).&#x20;
+You may also optionally allow Area Chairs to submit ratings for their reviews (found in [venue request form](../getting-started/hosting-a-venue-on-openreview/navigating-your-venue-pages.md)).
 
 ### Decision Stage and Camera Ready Revisions
 
@@ -183,13 +179,13 @@ You may also optionally allow Area Chairs to submit ratings for their reviews (f
 
 This is the last step before releasing the decision to the authors. PCs need to submit the final [decisions](https://docs.openreview.net/reference/stages/decision-stage) based on the AC meta reviews and confirmations. Decisions are visible to the PCs only.
 
-For large venues (>2000 submissions) we offer a bulk upload process where the PCs can get the meta reviews values, edit them to meet the acceptance rates and then upload them to the system. The PC console will show the decision stats and decision notes can be edited after they are uploaded.&#x20;
+For large venues (>2000 submissions) we offer a bulk upload process where the PCs can get the meta reviews values, edit them to meet the acceptance rates and then upload them to the system. The PC console will show the decision stats and decision notes can be edited after they are uploaded.
 
 #### 26. [Release decisions to the authors and notify authors](../reference/stages/decision-stage.md)
 
-Once all the decisions are made and uploaded to the system, you may [release](https://docs.openreview.net/reference/stages/post-decision-stage) them to the authors and send email notifications using the [Post Decision stage](../reference/stages/post-decision-stage.md). OpenReview offers a [form](../how-to-guides/communication/how-to-send-decision-notifications-using-the-ui.md) where the PCs can define the email template for each decision.&#x20;
+Once all the decisions are made and uploaded to the system, you may [release](https://docs.openreview.net/reference/stages/post-decision-stage) them to the authors and send email notifications using the [Post Decision stage](../reference/stages/post-decision-stage.md). OpenReview offers a [form](../how-to-guides/communication/how-to-send-decision-notifications-using-the-ui.md) where the PCs can define the email template for each decision.
 
-PCs can also (optionally) decide to release the submissions to the public (all the submissions or accepted only) and deanonymize the author names.&#x20;
+PCs can also (optionally) decide to release the submissions to the public (all the submissions or accepted only) and deanonymize the author names.
 
 #### 27. Start camera ready period
 
@@ -198,4 +194,3 @@ The camera ready period starts after the authors are notified about the submissi
 #### 28. End camera ready period
 
 Authors will no longer be able to edit submissions after the Camera Ready period deadline set in the Submission Revision Stage. After this point, they will need to contact the PCs to allow any revisions after the deadline.
-

@@ -26,8 +26,8 @@ There are two ways to create assignments:
 
 ![](<../../.gitbook/assets/image (1).png>)
 
-![](<../../.gitbook/assets/image (12).png>)
+![](<../../.gitbook/assets/image (5).png>)
 
 Some reviewers have a custom reduced paper load which appears in the edge browser as 'Custom Max Papers'. You cannot directly assign a reviewer to more papers than their custom max papers, but you can 'Invite' reviewers if that option is enabled for you. You can also filter out reviewers who have met their quota with the checkbox 'Only show reviewers with fewer than max assigned papers.'
 
-![](<../../.gitbook/assets/image (9).png>)
+![](<../../.gitbook/assets/image (6).png>)

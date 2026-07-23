@@ -10,7 +10,7 @@ OpenReview is releasing a major update of the forum page for venues using the ne
 
 Here is an example of a typical forum comment:
 
-![An annotated example of a forum comment](<../.gitbook/assets/Screen Shot 2022-07-06 at 8.33.36 PM (1).png>)
+![An annotated example of a forum comment](<../.gitbook/assets/Screen Shot 2022-07-06 at 8.33.36 PM.png>)
 
 Every post on the new forum page contains the following information:
 
@@ -23,7 +23,7 @@ Every post on the new forum page contains the following information:
 7. Edit & Delete: allows you to modify or hide the reply (for more see "Editing Posted Content" below)
 8. Content: shows the complete content of the forum reply
 9. Collapse Toggles: allows you to show more or less of the content of the note. The top button will collapse everything down to a single line displaying just basic information, the middle button will only show the first 5-10 lines of content, and the bottom button will display the entire contents of the note.
-10. Reply Buttons: show all the available options for replying to this post. Clicking one of the buttons will open a form that allows you to submit your reply.&#x20;
+10. Reply Buttons: show all the available options for replying to this post. Clicking one of the buttons will open a form that allows you to submit your reply.
 
 #### Sorting and Filtering Replies
 
@@ -51,7 +51,7 @@ As mentioned in the section above there are currently three layout modes availab
 
 #### Editing Posted Content
 
-If you are logged into OpenReview and have permission to modify the content of a submission or a forum reply (aka a [Note](broken-reference)) you will see a dropdown button labeled Edit to the right of the title. Clicking this button will display a list of all the available ways to modify the note (aka edit Invitations). For a submission note this might include options to revise the submission or withdraw the submission, and for a reply it might include the option to edit the content of the reply.
+If you are logged into OpenReview and have permission to modify the content of a submission or a forum reply (aka a [Note](https://github.com/openreview/openreview/blob/main/docs/getting-started/broken-reference/README.md)) you will see a dropdown button labeled Edit to the right of the title. Clicking this button will display a list of all the available ways to modify the note (aka edit Invitations). For a submission note this might include options to revise the submission or withdraw the submission, and for a reply it might include the option to edit the content of the reply.
 
 You can see a list of all the edits of a given note by clicking on the Revisions link below the title.
 
