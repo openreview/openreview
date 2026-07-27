@@ -7,6 +7,7 @@ Use these pages to create, activate, and maintain your OpenReview profile.
 * [Signing up for OpenReview](signing-up-for-openreview.md): Create an account, complete registration, and understand moderation.
 * [Resending an activation link](resending-an-activation-link.md): Get a fresh signup/activation link.
 * [Expediting Profile Activation](expediting-profile-activation.md): Add and confirm an institutional email to speed activation.
+* [Information for high school students](information-for-high-school-students.md): Information on how to sign up for users aged 13-18
 
 #### Edit your profile details
 

@@ -85,6 +85,7 @@
   * [Finding and adding your ACL Anthology URL to your profile](getting-started/creating-an-openreview-profile/finding-and-adding-your-acl-anthology-url-to-your-profile.md)
   * [Merging Profiles](getting-started/creating-an-openreview-profile/merging-profiles.md)
   * [Importing publication data from ORCID to your profile](getting-started/creating-an-openreview-profile/importing-publication-data-from-orcid-to-your-profile.md)
+  * [Information for high school students](getting-started/creating-an-openreview-profile/information-for-high-school-students.md)
 * [Customizing Forms](getting-started/customizing-forms.md)
 * [Using the New Forum Page](getting-started/using-the-new-forum-page.md)
 * [Live Chat on the Forum Page](getting-started/live-chat-on-the-forum-page.md)
