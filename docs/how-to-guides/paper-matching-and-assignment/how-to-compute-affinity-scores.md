@@ -11,7 +11,7 @@ description: >-
 Affinity, or similarity, scores are numbers between 0 and 1 that are used to create matches between the different OpenReview objects. Scores between users and submissions are usually implicitly computed as part of the [**Paper Matching Setup**](https://docs.openreview.net/how-to-guides/paper-matching-and-assignment/how-to-do-automatic-assignments/how-to-setup-paper-matching-by-calculating-affinity-scores-and-conflicts). However, there may be times where you would like to compute scores in a way that is not offered by the previously mentioned step, like scores between two groups of users or scores between a group of users and desk rejected submissions. This can be done by querying our Expertise API through the Python client.
 
 {% hint style="info" %}
-**Note**: Users must have readership permission to the objects they are trying to compute the scores. The Expertise API uses the permission of the user to gather the data from the OpenReview API.
+**Note**: Users must have readership permission to the objects they are trying to compute the scores. The Expertise API uses the permission of the user to gather the data from the OpenReview API. The venue needs to call `client.impersonate(venue_id)` before making the request so that the job runs with the permissions of the venue and can access all the profiles data.
 {% endhint %}
 
 ## Requesting Scores for two venue groups
@@ -24,6 +24,12 @@ client = openreview.api.OpenReviewClient(
     username=username,
     password=password
 )
+```
+
+Then impersonate the venue so that the request is made with the permissions of the venue:
+
+```python
+client.impersonate('Conference/Year')
 ```
 
 Next, request a job using the `request_expertise` function of the client. In the following example, we'll request a job that computes scores between the area chairs:
@@ -139,7 +145,7 @@ venue.compute_dual_submission_metadata(
 )
 ```
 
-This creates a CSV containing paper IDs, scores, author lists, titles, and abstracts.&#x20;
+This creates a CSV containing paper IDs, scores, author lists, titles, and abstracts.
 
 Since this is for papers within the same venue, pass the same venue object to `alternate_venue`. This uses the `sparse_value` and `top_percent_cutoff` to filter scores. By default, the top 1% of scores are returned.
 
@@ -231,7 +237,7 @@ The first argument is the `jobId` that you received from your call to `request_e
 }
 ```
 
-The scores for our example will be stored in `results['results']`.&#x20;
+The scores for our example will be stored in `results['results']`.
 
 * If you computed user-to-user scores, the objects in this array may look like: `{'match_member': '~UserA1', 'score': 0.61, 'submission_member': '~UserB1'}`, where:
   * `match_member` is a member from the group whose ID is `group_id`.
@@ -291,7 +297,7 @@ You may need to convert them to edges for upload. Example use cases:
 
 In this example, we'll create Area Chair affinity score edges to papers.
 
-First, **check the affinity score invitation** to see how the edge is structured, such as the `head`, `tail`, and `readers`. You can view the invitation by going to: `https://openreview.net/invitation/edit?id=venue_id/role_name/-/Affinity_Score`.&#x20;
+First, **check the affinity score invitation** to see how the edge is structured, such as the `head`, `tail`, and `readers`. You can view the invitation by going to: `https://openreview.net/invitation/edit?id=venue_id/role_name/-/Affinity_Score`.
 
 Next, use the expertise results to create a list of lists where each sublist contains the data for 1 edge.
 
@@ -302,7 +308,7 @@ scores = [
 ]
 ```
 
-Then, we will loop through `scores` and create an Edge for each item.&#x20;
+Then, we will loop through `scores` and create an Edge for each item.
 
 Since we're creating Area Chair affinity scores, we'll use the following configuration:
 
