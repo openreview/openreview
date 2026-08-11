@@ -7,7 +7,6 @@ See also:
   * [Change Submission Expiration Date](../../how-to-guides/workflow/how-to-change-the-expiration-date-of-the-submission-invitation.md)
   * [Change Submission Readers](../../how-to-guides/workflow/how-to-change-who-can-access-submissions-after-the-deadline.md)
   * [Hide Submission Fields](../../how-to-guides/workflow/how-to-hide-submission-fields-from-reviewers.md)
-  * [Edit the Source of an Invitation](../../how-to-guides/workflow/how-to-edit-the-source-of-an-invitation.md)
   * [Customizing Forms](../customizing-forms.md)
 
 In OpenReview, **invitations** define the rules and permissions for creating or editing entities such as [notes](introduction-to-notes.md), [groups](groups.md), and edges. They act as **templates** that control who can perform specific actions, what content is expected, and how submissions are processed. &#x20;
