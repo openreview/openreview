@@ -1,6 +1,6 @@
 # How to Edit the Source of an Invitation
 
-Invitations such as Submission Revision, Camera Ready Revision, and stages built with the [CustomStage](using-the-customstage.md) use a `source` field to define which notes (submissions or replies) the invitation applies to. The `source` field is a JSON object, so Program Chairs can scope an invitation with far more precision than a simple "all submissions" or "accepted submissions only" toggle.
+Invitations use a `source` field to define which notes (submissions or replies) the invitation applies to. The `source` field is a JSON object, so Program Chairs can scope an invitation with far more precision than a simple "all submissions" or "accepted submissions only" toggle.
 
 ### Supported `source` keys
 
