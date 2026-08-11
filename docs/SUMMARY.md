@@ -136,6 +136,7 @@
   * [Using the CustomStage](how-to-guides/workflow/using-the-customstage.md)
   * [IEEE's eCF Integration for Camera-Ready Submissions](how-to-guides/workflow/ieees-ecf-integration-for-camera-ready-submissions.md)
   * [How to add an externalId to an accepted note](how-to-guides/workflow/how-to-add-an-externalid-to-an-accepted-note.md)
+  * [How to Edit the Source of an Invitation](how-to-guides/workflow/how-to-edit-the-source-of-an-invitation.md)
 * [Paper Matching and Assignment](how-to-guides/paper-matching-and-assignment/README.md)
   * [How to Compute Conflicts Between Users](how-to-guides/paper-matching-and-assignment/how-to-compute-conflicts-between-users.md)
   * [How to Post a Custom Conflict](how-to-guides/paper-matching-and-assignment/how-to-post-a-custom-conflict.md)
