@@ -6,29 +6,41 @@
 2. [Add submissions](../../how-to-guides/workflow/how-to-create-change-and-delete-notes.md) (make sure this is on the dev site)
 3. Open the [Review Stage](../../reference/stages/review-stage.md) (step 17 in the [Example Workflow](../conferences.md))
 
-## Part 1: Posting LLM generated reviews
+## Posting LLM Generated Reviews Overview
 
-In some cases, a venue may want to use LLMs to post reviews. There are 2 steps to enable this:
+In some cases, a venue may want to use LLMs to post reviews. This exercise assumes the venue already has access to an LLM that generates the review and covers how to post them as replies to submissions.
 
-1. Create an LLM reviewer group for each paper.
-2. Add the LLM reviewer groups to each submission reviewers group.
+* Create a `venue_id/-/AI_Review` invitation using the [Custom Stage](../../how-to-guides/workflow/using-the-customstage.md).
+* **(Optional)** Create an AI Reviewer group to sign the AI Reviews.
+  *   Venues may want this to make it more clear that it's an AI Review, for example:
 
-### 1. Create an LLM reviewer group for each paper
+      <figure><img src="../../.gitbook/assets/ai-review-note-heading (1).png" alt=""><figcaption></figcaption></figure>
+  * If you choose to do this, you can either create:
+    * One overall AI Reviewer group (`venue_id/AI_Reviewer`) to sign all the notes
+    * Or create an AI Reviewer group per paper (`venue_id/SubmissionXX/AI_Reviewer`)
+  * Otherwise, the notes will be signed with the Program Chairs group.
+* Write a script to iterate through all submissions and post the AI Review to each paper.
 
-First, you will need to create a new reviewer Group for each paper. This will add the LLM as a Reviewer for the paper.
+### 1. Create the AI Review invitation
 
-The reviewer group should have the following format:`<venue_id>/Submission<number>/Reviewer_<new_name>` . So it's important to have the `id` of the new group follow this format.&#x20;
+You can use the [`CustomStage`](../../how-to-guides/workflow/using-the-customstage.md) to create the `venue_id/-/AI_Review` invitation and you will post your LLM generated reviews using this invitation.
 
-For example: `MyConference/2025/Conference/Submission1/Reviewer_LLM`
+The invitees can be the PCs and you can configure the other settings however you need (e.g. form content, readers, etc.).
 
-The full `post_group_edit` call will look like this:
+### 2. (Optional) Create an AI reviewer group and update the AI Review invitation
+
+#### Creating the AI reviewer group(s)
+
+If you don't want to sign the AI reviews using the PC group, you can create AI Reviewer group(s). Otherwise you can skip this step.
+
+The following creates a single AI Reviewer group you can use to sign all the reviews:
 
 ```python
 client.post_group_edit(
     invitation='<venue_id>/-/Edit',
     signatures=['<venue_id>'],
     group=openreview.api.Group(
-        id = '<venue_id>/Submission<number>/Reviewer_New_Group',
+        id = '<venue_id>/AI_Reviewer',
         readers = ['<venue_id>'],
         signatures = ['<venue_id>'],
         writers = ['<venue_id>'],
@@ -37,41 +49,70 @@ client.post_group_edit(
 )
 ```
 
-Then you will loop through all of the submissions in the venue.&#x20;
-
-
-
-**Check your work:** Go to one of the submission groups for the venue and check for your new reviewer group. (https://openreview.net/group/edit?id=\<venue\_id>/Submission\<number>)
-
-### 2. Add the LLM reviewer groups to each submission reviewers group
-
-Next, you need to add the LLM Reviewers as members to each submission's overall reviewers group. You can do this by calling [`add_members_to_group`](https://github.com/openreview/openreview-py/blob/791983ca7794cdf53affce9d0e12c6a8bcb1dc36/openreview/api/client.py#L2059).  It requires 2 fields, `group` and `members` .
-
-* **Group**: The group ID to which you are adding members.
-* **Members**: The ID or IDs you are adding to the group.
-
-The full `add_members_to_group` call will look like this:
+Alternatively, you can loop through [all submissions](../../how-to-guides/data-retrieval-and-modification/how-to-get-all-notes-for-submissions-reviews-rebuttals-etc.md#quickstart-getting-all-submissions) and create an AI Reviewer group for each paper. Note the change in the `id` format. The `venue_id/SubmissionXX` group contains all the groups for that paper, including the assigned reviewers, ACs, and now the AI Reviewer.
 
 ```python
-client.add_members_to_group(group='<venue_id>/Submission<number>/Reviewers', 
-members='<venue_id>/Submission<number>/Reviewer_New_Group')
+for sub in submissions:
+    client.post_group_edit(
+        invitation='<venue_id>/-/Edit',
+        signatures=['<venue_id>'],
+        group=openreview.api.Group(
+            id = '<venue_id>/Submission<sub.number>/AI_Reviewer',
+            readers = ['<venue_id>'],
+            signatures = ['<venue_id>'],
+            writers = ['<venue_id>'],
+            signatories = ['<venue_id>'],
+        )
+    )
 ```
 
-{% hint style="info" %}
-Typically when adding to the SubmissionX/Reviewers group we always add a user's profile ID. This will automatically create their anon ID. In this case, the signature of the review is not a real user, so we can just add the LLM reviewer group ID.
-{% endhint %}
+**Check your work:** Go to one of the submission groups for the venue and check for your new reviewer group. (`https://openreview.net/group/edit?id=<venue_id>/Submission<number>`)
 
-**Check your work:** Go to one of the submission groups for the venue and check for your new reviewer group in the reviewers group (https://openreview.net/group/edit?id=\<venue\_id>/Submission\<number>/Reviewers)
+#### Updating the AI Review invitation
+
+If you decide to use AI Reviewer groups, you will also need to update the AI Review invitation to allow you to sign the notes using the AI Reviewer group. The signature is different depending on whether you created 1 AI Reviewer group or a group for each paper.
+
+The following posts an edit to the `/-/AI_Review` invitation. Note that the signature for the per-paper AI Reviewer groups use [dollar sign notation](../../reference/api-v2/entities/invitation/dollar-sign-notation.md) to retrieve the submission number:
+
+```python
+ai_review_inv_id = f"{venue_id}/-/AI_Review"
+
+## Signature for single overall AI Reviewer group
+ai_reviewer_group_id = f"{venue_id}/AI_Reviewer"
+
+## Signature for per-paper AI Reviewer groups
+# ai_reviewer_group_id = f"{venue_id}/Submission${{7/content/noteNumber/value}}/AI_Reviewer"
+
+client_v2.post_invitation_edit(
+    invitations=f'{venue_id}/-/Edit',
+    readers=[venue_id],
+    writers=[venue_id],
+    signatures=[venue_id],
+    invitation=openreview.api.Invitation(
+        id=ai_review_inv_id,
+        edit={
+            "invitation": {
+                "edit": {
+                    "signatures": {
+                        "param": {
+                            "items": [ { "value": ai_reviewer_group_id, "optional": True } ]
+                        }
+                    }
+                }
+            }
+        }
+    )
+)
+```
 
 ### 3. Post reviews using your LLM
 
-Follow the directions here to [post reviews](../../how-to-guides/workflow/how-to-create-change-and-delete-notes.md) using your LLM.
+Follow the directions here to [post reviews](../../how-to-guides/workflow/how-to-create-change-and-delete-notes.md) using your LLM. You should be able to sign the notes using the PC group or the AI\_Reviewer group(s) you created.
 
-**Check your work**: Go to one of the submission pages (you can navigate here from the PC Console), and check for your review.&#x20;
+**Check your work**: Go to one of the submission pages (you can navigate here from the PC Console), and check for your review.
 
-### 3. Delete an LLM review
+### 4. Delete an LLM review
 
 Follow the directions here to [delete reviews](../../how-to-guides/workflow/how-to-create-change-and-delete-notes.md) using your LLM.
 
 **Check your work**: Go to the submission page (you can navigate here from the PC Console), and check that the review was deleted.
-
