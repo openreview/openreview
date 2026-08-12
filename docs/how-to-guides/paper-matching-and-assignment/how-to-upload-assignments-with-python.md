@@ -68,23 +68,23 @@ client_v2.post_note_edit(
 
 ### 2. Build Proposed Assignment edges
 
-Now we need to build Proposed Assignment edges for each user. All the edges need to be posted with: `invitation`, `head`, `tail`, `label`, `readers`, `nonreaders`, `writers`, `signatures`, and `weight`.&#x20;
+Now we need to build Proposed Assignment edges for each user. All the edges need to be posted with: `invitation`, `head`, `tail`, `label`, `readers`, `nonreaders`, `writers`, `signatures`, and `weight`.
 
-Since we're uploading assignments for reviewers, we will use the following edge configuration:&#x20;
+Since we're uploading assignments for reviewers, we will use the following edge configuration:
 
-* **`invitation`**: The reviewer proposed assignment invitation ID.&#x20;
-* **`head`**: The ID of the paper.&#x20;
-* **`tail`**: The reviewer's profile ID.&#x20;
+* **`invitation`**: The reviewer proposed assignment invitation ID.
+* **`head`**: The ID of the paper.
+* **`tail`**: The reviewer's profile ID.
 * **`label`**: The assignment configuration title. This is how we differentiate between edges of different matchings.
-* **`readers`**: List containing: venue ID, assigned SAC ID, assigned AC ID, the assigned reviewer's profile ID.&#x20;
-* **`nonreaders`**: List containing: paper authors group ID.&#x20;
-* **`writers`**: List containing: venue ID, assigned SAC ID, assigned AC ID.&#x20;
-* **`signatures`**: List containing the Program Chair group ID.&#x20;
-* **`weight`**: 1&#x20;
-  * Weight typically represents the aggregate score, but when we're manually uploading assignments we can just set this to 1.&#x20;
+* **`readers`**: List containing: venue ID, assigned SAC ID, assigned AC ID, the assigned reviewer's profile ID.
+* **`nonreaders`**: List containing: paper authors group ID.
+* **`writers`**: List containing: venue ID, assigned SAC ID, assigned AC ID.
+* **`signatures`**: List containing the Program Chair group ID.
+* **`weight`**: 1
+  * Weight typically represents the aggregate score, but when we're manually uploading assignments we can just set this to 1.
 
 {% hint style="warning" %}
-To see how Proposed Assignment edges should be configured for each role, you **must** view the respective Proposed Assignment invitation by going to: `https://openreview.net/invitation/edit?id=proposed_assignment_invitation_id`&#x20;
+To see how Proposed Assignment edges should be configured for each role, you **must** view the respective Proposed Assignment invitation by going to: `https://openreview.net/invitation/edit?id=proposed_assignment_invitation_id`
 
 If SACs are assigned to ACs, the `head` and `tail` **will be profile IDs**. Refer to their invitations for more info.
 {% endhint %}
@@ -150,7 +150,7 @@ openreview.tools.post_bulk_edges(client=client_v2, edges=assignment_edges)
 
 ### 4. Check the data
 
-Check the edge count in your browser to verify that the API posted all the edges: `http://api2.openreview.net/edges/count?invitation=invitation_id`&#x20;
+Check the edge count in your browser to verify that the API posted all the edges: `http://api2.openreview.net/edges/count?invitation=invitation_id`
 
 Use the stats page by clicking **View Statistics** next to the assignment configuration. From here, you can view distributions such as papers to number of users or users to number of papers.
 
@@ -162,7 +162,7 @@ Call `venue.set_assignments()` and pass:
 
 * **`assignment_title`**: Title of Assignment Configuration.
 * **`committee_id`**: ID of the Group getting assigned.
-* **`overwrite`**: Boolean that determines if the current assignments should be overwritten.&#x20;
+* **`overwrite`**: Boolean that determines if the current assignments should be overwritten.
   1. If False, it will only post the new assignments.
   2. If True, it will delete all current assignments and replace them with the new assignments.
 
@@ -178,13 +178,38 @@ venue.set_assignments(
 )
 ```
 
+Lastly, set the Assignment Configuration status to `Deployed`. This will allow you to access the assignment browser in the UI for the deployed assignments instead of the proposed assignments.
+
+{% hint style="warning" %}
+There should only be 1 deployed assignment configuration.
+{% endhint %}
+
+```python
+assignment_config_note = client_v2.get_all_notes(
+    invitation='venue_id/role_name/-/Assignment_Configuration', 
+    content={'title': 'insert-assignment-config-title'})[0]
+
+client_v2.post_note_edit(
+    invitation='venue_id/role_name/-/Assignment_Configuration',
+    signatures=[venue_id],
+    note = openreview.api.Note(
+        id=assignment_config_note.id,
+        content = {
+            'status': {
+                'value': 'Deployed'
+            }
+        }
+    )
+)
+```
+
 ## How to undo deployed assignments
 
 If you want to undo assignments for any reason, you can call `venue.unset_assignments()`. This will undeploy assignments based on the Proposed Assignment edges in the specified Assignment Configuration. So if you made changes to the assignments after deployment, those reassignments won't be removed. You will need to handle them manually either through the UI or by deleting their edges and removing the users from the paper groups.
 
 Use this if you deployed assignments, made no modifications, then want to undeploy:
 
-```
+```python
 venue.unset_assignments(
     assignment_title = 'new_assignment_configuration_title',
     committee_id = f'{venue_id}/role_name'
