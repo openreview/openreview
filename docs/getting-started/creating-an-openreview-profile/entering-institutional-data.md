@@ -26,4 +26,4 @@ As an example of complete institutional information, this sample user has one pa
 
 This sample profile includes one past affiliation with a small company not listed in the drop-down menu, and is currently an independent researcher. Here the domain and position information are typed in.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-10-18 at 2.07.33 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Independent Researcher Example.png" alt=""><figcaption></figcaption></figure>
