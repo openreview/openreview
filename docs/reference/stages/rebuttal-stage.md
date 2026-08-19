@@ -1,12 +1,12 @@
 # Rebuttal Stage
 
-#### What it Does&#x20;
+#### What it Does
 
-The Rebuttal Stage creates rebuttal invitations. It should be used to allow authors to post their Rebuttals to the reviews posted to their submissions. It also sets the visibility of all existing and future rebuttals.&#x20;
+The Rebuttal Stage creates rebuttal invitations. It should be used to allow authors to post their Rebuttals to the reviews posted to their submissions. It also sets the visibility of all existing and future rebuttals.
 
 #### When to Use it
 
-The Rebuttal Stage should be run if PCs want to allow authors to post rebuttals to reviews. This stage is usually run after the review deadline, but it can be run before as well.&#x20;
+The Rebuttal Stage should be run if PCs want to allow authors to post rebuttals to reviews. This stage is usually run after the review deadline, but it can be run before as well.
 
 **Options**
 
@@ -56,7 +56,7 @@ The Rebuttal Stage should be run if PCs want to allow authors to post rebuttals 
 
 <summary>Additional Rebuttal Form Options</summary>
 
-* Adds or overwrites fields to the Rebuttal Form. Expects valid JSON surrounded by a single pair of curly braces {}. Read more about the accepted field types [here](../../getting-started/frequently-asked-questions/what-field-types-are-supported-in-the-forms.md).&#x20;
+* Adds or overwrites fields to the Rebuttal Form. Expects valid JSON surrounded by a single pair of curly braces {}. Read more about the accepted field types [here](/broken/pages/Fl5aNHGvygJRuyYJu1Ig).
 * Optional
 * Defaults to [default Rebuttal Form](../default-forms/default-rebuttal-form.md)
 

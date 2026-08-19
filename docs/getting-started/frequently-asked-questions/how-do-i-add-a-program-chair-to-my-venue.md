@@ -1,10 +1,10 @@
 # How do I add a Program Chair to my venue?
 
-### Conference Review Workflow Venues
+## For Conference Review Workflow Venues
 
 Navigate to the Program Chairs group in the [Workflow Timeline](../hosting-a-venue-on-openreview/navigating-your-venue-pages.md). Add the Program Chair's OpenReview ID to the members using the Add Member button.
 
-### Request Form Venues
+## For Request Form Venues
 
 After your venue is deployed, add Program Chair(s) by going to your Venue Request form, clicking the Revision button, then adding the emails of the additional program chair(s) to the **Program Chair Emails** field of the form. The user will need to have an active OpenReview profile with this email confirmed in order to access the venue.
 

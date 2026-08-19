@@ -1,12 +1,12 @@
 # Review Stage
 
-#### What it Does&#x20;
+#### What it Does
 
-The Review Stage creates paper groups and [review invitations](../default-forms/default-review-form.md). It should be used to edit the Review form. Use of the Review Stage will overwrite any changes made to the Review Invitations through the Invitation Editor. It also sets the visibility of all existing and future reviews.&#x20;
+The Review Stage creates paper groups and [review invitations](../default-forms/default-review-form.md). It should be used to edit the Review form. Use of the Review Stage will overwrite any changes made to the Review Invitations through the Invitation Editor. It also sets the visibility of all existing and future reviews.
 
 #### When to Use it
 
-The Review Stage should not be run until after the submission deadline, except in the case of public, single blind venues. They can begin the Review Stage before the submission deadline if they first run 'Post Submission Stage' to create paper groups.&#x20;
+The Review Stage should not be run until after the submission deadline, except in the case of public, single blind venues. They can begin the Review Stage before the submission deadline if they first run 'Post Submission Stage' to create paper groups.
 
 #### Options
 
@@ -44,8 +44,8 @@ The Review Stage should not be run until after the submission deadline, except i
 
 <summary>Make Reviews Public</summary>
 
-* If yes, sets the readers of existing and future reviews to 'everyone'.&#x20;
-* Required&#x20;
+* If yes, sets the readers of existing and future reviews to 'everyone'.
+* Required
 * Will not work if submissions are not public
 
 </details>
@@ -54,8 +54,8 @@ The Review Stage should not be run until after the submission deadline, except i
 
 <summary>Release Reviews to Authors</summary>
 
-* If yes, sets the readers of existing and future reviews to include paper authors.&#x20;
-* Required&#x20;
+* If yes, sets the readers of existing and future reviews to include paper authors.
+* Required
 * Will not work if 'Make Reviews Public' is selected while submissions are not public
 
 </details>
@@ -64,7 +64,7 @@ The Review Stage should not be run until after the submission deadline, except i
 
 <summary>Release Reviews to Reviewers</summary>
 
-* Sets the visibility of existing and future reviews.&#x20;
+* Sets the visibility of existing and future reviews.
 * Required
 
 </details>
@@ -82,8 +82,8 @@ The Review Stage should not be run until after the submission deadline, except i
 
 <summary>Review Rating Field Name</summary>
 
-* Determines which field should be used to calculate the average "rating" on the PC console. You should enter a field that has been added via "Additional Review Form Options".&#x20;
-* The selected field should have options that follow the format "number: description". For example, "1: Very poor".&#x20;
+* Determines which field should be used to calculate the average "rating" on the PC console. You should enter a field that has been added via "Additional Review Form Options".
+* The selected field should have options that follow the format "number: description". For example, "1: Very poor".
 * Required
 * Defaults to "rating"
 
@@ -93,8 +93,8 @@ The Review Stage should not be run until after the submission deadline, except i
 
 <summary>Review Confidence Field Name</summary>
 
-* Determines which field should be used to calculate the average "confidence" on the PC console. You should enter a field that has been added via "Additional Review Form Options".&#x20;
-* The selected field should have options that follow the format "number: description". For example, "1: Not confident".&#x20;
+* Determines which field should be used to calculate the average "confidence" on the PC console. You should enter a field that has been added via "Additional Review Form Options".
+* The selected field should have options that follow the format "number: description". For example, "1: Not confident".
 * Required
 * Defaults to "confidence"
 
@@ -102,10 +102,10 @@ The Review Stage should not be run until after the submission deadline, except i
 
 <details>
 
-<summary>Additional Review Form Options </summary>
+<summary>Additional Review Form Options</summary>
 
-* Adds or overwrites fields to the Review Form. Expects valid JSON surrounded by a single pair of curly braces {}. Read more about the accepted field types [here](../../getting-started/frequently-asked-questions/what-field-types-are-supported-in-the-forms.md).&#x20;
-* Optional&#x20;
+* Adds or overwrites fields to the Review Form. Expects valid JSON surrounded by a single pair of curly braces {}. Read more about the accepted field types [here](/broken/pages/Fl5aNHGvygJRuyYJu1Ig).
+* Optional
 * Defaults to [default Review Form](../default-forms/default-review-form.md).
 
 </details>
@@ -115,7 +115,7 @@ The Review Stage should not be run until after the submission deadline, except i
 <summary>Remove Review Form Options</summary>
 
 * Removes fields from the Review form. Expects a comma separated list of field names in lowercase.
-* Optional&#x20;
+* Optional
 * Defaults to [default Review Form](../default-forms/default-review-form.md).
 
 </details>

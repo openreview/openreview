@@ -74,7 +74,7 @@ If your venue has area chairs, you will see two registration buttons, one for re
 
 <summary>Additional Form Options</summary>
 
-* Additional fields that can be added to the registration form. Expects a valid JSON surrounded by a single pair of curly braces {}. Read more about defining fields [here.](../../getting-started/frequently-asked-questions/what-field-types-are-supported-in-the-forms.md)
+* Additional fields that can be added to the registration form. Expects a valid JSON surrounded by a single pair of curly braces {}. Read more about defining fields [here.](/broken/pages/Fl5aNHGvygJRuyYJu1Ig)
 * Optional
 * Defaults to [default Registration Form](../default-forms/default-registration-form.md)
 

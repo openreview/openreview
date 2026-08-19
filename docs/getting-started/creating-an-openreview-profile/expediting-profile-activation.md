@@ -10,13 +10,13 @@ Note: Do not try to register a second time with your institutional email, which 
 
 Please note that all three steps must be completed for the institutional email to be confirmed.
 
-1. Open the activation link sent to your email (subject: OpenReview signup confirmation). If your link is expired resend it following the directions [here](resending-an-activation-link.md).&#x20;
+1. Open the activation link sent to your email (subject: OpenReview signup confirmation). If your link is expired resend it following the directions [here](resending-an-activation-link.md).
 2. Add an email associated with your institution (university, lab, or company) to your profile. Make sure to press Confirm to save the email to your account.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2024-08-23 at 11.26.50 AM.png" alt="" width="563"><figcaption></figcaption></figure>
 
 3. DO NOT close your current window/tab. The verification number sent to your inbox needs to be input in the same window/tab.
-4. Confirm that email by pasting the verification code and clicking on Verify.&#x20;
+4. Confirm that email by pasting the verification code and clicking on Verify.
 
 ## Common questions about pending profiles
 
@@ -34,13 +34,6 @@ If you don’t have any institutional emails, please ensure your other profile i
 
 ### Related pages:
 
-[Why does it takes two weeks to moderate my profile?](../frequently-asked-questions/why-does-it-take-two-weeks-to-moderate-my-profile.md)
+[Why does it takes two weeks to moderate my profile?](/broken/pages/W05mGDTNQJ3EOjjQwAbE)
 
 [I am an Independent Researcher, how do I sign up?](../frequently-asked-questions/i-am-an-independent-researcher-how-do-i-sign-up.md)
-
-
-
-
-
-
-

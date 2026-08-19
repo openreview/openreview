@@ -28,7 +28,6 @@
 * [How can I test my venue workflow](../../how-to-guides/workflow/how-to-test-your-venue-workflow.md)?
 * [What customizations are available for emails sent through OpenReview](../../how-to-guides/communication/how-to-customize-emails-sent-through-openreview.md)?
 * [Reviewers for my venue cannot see their assigned submissions, what should I do?](reviewers-for-my-venue-cannot-see-their-assigned-submissions-what-should-i-do.md)
-* [What field types are supported in the forms](what-field-types-are-supported-in-the-forms.md)?
 * [What do the default submission, review, metareview, and decision forms look like](../../reference/default-forms/)?
 * [How can I allow LLM generated submissions?](how-can-i-allow-llm-generated-submissions.md)
 
@@ -44,8 +43,8 @@
 * [An author of a submission cannot access their own paper, what is the problem](an-author-of-a-submission-cannot-access-their-own-paper-what-is-the-problem.md)?
 * [What is the max file size for uploads](what-is-the-max-file-size-for-uploads-1.md)?
 * [What is the difference between due date (duedate) and expiration date (expdate)](what-is-the-difference-between-due-date-duedate-and-expiration-date-expdate.md)?
-* [Will Reviewers be Notified of their Assignments?](will-reviewers-be-notified-of-their-assignments.md)
-* [How do I hide a submission field from the submission's readers?](how-do-i-hide-a-submission-field-from-the-submissions-readers.md)
+* [Will Reviewers be notified of their Assignments?](will-reviewers-be-notified-of-their-assignments.md)
+* [How do I hide a submission field?](how-do-i-hide-a-submission-field-from-the-submissions-readers.md)
 
 ## For Reviewers
 
