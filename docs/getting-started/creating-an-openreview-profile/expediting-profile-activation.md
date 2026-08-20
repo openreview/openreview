@@ -34,6 +34,5 @@ If you don’t have any institutional emails, please ensure your other profile i
 
 ### Related pages:
 
-[Why does it takes two weeks to moderate my profile?](/broken/pages/W05mGDTNQJ3EOjjQwAbE)
-
 [I am an Independent Researcher, how do I sign up?](../frequently-asked-questions/i-am-an-independent-researcher-how-do-i-sign-up.md)
+
