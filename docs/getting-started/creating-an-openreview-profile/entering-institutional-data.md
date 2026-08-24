@@ -8,7 +8,7 @@ For the Position field, you can choose a position from the dropdown or, if none 
 
 Similarly for the institution name and domain, choose from the dropdown or type the name and domain yourself. If you are not sure what domain to type in for your institution, use the email domain used in institutional emails.
 
-If you do not have a current affiliation and are independent, type “**Independent Researcher**” as your role, which will lock the institution name and domain fields automatically.&#x20;
+If you do not have a current affiliation and are independent, type “**Independent Researcher**” as your position, which will lock the institution name and domain fields automatically.&#x20;
 
 {% hint style="info" %}
 When you type in custom information that data will appear in the dropdown. Click to select it or the textbox will return to blank when you click away.
