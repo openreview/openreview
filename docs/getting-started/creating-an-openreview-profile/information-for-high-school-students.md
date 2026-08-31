@@ -12,5 +12,5 @@ If you are at least 13 and under 18 years of age, you must have the consent of a
 
 A parent or guardian may withdraw consent at any time. Upon request, accounts can be closed and data will be deleted.&#x20;
 
-{% file src="../../.gitbook/assets/OpenReview_Parental_Consent_Form.pdf" %}
+{% file src="../../.gitbook/assets/OpenReview_Parental_Consent_Form (2).pdf" %}
 
