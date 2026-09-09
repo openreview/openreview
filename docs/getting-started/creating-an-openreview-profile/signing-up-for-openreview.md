@@ -16,7 +16,7 @@ OpenReview restricts duplication of certain profile information. Users who creat
 
 #### Existing Profile Email
 
-If a profile registered to this email already exists, an email is sent to that address to notify them.&#x20;
+If a profile registered to this email already exists, an email is sent to that address to notify them.
 
 #### **Resend Activation Link**
 
@@ -61,6 +61,6 @@ If you do not have an institutional affiliation, you may sign up as an Independe
 
 ### 3. Moderation
 
-After clicking ‘Register for OpenReview’, your profile will either be activated immediately or sent to moderation. Moderation can take up to two weeks, but the support team reviews moderation regularly, and will follow up with additional actions necessary.
+After clicking ‘Register for OpenReview’, your profile will either be activated immediately or sent to moderation. The support team reviews moderation regularly, and will follow up with additional actions necessary.
 
 If you receive an email indicating that additional information is required to activate your OpenReview profile, return to the Profile Registration Step by [resending the activation link](resending-an-activation-link.md), and complete the missing information. See [Expediting Profile Activation](expediting-profile-activation.md) for additional information.

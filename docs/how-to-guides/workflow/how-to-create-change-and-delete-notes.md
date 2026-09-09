@@ -10,7 +10,7 @@ Jump to:
 
 ## 1. Posting (Creating) a Note
 
-To **post a new Note**, create a `Note` object with required fields, then use `client_v2.post_note_edit()`.&#x20;
+To **post a new Note**, create a `Note` object with required fields, then use `client_v2.post_note_edit()`.
 
 #### Required fields include:
 
@@ -21,12 +21,12 @@ To **post a new Note**, create a `Note` object with required fields, then use `c
 * `writers`: who can modify the note
 * `content`: a dictionary of the note content fields (title, authors, review text, etc.)
 
-### Quickstart: Posting a submission with Python&#x20;
+### Quickstart: Posting a submission with Python
 
 Posting a submission with Python is typically reserved for testing venue workflows and changes.
 
 {% hint style="info" %}
-PCs and Reviewers that are also authors of test submissions will be conflicted later on in the process. We recommend using test author profiles for the submission process.&#x20;
+PCs and Reviewers that are also authors of test submissions will be conflicted later on in the process. We recommend using test author profiles for the submission process.
 {% endhint %}
 
 ```python
@@ -62,7 +62,7 @@ note = openreview_client.post_note_edit(
 
 ### Quickstart: Posting a desk rejection for submissions missing PDFs
 
-PCs may want to programmatically desk-reject submissions that are missing PDF files once the submission deadline has passed. You can use the script below to do so.&#x20;
+PCs may want to programmatically desk-reject submissions that are missing PDF files once the submission deadline has passed. You can use the script below to do so.
 
 ```python
 venue_id = "<VENUE_ID>"
@@ -88,7 +88,7 @@ for submission in submissions:
         print(submission.number, "is desk rejected")
 ```
 
-### Quickstart: Posting a Support Request Form With Python&#x20;
+### Quickstart: Posting a Support Request Form With Python
 
 While a support request form can most easily be [submitted through the UI](https://openreview.net/group?id=OpenReview.net/Support), some venues that have multiple deadlines a year and need to submit multiple venue requests with the same settings may find it easier to do this programmatically through the API. While most notes are posted with the API2 client, this note must be posted with the [API 1 client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).
 
@@ -114,11 +114,13 @@ content = {
         ],
         "submission_readers": "All program committee (all reviewers, all area chairs, all senior area chairs if applicable)",
         "venue_organizer_agreement":['OpenReview natively supports a wide variety of reviewing workflow configurations. However, if we want significant reviewing process customizations or experiments, we will detail these requests to the OpenReview staff at least three months in advance.',
-  'We will ask authors and reviewers to create an OpenReview Profile at least two weeks in advance of the paper submission deadlines.',
+  'We will ask authors and reviewers to create an OpenReview Profile well in advance of the paper submission deadlines.',
   'When assembling our group of reviewers and meta-reviewers, we will only include email addresses or OpenReview Profile IDs of people we know to have authored publications relevant to our venue.  (We will not solicit new reviewers using an open web form, because unfortunately some malicious actors sometimes try to create "fake ids" aiming to be assigned to review their own paper submissions.)',
   "We acknowledge that, if our venue's reviewing workflow is non-standard, or if our venue is expecting more than a few hundred submissions for any one deadline, we should designate our own Workflow Chair, who will read the OpenReview documentation and manage our workflow configurations throughout the reviewing process.",
   'We acknowledge that OpenReview staff work Monday-Friday during standard business hours US Eastern time, and we cannot expect support responses outside those times.  For this reason, we recommend setting submission and reviewing deadlines Monday through Thursday.',
-  'We will treat the OpenReview staff with kindness and consideration.']
+  'We will treat the OpenReview staff with kindness and consideration.'
+  'We acknowledge that authors and reviewers will be required to share their preferred email.'
+  'We acknowledge that certain metadata for accepted papers, specifically the paper title, abstract and author list, will be publicly released on OpenReview.']
     }
     
 support_request = openreview.Note(
@@ -148,15 +150,15 @@ Editing notes in API2 is done the same way as creating notes, by posting a note 
 
 </code></pre>
 
-The typical workflow for editing a note is this:&#x20;
+The typical workflow for editing a note is this:
 
 <pre class="language-python"><code class="lang-python"><strong>##get note
 </strong><strong>note_to_change = client_v2.get_note(&#x3C;note_id>)
 </strong><strong>##modify note
 </strong><strong>new_content = note_to_change.content
 </strong><strong>new_content[&#x3C;field>]["value"] = new_value
-</strong><strong>
-</strong><strong>##post change to venue
+</strong>
+<strong>##post change to venue
 </strong>client_v2.post_note_edit(invitation=&#x3C;venue_id>/Edit,
         signatures=[venue_id],
         note=openreview.api.Note(
@@ -165,9 +167,9 @@ The typical workflow for editing a note is this:&#x20;
             content=new_content
         )
     )
-<strong>
-</strong><strong>
-</strong></code></pre>
+
+
+</code></pre>
 
 **Editing fields:** To edit fields, you can edit the `content` object within the note. This is a dictionary object with the key as field names and the following structure:
 
@@ -179,13 +181,13 @@ The typical workflow for editing a note is this:&#x20;
                            'andrew1@amazon.com']},
 ```
 
-The `value`  is the value of the field, while the `readers` are who can see the field (see below).
+The `value` is the value of the field, while the `readers` are who can see the field (see below).
 
 So to update the 'authorids' field, you would update `new_content['authorids']['value']`
 
-**Editing field readers:** The visibility of individual fields can be controlled by adding, removing, or editing the `readers` property of each field. This takes a list of ID or group names.&#x20;
+**Editing field readers:** The visibility of individual fields can be controlled by adding, removing, or editing the `readers` property of each field. This takes a list of ID or group names.
 
-Common types of readers are:&#x20;
+Common types of readers are:
 
 * \["everyone"] - Public note, anyone can read it
 * \[\<venue\_id>] - Visible only to Program Chairs
@@ -196,11 +198,11 @@ Common types of readers are:&#x20;
 The readers for individual fields should always consist of a subset of the note readers.
 {% endhint %}
 
-**Editing note readers:** To edit the readers of the entire note, you would edit the `readers` parameter of the entire Note object. This takes a list of ID or group names.&#x20;
+**Editing note readers:** To edit the readers of the entire note, you would edit the `readers` parameter of the entire Note object. This takes a list of ID or group names.
 
 ### Quickstart: Update the readers of a note or field
 
-One common edit to make in bulk to notes is updating the readers of a note. This can be done in the UI for common configurations, but if your venue needs further fine-grained control over readership (for example custom tracks, groups, etc), then you can use the Python Client to change the readers of any subset of notes programmatically.  The following script will change the readers of a note or field within a note to the new list.
+One common edit to make in bulk to notes is updating the readers of a note. This can be done in the UI for common configurations, but if your venue needs further fine-grained control over readership (for example custom tracks, groups, etc), then you can use the Python Client to change the readers of any subset of notes programmatically. The following script will change the readers of a note or field within a note to the new list.
 
 ```python
 #venue_id
