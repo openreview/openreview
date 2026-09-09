@@ -8,6 +8,8 @@ No one under the age of 13 may create or hold an OpenReview account. If OpenRevi
 \
 If you are at least 13 and under 18 years of age, you must have the consent of a parent or legal guardian. Please have your parent or legal guardian complete and sign the form, then upload it as a single file (PDF) to your profile with the unique link sent to you in the temporary rejection message. Do not email the consent form to OpenReview directly. If you do not receive the link or it has expired, please submit a message through the [Contact Form](https://openreview.net/contact).&#x20;
 
+In the 'Career & Education History' section, select the **'High School Student'** position, or add any internships if applicable. If the history section only lists 'Independent Researcher' your profile will be rejected with a request to add another institution record.
+
 
 
 A parent or guardian may withdraw consent at any time. Upon request, accounts can be closed and data will be deleted.&#x20;

@@ -1,6 +1,6 @@
 # Entering Institutional Data
 
-To add institutional data to your OpenReview profile, go to your profile page at [https://openreview.net/profile](https://openreview.net/profile) and click 'Edit profile'. You must enter at least one position under 'Education & Career History' for your profile to be saved.
+To add institutional data to your OpenReview profile, go to your profile page at [https://openreview.net/profile](https://openreview.net/profile) and click 'Edit profile'. You must enter at least one position under 'Career & Education History' for your profile to be saved.
 
 Each position requires at least the following information: Position, Start date, Institution Info (domain, name, and country).
 
@@ -8,13 +8,13 @@ For the Position field, you can choose a position from the dropdown or, if none 
 
 Similarly for the institution name and domain, choose from the dropdown or type the name and domain yourself. If you are not sure what domain to type in for your institution, use the email domain used in institutional emails.
 
-If you do not have a current affiliation and are independent, type “**Independent Researcher**” as your position, which will lock the institution name and domain fields automatically.&#x20;
+If you do not have a current affiliation and are independent, select '**Independent Researcher'** as your position, which will lock the institution name and domain fields automatically.&#x20;
 
 {% hint style="info" %}
 When you type in custom information that data will appear in the dropdown. Click to select it or the textbox will return to blank when you click away.
 {% endhint %}
 
-A start date is required for all affiliations. If your affiliation is current, leave the end date blank, otherwise include the end date for past affiliations
+A start date is required for all affiliations. If your affiliation is current, leave the end date blank, otherwise include the end date for past affiliations.
 
 Below are some examples of complete Education and Career History sections:
 
@@ -26,6 +26,6 @@ As an example of complete institutional information, this sample user has one pa
 
 ### Example - complete profile with freeform data
 
-This sample profile includes one past affiliation with a small company not listed in the drop-down menu, and is currently an independent researcher. Here the domain and position information are typed in.
+This sample profile includes one past affiliation with a small company not listed in the drop-down menu, and is currently an independent researcher. Here the domain and position information are typed in for the small company.
 
 <figure><img src="../../.gitbook/assets/Independent Researcher Example.png" alt=""><figcaption></figcaption></figure>
