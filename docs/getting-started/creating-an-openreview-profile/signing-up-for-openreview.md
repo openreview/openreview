@@ -6,7 +6,7 @@ To create a profile, go to [https://openreview.net/signup](https://openreview.ne
 
 By checking the confirmation box, existing profiles with your name will be listed.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2026-02-27 at 11.14.59 AM.png" alt=""><figcaption><p>Enter your full name on the signup page and click the confirmation checkbox.</p></figcaption></figure>
+<figure><img src="https://622636955-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FVorH499wd7ipUjYX5etp%2Fuploads%2FlknSf3ArbCie3Dxui2TG%2FScreenshot%202026-02-27%20at%2011.14.59%E2%80%AFAM.png?alt=media&#x26;token=3dcde47e-56bb-47fe-8f3c-cec000f78d96" alt=""><figcaption><p>Enter your full name on the signup page and click the confirmation checkbox.</p></figcaption></figure>
 
 Enter an email address and click the "Sign Up" button. You'll be prompted to create a password.
 
@@ -34,7 +34,7 @@ If you have no existing profile, to create a new one fill in your email address 
 
 If you sign up with a public domain or an email domain that is not included in our institution list you will see a warning:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2026-02-27 at 10.20.10 AM.png" alt="The warning reads: gmail.com does not appear in our list of publishing institutions. It can take up to 2 weeks for profiles using public email services to be activated. To activate immediately, please sign up with an email address that uses an educational or employing institution domain. If your institution is not yet in our list, contact us to request that it be added."><figcaption><p>Email domain warning.</p></figcaption></figure>
+<figure><img src="https://622636955-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FVorH499wd7ipUjYX5etp%2Fuploads%2FFIfVi3ZRll1GNtwJzGG7%2FScreenshot%202026-02-27%20at%2010.20.10%E2%80%AFAM.png?alt=media&#x26;token=68a2d906-752d-417e-a5cb-cb4af4fddd18" alt="The warning reads: gmail.com does not appear in our list of publishing institutions. It can take up to 2 weeks for profiles using public email services to be activated. To activate immediately, please sign up with an email address that uses an educational or employing institution domain. If your institution is not yet in our list, contact us to request that it be added."><figcaption><p>Email domain warning.</p></figcaption></figure>
 
 If you are using an institutional email and get this warning, please proceed with registration, we routinely add new, verified domains to the list. Signing up with a public domain may take up to 2 weeks in moderation. See [here](expediting-profile-activation.md) for tips on expediting this process.
 
@@ -56,7 +56,7 @@ If you do not have an institutional affiliation, you may sign up as an Independe
 
 #### Common issues for Profile registration:
 
-* **Validation errors for career/education history or institutional data**: See See Entering Institutional Data for a detailed description and examples.
+* **Validation errors for career/education history or institutional data**: See [Entering Institutional Data](entering-institutional-data.md) for a detailed description and examples.
 * **Homepage duplication:** If you get an error that one of your links can't be added, it is either in the wrong format or already added to another account. Check that there are no exiting profiles with your email, and if you still don't recognize the account listed in the error, contact OpenReview Support through our [Feedback form](https://openreview.net/contact).
 
 ### 3. Moderation
