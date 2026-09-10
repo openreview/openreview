@@ -50,7 +50,7 @@ Double blind venues can only run the Submission Revision Stage after the submiss
 
 <summary>Submission Revision Additional Options</summary>
 
-* Additional options that can be added to submissions. Expects valid JSON surrounded by a single pair of curly braces {}. Read more about the accepted field types [here](/broken/pages/Fl5aNHGvygJRuyYJu1Ig).
+* Additional options that can be added to submissions. Expects valid JSON surrounded by a single pair of curly braces {}. Read more about the accepted field types [here](../../getting-started/customizing-forms.md#essential-structure-of-custom-fields).
 * Optional
 * Default options for revision are all fields of the [Submission Form](../default-forms/default-submission-form.md).
 

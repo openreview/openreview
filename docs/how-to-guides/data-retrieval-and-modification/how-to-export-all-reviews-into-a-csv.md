@@ -4,8 +4,8 @@
 
 To export all reviews for a given venue into a csv file:
 
-1. If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).&#x20;
-2. Retrieve all of the Reviews into the a `reviews` variable. Follow this link and complete all three steps for API 2 venues to [Get All the Reviews](/broken/pages/ILgM2uZNzr0XKkEu0K5i#venues-using-api-v2)&#x20;
+1. If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).
+2. Retrieve all of the Reviews into the a `reviews` variable. Follow this link and complete all three steps for API 2 venues to [Get All the Reviews](how-to-get-all-notes-for-submissions-reviews-rebuttals-etc.md#quickstart-getting-reviews-meta-reviews-comments-decisions-rebuttals)
 3. Get the super review invitation. You can check out the [default review form](../../reference/default-forms/default-review-form.md#api-v2-json) if you need a reference. You'll need the content of the super invitation to create the headers for the .csv.
 
 ```python
@@ -40,22 +40,22 @@ with open('reviews.csv', 'w') as outfile:
         s = csvwriter.writerow(valueList)
 ```
 
-6. There should now be a .csv of exported reviews in the directory in which you are working.&#x20;
+6. There should now be a .csv of exported reviews in the directory in which you are working.
 
 ## API 1 Venues
 
-Say you want to export all of the reviews for a given venue into a csv file.&#x20;
+Say you want to export all of the reviews for a given venue into a csv file.
 
-1. If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).&#x20;
-2. Retrieve all of the Reviews into a `reviews` object following the instructions [here](/broken/pages/ILgM2uZNzr0XKkEu0K5i).&#x20;
-3. Next, get the super review invitation. This is the overall review invitation which each of the Paper#/-/Official\_Review invitations are based off of, and it follows the format Venue/ID/-/Official\_Review.&#x20;
+1. If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).
+2. Retrieve all of the Reviews into a `reviews` object following the instructions [here](data-retrieval-for-api-1-venues.md#reviews).
+3. Next, get the super review invitation. This is the overall review invitation which each of the Paper#/-/Official\_Review invitations are based off of, and it follows the format Venue/ID/-/Official\_Review.
 
 ```python
 invitation = client.get_invitation("<Your/Venue/Id/-/Official_Review>")
 print(invitation.content)
 ```
 
-4. Generate a list of the fields in the content in the Review invitation. For reference, this is what the default review invitation content looks like in JSON:&#x20;
+4. Generate a list of the fields in the content in the Review invitation. For reference, this is what the default review invitation content looks like in JSON:
 
 ```python
 {
@@ -108,7 +108,7 @@ so we would expect a list like \["title", "review", "rating", "confidence"]. Thi
 keylist = list(review_invitation.reply['content'].keys())
 ```
 
-5. If you haven't already, import csv. Then iterate through the list of reviews stored in 'reviews' and for each one, append the values associated to the keys in your keylist. If a value does not exist for that key, put an empty string in its place.&#x20;
+5. If you haven't already, import csv. Then iterate through the list of reviews stored in 'reviews' and for each one, append the values associated to the keys in your keylist. If a value does not exist for that key, put an empty string in its place.
 
 ```python
 import csv
@@ -130,7 +130,7 @@ with open('reviews.csv', 'w') as outfile:
 outfile.close()  
 ```
 
-6. There should now be a csv of exported reviews in the directory in which you are working.&#x20;
+6. There should now be a csv of exported reviews in the directory in which you are working.
 
 ### Adding submission information to the exported csv (both API2 and API1)
 
@@ -188,6 +188,3 @@ outfile.close()
 ```
 
 If you want additional information about the reviewer, you can get their profile using the Profile ID (see [How to Get Profiles and Their Relations](how-to-get-profiles-and-their-relations.md) for more guidance).
-
-
-

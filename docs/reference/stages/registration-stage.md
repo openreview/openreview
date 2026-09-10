@@ -74,7 +74,7 @@ If your venue has area chairs, you will see two registration buttons, one for re
 
 <summary>Additional Form Options</summary>
 
-* Additional fields that can be added to the registration form. Expects a valid JSON surrounded by a single pair of curly braces {}. Read more about defining fields [here.](/broken/pages/Fl5aNHGvygJRuyYJu1Ig)
+* Additional fields that can be added to the registration form. Expects a valid JSON surrounded by a single pair of curly braces {}. Read more about defining fields [here.](../../getting-started/customizing-forms.md#essential-structure-of-custom-fields)
 * Optional
 * Defaults to [default Registration Form](../default-forms/default-registration-form.md)
 
@@ -91,4 +91,4 @@ If your venue has area chairs, you will see two registration buttons, one for re
 
 **How to Query**
 
-To query all registration notes submitted to your venue, follow [these instructions](/broken/pages/59Bybal5opfCxbbQZVvd).
+To query all registration notes submitted to your venue, follow [these instructions](../../how-to-guides/data-retrieval-and-modification/how-to-get-all-notes-for-submissions-reviews-rebuttals-etc.md#getting-notes).

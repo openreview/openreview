@@ -18,7 +18,7 @@ submissions = client.get_all_notes(
     )
 ```
 
-As a program organizer, to get only the "accepted" submissions for double-blind venues, query using the Blind submission invitation and include 'directReplies' and 'original' in the details.&#x20;
+As a program organizer, to get only the "accepted" submissions for double-blind venues, query using the Blind submission invitation and include 'directReplies' and 'original' in the details.
 
 ```python
 # Double-blind venues
@@ -56,13 +56,11 @@ for decision_note in all_decision_notes:
 
 Parameters you can use when [querying API 1 notes](https://api.openreview.net/notes).
 
-
-
 ## Reviews
 
-#### To get all reviews for a double-blind venue, you can do the following:&#x20;
+#### To get all reviews for a double-blind venue, you can do the following:
 
-1. Get all submissions for your venue. You can do this by passing your venue's submission invitation into get\_all\_note&#x73;_._ You should also pass in details = "directReplies" to obtain any notes that reply to each submission.&#x20;
+1. Get all submissions for your venue. You can do this by passing your venue's submission invitation into get\_all\_note&#x73;_._ You should also pass in details = "directReplies" to obtain any notes that reply to each submission.
 
 ```python
 submissions = client.get_all_notes(
@@ -71,7 +69,7 @@ submissions = client.get_all_notes(
 )
 ```
 
-2\. For each submission, add any replies with the Official Review invitation to a list of Reviews.&#x20;
+2\. For each submission, add any replies with the Official Review invitation to a list of Reviews.
 
 ```python
 reviews = [] 
@@ -83,7 +81,7 @@ for submission in submissions:
 
 #### To get all reviews for a single-blind venue, you can do the following:
 
-1. Get all submissions for your venue. You can do this by passing your venue's submission invitation into get\_all\_note&#x73;_._ You should also pass in details = "directReplies" to obtain any notes that reply to each submission.&#x20;
+1. Get all submissions for your venue. You can do this by passing your venue's submission invitation into get\_all\_note&#x73;_._ You should also pass in details = "directReplies" to obtain any notes that reply to each submission.
 
 ```python
 submissions = client.get_all_notes(
@@ -92,7 +90,7 @@ submissions = client.get_all_notes(
 )
 ```
 
-2\. For each submission, add any replies with the Official Review invitation to a list of Reviews.&#x20;
+2\. For each submission, add any replies with the Official Review invitation to a list of Reviews.
 
 ```python
 reviews = [] 
@@ -104,20 +102,18 @@ for submission in submissions:
 
 ## Exporting data
 
+Say you want to export all of the reviews for a given venue into a csv file.
 
-
-Say you want to export all of the reviews for a given venue into a csv file.&#x20;
-
-1. If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).&#x20;
-2. Retrieve all of the Reviews into a `reviews` object following the instructions [here](/broken/pages/ILgM2uZNzr0XKkEu0K5i).&#x20;
-3. Next, get the super review invitation. This is the overall review invitation which each of the Paper#/-/Official\_Review invitations are based off of, and it follows the format Venue/ID/-/Official\_Review.&#x20;
+1. If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).
+2. Retrieve all of the Reviews into a `reviews` object following the instructions [here](data-retrieval-for-api-1-venues.md#reviews).
+3. Next, get the super review invitation. This is the overall review invitation which each of the Paper#/-/Official\_Review invitations are based off of, and it follows the format Venue/ID/-/Official\_Review.
 
 ```python
 invitation = client.get_invitation("<Your/Venue/Id/-/Official_Review>")
 print(invitation.content)
 ```
 
-4. Generate a list of the fields in the content in the Review invitation. For reference, this is what the default review invitation content looks like in JSON:&#x20;
+4. Generate a list of the fields in the content in the Review invitation. For reference, this is what the default review invitation content looks like in JSON:
 
 ```python
 {
@@ -170,7 +166,7 @@ so we would expect a list like \["title", "review", "rating", "confidence"]. Thi
 keylist = list(review_invitation.reply['content'].keys())
 ```
 
-5. If you haven't already, import csv. Then iterate through the list of reviews stored in 'reviews' and for each one, append the values associated to the keys in your keylist. If a value does not exist for that key, put an empty string in its place.&#x20;
+5. If you haven't already, import csv. Then iterate through the list of reviews stored in 'reviews' and for each one, append the values associated to the keys in your keylist. If a value does not exist for that key, put an empty string in its place.
 
 ```python
 import csv
@@ -192,7 +188,7 @@ with open('reviews.csv', 'w') as outfile:
 outfile.close()  
 ```
 
-6. There should now be a csv of exported reviews in the directory in which you are working.&#x20;
+6. There should now be a csv of exported reviews in the directory in which you are working.
 
 ### Adding submission information to the exported csv (both API2 and API1)
 
@@ -250,4 +246,3 @@ outfile.close()
 ```
 
 If you want additional information about the reviewer, you can get their profile using the Profile ID (see [How to Get Profiles and Their Relations](how-to-get-profiles-and-their-relations.md) for more guidance).
-

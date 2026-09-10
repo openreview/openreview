@@ -2,7 +2,7 @@
 
 ### Compute conflicts between reviewers and authors of a single submission
 
-If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).&#x20;
+If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).
 
 {% hint style="info" %}
 Read for more information about [conflict policies](how-to-do-automatic-assignments/how-to-setup-paper-matching-by-calculating-affinity-scores-and-conflicts.md).
@@ -10,7 +10,7 @@ Read for more information about [conflict policies](how-to-do-automatic-assignme
 
 ### Compute conflicts between multiple reviewers and one submission
 
-1. Get the note that you are interested in computing conflicts for.&#x20;
+1. Get the note that you are interested in computing conflicts for.
 
 ```python
 note = client.get_note(<submission_id>)
@@ -35,7 +35,7 @@ reviewers = openreview.tools.get_profiles(
 )
 ```
 
-4\. Compute the conflicts. If no conflicts are found, `get_conflicts` will return an empty list. Otherwise, the list will contain the shared groups that put them in conflict with each other.&#x20;
+4\. Compute the conflicts. If no conflicts are found, `get_conflicts` will return an empty list. Otherwise, the list will contain the shared groups that put them in conflict with each other.
 
 ```python
 for reviewer in reviewers:
@@ -51,7 +51,7 @@ for reviewer in reviewers:
 
 ### Compute conflicts between reviewers and authors of all submissions
 
-1. [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).&#x20;
+1. [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).
 2. Get all submissions, authorids of all submissions, and the author and reviewer Profiles. If you're using a custom policy that does not need the author's publications, you can exclude `with_publications=True`
 
 ```python
@@ -83,7 +83,7 @@ for reviewer in reviewers:
 
 ### Compute conflicts between multiple reviewers and all submissions
 
-1. Get [all active submissions under review](/broken/pages/ReOs7ESKAubL8cVC84Wm) and save them to a variable "submissions".
+1. Get [all active submissions under review](../data-retrieval-and-modification/how-to-get-all-notes-for-submissions-reviews-rebuttals-etc.md#quickstart-getting-all-submissions) and save them to a variable "submissions".
 2. Get the profiles for the new reviewers.
 
 ```python

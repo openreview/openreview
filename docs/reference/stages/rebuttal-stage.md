@@ -56,7 +56,7 @@ The Rebuttal Stage should be run if PCs want to allow authors to post rebuttals 
 
 <summary>Additional Rebuttal Form Options</summary>
 
-* Adds or overwrites fields to the Rebuttal Form. Expects valid JSON surrounded by a single pair of curly braces {}. Read more about the accepted field types [here](/broken/pages/Fl5aNHGvygJRuyYJu1Ig).
+* Adds or overwrites fields to the Rebuttal Form. Expects valid JSON surrounded by a single pair of curly braces {}. Read more about the accepted field types [here](../../getting-started/customizing-forms.md#essential-structure-of-custom-fields).
 * Optional
 * Defaults to [default Rebuttal Form](../default-forms/default-rebuttal-form.md)
 

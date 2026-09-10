@@ -79,7 +79,7 @@ The Decision Stage should not be run until after the submission deadline, except
 
 <summary>Additional Decision Form Options</summary>
 
-* Adds or overwrites fields to the Decision Form. Expects valid JSON surrounded by a single pair of curly braces {}. Read more about the accepted field types [here](/broken/pages/Fl5aNHGvygJRuyYJu1Ig).
+* Adds or overwrites fields to the Decision Form. Expects valid JSON surrounded by a single pair of curly braces {}. Read more about the accepted field types [here](../../getting-started/customizing-forms.md#essential-structure-of-custom-fields).
 * Optional
 * Defaults to [default Decision Form](../default-forms/default-decision-form.md)
 
