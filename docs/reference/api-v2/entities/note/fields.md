@@ -6,6 +6,31 @@ description: >-
 
 # Fields
 
+## Choosing the right field
+
+Most questions about Notes come down to picking the right field for the job. The table below points at the field that answers each of the most common ones; the sections that follow describe every field in detail.
+
+| What you want to know                                                        | Field to read                             |
+| ---------------------------------------------------------------------------- | ----------------------------------------- |
+| When a submission was posted                                                 | `cdate`                                   |
+| An unmodifiable record of when a Note was created or last changed            | `tcdate`, `tmdate`                        |
+| When a submission was accepted                                               | `pdate`                                   |
+| When a Note first became public                                              | `odate`                                   |
+| Whether a Note has been deleted                                              | `ddate`                                   |
+| Which schema produced the Note, for example to collect every Official Review | `invitations`                             |
+| Whether a submission is active, accepted, withdrawn, or desk rejected        | `venueid`, inside `content`               |
+| Which submission a review or comment belongs to                              | `forum`                                   |
+| Which Note a reply is answering                                              | `replyto`                                 |
+| Who posted the Note                                                          | `signatures`                              |
+| Who can retrieve the Note                                                    | `readers`                                 |
+| Who can see one particular field                                             | `readers`, inside that field in `content` |
+
+{% hint style="warning" %}
+`cdate`, `mdate`, `odate`, and `pdate` can be set by the venue and can hold dates in the past or the future, so they describe the venue's workflow rather than what actually happened. When you need the real history, read `tcdate` and `tmdate`, which cannot be modified.
+{% endhint %}
+
+`venueid` is a field of `content` rather than a top-level field of the Note, and it is what you filter on to select a specific set of submissions. See [How to Get all Notes](../../../../how-to-guides/data-retrieval-and-modification/how-to-get-all-notes-for-submissions-reviews-rebuttals-etc.md#quickstart-getting-all-submissions) for the venue group properties that hold the value for each status.
+
 ## id
 
 This is a unique value that identifies the Note. The `id` of a Note is generated automatically. It is a random 10 character long string that can contain any of the following values:
@@ -68,7 +93,7 @@ The `nonreaders` field is an array with Group ids that indicates who cannot retr
 
 ## writers
 
-The `writers` field is an array with Group ids that indicates who can modify the Note.&#x20;
+The `writers` field is an array with Group ids that indicates who can modify the Note.
 
 ## forum
 
