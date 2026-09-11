@@ -59,4 +59,4 @@
 
 #### Preview
 
-![](<../../.gitbook/assets/Screen Shot 2022-05-04 at 10.44.00 AM.png>)
+<figure><img src="../../.gitbook/assets/default-ethics-review-form-preview.png" alt="The default ethics review form, showing the Recommendation and Ethics Review fields"><figcaption><p>The default ethics review form as an ethics reviewer sees it.</p></figcaption></figure>

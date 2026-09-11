@@ -116,4 +116,4 @@
 
 #### Preview
 
-<figure><img src="../../.gitbook/assets/reviewform.png" alt="Image of the default review form" width="563"><figcaption><p>Image of the default review form</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/default-review-form-preview.png" alt="The default review form, showing the Title, Review, Rating and Confidence fields"><figcaption><p>The default review form as a reviewer sees it.</p></figcaption></figure>

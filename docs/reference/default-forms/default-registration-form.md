@@ -29,4 +29,4 @@
 }
 ```
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-05-03 at 6.55.33 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/default-registration-form-preview.png" alt="The default registration form, showing the Profile Confirmed and Expertise Confirmed fields"><figcaption><p>The default registration form as a reviewer sees it.</p></figcaption></figure>
