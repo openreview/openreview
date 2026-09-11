@@ -21,4 +21,4 @@
 
 **Preview**
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-11-20 at 2.27.09 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/default-rebuttal-form-preview.png" alt="The default rebuttal form, showing the Rebuttal field"><figcaption><p>The default rebuttal form as an author sees it.</p></figcaption></figure>

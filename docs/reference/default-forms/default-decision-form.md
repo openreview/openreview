@@ -70,4 +70,4 @@
 
 **Preview**
 
-![](<../../.gitbook/assets/image (2).png>)
+<figure><img src="../../.gitbook/assets/default-decision-form-preview.png" alt="The default decision form, showing the Title, Decision and Comment fields"><figcaption><p>The default decision form as a program chair sees it.</p></figcaption></figure>

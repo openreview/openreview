@@ -52,4 +52,4 @@
 
 #### Preview
 
-![Commen](https://openreview.net/images/faq-comment-form.png)
+<figure><img src="../../.gitbook/assets/default-comment-form-preview.png" alt="The default comment form, showing the Title, Comment and Readers fields"><figcaption><p>The default comment form, with reader selection enabled.</p></figcaption></figure>

@@ -86,4 +86,4 @@
 
 #### Preview
 
-![](<../../.gitbook/assets/image (8) (2).png>)
+<figure><img src="../../.gitbook/assets/default-meta-review-form-preview.png" alt="The default meta review form, showing the Metareview, Recommendation and Confidence fields"><figcaption><p>The default meta review form as an area chair sees it.</p></figcaption></figure>
