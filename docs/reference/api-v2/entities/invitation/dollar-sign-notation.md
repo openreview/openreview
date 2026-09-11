@@ -90,6 +90,65 @@ There are 3 fields that contain the dollar sign notation and 4 values that need 
 
 The other example refers to the field `number`. This field is not defined when the **Note Edit** is posted, because it is created by the backend. However, the field can be referred to when creating the **Note Edit**. The `number` field is the only exception to the rule where all the field values that can be referred to with the dollar sign notation need to be present when the **Note Edit** is posted. As you can see, when the Note number value is resolved it replaces the value of the dollar sign with the number of the Note.
 
+## When the notation is resolved
+
+The notation is stored in the Invitation, but nothing is resolved there. It is resolved when an object is posted against that Invitation, and the value it reads is read from **the object being created**, not from the Invitation. This is why the notation can only refer to fields of that object, and why the paths below are the paths of the posted Edit rather than of the Invitation.
+
+The Invitation's `edit` block is the template for the object, so translating between the two is mechanical:
+
+* The Invitation's leading `edit` is not part of the path. A notation written at `edit/note/content/x/readers/1` in the Invitation sits at `note/content/x/readers/1` in the posted Edit.
+* A `param` keyword is not part of the path either. A notation written at `edit/note/content/x/value/param/const` occupies `note/content/x/value` in the posted Edit, because that is where the constant ends up.
+* When an Invitation creates another Invitation, the inner template is kept: `edit/invitation/edit/note/...` in the outer Invitation is `invitation/edit/note/...` in the posted Invitation Edit.
+
+## Working out the number of levels
+
+The integer is **not** fixed for a given field name: it counts how far the notation has to travel up from the place where it is written. Two fields that end up with the same value use different integers whenever they sit at different depths, which is the most common source of confusion.
+
+Write down the path the value occupies in the posted object, counting every key and every array index as one segment. `${<integer>/path}` removes that many segments from the end and appends `path` to what is left. `${0/...}` removes nothing and reads from the same level.
+
+Applying this to the **Note Edit Invitation** above:
+
+| Notation          | Written at, in the Invitation | Path in the posted Edit     | After removing the segments | Resolves to   |
+| ----------------- | ----------------------------- | --------------------------- | --------------------------- | ------------- |
+| `${2/signatures}` | `edit/readers/1`              | `readers` / `1`             | the root of the Edit        | `signatures`  |
+| `${2/number}`     | `edit/note/signatures/0`      | `note` / `signatures` / `0` | `note`                      | `note/number` |
+| `${3/signatures}` | `edit/note/writers/1`         | `note` / `writers` / `1`    | the root of the Edit        | `signatures`  |
+| `${2/number}`     | `edit/note/writers/2`         | `note` / `writers` / `2`    | `note`                      | `note/number` |
+
+Array indices count as segments. `${2/signatures}` and `${3/signatures}` reach the same value only because the first is written two segments below the root of the Edit and the second is written three below it.
+
+Removing more segments than the path has is an error, which is the mechanism behind the restriction described at the end of this page: there is nothing above the root of the object being created to reach.
+
+## The same value can have more than one path
+
+The number of a submission is a good example. It sits at a different path, and therefore behind a different integer, depending on which form you are customizing.
+
+**On the submission form**, the object being created is the submission's own Note Edit, and the number is the Note's `number` field:
+
+```json
+"readers": [
+  "Your/Venue/ID/Program_Chairs",
+  "Your/Venue/ID/Submission${4/number}/Authors"
+]
+```
+
+In the posted Edit the notation sits at `note` / `content` / `<field>` / `readers` / `1`. Removing 4 segments leaves `note`, so it resolves to `note/number`.
+
+**On a reply form** (review, meta review, comment, decision), the Invitation you are customizing does not create the reply directly: it creates one per-submission Invitation for each paper, and _that_ Invitation creates the reply. The object being posted is therefore an Invitation Edit, and the submission number reaches it as a parameter rather than as a field of a Note:
+
+```json
+"readers": [
+  "Your/Venue/ID/Program_Chairs",
+  "Your/Venue/ID/Submission${7/content/noteNumber/value}/Area_Chairs"
+]
+```
+
+In the posted Invitation Edit the notation sits at `invitation` / `edit` / `note` / `content` / `<field>` / `readers` / `1`. Removing 7 segments lands on the root, and the number is read from `content/noteNumber/value` there.
+
+{% hint style="info" %}
+When you customize a form through the venue request form or the workflow console, you only type the `content` block, but that block is nested inside a complete object when it is posted. Count the segments from that whole object, not from the JSON in the text box. See [Customizing Forms](../../../../getting-started/customizing-forms.md#setting-the-readers-of-a-field) for the full examples.
+{% endhint %}
+
 {% hint style="warning" %}
 The dollar sign notation cannot refer to values that are at the root of the Invitation. This is because when an object is created, it only has access to its own fields, not to the fields of the Invitation that allows its creation.
 {% endhint %}
