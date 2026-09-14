@@ -148,6 +148,7 @@
     * [How to deploy the proposed assignments](how-to-guides/paper-matching-and-assignment/how-to-do-automatic-assignments/how-to-deploy-the-proposed-assignments.md)
     * [How to modify assignments after deployment](how-to-guides/paper-matching-and-assignment/how-to-do-automatic-assignments/how-to-make-manual-assignments-with-the-edge-browser-after-deployment.md)
   * [How to enable Reviewer Reassignment for Area Chairs](how-to-guides/paper-matching-and-assignment/how-to-enable-reviewer-reassignment-for-area-chairs.md)
+  * [How to Enable Reviewer Recommendations for Area Chairs](how-to-guides/paper-matching-and-assignment/how-to-enable-reviewer-recommendations-for-area-chairs.md)
   * [How to Sync Manual and Automatic Assignments](how-to-guides/data-retrieval-and-modification/how-to-sync-manual-and-automatic-assignments.md)
   * [How to Compute Affinity Scores Manually](how-to-guides/paper-matching-and-assignment/how-to-compute-affinity-scores.md)
   * [How to Upload Edges in Bulk](how-to-guides/paper-matching-and-assignment/how-to-upload-edges-in-bulk.md)
