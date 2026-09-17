@@ -46,7 +46,8 @@ The Review Stage should not be run until after the submission deadline, except i
 
 * If yes, sets the readers of existing and future reviews to 'everyone'.
 * Required
-* Will not work if submissions are not public
+* Overrides 'Release Reviews to Authors'. When this is set to yes, the readers are 'everyone' and nothing else is added, so the paper's Authors group is not added even if that option is also set to yes.
+* Cannot be used while the venue keeps every submission private. The stage is rejected with 'Reviews cannot be released to the public since all papers are private'. It is allowed when the venue makes accepted submissions public and hides rejected ones.
 
 </details>
 
@@ -56,7 +57,7 @@ The Review Stage should not be run until after the submission deadline, except i
 
 * If yes, sets the readers of existing and future reviews to include paper authors.
 * Required
-* Will not work if 'Make Reviews Public' is selected while submissions are not public
+* Ignored whenever 'Make Reviews Public' is set to yes, regardless of whether the submissions are public. To release reviews to authors, set 'Make Reviews Public' to no. See [How to release reviews](../../how-to-guides/workflow/how-to-release-reviews.md).
 
 </details>
 
