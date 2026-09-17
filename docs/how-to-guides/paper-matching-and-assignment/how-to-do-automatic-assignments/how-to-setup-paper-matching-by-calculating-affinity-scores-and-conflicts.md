@@ -55,6 +55,8 @@ Since a lot of users use email services such as gmail.com, a list of common doma
 
 There are two policies when computing conflicts: **Default** and **NeurIPS**.
 
+**Ignored domains:** Conflict computation skips common email/provider domains (e.g. `gmail.com`, `outlook.com`, `yahoo.com`) and the independent-researcher domain `independent-researcher.org`. Two profiles sharing only one of these domains are **not** treated as conflicting.
+
 #### Default Information Extraction Policy
 
 1. Uses the domains and computes subdomains from the _Education & Career History_ section.
@@ -85,7 +87,7 @@ Once all the information is extracted from the users' Profiles, the following ru
 
 ### Compute Affinity Scores
 
-OpenReview has different models available to compute affinity scores between users and submissions.  The current available models are:
+OpenReview has different models available to compute affinity scores between users and submissions. The current available models are:
 
 * specter+mfr
 * specter2
@@ -94,14 +96,14 @@ OpenReview has different models available to compute affinity scores between use
 
 If you want to learn more about the models, you can find the open source repository [here](https://github.com/openreview/openreview-expertise).
 
-You may also choose to upload your scores by selecting _No._ Directions for how to format uploaded scores are in the description of the field in the Paper Matching Setup.&#x20;
+You may also choose to upload your scores by selecting _No._ Directions for how to format uploaded scores are in the description of the field in the Paper Matching Setup.
 
 ### Troubleshoot Paper Matching
 
-Running the paper matching setup should output a comment on your venue request page. If there were members missing profiles or publications, the message will identify them and say 'Affinity scores and/or conflicts could not be computed for these users. Please ask these users to sign up in OpenReview and upload their papers. Alternatively, you can remove these users from the Reviewers group.' This message does not mean that the process failed, but that those members were excluded from the calculations. You have two options:&#x20;
+Running the paper matching setup should output a comment on your venue request page. If there were members missing profiles or publications, the message will identify them and say 'Affinity scores and/or conflicts could not be computed for these users. Please ask these users to sign up in OpenReview and upload their papers. Alternatively, you can remove these users from the Reviewers group.' This message does not mean that the process failed, but that those members were excluded from the calculations. You have two options:
 
-1. Remove reviewers without profiles from the reviewers group.&#x20;
-2. Remind the reviewers that they need OpenReview profiles and wait for them to create them. You can run the Paper Matching Setup as many times as you want or until all users have completed profiles.&#x20;
+1. Remove reviewers without profiles from the reviewers group.
+2. Remind the reviewers that they need OpenReview profiles and wait for them to create them. You can run the Paper Matching Setup as many times as you want or until all users have completed profiles.
 
 Note that when a reviewer creates a profile, their email address will not be automatically updated to their profile ID in the reviewers' group. The matcher will still detect email addresses as users without profiles, so any email addresses will either need to be removed or replaced with tilde IDs. This can be done automatically by re-running Paper Matching Setup.
 

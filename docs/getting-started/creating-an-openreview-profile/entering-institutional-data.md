@@ -4,11 +4,13 @@ To add institutional data to your OpenReview profile, go to your profile page at
 
 Each position requires at least the following information: Position, Start date, Institution Info (domain, name, and country).
 
-For the Position field, you can choose a position from the dropdown or, if none of the existing positions are a good fit, **you may type in a custom role**. Make sure to click in the custom role as it appear in the dropdown in order to select it for that field, otherwise no value will be entered.&#x20;
+For the Position field, you can choose a position from the dropdown or, if none of the existing positions are a good fit, **you may type in a custom role**. Make sure to click in the custom role as it appears in the dropdown in order to select it for that field, otherwise no value will be entered.
 
 Similarly for the institution name and domain, choose from the dropdown or type the name and domain yourself. If you are not sure what domain to type in for your institution, use the email domain used in institutional emails.
 
-If you do not have a current affiliation and are independent, select '**Independent Researcher'** as your position, which will lock the institution name and domain fields automatically.&#x20;
+If you do not have a current affiliation and are independent, select '**Independent Researcher'** as your position, which will lock the institution name and domain fields automatically.
+
+Independent researchers should use the position Independent Researcher. In this case, the institution domain is filled in automatically (`independent-researcher.org`) and the domain and name fields are disabled. You don't need to enter any additional information.
 
 {% hint style="info" %}
 When you type in custom information that data will appear in the dropdown. Click to select it or the textbox will return to blank when you click away.

@@ -30,9 +30,8 @@ Please check that your email has (confirmed) next to it in your profile page. If
 
 ### I don’t have an institutional email, what else can I do to speed up the process?
 
-If you don’t have any institutional emails, please ensure your other profile information is complete. Ensuring your homepage displays your email and career details, along with a fully completed profile, will facilitate the activation process.
+If you don’t have any institutional emails, please ensure your other profile information is complete. Ensuring your homepage displays your email and career details, along with a fully completed profile, will facilitate the activation process. We will follow up if we need more information.
 
 ### Related pages:
 
 [I am an Independent Researcher, how do I sign up?](../frequently-asked-questions/i-am-an-independent-researcher-how-do-i-sign-up.md)
-
