@@ -27,7 +27,7 @@
           "username": {
             "param": {
               "type": "string",
-              "regex": "^~\S+$",
+              "regex": "^~\\S+$",
               "mismatchError": "must be a valid profile ID"
             }
           },
