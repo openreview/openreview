@@ -1,7 +1,5 @@
 # Default Decision Form
 
-#### API V2 JSON
-
 ```json
 {
   "title": {
@@ -19,55 +17,25 @@
           "Accept (Poster)",
           "Reject"
         ],
-        "input": "select"
+        "input": "radio"
       }
     }
   },
   "comment": {
     "order": 3,
-    "description": "",
     "value": {
       "param": {
         "type": "string",
-        "minLength": 1,
-        "maxLength": 5000,
+        "markdown": true,
         "input": "textarea",
         "optional": true,
         "deletable": true
       }
-    } 
-  }
-}
-```
-
-#### API V1 JSON
-
-```json
-{
-  "title": {
-      "order": 1,
-      "required": true,
-      "value": "Paper Decision"
-  },
-  "decision": {
-      "order": 2,
-      "required": true,
-      "value-radio": [
-          "Accept (Oral)",
-          "Accept (Poster)",
-          "Reject"
-      ],
-      "description": "Decision"
-  },
-  "comment": {
-      "order": 3,
-      "required": false,
-      "value-regex": "[\\S\\s]{0,5000}",
-      "description": ""
+    }
   }
 }
 ```
 
 **Preview**
 
-<figure><img src="../../.gitbook/assets/default-decision-form-preview.png" alt="The default decision form, showing the Title, Decision and Comment fields"><figcaption><p>The default decision form as a program chair sees it.</p></figcaption></figure>
+<figure><img src="https://622636955-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FVorH499wd7ipUjYX5etp%2Fuploads%2Fgit-blob-a4b3877c463cd89a31d38da31509bbd9ded3dbfa%2Fdefault-decision-form-preview.png?alt=media" alt="The default decision form, showing the Title, Decision and Comment fields"><figcaption><p>The default decision form as a program chair sees it.</p></figcaption></figure>

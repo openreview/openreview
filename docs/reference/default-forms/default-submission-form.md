@@ -3,49 +3,74 @@
 ```json
 {
   "title": {
+    "order": 1,
+    "description": "Title of paper. Add TeX formulas using the following formats: $In-line Formula$ or $$Block Formula$$.",
     "value": {
       "param": {
         "type": "string",
-        "regex": ".{1,250}"
+        "regex": "^.{1,250}$"
       }
-    },
-    "description": "Title of paper. Add TeX formulas using the following formats: $In-line Formula$ or $$Block Formula$$",
-    "order": 1
+    }
   },
   "authors": {
+    "order": 2,
+    "description": "Search author profile by name or profile ID. All authors must have an OpenReview profile prior to submitting a paper.",
+    "value": {
+      "param": {
+        "type": "author{}",
+        "properties": {
+          "fullname": {
+            "param": {
+              "type": "string"
+            }
+          },
+          "username": {
+            "param": {
+              "type": "string",
+              "regex": "^~\S+$",
+              "mismatchError": "must be a valid profile ID"
+            }
+          },
+          "institutions": {
+            "param": {
+              "type": "object{}",
+              "properties": {
+                "name": {
+                  "param": {
+                    "type": "string"
+                  }
+                },
+                "domain": {
+                  "param": {
+                    "type": "string"
+                  }
+                },
+                "country": {
+                  "param": {
+                    "type": "string"
+                  }
+                }
+              },
+              "optional": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "keywords": {
+    "description": "Comma separated list of keywords.",
+    "order": 4,
     "value": {
       "param": {
         "type": "string[]",
-        "regex": "[^;,\\n]+(,[^,\\n]+)*",
-        "hidden": true
+        "regex": ".+"
       }
-    },
-    "description": "Comma separated list of author names.",
-    "order": 2
-  },
-  "authorids": {
-    "value": {
-      "param": {
-        "type": "group[]",
-        "regex": "~.*|([a-z0-9_\\-\\.]{1,}@[a-z0-9_\\-\\.]{2,}\\.[a-z]{2,},){0,}([a-z0-9_\\-\\.]{1,}@[a-z0-9_\\-\\.]{2,}\\.[a-z]{2,})"
-      }
-    },
-    "description": "Search author profile by first, middle and last name or email address. If the profile is not found, you can add the author by completing first, middle, and last names as well as author email address.",
-    "order": 3
-  },
-  "keywords": {
-    "value": {
-      "param": {
-        "type": "string",
-        "regex": "(^$)|[^;,\\n]+(,[^,\\n]+)*",
-        "optional": true,
-        "deletable": true
-      }
-    },
-    "description": "Comma separated list of keywords.",
-    "order": 6
+    }
   },
   "TLDR": {
+    "order": 5,
+    "description": "\"Too Long; Didn't Read\": a short sentence describing your paper",
     "value": {
       "param": {
         "fieldName": "TL;DR",
@@ -54,37 +79,36 @@
         "optional": true,
         "deletable": true
       }
-    },
-    "description": "\"Too Long; Didn't Read\": a short sentence describing your paper",
-    "order": 7
+    }
   },
   "abstract": {
+    "order": 6,
+    "description": "Abstract of paper. Add TeX formulas using the following formats: $In-line Formula$ or $$Block Formula$$.",
     "value": {
       "param": {
         "type": "string",
-        "minLength": 1,
         "maxLength": 5000,
-        "input": "textarea",
-        "markdown": true
+        "markdown": true,
+        "input": "textarea"
       }
-    },
-    "description": "Abstract of paper. Add TeX formulas using the following formats: $In-line Formula$ or $$Block Formula$$",
-    "order": 8
+    }
   },
   "pdf": {
+    "order": 7,
+    "description": "Upload a PDF file that ends with .pdf.",
     "value": {
       "param": {
         "type": "file",
-        "extensions": [ "pdf" ],
-        "maxSize": 50
+        "maxSize": 50,
+        "extensions": [
+          "pdf"
+        ]
       }
-    },
-    "description": "Upload a PDF file that ends with .pdf",
-    "order": 9
+    }
   }
 }
 ```
 
-#### Preview&#x20;
+#### Preview
 
-![](<../../.gitbook/assets/image (10).png>)
+<figure><img src="https://622636955-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FVorH499wd7ipUjYX5etp%2Fuploads%2Fgit-blob-7674cfc829e37c61c3e92c5e9679b4ba5173f837%2Fdefault-submission-form-preview.png?alt=media" alt="The default submission form, showing the Title, Authors, Keywords, TL;DR, Abstract and PDF fields"><figcaption><p>The default submission form as an author sees it.</p></figcaption></figure>

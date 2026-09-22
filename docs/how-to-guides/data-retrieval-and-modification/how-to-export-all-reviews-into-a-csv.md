@@ -6,7 +6,7 @@ To export all reviews for a given venue into a csv file:
 
 1. If you have not done so, you will need to [install and instantiate the openreview-py client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md).
 2. Retrieve all of the Reviews into the a `reviews` variable. Follow this link and complete all three steps for API 2 venues to [Get All the Reviews](how-to-get-all-notes-for-submissions-reviews-rebuttals-etc.md#quickstart-getting-reviews-meta-reviews-comments-decisions-rebuttals)
-3. Get the super review invitation. You can check out the [default review form](../../reference/default-forms/default-review-form.md#api-v2-json) if you need a reference. You'll need the content of the super invitation to create the headers for the .csv.
+3. Get the super review invitation. You can check out the [default review form](../../reference/default-forms/default-review-form.md) if you need a reference. You'll need the content of the super invitation to create the headers for the .csv.
 
 ```python
 invitation = client.get_invitation(f'{venue_id}/-/{review_name}')
