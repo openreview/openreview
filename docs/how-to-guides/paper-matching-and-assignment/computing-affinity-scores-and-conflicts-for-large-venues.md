@@ -1,16 +1,16 @@
 # Computing Affinity Scores and Conflicts for large venues
 
-**Note:** This document is for large venues (>2000 submissions) that need to manually calculate scores and conflicts. Smaller venues should refer to the directions [here](../../venue-request-workflow/conferences.md).
+**Note:** This document is for large venues (>2000 submissions) that need to manually calculate scores and conflicts. Smaller venues should refer to the directions [here](how-to-do-automatic-assignments/).
 
 ### Overview
 
-The sections below give detailed step-by-step instructions on how to complete this process. Below is an overview and important information about the process.&#x20;
+The sections below give detailed step-by-step instructions on how to complete this process. Below is an overview and important information about the process.
 
 There are 3 steps:
 
-1. Compute affinity scores  with `client.request_expertise(...)`
-2. Upload affinity scores with  `venue.setup_committee_matching(compute_affinity_scores=...)`
-3. Compute and upload conflicts with  `venue.setup_committee_matching(compute_conflicts=..., compute_conflicts_n_years=...)`&#x20;
+1. Compute affinity scores with `client.request_expertise(...)`
+2. Upload affinity scores with `venue.setup_committee_matching(compute_affinity_scores=...)`
+3. Compute and upload conflicts with `venue.setup_committee_matching(compute_conflicts=..., compute_conflicts_n_years=...)`
 
 {% hint style="info" %}
 Computing and uploading scores are two separate steps because you first have to call to the Expertise API, then retrieve the scores to upload later as CSV. However, for conflicts, `setup_committee_matching` handles both the computation and the upload of conflicts.
@@ -63,7 +63,7 @@ job_id = client_v2.request_expertise(
 
 ```
 
-**Returns**: A dictionary containing the job ID.&#x20;
+**Returns**: A dictionary containing the job ID.
 
 **Parameters:**
 
@@ -108,7 +108,7 @@ If for any reason it errors, you can call `request_expertise` again to recompute
 
 ### 4. Retrieve scores and convert to CSV
 
-#### Retrieving scores:&#x20;
+#### Retrieving scores:
 
 When the scores are complete, you can retrieve the scores:
 
@@ -154,7 +154,7 @@ print(no_profiles)
 By assignment time there should be no email members in the group.
 {% endhint %}
 
-**If uploading fails:**&#x20;
+**If uploading fails:**
 
 1. Delete the score edges
 2. Check that the edge count is 0
@@ -188,7 +188,7 @@ print(no_profiles)
 
 * **`committee_id`**: The ID of the group for which you are computing conflicts.
 * **`compute_conflicts`**: The conflict policy.
-  * We have 2 policies: `Default` and `NeurIPS`.&#x20;
+  * We have 2 policies: `Default` and `NeurIPS`.
   * More information on policies can be found [here](how-to-do-automatic-assignments/how-to-setup-paper-matching-by-calculating-affinity-scores-and-conflicts.md).
 * **`compute_conflicts_n_years`**: The number of years to consider when looking at a user's History.
 
@@ -200,7 +200,7 @@ print(no_profiles)
 By assignment time there should be no email members in the group.
 {% endhint %}
 
-**If uploading fails**:&#x20;
+**If uploading fails**:
 
 1. Delete the conflict edges.
 2. Check that the edge count is 0.

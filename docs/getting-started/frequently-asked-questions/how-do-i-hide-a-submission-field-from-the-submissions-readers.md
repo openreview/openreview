@@ -1,21 +1,5 @@
 # How do I hide a submission field?
 
-## For Conference Review Workflow Venues
-
 1. In the Workflow Timeline, click Submission Change Before Reviewing
-2. Under Restrict Field Visibility, edit the Content Readers JSON to hide the requested fields. The `authors` and `authorids` fields are hidden automatically - these fields can be used as a guide for how to hide readers for other fields.
+2. Under Restrict Field Visibility, edit the Content Readers JSON to hide the requested fields. The `authors` field, which holds the author names and profile IDs, is hidden automatically. Use its entry as a guide for hiding other fields.
 3. Under Edit Dates, set the Activation Date to now to trigger the stage.
-
-## For Request Form Venues
-
-As the venue organizer, you can choose to hide specific submission fields from all submission readers. When a field is hidden, it becomes visible only to the Program Chairs and to the paper authors.
-
-#### Conference Review Workflow Venues
-
-From the Workflow Timeline, edit the Submission Change Before Reviewing step. Under `hide_fields`, select from the dropdown all the fields you would like to hide.
-
-#### Request Form Venues
-
-From your venue request form, click Post Submission. Under `hide_fields`, select from the dropdown all the fields you would like to hide.
-
-After the submission deadline, submissions will be updated to be visible to all users selected under `submission_readers`, and all fields selected under `hide_fields` will be visible only to Program Chairs and paper authors.

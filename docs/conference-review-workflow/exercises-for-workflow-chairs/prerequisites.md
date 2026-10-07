@@ -1,6 +1,6 @@
 # Prerequisites
 
-All exercises should be practiced on the dev site. For any exercise, you will need to have the following prerequisites set up.&#x20;
+All exercises should be practiced on the dev site. For any exercise, you will need to have the following prerequisites set up.
 
 1. Review the documentation [here](../../how-to-guides/workflow/how-to-test-your-venue-workflow.md) and create a venue request for the dev site.
 2. Instantiate the python client using your dev profile credentials:
@@ -22,4 +22,4 @@ dev_client_v2 = openreview.api.OpenReviewClient(
 )
 ```
 
-5. Recommended: Familiarize yourself with the [Example Workflow](../conferences.md)
+3. Recommended: Familiarize yourself with the [Example Workflow](../new-venue-ui-beta.md)

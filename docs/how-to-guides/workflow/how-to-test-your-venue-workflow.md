@@ -18,10 +18,6 @@ If you wish to test your venue workflow, please use the dev site, as testing on 
 * If you want to test with **real author names**, you must **create those profiles on the dev site**. Some profiles may already exist from previous testing.
 * The Post Decision stage should **only** be run after testing is complete.
 
-
-
-
-
 ### Resetting the Venue
 
 Most stages can be reset by changing the dates and settings to reopen the stage. If you want to reset to the beginning of the review phase:
@@ -29,6 +25,4 @@ Most stages can be reset by changing the dates and settings to reopen the stage.
 1. Delete all review [notes](../../reference/api-v1/entities/note/) from the venue
 2. Undeploy [assignments](../paper-matching-and-assignment/how-to-undo-deployed-assignments.md) in the assignments browser
 3. Re-[assign](../paper-matching-and-assignment/) reviewers as necessary
-4. Change the dates to reopen the[ review stage](../../reference/stages/review-stage.md)
-
-
+4. Change the dates to reopen the review stage

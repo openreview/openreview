@@ -30,7 +30,7 @@ Clicking **Recommend Reviewers** opens the Edge Browser. The left column lists t
 In the Reviewer column, Area Chairs can:
 
 * Set a score from 1 to 10 with the **Recommendation** dropdown, or remove a recommendation with the trash icon.
-* Sort by **Affinity Score**, or by bid if you ran a [Bid Stage](../../reference/stages/bid-stage.md) for Reviewers.
+* Sort by **Affinity Score**, or by bid if you ran a Bid Stage for Reviewers.
 * Search for a Reviewer by name or institution.
 * See how many papers each Reviewer has already been recommended for, which helps spread recommendations across the pool.
 

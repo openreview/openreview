@@ -34,8 +34,8 @@
 ### Managing active venues
 
 * [How can I extend the Submission deadline](../hosting-a-venue-on-openreview/changing-your-submission-deadline.md)?
-* [How can I release reviews](../../how-to-guides/workflow/how-to-release-reviews.md)?
-* [How can I enable Camera-Ready Revisions](../../how-to-guides/workflow/how-to-enable-camera-ready-revision-upload-for-accepted-papers.md)?
+* [How can I release reviews](../../how-to-guides/workflow/how-to-release-reviews-decisions-and-metareviews.md)?
+* [How can I enable Camera-Ready Revisions](../../how-to-guides/workflow/how-to-use-the-camera-ready-revision-step-for-accepted-papers.md)?
 * [How can I manually assign Reviewers/Area Chairs](../../how-to-guides/paper-matching-and-assignment/how-to-do-manual-assignments/)?
 * [How can I automatically assign Reviewers/Area Chairs](../../how-to-guides/paper-matching-and-assignment/how-to-do-automatic-assignments/)?
 * [What do the different 'status' values mean in the message logs?](what-do-the-different-status-values-mean-in-the-message-logs.md)

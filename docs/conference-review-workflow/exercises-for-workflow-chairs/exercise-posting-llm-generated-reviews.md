@@ -4,7 +4,7 @@
 
 1. Complete [Prerequisites](prerequisites.md)
 2. [Add submissions](../../how-to-guides/workflow/how-to-create-change-and-delete-notes.md) (make sure this is on the dev site)
-3. Open the [Review Stage](../../reference/stages/review-stage.md) (step 17 in the [Example Workflow](../conferences.md))
+3. Open the **Official Review** step: in the Workflow Timeline, click **Edit** next to its **Dates** and set the **Activation Date** to the current time (see the [Example Workflow](../new-venue-ui-beta.md))
 
 ## Posting LLM Generated Reviews Overview
 
@@ -14,7 +14,7 @@ In some cases, a venue may want to use LLMs to post reviews. This exercise assum
 * **(Optional)** Create an AI Reviewer group to sign the AI Reviews.
   *   Venues may want this to make it more clear that it's an AI Review, for example:
 
-      <figure><img src="../../.gitbook/assets/ai-review-note-heading (1).png" alt=""><figcaption></figcaption></figure>
+      <figure><img src="https://622636955-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FVorH499wd7ipUjYX5etp%2Fuploads%2FKWMi95nvZNX4CV70bWhL%2Fai-review-note-heading.png?alt=media&#x26;token=fbda4f1f-8f19-49a6-9609-0697dccda77d" alt=""><figcaption></figcaption></figure>
   * If you choose to do this, you can either create:
     * One overall AI Reviewer group (`venue_id/AI_Reviewer`) to sign all the notes
     * Or create an AI Reviewer group per paper (`venue_id/SubmissionXX/AI_Reviewer`)

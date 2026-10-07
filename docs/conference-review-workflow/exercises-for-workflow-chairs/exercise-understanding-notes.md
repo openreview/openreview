@@ -21,7 +21,7 @@ Use the [OpenReview documentation](https://docs.openreview.net/getting-started/u
 * See [**How to create, change, and delete notes**](https://docs.openreview.net/how-to-guides/workflow/how-to-create-change-and-delete-notes) — _Posting a submission with Python_.
 
 **Check your work:**\
-Open the [PC Console](../../getting-started/hosting-a-venue-on-openreview/navigating-your-venue-pages.md) for your venue. Your new submissions should appear under the Submission Status tab.&#x20;
+Open the [PC Console](../../getting-started/hosting-a-venue-on-openreview/navigating-your-venue-pages.md) for your venue. Your new submissions should appear under the Submission Status tab.
 
 #### 2. Get a Single Note
 
@@ -62,7 +62,7 @@ print(len(submissions))
 * Same guide: [**How to create, change, and delete notes**](https://docs.openreview.net/how-to-guides/workflow/how-to-create-change-and-delete-notes) — _Update the content of a note_.
 
 **Check your work:**\
-Check the submission page on the OpenReview site. The submission should show the new title. When you click 'Show Revisions', you should see the old title in the original edit, and the current title in a more recent edit.&#x20;
+Check the submission page on the OpenReview site. The submission should show the new title. When you click 'Show Revisions', you should see the old title in the original edit, and the current title in a more recent edit.
 
 #### 4b. Edit a Submission - Readers
 
@@ -76,7 +76,7 @@ Check the submission page on the OpenReview site. There should be a property jus
 
 #### 4c. Edit a Submission - Field Readers
 
-**Task**: Choose one of your submissions and edit the readers of the `author_ids` field\
+**Task**: Choose one of your submissions and edit the readers of the `authors` field\
 **Hints**:
 
 * Same guide: [**How to create, change, and delete notes**](https://docs.openreview.net/how-to-guides/workflow/how-to-create-change-and-delete-notes) — _Update the field readers of a note_
@@ -98,4 +98,3 @@ Run the following code, the output should indicate the note does not exist
 ```python
 client.get_note("<NOTE_ID>")
 ```
-

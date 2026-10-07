@@ -1,11 +1,5 @@
 # Publication Chairs
 
-If your venue will be using publication chairs, there is an option for PCs to set up this group in the request form.
+The Conference Review Workflow doesn't create a Publication Chairs group, and you can't add one from the venue request form or the Workflow Timeline. To add one, contact OpenReview Support by commenting on your [venue request form](../../getting-started/hosting-a-venue-on-openreview/navigating-your-venue-pages.md#venue-request-form).
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2024-07-08 at 11.35.30 AM.png" alt=""><figcaption></figcaption></figure>
-
-PCs have the option to add the emails of the Publication Chairs while filling out the request or they can [add the emails later](../../reference/stages/revision.md).
-
-<figure><img src="../../.gitbook/assets/Screen Shot 2024-07-08 at 11.36.43 AM.png" alt=""><figcaption></figcaption></figure>
-
-After the venue workflow has concluded and the PCs have run the [Post Decision Stage](../../reference/stages/post-decision-stage.md), the Publication Chairs can access their console where they will be able to view all the Accepted submissions.&#x20;
+When a venue has a Publication Chairs group, it appears in the **Workflow Groups** section of the [Workflow Timeline](../../getting-started/hosting-a-venue-on-openreview/navigating-your-venue-pages.md#workflow-timeline). Publication Chairs are not one of the reader options of the release steps, so they only see accepted papers once those are released to **Public**, and author names only if the authors are revealed.

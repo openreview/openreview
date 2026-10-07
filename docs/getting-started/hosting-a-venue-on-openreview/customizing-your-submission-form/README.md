@@ -2,23 +2,17 @@
 
 For an overview and basics of form customization, see the comprehensive [Customizing Forms](../../customizing-forms.md).
 
-### For Conference Review Workflow Venues:
-
 To make changes to your submission form, navigate to your Workflow Timeline. Then go to the "Submission" Step — > Edit Fields — > Widget. This will allow you to edit the fields in your submission form.
 
 {% hint style="info" %}
 To hide a new field from reviewers, go to "Submission Change Before Bidding" and/or "Submission Change Before Reviewing" — > Edit Restrict Field Visibility. You can check which fields are visible to reviewers by going to any submission page and hovering over the eye icon next to the field name.
 {% endhint %}
 
-### For Request Form Venues:
-
-You can customize the [default submission form](../../../reference/default-forms/default-submission-form.md) for your venue using the [Revision](../../../reference/stages/revision.md) button on your [venue request form](../navigating-your-venue-pages.md#venue-request-form). In the 'Additional Submission Options', field, enter valid JSON with the fields that you would like to add or change in your form.&#x20;
-
 ## Common Customizations
 
 ### Asking authors to agree to conference policies
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2024-08-20 at 11.13.02 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://622636955-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FVorH499wd7ipUjYX5etp%2Fuploads%2FOpLSJksv0cxqMsABr5RS%2FScreenshot%202024-08-20%20at%2011.13.02%E2%80%AFAM.png?alt=media&#x26;token=6abf77a1-4bf8-4652-aaa7-beb548497773" alt=""><figcaption></figcaption></figure>
 
 <pre class="language-json" data-title=""><code class="lang-json"><strong>{
 </strong>  "confirmation": {
@@ -43,7 +37,7 @@ The `readers` field can be used to list who will be allowed to read a specific f
 
 Note: Authors will not be able to read these fields if they are not in the readers list
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2024-08-20 at 11.17.59 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://622636955-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FVorH499wd7ipUjYX5etp%2Fuploads%2FvU0GWDltsGL0FoLTw9Qp%2FScreenshot%202024-08-20%20at%2011.17.59%E2%80%AFAM.png?alt=media&#x26;token=0189e96d-6af2-4aa0-bca8-d83203319f4a" alt=""><figcaption></figcaption></figure>
 
 ```json
 {
@@ -67,7 +61,7 @@ Note: Authors will not be able to read these fields if they are not in the reade
 
 Once you have [reviewed our support for "tracks" in a single venue](../../../how-to-guides/workflow/how-to-have-different-tracks-or-types-of-submissions-for-a-single-venue.md) and you think this is what your venue needs, you can add a "track" field to your submission form if you are using separate reviewing pools for track submissions.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2024-08-20 at 11.23.48 AM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://622636955-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FVorH499wd7ipUjYX5etp%2Fuploads%2FtMSUgpKAXIlaIM8o8iLx%2FScreenshot%202024-08-20%20at%2011.23.48%E2%80%AFAM.png?alt=media&#x26;token=4a00f07e-9a91-4285-99a7-63318e77b0b6" alt=""><figcaption></figcaption></figure>
 
 ```json
 {

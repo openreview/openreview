@@ -8,33 +8,19 @@ description: >-
 
 ## Where to customize forms
 
-#### For Conference Review Workflow Venues:
-
 The form fields for all invitations are modified via the [Workflow Timeline](https://docs.openreview.net/conference-review-workflow/overview#id-2.-accessing-the-workflow-console). Here's an example of where to edit the fields for the submission form.
 
-<figure><img src="../.gitbook/assets/Screenshot 2026-06-10 at 10.55.55 AM.png" alt="This image is a screenshot of the Submission invitation edit interface. It is cropped to focus on the section on editing form fields." width="375"><figcaption><p>Screenshot of the Submission Invitation edit interface,<br>focused on how to edit form fields.</p></figcaption></figure>
+<figure><img src="https://622636955-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FVorH499wd7ipUjYX5etp%2Fuploads%2FCydGySFn9NyOnfoBJg9D%2FScreenshot%202026-06-10%20at%2010.55.55%E2%80%AFAM.png?alt=media&#x26;token=1e218b4a-cb45-4a4f-bcca-9f796d7eda2e" alt="This image is a screenshot of the Submission invitation edit interface. It is cropped to focus on the section on editing form fields." width="375"><figcaption><p>Screenshot of the Submission Invitation edit interface,<br>focused on how to edit form fields.</p></figcaption></figure>
 
-However, at this time, `readers` can only be added to fields via the JSON content tab, this is very similar to the [original Request Form Venues](customizing-forms.md#for-request-form-venues). Please see [this guide](customizing-forms.md#setting-the-readers-of-a-field) about adding readers to fields to limit which groups can see them.
+However, at this time, `readers` can only be added to fields via the JSON content tab. Please see [this guide](customizing-forms.md#setting-the-readers-of-a-field) about adding readers to fields to limit which groups can see them.
 
-<figure><img src="../.gitbook/assets/Screenshot 2026-06-10 at 10.56.07 AM.png" alt="Screenshot of the Edit form fields interface, focused on the various tabs starting with left to right: &#x22;Content JSON&#x22;, &#x22;Widgets&#x22;, and &#x22;Preview&#x22;" width="375"><figcaption><p>Screenshot of the Edit Form Fields interface,<br>and the tabs to edit and preview the fields.</p></figcaption></figure>
-
-#### For Request Form Venues:
-
-Many OpenReview forms are customizable from the different buttons on the [venue request form](hosting-a-venue-on-openreview/navigating-your-venue-pages.md). You can find where to input your customizations by clicking on a button (for example, "**Review Stage**") and finding the large text box under "**Additional \_\_\_\_\_ Options**". Under "**Revision**", you'll find that this box modifies the submission form under the heading "**Additional Submission Options**". For the "**Review Stage**", the heading will be "**Additional Review Form Options**"
-
-{% hint style="info" %}
-Some buttons configure other parts of the workflow that do not have an associated form, in which case there will not be an additional options text box.
-{% endhint %}
-
-{% hint style="info" %}
-Whenever possible, forms should be customized through the venue request form following the directions above rather than editing an [invitation](../reference/api-v2/entities/invitation.md) directly - this saves your changes in the case that you update any other settings for your venue.
-{% endhint %}
+<figure><img src="https://622636955-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FVorH499wd7ipUjYX5etp%2Fuploads%2FeyqA0NL6BebkGRRzGuWP%2FScreenshot%202026-06-10%20at%2010.56.07%E2%80%AFAM.png?alt=media&#x26;token=c70dfce3-e367-4ea3-9ada-95c940ab36fe" alt="Screenshot of the Edit form fields interface, focused on the various tabs starting with left to right: &#x22;Content JSON&#x22;, &#x22;Widgets&#x22;, and &#x22;Preview&#x22;" width="375"><figcaption><p>Screenshot of the Edit Form Fields interface,<br>and the tabs to edit and preview the fields.</p></figcaption></figure>
 
 ## Essential structure of custom fields
 
 These text boxes accept a valid JSON object with fields and values. The following is an example where the _title_ field gets replaced with a radio button, like so:
 
-<figure><img src="../.gitbook/assets/titleExample.png" alt=""><figcaption><p>Preview of how this field will be rendered on OpenReview</p></figcaption></figure>
+<figure><img src="https://622636955-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FVorH499wd7ipUjYX5etp%2Fuploads%2FtgMLfYGnay2sk6Y7VdAS%2Fimage.png?alt=media&#x26;token=b38f62ce-f5fb-4df3-ad8d-b4af4627ae62" alt="A required Title field rendered as a radio button with the single option Test Submission Title, under the description Title of the paper."><figcaption><p>Preview of how this field will be rendered on OpenReview</p></figcaption></figure>
 
 ```
 {
@@ -156,7 +142,7 @@ Extensions that have a "." in them are **not** supported. The following field wo
 }
 ```
 
-<figure><img src="../.gitbook/assets/commentTitle.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://622636955-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FVorH499wd7ipUjYX5etp%2Fuploads%2F5Ydl6krLLqyIJtFb81cO%2FcommentTitle.png?alt=media&#x26;token=45ce94f3-f00a-4ef6-bdbe-cfa32169a702" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Large Text Area" %}
@@ -177,7 +163,7 @@ Extensions that have a "." in them are **not** supported. The following field wo
 }
 ```
 
-<figure><img src="../.gitbook/assets/commentcomment.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://622636955-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FVorH499wd7ipUjYX5etp%2Fuploads%2FDJmRQ7jDtAUHkPVL5wXz%2Fcommentcomment.png?alt=media&#x26;token=13688e64-2ce8-49d6-9654-744fd191bc6f" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -205,7 +191,7 @@ Extensions that have a "." in them are **not** supported. The following field wo
 }
 ```
 
-<figure><img src="../.gitbook/assets/metareviewupdate.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://622636955-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FVorH499wd7ipUjYX5etp%2Fuploads%2F72wbZpO6KSjaKfFlt1jO%2Fmetareviewupdate.png?alt=media&#x26;token=4711afc8-e716-44f8-b6ac-703a73dc7eae" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Dropdown" %}
@@ -254,7 +240,7 @@ Extensions that have a "." in them are **not** supported. The following field wo
 }
 ```
 
-<figure><img src="../.gitbook/assets/dropdownselect.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://622636955-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FVorH499wd7ipUjYX5etp%2Fuploads%2FVjwSyouj3iCsiyFZT0nI%2Fdropdownselect.png?alt=media&#x26;token=8352cf5f-be1a-447f-8846-e4eb0aa24606" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -282,7 +268,7 @@ Extensions that have a "." in them are **not** supported. The following field wo
 }
 ```
 
-<figure><img src="../.gitbook/assets/requirements.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://622636955-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FVorH499wd7ipUjYX5etp%2Fuploads%2FEbznFBDevTgTF7RTnIB3%2Frequirements.png?alt=media&#x26;token=c3b91a90-baf6-4824-8789-e1cd8a61a68d" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Dropdown Values" %}
@@ -330,7 +316,7 @@ Extensions that have a "." in them are **not** supported. The following field wo
 }
 </code></pre>
 
-<figure><img src="../.gitbook/assets/dropdownvalues.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://622636955-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FVorH499wd7ipUjYX5etp%2Fuploads%2Fdy0pDDQb79UJ1KAlLLtG%2Fdropdownvalues.png?alt=media&#x26;token=e835b7cd-3a3d-45db-8b58-76b64d829c6d" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -360,7 +346,7 @@ Extensions that have a "." in them are **not** supported. The following field wo
 }
 ```
 
-<figure><img src="../.gitbook/assets/submissionsupplementary.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://622636955-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FVorH499wd7ipUjYX5etp%2Fuploads%2FB2STzNHT0nZLvE1pGKYC%2Fsubmissionsupplementary.png?alt=media&#x26;token=3118eb6a-9848-43ad-a90b-ac62a49b17ca" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 

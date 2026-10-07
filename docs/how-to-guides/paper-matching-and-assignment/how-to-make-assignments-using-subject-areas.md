@@ -1,6 +1,6 @@
 # How to Make Assignments using Subject Areas
 
-There are cases of program organizers wanting to enable authors and reviewers to select one or more subject areas/disciplines and assign reviewers to papers by subject area. This can be accomplished by creating a new "score" to be used in the matching process.  This process can also be applied to Area Chairs and you can follow the same steps replacing Reviewers with Area Chairs.
+There are cases of program organizers wanting to enable authors and reviewers to select one or more subject areas/disciplines and assign reviewers to papers by subject area. This can be accomplished by creating a new "score" to be used in the matching process. This process can also be applied to Area Chairs and you can follow the same steps replacing Reviewers with Area Chairs.
 
 You can use Subject Scores in addition to Affinity Scores. The benefit of calculating affinity scores is the score is based on the reviewer's publications, and Reviewers may select a subject area they desire without the publication history in that subject.
 
@@ -59,7 +59,34 @@ If you're allowing authors to select more than one value, change `type` to `"typ
 
 Reviewers will also need to select subject areas of expertise, so they can be matched with submissions of the same subject area.
 
-The best way to do this is to create a [Reviewer Registration](../../reference/stages/registration-stage.md) form from the venue configuration page. There are default fields included in this form, you can choose to keep them or not. You'll need to add the same `subject_area` field and values you added to the submission form to accurately create a match between reviewers and submissions.
+The Reviewer Registration form needs to be created with the [Python client](../../getting-started/using-the-api/installing-and-instantiating-the-python-client.md). Add the `subject_area` field with `additional_fields`:
+
+```python
+import datetime
+import openreview
+
+client = openreview.api.OpenReviewClient(baseurl='https://api2.openreview.net', username=<your username>, password=<your password>)
+venue = openreview.venue.helpers.get_venue(client, '<your venue id>')
+
+venue.registration_stages = [openreview.stages.RegistrationStage(
+    committee_id=venue.get_reviewers_id(),
+    due_date=datetime.datetime(2026, 10, 1, 12, 0),
+    title='f'{committee_name} Registration',
+    instructions='Please complete the registration form.',
+    additional_fields={
+        'subject_area': {
+            'order': 3,
+            'description': 'Select the subject areas you are qualified to review.',
+            'value': {'param': {'type': 'string[]', 'enum': ['<subject area 1>', '<subject area 2>'], 'input': 'select'}}
+        }
+    }
+)]
+venue.create_registration_stages()
+```
+
+The form then appears in the Workflow Timeline as a **Registration** step, where you can change its **Dates** and **Form Fields**.
+
+You'll need to add the same `subject_area` field and values you added to the submission form to accurately create a match between reviewers and submissions.
 
 ### Next Steps
 
@@ -185,7 +212,7 @@ for n in notes:
 
 ```
 
-Once you have the registration entries, iterate through submissions and and post an edge between the submission and every reviewer that shares the matching subject area.&#x20;
+Once you have the registration entries, iterate through submissions and and post an edge between the submission and every reviewer that shares the matching subject area.
 
 <pre class="language-python"><code class="lang-python"><strong># get all active submissions under review
 </strong>venue_group = client.get_group(venue_id)
@@ -229,7 +256,7 @@ Add:
 
 To:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-03-13 at 2.48.33 PM.png" alt=""><figcaption><p>Subject_Score is added to the Scores Specification</p></figcaption></figure>
+<figure><img src="https://622636955-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FVorH499wd7ipUjYX5etp%2Fuploads%2FY1ibwvgnVl0DGCN3pOoR%2FScreenshot%202025-03-13%20at%202.48.33%E2%80%AFPM.png?alt=media&#x26;token=c8f03b07-b7bf-49d0-8bfc-90e72c8d990d" alt=""><figcaption><p>Subject_Score is added to the Scores Specification</p></figcaption></figure>
 
 The Subject\_Score is added to the Score Specification box, so it is included in the matching. Affinity scores should help make better matchings within a subject area.
 
@@ -244,4 +271,3 @@ A matching may not entirely contain assignments that have a subject score or mat
 
 * Submissions may be conflicted with many, or all reviewers, in their designated subject area
 * Reviewers in that subject area might already be saturated and there are no more available assignments, so the matcher falls back to the affinity score
-
