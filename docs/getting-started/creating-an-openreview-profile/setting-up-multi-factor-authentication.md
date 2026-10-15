@@ -32,6 +32,10 @@ Each method is shown as a card that indicates whether it is currently enabled. I
 The QR code is valid for 10 minutes. If setup expires before you finish, close the panel and click **Set up** again to generate a new code.
 {% endhint %}
 
+{% hint style="info" %}
+Scripts you run yourself with the Python client simply ask you for the code. For scripts that run unattended, follow [Using multi-factor authentication in unattended scripts](../using-the-api/using-multi-factor-authentication-in-unattended-scripts.md) instead of these steps: they need the setup secret as text, and the website only shows it as a QR code.
+{% endhint %}
+
 ## Setting up a passkey
 
 1. On the **Passkey** card, click **Set up**.

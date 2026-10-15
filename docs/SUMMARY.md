@@ -65,6 +65,7 @@
   * [Introductions to Invitations](getting-started/objects-in-openreview/introductions-to-invitations.md)
 * [Using the API](getting-started/using-the-api/README.md)
   * [Installing and Instantiating the Python client](getting-started/using-the-api/installing-and-instantiating-the-python-client.md)
+  * [Using multi-factor authentication in unattended scripts](getting-started/using-the-api/using-multi-factor-authentication-in-unattended-scripts.md)
 * [Hosting a venue on OpenReview](getting-started/hosting-a-venue-on-openreview/README.md)
   * [Navigating your Venue Pages](getting-started/hosting-a-venue-on-openreview/navigating-your-venue-pages.md)
   * [Customizing your submission form](getting-started/hosting-a-venue-on-openreview/customizing-your-submission-form/README.md)
