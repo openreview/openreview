@@ -129,6 +129,7 @@
   * [Using the CustomStage](how-to-guides/workflow/using-the-customstage.md)
   * [IEEE's eCF Integration for Camera-Ready Submissions](how-to-guides/workflow/ieees-ecf-integration-for-camera-ready-submissions.md)
   * [How to add an externalId to an accepted note](how-to-guides/workflow/how-to-add-an-externalid-to-an-accepted-note.md)
+  * [How to rename or add a field on existing submissions](how-to-guides/workflow/how-to-rename-or-add-a-field-on-existing-submissions.md)
   * [How to do multiple phase review](how-to-guides/workflow/how-to-do-multiple-phase-review.md)
 * [Paper Matching and Assignment](how-to-guides/paper-matching-and-assignment/README.md)
   * [How to Compute Conflicts Between Users](how-to-guides/paper-matching-and-assignment/how-to-compute-conflicts-between-users.md)
