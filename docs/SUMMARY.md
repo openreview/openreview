@@ -186,6 +186,7 @@
   * [How to Get Reviewer Ratings](how-to-guides/data-retrieval-and-modification/how-to-get-reviewer-ratings.md)
   * [How to Get all Notes (for submissions, reviews, rebuttals, etc)](how-to-guides/data-retrieval-and-modification/how-to-get-all-notes-for-submissions-reviews-rebuttals-etc.md)
   * [Data Retrieval for API 1 Venues](how-to-guides/data-retrieval-and-modification/data-retrieval-for-api-1-venues.md)
+  * [How to download all submission attachments](how-to-guides/data-retrieval-and-modification/how-to-download-all-submission-attachments.md)
 
 ## Reference
 
