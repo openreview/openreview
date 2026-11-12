@@ -63,6 +63,7 @@
 
 ### Other
 
+* [How do I find a venue and contact the venue organizers?](how-do-i-find-a-venue-and-contact-the-venue-organizers.md)
 * [What should I do if my question is not answered here](what-should-i-do-if-my-question-is-not-answered-here.md)?
 * [What should I do if I find a vulnerability in OpenReview](what-should-i-do-if-i-find-a-vulnerability-in-openreview.md)?
 * [How can I report a bug or request a feature](how-can-i-report-a-bug-or-request-a-feature.md)?
