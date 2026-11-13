@@ -162,3 +162,159 @@ venue.custom_stage = openreview.stages.CustomStage(
 
 venue.create_custom_stage()
 ```
+
+### Reviewer Comments on Rebuttals
+
+Reviewers who submitted a review can reply to the authors' rebuttal, without opening the Official Comment step. The reply is visible to the Program Chairs, to the reviewers who submitted a review, and to the authors, who are emailed when it is posted.
+
+By default the Author Rebuttal step allows one rebuttal per submission, posted as a reply to the submission, so the reply form is offered on each rebuttal.
+
+```python
+due_date = datetime.datetime(2026, 7, 15, 12, 0)
+
+venue.custom_stage = openreview.stages.CustomStage(
+    name='Rebuttal_Comment',
+    reply_to='Author_Rebuttal',
+    source=openreview.stages.CustomStage.Source.ALL_SUBMISSIONS,
+    due_date=due_date,
+    invitees=[openreview.stages.CustomStage.Participants.REVIEWERS_SUBMITTED],
+    readers=[
+        openreview.stages.CustomStage.Participants.REVIEWERS_SUBMITTED,
+        openreview.stages.CustomStage.Participants.AUTHORS
+    ],
+    content={
+        'comment': {
+            'order': 1,
+            'description': 'Leave a comment to the authors.',
+            'value': {
+                'param': {
+                    'type': 'string',
+                    'input': 'textarea',
+                    'maxLength': 5000,
+                    'markdown': True
+                }
+            }
+        }
+    },
+    notify_readers=True
+)
+
+venue.create_custom_stage()
+```
+
+### Author Ratings of Reviews
+
+Authors rate how helpful each review of their submission was. A rating form is created for every posted review, and the ratings are visible only to the Program Chairs.
+
+```python
+due_date = datetime.datetime(2026, 7, 20, 12, 0)
+
+venue.custom_stage = openreview.stages.CustomStage(
+    name='Author_Review_Rating',
+    reply_to='Official_Review',
+    source=openreview.stages.CustomStage.Source.ALL_SUBMISSIONS,
+    due_date=due_date,
+    invitees=[openreview.stages.CustomStage.Participants.AUTHORS],
+    readers=[openreview.stages.CustomStage.Participants.PROGRAM_CHAIRS],
+    content={
+        'review_quality': {
+            'order': 1,
+            'description': 'How helpful is this review?',
+            'value': {
+                'param': {
+                    'type': 'integer',
+                    'input': 'radio',
+                    'enum': [
+                        { 'value': 0, 'description': '0: Below expectations' },
+                        { 'value': 1, 'description': '1: Meets expectations' },
+                        { 'value': 2, 'description': '2: Exceeds expectations' }
+                    ]
+                }
+            }
+        }
+    }
+)
+
+venue.create_custom_stage()
+```
+
+Reviews posted after the stage is created do not get a rating form. Run `create_custom_stage()` again to add forms for them.
+
+### Release Consent for Accepted Submissions
+
+Authors of accepted submissions choose whether their submission and its reviews are made public. `ACCEPTED_SUBMISSIONS` selects the submissions whose decision is one of the accept options of your Decision step, so post the decisions before creating this stage.
+
+```python
+due_date = datetime.datetime(2026, 8, 1, 12, 0)
+
+venue.custom_stage = openreview.stages.CustomStage(
+    name='Release_Consent',
+    reply_to=openreview.stages.CustomStage.ReplyTo.FORUM,
+    source=openreview.stages.CustomStage.Source.ACCEPTED_SUBMISSIONS,
+    due_date=due_date,
+    invitees=[openreview.stages.CustomStage.Participants.AUTHORS],
+    readers=[
+        openreview.stages.CustomStage.Participants.PROGRAM_CHAIRS,
+        openreview.stages.CustomStage.Participants.SIGNATURES
+    ],
+    content={
+        'public_or_private': {
+            'order': 1,
+            'description': 'Choose whether your submission and its reviews are made public.',
+            'value': {
+                'param': {
+                    'type': 'string',
+                    'enum': [
+                        'I want my submission and its reviews to be public.',
+                        'I want my submission to remain private.'
+                    ],
+                    'input': 'radio'
+                }
+            }
+        }
+    }
+)
+
+venue.create_custom_stage()
+```
+
+The form only collects the authors' choice. It does not change who can read the submission.
+
+### Opt-In Public Release for Rejected Submissions
+
+Authors of rejected submissions can agree to release their submission to the public. To select rejected submissions, pass a dictionary as `source` with `'with_decision_accept': False`. The `venueid` list covers rejected submissions both before and after the Reject Submission Release step, which moves them to `<your venue id>/Rejected_Submission`.
+
+```python
+due_date = datetime.datetime(2026, 8, 1, 12, 0)
+
+venue.custom_stage = openreview.stages.CustomStage(
+    name='Opt_In_Public_Release',
+    reply_to=openreview.stages.CustomStage.ReplyTo.FORUM,
+    source={
+        'venueid': ['<your venue id>/Submission', '<your venue id>/Rejected_Submission'],
+        'with_decision_accept': False
+    },
+    due_date=due_date,
+    invitees=[openreview.stages.CustomStage.Participants.AUTHORS],
+    readers=[
+        openreview.stages.CustomStage.Participants.PROGRAM_CHAIRS,
+        openreview.stages.CustomStage.Participants.SIGNATURES
+    ],
+    content={
+        'opt_in_public_release': {
+            'order': 1,
+            'description': 'Check the box to release your submission to the public.',
+            'value': {
+                'param': {
+                    'type': 'string',
+                    'input': 'checkbox',
+                    'enum': ['I and my co-authors agree to release our submission to the public.']
+                }
+            }
+        }
+    },
+    notify_readers=True
+)
+
+venue.create_custom_stage()
+```
