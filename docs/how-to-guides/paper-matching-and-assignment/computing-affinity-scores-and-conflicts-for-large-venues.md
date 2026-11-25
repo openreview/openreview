@@ -34,8 +34,9 @@ Make sure you have good internet connection since these processes take a long ti
 Create all the necessary invitations by calling `venue.setup_committee_matching()`. This also converts the IDs in the group to profile IDs:
 
 ```python
-# Use API 1 client
-venue = openreview.helpers.get_conference(client_v1, request_form_id)
+venue = openreview.helpers.get_venue(client_v2, venue_id)
+venue.client.impersonate(venue.id) # Impersonate to use venue level permissions
+
 venue.setup_committee_matching(committee_id=venue.get_reviewers_id())
 # For ACs: venue.setup_committee_matching(committee_id=venue.get_area_chairs_id())
 # For SACs: venue.setup_committee_matching(committee_id=venue.get_senior_area_chairs_id())
@@ -48,7 +49,7 @@ If SACs are assigned to ACs, you can compute scores in the request form using Pa
 For computing any role (SACs, ACs, Reviewers, etc) against submissions, call [`client.request_expertise()`](how-to-compute-affinity-scores.md#requesting-scores-between-a-group-and-all-papers). An example request can look like the following:
 
 ```python
-venue = openreview.helpers.get_conference(client_v1, request_form_id) # Use API 1 client
+venue = openreview.helpers.get_venue(client_v2, venue_id)
 
 role = venue.get_reviewers_id() # Role to compute
 
@@ -132,7 +133,8 @@ This creates a CSV with columns: Paper ID, Profile ID, Score.
 You can upload scores by calling [venue.setup\_committee\_matching()](how-to-compute-affinity-scores.md#uploading-scores-from-a-csv):
 
 ```python
-venue = openreview.helpers.get_conference(client_v1, request_form_id) # Use API 1 client
+venue = openreview.helpers.get_venue(client_v2, venue_id)
+venue.client.impersonate(venue.id) # Impersonate to use venue level permissions
 
 no_profiles = venue.setup_committee_matching(
    committee_id=venue.get_reviewers_id(),
@@ -174,7 +176,8 @@ If SACs are assigned to ACs, you must deploy SAC assignments before computing AC
 {% endhint %}
 
 ```python
-venue = openreview.helpers.get_conference(client_v1, request_form_id) # Use API 1 client
+venue = openreview.helpers.get_venue(client_v2, venue_id)
+venue.client.impersonate(venue.id) # Impersonate to use venue level permissions
 
 no_profiles = venue.setup_committee_matching(
    committee_id=venue.get_reviewers_id(),
