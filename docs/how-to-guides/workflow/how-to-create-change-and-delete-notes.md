@@ -137,68 +137,60 @@ client_v1.post_note(support_request)
 
 ## 2. Editing Notes
 
-Editing notes in API2 is done the same way as creating notes, by posting a note edit with new values for the fields. The basic note structure looks like this<br>
+Editing notes in API2 is done the same way as creating notes except you need to additionally pass the ID of the note you are modifying. Then you can update any of its fields. The below example posts a Submission edit:
 
-<pre class="language-python"><code class="lang-python"><strong>note = openreview.api.Note(
-</strong>    invitation = 'OpenReview.net/Support/-/Request_Form', 
-    readers = ["OpenReview.net/Support"] + program_chair_emails,
-    writers = ["OpenReview.net/Support"] + program_chair_emails,
-    content = content,
-    signatures = [
-        &#x3C;your_profile_id>
-    ]
+```python
+# Get note
+note_to_change = client_v2.get_note(<note_id>)
+new_note_readers = [...]
+new_note_content = {...}
 
-</code></pre>
-
-The typical workflow for editing a note is this:
-
-<pre class="language-python"><code class="lang-python"><strong>##get note
-</strong><strong>note_to_change = client_v2.get_note(&#x3C;note_id>)
-</strong><strong>##modify note
-</strong><strong>new_content = note_to_change.content
-</strong><strong>new_content[&#x3C;field>]["value"] = new_value
-</strong>
-<strong>##post change to venue
-</strong>client_v2.post_note_edit(invitation=&#x3C;venue_id>/Edit,
-        signatures=[venue_id],
-        note=openreview.api.Note(
-            id=note_to_change.id,
-            readers=note_to_change.readers,
-            content=new_content
-        )
+# Post an edit
+client_v2.post_note_edit(
+    invitation=<venue_id>/-/Submission,
+    signatures=[venue_id],
+    readers=[venue_id],
+    note=openreview.api.Note(
+        id=note_to_change.id,
+        readers=new_note_readers,
+        content=new_note_content
     )
-
-
-</code></pre>
-
-**Editing fields:** To edit fields, you can edit the `content` object within the note. This is a dictionary object with the key as field names and the following structure:
-
+)
 ```
-'authorids': {'readers': ['TC/2024/Conference',
-                                       'TC/2024/Conference/Submission1/Authors'],
-               'value': ['~SomeFirstName_User1',
-                           'author@mail.com',
-                           'andrew1@amazon.com']},
+
+Notice the `invitation` that gets passed, `<venue_id>/-/Submission`. You can only make changes that that invitation allows. In this case, you won't be able to add new fields to a paper if the form doesn't already support it.
+
+* PCs can use the `<venue_id>/-/Edit` invitation to skip validation and make any kind of edit to a note. For example, if you want to restrict a note's readers to only PCs and Authors. **Use this carefully** since there is no validation to help you.
+
+**Editing fields:** To edit note fields, you can edit the note's `content`. This is a dictionary with the key as the field names. It can have the following structure:
+
+```python
+'authorids': {
+    'readers': [ 'TC/2024/Conference', 'TC/2024/Conference/Submission1/Authors' ],
+    'value': [ '~SomeFirstName_User1', 'author@mail.com', 'andrew1@amazon.com' ]
+},
 ```
 
 The `value` is the value of the field, while the `readers` are who can see the field (see below).
 
-So to update the 'authorids' field, you would update `new_content['authorids']['value']`
+So to update the `authorids` field, you would update `new_content['authorids']['value']`&#x20;
+
+{% hint style="info" %}
+Please see the corresponding invitation to know what the value should look like, for example, if it accepts a list, a string, or another type of value.
+{% endhint %}
 
 **Editing field readers:** The visibility of individual fields can be controlled by adding, removing, or editing the `readers` property of each field. This takes a list of ID or group names.
 
 Common types of readers are:
 
-* \["everyone"] - Public note, anyone can read it
-* \[\<venue\_id>] - Visible only to Program Chairs
-* \[\<venue\_id>, \<venue\_id>/Senior\_Area\_Chairs] - Visible only to Program Chairs and SACs
-* \[\<venue\_id>, \<venue\_id./Submission1/Authors] - Visible to the Program Chairs and the authors of Submission1
+* `["everyone"]` - Public note, anyone can read it
+* `[<venue_id>]` - Visible only to Program Chairs
+* `[<venue_id>, <venue_id>/Senior_Area_Chairs]` - Visible only to Program Chairs and the whole SAC group
+* `[<venue_id>, <venue_id>/Submission1/Authors]` - Visible to the Program Chairs and the authors of Submission1
 
 {% hint style="info" %}
 The readers for individual fields should always consist of a subset of the note readers.
 {% endhint %}
-
-**Editing note readers:** To edit the readers of the entire note, you would edit the `readers` parameter of the entire Note object. This takes a list of ID or group names.
 
 ### Quickstart: Update the readers of a note or field
 
